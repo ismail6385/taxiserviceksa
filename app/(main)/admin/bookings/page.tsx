@@ -1708,7 +1708,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     </div>
                 </div>
             )}
-            <div className="hidden md:block bg-white rounded-xl border border-gray-200 overflow-x-auto shadow-sm">
+            <div className="hidden xl:block bg-white rounded-xl border border-gray-200 overflow-x-auto shadow-sm">
                 <Table className="min-w-[700px]">
                     <TableHeader className="bg-gray-50">
                         <TableRow className="border-gray-200 hover:bg-transparent">
@@ -1720,14 +1720,14 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     onChange={toggleSelectAll}
                                 />
                             </TableHead>
-                            <TableHead className="text-gray-500 font-semibold">Booking ID</TableHead>
+                            <TableHead className="text-gray-500 font-semibold hidden 2xl:table-cell">Booking ID</TableHead>
                             <TableHead className="text-gray-500 font-semibold cursor-pointer hover:text-black" onClick={() => requestSort('customer_name')}>
                                 <div className="flex items-center gap-1">
                                     Customer <ArrowUpDown className="w-3 h-3" />
                                 </div>
                             </TableHead>
                             <TableHead className="text-gray-500 font-semibold">Trip Details</TableHead>
-                            <TableHead className="text-gray-500 font-semibold">Vehicle</TableHead>
+                            <TableHead className="text-gray-500 font-semibold hidden 2xl:table-cell">Vehicle</TableHead>
                             <TableHead className="text-gray-500 font-semibold cursor-pointer hover:text-black" onClick={() => requestSort('pickup_date')}>
                                 <div className="flex items-center gap-1">
                                     Date & Time <ArrowUpDown className="w-3 h-3" />
@@ -1786,7 +1786,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 onChange={() => toggleSelect(booking.id)}
                                             />
                                         </TableCell>
-                                        <TableCell className="font-mono text-xs text-gray-500">
+                                        <TableCell className="font-mono text-xs text-gray-500 hidden 2xl:table-cell">
                                             <div className="flex items-center gap-1 group/id cursor-copy" onClick={() => {
                                                 navigator.clipboard.writeText(booking.id);
                                             }}>
@@ -1815,7 +1815,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                         </span>
                                                     )}
                                                 </div>
-                                                <span className="text-xs text-gray-500">{booking.customer_email}</span>
+                                                <span className="2xl:hidden font-mono text-[10px] text-gray-400">#{booking.id.slice(0, 8)}</span>
+                                                {booking.customer_phone && <a href={`tel:${booking.customer_phone}`} className="text-xs font-medium text-gray-700 hover:underline whitespace-nowrap">{booking.customer_phone}</a>}
+                                                <span className="text-xs text-gray-500 break-all">{booking.customer_email}</span>
                                                 {booking.tags && (
                                                     <div className="flex gap-1 mt-1 flex-wrap">
                                                         {booking.tags.split(',').map(tag => (
@@ -1827,20 +1829,24 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 )}
                                             </div>
                                         </TableCell>
-                                        <TableCell>
+                                        <TableCell className="min-w-[190px]">
                                             <div className="flex flex-col gap-1 text-sm">
-                                                <div className="flex items-center gap-1 text-gray-700">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                                <div className="flex items-start gap-1.5 text-gray-700">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"></span>
                                                     {booking.pickup_location}
                                                 </div>
-                                                <div className="flex items-center gap-1 text-gray-700">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                <div className="flex items-start gap-1.5 text-gray-700">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
                                                     {booking.destination}
+                                                </div>
+                                                <div className="2xl:hidden text-xs text-gray-500 pl-3">
+                                                    {booking.vehicle_type}
+                                                    {booking.actual_vehicle && booking.actual_vehicle !== booking.vehicle_type && <span className="text-amber-600 font-bold"> · Sent: {booking.actual_vehicle}</span>}
                                                 </div>
                                             </div>
                                         </TableCell>
-                                        <TableCell>
-                                            <Badge variant="outline" className={`bg-gray-100 border-gray-200 text-gray-800 font-medium whitespace-nowrap ${booking.actual_vehicle && booking.actual_vehicle !== booking.vehicle_type ? 'border-amber-300 ring-1 ring-amber-100' : ''}`}>
+                                        <TableCell className="hidden 2xl:table-cell">
+                                            <Badge variant="outline" className={`bg-gray-100 border-gray-200 text-gray-800 font-medium whitespace-normal max-w-[130px] ${booking.actual_vehicle && booking.actual_vehicle !== booking.vehicle_type ? 'border-amber-300 ring-1 ring-amber-100' : ''}`}>
                                                 {booking.vehicle_type}
                                             </Badge>
                                             {booking.actual_vehicle && booking.actual_vehicle !== booking.vehicle_type && (
@@ -1884,7 +1890,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 defaultValue={booking.status}
                                                 onValueChange={(val) => updateStatus(booking.id, val)}
                                             >
-                                                <SelectTrigger className={`h-8 w-[110px] ${getStatusColor(booking.status)} uppercase text-[9px] font-bold tracking-widest shadow-sm border-gray-200`}>
+                                                <SelectTrigger className={`h-8 w-[112px] ${getStatusColor(booking.status)} uppercase text-[9px] font-bold tracking-widest shadow-sm border-gray-200`}>
                                                     <SelectValue />
                                                 </SelectTrigger>
                                                 <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-xl">
@@ -1898,7 +1904,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             </Select>
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <div className="flex items-center justify-end gap-1">
+                                            <div className="grid grid-cols-3 gap-0.5 w-[104px] ml-auto">
                                                 <Button
                                                     variant="ghost"
                                                     size="icon"
@@ -1968,7 +1974,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             </div>
 
             {/* Mobile Card List (shown below md breakpoint instead of the table) */}
-            <div className="md:hidden space-y-3">
+            <div className="xl:hidden grid grid-cols-1 md:grid-cols-2 gap-3">
                 {paginatedBookings.length === 0 ? (
                     <div className="bg-white rounded-xl border border-gray-200 shadow-sm text-center py-16 px-4">
                         <Search className="w-10 h-10 text-gray-200 mx-auto mb-3" />
@@ -2016,6 +2022,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
                                                 )}
                                             </div>
+                                            {booking.customer_phone && <a href={`tel:${booking.customer_phone}`} className="block text-sm font-medium text-gray-800">{booking.customer_phone}</a>}
                                             <p className="text-xs text-gray-500 truncate">{booking.customer_email}</p>
                                             <div
                                                 className="flex items-center gap-1 text-[10px] font-mono text-gray-400 mt-0.5 cursor-copy"
@@ -2034,13 +2041,13 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
                                 <div className="grid grid-cols-2 gap-2 text-xs mb-3">
                                     <div className="col-span-2 flex flex-col gap-1 bg-gray-50 rounded-lg p-2 border border-gray-100">
-                                        <div className="flex items-center gap-1.5 text-gray-700">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
-                                            <span className="truncate">{booking.pickup_location}</span>
+                                        <div className="flex items-start gap-1.5 text-gray-700">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                                            <span className="break-words min-w-0">{booking.pickup_location}</span>
                                         </div>
-                                        <div className="flex items-center gap-1.5 text-gray-700">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
-                                            <span className="truncate">{booking.destination}</span>
+                                        <div className="flex items-start gap-1.5 text-gray-700">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5"></span>
+                                            <span className="break-words min-w-0">{booking.destination}</span>
                                         </div>
                                     </div>
                                     <div>
@@ -2165,7 +2172,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 }
             }}>
                 <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-6 pr-8 sm:pr-0">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-6 pr-8">
                         <SheetHeader className="text-left min-w-0">
                             <SheetTitle className="text-2xl font-bold text-gray-900">Booking Details</SheetTitle>
                             <SheetDescription className="text-gray-500 break-all">

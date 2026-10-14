@@ -58,7 +58,7 @@ export default function AdminLayout({
         )}>
             <AdminSidebar isCollapsed={isCollapsed} onToggle={toggleSidebar} />
             <main className={cn(
-                "flex-1 transition-all duration-300 print:ml-0",
+                "flex-1 min-w-0 transition-all duration-300 print:ml-0",
                 mounted
                     ? isCollapsed ? "md:ml-[64px]" : "md:ml-64"
                     : "md:ml-64"
