@@ -14,7 +14,8 @@ import JsonLdWebSite from '@/components/JsonLdWebSite';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdminRoute = pathname?.startsWith('/admin');
+  // Private driver trip sheets (/my-trips/...) get the same bare layout as admin.
+  const isAdminRoute = pathname?.startsWith('/admin') || pathname?.startsWith('/my-trips');
 
   return (
     <>

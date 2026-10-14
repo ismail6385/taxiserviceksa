@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { TEAM_DRIVERS } from '@/lib/team-drivers';
 import { adminFetch } from '@/lib/admin-fetch';
 import { useRouter } from 'next/navigation';
 import {
@@ -348,8 +349,12 @@ export default function BookingsPage() {
 
     const fetchApprovedDrivers = async () => {
         try {
+            // The owner's own team first (they aren't in the drivers table), so the
+            // name written to the booking matches their private trip-sheet link.
+            const team = TEAM_DRIVERS.map(d => ({ id: `team-${d.slug}`, full_name: d.name, phone_number: '' }));
+            setApprovedDrivers(team);
             const { data, error } = await supabase.from('drivers').select('id,full_name,phone_number,commission_rate').eq('status', 'approved').order('full_name');
-            if (!error && data) setApprovedDrivers(data);
+            if (!error && data) setApprovedDrivers([...team, ...data]);
         } catch (err) {
             console.error('Failed to load drivers:', err);
         }
@@ -2958,7 +2963,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                                 value=""
                                                                 onChange={(e) => {
                                                                     const driver = approvedDrivers.find(d => d.id === e.target.value);
-                                                                    if (driver) setEditedBooking({ ...editedBooking, driver_name: driver.full_name, driver_phone: driver.phone_number, commission_rate: driver.commission_rate ?? editedBooking.commission_rate });
+                                                                    if (driver) setEditedBooking({ ...editedBooking, driver_name: driver.full_name, driver_phone: driver.phone_number || editedBooking.driver_phone, commission_rate: driver.commission_rate ?? editedBooking.commission_rate });
                                                                 }}
                                                                 className="h-8 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
                                                                 title="Quick pick from approved drivers"
@@ -3931,7 +3936,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 value=""
                                                 onChange={(e) => {
                                                     const driver = approvedDrivers.find(d => d.id === e.target.value);
-                                                    if (driver) setNewBooking({ ...newBooking, driver_name: driver.full_name, driver_phone: driver.phone_number, commission_rate: driver.commission_rate ?? newBooking.commission_rate });
+                                                    if (driver) setNewBooking({ ...newBooking, driver_name: driver.full_name, driver_phone: driver.phone_number || newBooking.driver_phone, commission_rate: driver.commission_rate ?? newBooking.commission_rate });
                                                 }}
                                                 className="h-10 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
                                                 title="Quick pick from approved drivers"

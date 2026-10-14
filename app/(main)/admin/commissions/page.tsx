@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { Loader2, AlertTriangle, Check } from 'lucide-react';
+import { Loader2, AlertTriangle, Check, Copy, Link2 } from 'lucide-react';
+import { adminFetch } from '@/lib/admin-fetch';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -61,6 +62,9 @@ export default function CommissionsPage() {
     const [drafts, setDrafts] = useState<Record<string, string>>({});
     const [saving, setSaving] = useState<string | null>(null);
     const [saved, setSaved] = useState<string | null>(null);
+    const [links, setLinks] = useState<{ slug: string; name: string; url: string }[]>([]);
+    const [linksError, setLinksError] = useState('');
+    const [copied, setCopied] = useState<string | null>(null);
 
     useEffect(() => {
         supabase.auth.getSession().then(async ({ data: { session } }) => {
@@ -75,6 +79,10 @@ export default function CommissionsPage() {
                     .order('pickup_date', { ascending: false }),
                 supabase.from('drivers').select('full_name,commission_rate'),
             ]);
+            adminFetch('/api/admin/driver-links')
+                .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+                .then(j => setLinks(j.links || []))
+                .catch(() => setLinksError('Could not load driver links.'));
             setRows((b.data as Row[]) || []);
             setDrivers((d.data as Driver[]) || []);
             setLoading(false);
@@ -137,6 +145,27 @@ export default function CommissionsPage() {
             <div>
                 <h1 className="text-2xl font-bold text-gray-900">Driver Commissions</h1>
                 <p className="text-sm text-gray-500 mt-1">Internal only. Which booking went to which driver, your commission and the driver&apos;s payout. Set a driver on a booking from the Bookings page.</p>
+            </div>
+
+            {/* Private driver links */}
+            <div className="bg-white border border-gray-200 rounded-xl p-4">
+                <h2 className="flex items-center gap-2 font-bold text-gray-900"><Link2 className="w-4 h-4" /> Driver trip links</h2>
+                <p className="text-xs text-gray-500 mt-1 mb-3">Send each driver only their own link. It shows the trips assigned to them (no prices or commission). Assign a trip by picking the driver&apos;s name on the booking.</p>
+                {linksError && <p className="text-sm text-red-600">{linksError}</p>}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {links.map(l => (
+                        <div key={l.slug} className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2">
+                            <span className="font-semibold text-gray-900 w-28 shrink-0">{l.name}</span>
+                            <span className="flex-1 min-w-0 truncate font-mono text-[11px] text-gray-400">{l.url}</span>
+                            <button type="button" title="Copy link" onClick={() => { navigator.clipboard?.writeText(l.url); setCopied(l.slug); setTimeout(() => setCopied(c => (c === l.slug ? null : c)), 1500); }}
+                                className="inline-flex items-center gap-1 rounded-md border border-gray-200 px-2 py-1 text-xs font-semibold text-gray-700 hover:border-gray-400">
+                                {copied === l.slug ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}{copied === l.slug ? 'Copied' : 'Copy'}
+                            </button>
+                            <a href={`https://wa.me/?text=${encodeURIComponent(`Assalam o Alaikum ${l.name}, yeh aap ki trips ka link hai. Kisi aur ko share na karein: ${l.url}`)}`} target="_blank" rel="noopener noreferrer"
+                                className="rounded-md bg-emerald-600 px-2 py-1 text-xs font-semibold text-white hover:bg-emerald-700">WhatsApp</a>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Filters */}
