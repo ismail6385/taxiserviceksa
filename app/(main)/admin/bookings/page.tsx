@@ -2173,7 +2173,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     setBookingFieldErrors({});
                 }
             }}>
-                <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
+                <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl lg:max-w-none lg:w-[calc(100vw-3rem)] 2xl:w-[1400px] lg:px-10">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-6 pr-8">
                         <SheetHeader className="text-left min-w-0">
                             <SheetTitle className="text-2xl font-bold text-gray-900">Booking Details</SheetTitle>
@@ -2214,7 +2214,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     )}
 
                     {selectedBooking && editedBooking && (
-                        <div className="space-y-8">
+                        <div className="space-y-8 lg:space-y-0 lg:columns-2 lg:gap-10 lg:[&>*]:mb-8 [&>*]:break-inside-avoid">
                             {/* Status Section */}
                             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2 block">Current Status</label>
