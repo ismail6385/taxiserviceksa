@@ -83,6 +83,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     const [returnPickupLocation, setReturnPickupLocation] = useState('');
     const [returnDropoffLocation, setReturnDropoffLocation] = useState('');
     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+    // Step 2 has two views: the vehicle list, then (once a car is picked) the
+    // passengers / bags / return-trip panel. This reopens the list.
+    const [choosingVehicle, setChoosingVehicle] = useState(false);
 
     const [formData, setFormData] = useState<BookingData>({
         customer_name: '',
@@ -195,7 +198,23 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             // vehicle's nominal capacity, that's just informational.
             passengers: Math.min(prev.passengers || 1, vehicle.passengers) || 1,
         }));
+        setChoosingVehicle(false);
+        requestAnimationFrame(() => document.getElementById('booking-step-2')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     };
+
+    const toggleReturnTrip = () => setFormData(prev => {
+        const next = !prev.has_return_trip;
+        if (!next) {
+            setReturnPickupLocation('');
+            setReturnDropoffLocation('');
+        } else {
+            // Most return trips are the outbound reversed; prefill so the
+            // customer only has to pick a date and time.
+            setReturnPickupLocation(cur => cur || prev.destination || '');
+            setReturnDropoffLocation(cur => cur || prev.pickup_location || '');
+        }
+        return { ...prev, has_return_trip: next };
+    });
 
     const validatePromo = async () => {
         if (!promoInput.trim()) return;
@@ -379,6 +398,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     };
 
     const prevStep = () => setStep(val => val - 1);
+
+    const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
+    const showVehicleList = !selectedVehicle || choosingVehicle;
 
     return (
         <div className={`bg-white border border-gray-200 p-4 sm:p-8 rounded-3xl shadow-xl w-full mx-auto relative overflow-hidden ${className}`}>
@@ -710,14 +732,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 {/* Return Trip Toggle */}
                                 <div
                                     className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50 cursor-pointer transition-all hover:bg-blue-50"
-                                    onClick={() => setFormData(prev => {
-                                        const next = !prev.has_return_trip;
-                                        if (!next) {
-                                            setReturnPickupLocation('');
-                                            setReturnDropoffLocation('');
-                                        }
-                                        return { ...prev, has_return_trip: next };
-                                    })}
+                                    onClick={toggleReturnTrip}
                                 >
                                     <div className={`w-10 h-6 rounded-full relative transition-colors ${formData.has_return_trip ? 'bg-primary' : 'bg-gray-200'}`}>
                                         <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${formData.has_return_trip ? 'left-5' : 'left-1'}`}></div>
@@ -856,14 +871,14 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 )}
 
                 {step === 2 && (
-                    <div className="space-y-6 animate-fade-in-up">
+                    <div id="booking-step-2" className="space-y-6 animate-fade-in-up scroll-mt-28">
                         <div className="text-center">
                             {isDelivery && (
                                 <span className="inline-flex items-center gap-1 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full mb-2">
                                     <Package className="w-3 h-3" /> Delivery
                                 </span>
                             )}
-                            <h2 className="text-2xl font-bold text-gray-900">Select Your Vehicle</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">{showVehicleList ? 'Select Your Vehicle' : isDelivery ? 'Delivery Details' : 'Passengers & Luggage'}</h2>
                             <p className="text-gray-500 text-sm mt-1">
                                 {!isDelivery && formData.trip_type === 'hourly'
                                     ? `${formData.pickup_location} — Hourly Hire (${formData.duration_hours || '?'}h)`
@@ -871,6 +886,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </p>
                         </div>
 
+                        {showVehicleList ? (
                         <div className="grid grid-cols-1 gap-3">
                             {vehicles.map((v) => (
                                 <div
@@ -914,10 +930,23 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 </div>
                             ))}
                         </div>
+                        ) : selectedVehicle && (
+                            <div className="flex items-center gap-3 border-2 border-primary bg-primary/5 rounded-2xl p-3">
+                                <div className="w-24 h-14 flex-shrink-0 rounded-xl overflow-hidden bg-white flex items-center justify-center">
+                                    <img src={(selectedVehicle as any).image} alt={selectedVehicle.name} className="w-full h-full object-contain p-1" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-[10px] font-bold uppercase tracking-wide text-primary">Your vehicle</p>
+                                    <h3 className="font-bold text-base text-gray-900 leading-tight">{selectedVehicle.name}</h3>
+                                    <p className="text-xs text-gray-500 mt-0.5">{selectedVehicle.passengers} Pax · {selectedVehicle.luggage} Bags</p>
+                                </div>
+                                <button type="button" onClick={() => setChoosingVehicle(true)} className="text-sm font-bold text-primary hover:underline px-2 py-1 flex-shrink-0">Change</button>
+                            </div>
+                        )}
 
                         {/* Delivery Summary — replaces passenger/luggage/child-seat pickers,
                             which don't apply to a delivery (no passenger on board). */}
-                        {isDelivery && formData.vehicle_type && (
+                        {isDelivery && !showVehicleList && (
                             <div className="bg-amber-50/50 p-5 rounded-3xl border border-dashed border-amber-200">
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="p-2 bg-white rounded-xl shadow-sm">
@@ -935,8 +964,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         )}
 
                         {/* Number of Passengers */}
-                        {!isDelivery && formData.vehicle_type && (() => {
-                            const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
+                        {!isDelivery && !showVehicleList && (() => {
                             const maxPax = selectedVehicle?.passengers || 1;
                             return (
                                 <div className="bg-primary/5 p-5 rounded-3xl border border-dashed border-primary/30">
@@ -966,8 +994,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         })()}
 
                         {/* Number of Luggage/Bags */}
-                        {!isDelivery && formData.vehicle_type && (() => {
-                            const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
+                        {!isDelivery && !showVehicleList && (() => {
                             const vehicleLuggageCapacity = selectedVehicle?.luggage || 0;
                             return (
                                 <div className="bg-primary/5 p-5 rounded-3xl border border-dashed border-primary/30">
@@ -1000,7 +1027,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         })()}
 
                         {/* Extras: Child Seats */}
-                        {!isDelivery && (
+                        {!isDelivery && !showVehicleList && (
                         <div className="bg-amber-50/50 p-5 rounded-3xl border border-dashed border-amber-200">
                              <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
@@ -1033,11 +1060,68 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         </div>
                         )}
 
+                        {/* Return trip - same state as the step 1 toggle */}
+                        {!isDelivery && !showVehicleList && formData.trip_type !== 'hourly' && (
+                            <div className="bg-blue-50/50 p-5 rounded-3xl border border-dashed border-blue-200 space-y-4">
+                                <div className="flex items-center gap-3 cursor-pointer" onClick={toggleReturnTrip}>
+                                    <div className={`w-10 h-6 rounded-full relative transition-colors flex-shrink-0 ${formData.has_return_trip ? 'bg-primary' : 'bg-gray-200'}`}>
+                                        <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${formData.has_return_trip ? 'left-5' : 'left-1'}`}></div>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-black text-gray-900 leading-none">Return Trip?</h4>
+                                        <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tight mt-1">
+                                            {formData.has_return_trip ? `${returnPickupLocation || formData.destination} → ${returnDropoffLocation || formData.pickup_location}` : 'Add the way back in the same booking'}
+                                        </p>
+                                    </div>
+                                </div>
+                                {formData.has_return_trip && (
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <div className="space-y-1.5">
+                                            <label htmlFor="step2-return-date" className="text-xs font-semibold text-gray-700 ml-1">Return Date</label>
+                                            <Input
+                                                id="step2-return-date"
+                                                type="date"
+                                                value={returnDate}
+                                                min={formData.pickup_date || undefined}
+                                                onChange={(e) => {
+                                                    setReturnDate(e.target.value);
+                                                    setFieldErrors(prev => {
+                                                        const { return_date, return_time, ...rest } = prev;
+                                                        return rest;
+                                                    });
+                                                }}
+                                                className={`h-11 bg-white rounded-xl text-sm ${fieldErrors.return_date ? 'border-red-400' : 'border-gray-300'}`}
+                                            />
+                                        </div>
+                                        <div className="space-y-1.5">
+                                            <label htmlFor="step2-return-time" className="text-xs font-semibold text-gray-700 ml-1">Return Time</label>
+                                            <Input
+                                                id="step2-return-time"
+                                                type="time"
+                                                value={returnTime}
+                                                onChange={(e) => {
+                                                    setReturnTime(e.target.value);
+                                                    setFieldErrors(prev => {
+                                                        const { return_date, return_time, ...rest } = prev;
+                                                        return rest;
+                                                    });
+                                                }}
+                                                className={`h-11 bg-white rounded-xl text-sm ${fieldErrors.return_time ? 'border-red-400' : 'border-gray-300'}`}
+                                            />
+                                        </div>
+                                        {(fieldErrors.return_date || fieldErrors.return_time) && (
+                                            <p className="col-span-2 text-red-500 text-xs ml-1">{fieldErrors.return_date || fieldErrors.return_time}</p>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
                         <div className="flex gap-3 mt-6">
-                            <Button type="button" onClick={prevStep} variant="ghost" className="flex-1 py-4 text-base rounded-xl text-gray-500">Back</Button>
-                             <Button type="button" onClick={nextStep} disabled={!formData.vehicle_type} className="flex-[2] bg-gray-950 hover:bg-black text-white font-black py-5 text-xl rounded-2xl shadow-lg transform active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                            <Button type="button" onClick={showVehicleList && formData.vehicle_type ? () => setChoosingVehicle(false) : prevStep} variant="ghost" className="flex-1 py-4 text-base rounded-xl text-gray-500">Back</Button>
+                             {!showVehicleList && <Button type="button" onClick={nextStep} disabled={!formData.vehicle_type} className="flex-[2] bg-gray-950 hover:bg-black text-white font-black py-5 text-xl rounded-2xl shadow-lg transform active:scale-[0.98] transition-all flex items-center justify-center gap-3">
                                 Continue to Details <ArrowRight className="w-5 h-5 ml-2" />
-                            </Button>
+                            </Button>}
                         </div>
                     </div>
                 )}

@@ -1,4 +1,3 @@
-import WhatsAppIcon from '@/components/WhatsAppIcon';
 import BookingForm from '@/components/BookingForm';
 import BookingTitle from '@/components/BookingTitle';
 import { Suspense } from 'react';
@@ -36,21 +35,6 @@ export default function BookingPage() {
                     <p className="text-gray-600 mb-8">
                         Fill out the form below to reserve your luxury vehicle. Experience the gold standard of private transport in Saudi Arabia. Our team will verify your details and confirm your transfer via email.
                     </p>
-
-                    <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <div className="flex items-center gap-2 text-gray-500 text-sm font-medium italic">
-                            Prefer instant booking? 
-                        </div>
-                        <a 
-                            href="https://wa.me/966575806733?text=Hello%2C%20I%20would%20like%20to%20book%20a%20transfer."
-                            target="_blank"
-                            rel="nofollow noopener noreferrer"
-                            className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-xl font-bold transition-all shadow-lg shadow-emerald-200"
-                        >
-                            <WhatsAppIcon className="w-5 h-5 fill-white" />
-                            Book via WhatsApp
-                        </a>
-                    </div>
                 </div>
 
                 <Suspense fallback={<div className="text-center py-12"><div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div><p className="mt-4 text-gray-600">Loading booking form...</p></div>}>
