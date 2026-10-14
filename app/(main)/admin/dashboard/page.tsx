@@ -24,6 +24,8 @@ interface Booking {
     pickup_time: string;
     vehicle_type: string;
     customer_name: string;
+    customer_phone?: string | null;
+    driver_name?: string | null;
     status: string;
     total_price?: number;
     currency?: string;
@@ -58,7 +60,7 @@ export default function AdminDashboard() {
         const [{ data: bData }, { count: sCount }] = await Promise.all([
             supabase
                 .from('bookings')
-                .select('id,created_at,status,pickup_location,destination,pickup_date,pickup_time,vehicle_type,customer_name,total_price,currency')
+                .select('id,created_at,status,pickup_location,destination,pickup_date,pickup_time,vehicle_type,customer_name,customer_phone,driver_name,total_price,currency')
                 .is('deleted_at', null)
                 .order('created_at', { ascending: false }),
             supabase
@@ -105,9 +107,16 @@ export default function AdminDashboard() {
         </div>
     );
 
-    const today      = new Date().toLocaleDateString('en-CA');
-    const tomorrow   = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-    const tomorrowStr = tomorrow.toLocaleDateString('en-CA');
+    // Pickup dates are Saudi dates, so "today" is today in Riyadh even when
+    // the admin is checking from Pakistan or elsewhere.
+    const today       = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Riyadh' });
+    const tomorrowStr = new Date(Date.now() + 864e5).toLocaleDateString('en-CA', { timeZone: 'Asia/Riyadh' });
+    const dayLabel    = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short', timeZone: 'UTC' });
+    const time12      = (t?: string) => {
+        if (!t) return '—';
+        const [h, m] = t.split(':').map(Number);
+        return `${((h + 11) % 12) + 1}:${String(m || 0).padStart(2, '0')} ${h < 12 ? 'AM' : 'PM'}`;
+    };
 
     const needsAction    = bookings.filter(b => b.status === 'pending' || b.status === 'quote_sent');
     const todaysTrips    = bookings.filter(b => b.pickup_date === today && b.status !== 'cancelled');
@@ -123,10 +132,11 @@ export default function AdminDashboard() {
             return acc;
         }, {} as Record<string, number>);
 
-    const upcomingSchedule = bookings
-        .filter(b => (b.pickup_date === today || b.pickup_date === tomorrowStr) && !['cancelled','completed'].includes(b.status))
-        .sort((a, b) => (a.pickup_date + a.pickup_time).localeCompare(b.pickup_date + b.pickup_time))
-        .slice(0, 8);
+    const scheduleFor = (date: string) => bookings
+        .filter(b => b.pickup_date === date && !['cancelled', 'completed'].includes(b.status))
+        .sort((a, b) => (a.pickup_time || '').localeCompare(b.pickup_time || ''));
+    const todaySchedule    = scheduleFor(today);
+    const tomorrowSchedule = scheduleFor(tomorrowStr);
 
     // Monthly bookings (last 6 months)
     const monthlyMap: Record<string, number> = {};
@@ -295,47 +305,55 @@ export default function AdminDashboard() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-                    {/* Schedule list */}
-                    <div className="lg:col-span-2 bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden">
-                        {upcomingSchedule.length === 0 ? (
-                            <div className="text-center py-12 text-neutral-500">
-                                <CheckCircle2 className="w-8 h-8 mx-auto mb-2 opacity-30" />
-                                <p className="text-sm">No trips scheduled for today or tomorrow</p>
-                            </div>
-                        ) : (
-                            <div className="divide-y divide-neutral-700/50">
-                                {upcomingSchedule.map(b => (
-                                    <div
-                                        key={b.id}
-                                        onClick={() => router.push(`/admin/bookings?openId=${b.id}`)}
-                                        className="flex items-center gap-4 px-5 py-3.5 hover:bg-neutral-700/30 transition-colors cursor-pointer"
-                                    >
-                                        <div className="text-center shrink-0 w-14">
-                                            <p className="text-xs font-black text-white">{b.pickup_time}</p>
-                                            <p className="text-[10px] text-neutral-500 uppercase">
-                                                {b.pickup_date === today ? 'Today' : 'Tomorrow'}
-                                            </p>
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                            <p className="font-bold text-white text-sm truncate">{b.customer_name}</p>
-                                            <p className="text-xs text-neutral-500 truncate">
-                                                {b.pickup_location} → {b.destination}
-                                            </p>
-                                        </div>
-                                        <Badge className={`text-[10px] border-0 shrink-0 ${STATUS_BADGE[b.status] || 'bg-neutral-700 text-neutral-400'}`}>
-                                            {b.status.replace('_', ' ')}
-                                        </Badge>
-                                        <Button
-                                            size="sm" variant="ghost"
-                                            onClick={(e) => { e.stopPropagation(); router.push(`/admin/bookings?openId=${b.id}`); }}
-                                            className="text-neutral-400 hover:text-white h-7 w-7 p-0 shrink-0"
-                                        >
-                                            <ExternalLink className="w-3.5 h-3.5" />
-                                        </Button>
+                    {/* Schedule: today and tomorrow as two clearly separate lists */}
+                    <div className="lg:col-span-2 space-y-5">
+                        {[
+                            { key: 'today', title: 'Today', date: today, list: todaySchedule, accent: 'bg-amber-400 text-black' },
+                            { key: 'tomorrow', title: 'Tomorrow', date: tomorrowStr, list: tomorrowSchedule, accent: 'bg-sky-400 text-black' },
+                        ].map(day => (
+                            <section key={day.key} className="bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden">
+                                <header className="flex items-center justify-between gap-3 px-5 py-3 border-b border-neutral-700 bg-neutral-900/60">
+                                    <div className="flex items-center gap-3">
+                                        <span className={`text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md ${day.accent}`}>{day.title}</span>
+                                        <span className="text-sm font-semibold text-white">{dayLabel(day.date)}</span>
                                     </div>
-                                ))}
-                            </div>
-                        )}
+                                    <span className="text-xs text-neutral-400">{day.list.length} {day.list.length === 1 ? 'trip' : 'trips'}</span>
+                                </header>
+                                {day.list.length === 0 ? (
+                                    <p className="px-5 py-6 text-sm text-neutral-500">No trips {day.key === 'today' ? 'today' : 'tomorrow'}.</p>
+                                ) : (
+                                    <div className="divide-y divide-neutral-700/50">
+                                        {day.list.map(b => (
+                                            <button
+                                                type="button"
+                                                key={b.id}
+                                                onClick={() => router.push(`/admin/bookings?openId=${b.id}`)}
+                                                className="w-full text-left flex items-start gap-4 px-5 py-3.5 hover:bg-neutral-700/30 transition-colors"
+                                            >
+                                                <div className="shrink-0 w-[72px]">
+                                                    <p className="text-base font-black text-white leading-tight">{time12(b.pickup_time)}</p>
+                                                </div>
+                                                <div className="flex-1 min-w-0 space-y-0.5">
+                                                    <p className="font-bold text-white text-sm">
+                                                        {b.customer_name}
+                                                        {b.customer_phone && <span className="font-normal text-neutral-400"> · {b.customer_phone}</span>}
+                                                    </p>
+                                                    <p className="text-xs text-neutral-300">{b.pickup_location} → {b.destination}</p>
+                                                    <p className="text-xs text-neutral-500">
+                                                        {b.vehicle_type}
+                                                        {' · '}
+                                                        {b.driver_name ? <span className="text-emerald-400">Driver: {b.driver_name}</span> : <span className="text-red-400 font-semibold">No driver yet</span>}
+                                                    </p>
+                                                </div>
+                                                <Badge className={`text-[10px] border-0 shrink-0 ${STATUS_BADGE[b.status] || 'bg-neutral-700 text-neutral-400'}`}>
+                                                    {b.status.replace('_', ' ')}
+                                                </Badge>
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </section>
+                        ))}
                     </div>
 
                     {/* Summary card */}
