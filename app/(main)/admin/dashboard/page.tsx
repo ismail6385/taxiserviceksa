@@ -327,7 +327,7 @@ export default function AdminDashboard() {
                                             <button
                                                 type="button"
                                                 key={b.id}
-                                                onClick={() => router.push(`/admin/bookings?openId=${b.id}`)}
+                                                onClick={() => router.push(`/admin/bookings/?openId=${b.id}`)}
                                                 className="w-full text-left flex items-start gap-4 px-5 py-3.5 hover:bg-neutral-700/30 transition-colors"
                                             >
                                                 <div className="shrink-0 w-[72px]">

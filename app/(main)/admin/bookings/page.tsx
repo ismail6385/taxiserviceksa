@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
 import { parseBookingPaste, CHATGPT_BOOKING_PROMPT, PASTE_PLACEHOLDER } from '@/lib/booking-paste';
@@ -890,21 +890,6 @@ export default function BookingsPage() {
         setFlightStatusResult(null);
     };
 
-    // Links from the dashboard (and elsewhere) use ?openId=<booking id> to land
-    // straight on that booking's details. Handled once, then removed from the URL.
-    const openIdHandled = useRef(false);
-    useEffect(() => {
-        if (openIdHandled.current || bookings.length === 0) return;
-        const openId = new URLSearchParams(window.location.search).get('openId');
-        if (!openId) { openIdHandled.current = true; return; }
-        const target = bookings.find(b => b.id === openId);
-        if (!target) return;
-        openIdHandled.current = true;
-        openBookingDetails(target);
-        router.replace('/admin/bookings');
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [bookings]);
-
     const checkFlightStatus = async (flightNumber: string) => {
         setCheckingFlight(true);
         setFlightStatusResult(null);
@@ -927,7 +912,9 @@ export default function BookingsPage() {
         if (!openId) return;
         const target = bookings.find(b => b.id === openId);
         if (target) openBookingDetails(target);
-        router.replace('/admin/bookings');
+        // Clear ?openId without a Next navigation: a router.replace here re-renders
+        // the page and closes the panel that was just opened.
+        window.history.replaceState(window.history.state, '', '/admin/bookings/');
     }, [bookings]);
 
     // Vehicle dropdown source — the hardcoded list plus any car type added

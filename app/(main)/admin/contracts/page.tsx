@@ -693,7 +693,7 @@ export default function ContractsPage() {
                                                 <button
                                                     key={b.id}
                                                     type="button"
-                                                    onClick={() => router.push(`/admin/bookings?openId=${b.id}`)}
+                                                    onClick={() => router.push(`/admin/bookings/?openId=${b.id}`)}
                                                     className="w-full flex items-center justify-between text-xs bg-white border border-gray-100 rounded-lg px-3 py-2 hover:border-primary hover:bg-primary/5 transition-colors text-left"
                                                 >
                                                     <div>
