@@ -14,6 +14,7 @@ import {
 } from 'recharts';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { TEAM_DRIVERS } from '@/lib/team-drivers';
 
 interface Booking {
     id: string;
@@ -55,6 +56,34 @@ export default function AdminDashboard() {
     const [bookings, setBookings]       = useState<Booking[]>([]);
     const [openSupport, setOpenSupport] = useState(0);
     const [loading, setLoading]         = useState(true);
+    // Driver quick-assign on the Today/Tomorrow schedule: the team first,
+    // then approved drivers from the drivers table.
+    const [drivers, setDrivers]         = useState<{ name: string; phone: string }[]>(TEAM_DRIVERS.map(d => ({ name: d.name, phone: '' })));
+    const [assigning, setAssigning]     = useState<string | null>(null);
+    const [savingDriver, setSavingDriver] = useState<string | null>(null);
+
+    useEffect(() => {
+        supabase.from('drivers').select('full_name,phone_number').eq('status', 'approved').order('full_name').then(({ data }) => {
+            if (!data) return;
+            const team = TEAM_DRIVERS.map(d => ({ name: d.name, phone: '' }));
+            const extra = data
+                .filter(d => d.full_name?.trim() && !team.some(t => t.name.toLowerCase() === d.full_name.trim().toLowerCase()))
+                .map(d => ({ name: d.full_name.trim(), phone: d.phone_number || '' }));
+            setDrivers([...team, ...extra]);
+        });
+    }, []);
+
+    const assignDriver = async (b: Booking, name: string) => {
+        setSavingDriver(b.id);
+        const driver = drivers.find(d => d.name === name);
+        const update: Record<string, string | null> = { driver_name: name || null };
+        if (driver?.phone) update.driver_phone = driver.phone;
+        const { error } = await supabase.from('bookings').update(update).eq('id', b.id);
+        setSavingDriver(null);
+        if (error) { alert('Could not save the driver: ' + error.message); return; }
+        setBookings(prev => prev.map(x => (x.id === b.id ? { ...x, driver_name: name || null } : x)));
+        setAssigning(null);
+    };
 
     const fetchData = useCallback(async () => {
         const [{ data: bData }, { count: sCount }] = await Promise.all([
@@ -324,11 +353,13 @@ export default function AdminDashboard() {
                                 ) : (
                                     <div className="divide-y divide-neutral-700/50">
                                         {day.list.map(b => (
-                                            <button
-                                                type="button"
+                                            <div
+                                                role="link"
+                                                tabIndex={0}
                                                 key={b.id}
                                                 onClick={() => router.push(`/admin/bookings/?openId=${b.id}`)}
-                                                className="w-full text-left flex items-start gap-4 px-5 py-3.5 hover:bg-neutral-700/30 transition-colors"
+                                                onKeyDown={(e) => { if (e.key === 'Enter') router.push(`/admin/bookings/?openId=${b.id}`); }}
+                                                className="w-full text-left flex items-start gap-4 px-5 py-3.5 hover:bg-neutral-700/30 transition-colors cursor-pointer"
                                             >
                                                 <div className="shrink-0 w-[72px]">
                                                     <p className="text-base font-black text-white leading-tight">{time12(b.pickup_time)}</p>
@@ -339,16 +370,41 @@ export default function AdminDashboard() {
                                                         {b.customer_phone && <span className="font-normal text-neutral-400"> · {b.customer_phone}</span>}
                                                     </p>
                                                     <p className="text-xs text-neutral-300">{b.pickup_location} → {b.destination}</p>
-                                                    <p className="text-xs text-neutral-500">
-                                                        {b.vehicle_type}
-                                                        {' · '}
-                                                        {b.driver_name ? <span className="text-emerald-400">Driver: {b.driver_name}</span> : <span className="text-red-400 font-semibold">No driver yet</span>}
-                                                    </p>
+                                                    <div className="text-xs text-neutral-500 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                                                        <span>{b.vehicle_type} ·</span>
+                                                        {assigning === b.id ? (
+                                                            <select
+                                                                autoFocus
+                                                                value={b.driver_name || ''}
+                                                                disabled={savingDriver === b.id}
+                                                                onClick={(e) => e.stopPropagation()}
+                                                                onChange={(e) => assignDriver(b, e.target.value)}
+                                                                onBlur={() => savingDriver !== b.id && setAssigning(null)}
+                                                                className="h-7 rounded-md border border-neutral-600 bg-neutral-900 px-2 text-xs text-white"
+                                                            >
+                                                                <option value="">No driver</option>
+                                                                {drivers.map(d => <option key={d.name} value={d.name}>{d.name}</option>)}
+                                                                {b.driver_name && !drivers.some(d => d.name === b.driver_name) && <option value={b.driver_name}>{b.driver_name}</option>}
+                                                            </select>
+                                                        ) : (
+                                                            <button
+                                                                type="button"
+                                                                onClick={(e) => { e.stopPropagation(); setAssigning(b.id); }}
+                                                                className={b.driver_name
+                                                                    ? 'text-emerald-400 hover:underline'
+                                                                    : 'rounded-md bg-red-500/15 px-2 py-0.5 font-semibold text-red-300 hover:bg-red-500/25'}
+                                                                title="Click to assign or change the driver"
+                                                            >
+                                                                {b.driver_name ? `Driver: ${b.driver_name} (change)` : '+ Assign driver'}
+                                                            </button>
+                                                        )}
+                                                        {savingDriver === b.id && <span className="text-neutral-400">Saving...</span>}
+                                                    </div>
                                                 </div>
                                                 <Badge className={`text-[10px] border-0 shrink-0 ${STATUS_BADGE[b.status] || 'bg-neutral-700 text-neutral-400'}`}>
                                                     {b.status.replace('_', ' ')}
                                                 </Badge>
-                                            </button>
+                                            </div>
                                         ))}
                                     </div>
                                 )}
