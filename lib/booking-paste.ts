@@ -36,13 +36,19 @@ ${BOOKING_PASTE_TEMPLATE}
 WhatsApp chat:
 `;
 
-export const PASTE_PLACEHOLDER = `Paste here, e.g.
-Name: Ahmed
-Phone: +966 50 123 4567
-Pickup: Riyadh
-Drop-off: Dubai
-Date: 2026-10-20
-Time: 14:30`;
+export const PASTE_PLACEHOLDER = `One per line, in this order (use - to skip one):
+Customer name
+Phone
+Email
+Pickup
+Drop-off
+Date (20/10/2026)
+Time (2:30 PM)
+Vehicle
+Passengers
+Bags
+Price
+Notes`;
 
 export interface PasteResult {
     updates: Record<string, unknown>;
@@ -145,7 +151,68 @@ const num = (v: string) => {
     return m ? Number(m[0]) : null;
 };
 
+const isPhone = (v: string) => /^\+?[\d\s\-()]{8,}$/.test(v) && v.replace(/\D/g, '').length >= 8;
+const keyOf = (line: string) => {
+    const m = line.match(/^([^:：]{1,30})[:：]/);
+    return m ? KEYS[m[1].toLowerCase().replace(/[^a-z]/g, '')] : undefined;
+};
+
+// No labels at all: the owner pastes the details one per line in the order
+// they fill the form (name, phone, email, pickup, drop-off, date, time, ...).
+// Lines that are obviously a phone, email, date, time, vehicle or number go to
+// that field wherever they appear; the remaining text fills name, pickup and
+// drop-off in order, and anything after that becomes notes.
+const UNLABELED_ORDER = ['customer_name', 'customer_phone', 'customer_email', 'pickup_location', 'destination', 'pickup_date', 'pickup_time', 'vehicle_type', 'passengers', 'luggage', 'total_price'];
+
+function parseUnlabeled(lines: string[], driverNames: string[]): PasteResult {
+    const updates: Record<string, unknown> = {};
+    const skipped = new Set<string>();
+    let textSlots = ['customer_name', 'pickup_location', 'destination'];
+    let numberSlots = ['passengers', 'luggage'];
+    const notes: string[] = [];
+    for (const line of lines) {
+        const v = line.trim();
+        if (!v || EMPTY.test(v)) {
+            // "-" marks the next field in form order as empty, so a skipped
+            // email doesn't push the pickup address into the wrong box.
+            const skip = UNLABELED_ORDER.find(f => updates[f] === undefined && !skipped.has(f));
+            if (skip) {
+                skipped.add(skip);
+                textSlots = textSlots.filter(f => f !== skip);
+                numberSlots = numberSlots.filter(f => f !== skip);
+            }
+            continue;
+        }
+        const email = v.match(/\S+@\S+\.\S+/);
+        const date = parseDate(v);
+        const time = parseTime(v);
+        const vehicle = VEHICLE_HINTS.find(([re]) => re.test(v));
+        const driver = driverNames.find(n => n.trim().toLowerCase() === v.toLowerCase());
+        const n = /^\d[\d,.]*\s*(sar|aed|qar|bhd|kwd|omr|usd)?$/i.test(v) ? Number(v.replace(/[^\d.]/g, '')) : null;
+        if (email && !updates.customer_email) updates.customer_email = email[0];
+        else if (isPhone(v) && !updates.customer_phone) updates.customer_phone = v;
+        else if (date && !updates.pickup_date) updates.pickup_date = date;
+        else if (time && !updates.pickup_time && v.length <= 10) updates.pickup_time = time;
+        else if (driver && !updates.driver_name) updates.driver_name = driver;
+        else if (vehicle && !updates.vehicle_type && v.length <= 40) updates.vehicle_type = vehicle[1];
+        else if (n != null && n >= 100 && !updates.total_price) {
+            updates.total_price = n;
+            const c = v.match(/[a-z]{3}$/i);
+            if (c) updates.currency = c[0].toUpperCase();
+        }
+        else if (n != null && numberSlots.length) updates[numberSlots.shift()!] = Math.round(n);
+        else if (textSlots.length) updates[textSlots.shift()!] = v;
+        else notes.push(v);
+    }
+    if (notes.length) updates.special_requests = notes.join('. ');
+    const filled = Object.keys(updates).filter(k => LABELS[k]).map(k => LABELS[k]);
+    return { updates, filled, unread: [] };
+}
+
 export function parseBookingPaste(text: string, driverNames: string[] = []): PasteResult {
+    const lines = text.split(/\r?\n/).map(l => l.replace(/^[\s*•>#]+/, '').replace(/\*+/g, '').trim()).filter(Boolean);
+    if (!lines.some(keyOf)) return parseUnlabeled(lines, driverNames);
+
     const updates: Record<string, unknown> = {};
     const unread: string[] = [];
     let lastField: string | null = null;

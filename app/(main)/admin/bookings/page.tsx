@@ -3506,7 +3506,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                 id="booking-paste"
                                 value={pasteText}
                                 onChange={(e) => { setPasteText(e.target.value); setPasteResult(null); }}
-                                rows={4}
+                                rows={7}
                                 placeholder={PASTE_PLACEHOLDER}
                                 className="w-full rounded-lg border border-emerald-200 bg-white p-2 text-sm outline-none focus:border-emerald-500"
                             />
@@ -3517,7 +3517,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             {pasteResult && (
                                 <div className="text-xs space-y-1">
                                     <p className={pasteResult.filled.length ? 'text-emerald-800' : 'text-red-600'}>
-                                        {pasteResult.filled.length ? `Filled ${pasteResult.filled.length}: ${pasteResult.filled.join(', ')}. Check below, then Create.` : 'Nothing recognised. Use "Field: value" lines.'}
+                                        {pasteResult.filled.length ? `Filled ${pasteResult.filled.length}: ${pasteResult.filled.join(', ')}. Check below, then Create.` : 'Nothing recognised. Put each detail on its own line.'}
                                     </p>
                                     {pasteResult.unread.length > 0 && (
                                         <p className="text-amber-700">Not understood (fill by hand): {pasteResult.unread.join(' · ')}</p>
