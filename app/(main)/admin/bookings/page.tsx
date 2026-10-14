@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
 import { ksaToday, ksaNowTime, shiftIsoDate } from '@/lib/ksa-time';
+import ManualEmailBox from '@/components/admin/ManualEmailBox';
 import { parseBookingPaste, CHATGPT_BOOKING_PROMPT, PASTE_PLACEHOLDER } from '@/lib/booking-paste';
 import { adminFetch } from '@/lib/admin-fetch';
 import { useRouter } from 'next/navigation';
@@ -3313,6 +3314,12 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <span className="flex items-center gap-2"><Mail className="w-5 h-5" /> Send Payment Receipt</span>
                                         )}
                                     </Button>
+                                )}
+
+                                {!isEditing && (
+                                    <div className="mt-4">
+                                        <ManualEmailBox booking={selectedBooking as any} />
+                                    </div>
                                 )}
 
                                 {!isEditing && (
