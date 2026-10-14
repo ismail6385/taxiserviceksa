@@ -204,123 +204,6 @@ export default function AdminDashboard() {
                 </Button>
             </div>
 
-            {/* Needs-Attention Banner */}
-            {needsAction.length > 0 && (
-                <div
-                    onClick={() => router.push('/admin/bookings')}
-                    className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 mb-6 flex items-center justify-between cursor-pointer hover:bg-amber-500/15 transition-colors"
-                >
-                    <div className="flex items-center gap-3">
-                        <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0" />
-                        <div>
-                            <p className="font-bold text-amber-400">
-                                {needsAction.length} booking{needsAction.length > 1 ? 's' : ''} need your attention
-                            </p>
-                            <p className="text-xs text-amber-300/70">
-                                {bookings.filter(b => b.status === 'pending').length} new requests &middot;{' '}
-                                {bookings.filter(b => b.status === 'quote_sent').length} awaiting customer confirmation
-                            </p>
-                        </div>
-                    </div>
-                    <ArrowUpRight className="w-5 h-5 text-amber-400 shrink-0" />
-                </div>
-            )}
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-7">
-                <div className="bg-neutral-800 rounded-xl p-5 border border-neutral-700">
-                    <div className="flex items-center justify-between mb-2">
-                        <p className="text-xs text-neutral-400 uppercase font-bold tracking-widest">Total Bookings</p>
-                        <Calendar className="w-4 h-4 text-neutral-500" />
-                    </div>
-                    <p className="text-3xl font-black">{bookings.length}</p>
-                </div>
-
-                <div className="bg-neutral-800 rounded-xl p-5 border border-neutral-700">
-                    <div className="flex items-center justify-between mb-2">
-                        <p className="text-xs text-neutral-400 uppercase font-bold tracking-widest">Today&apos;s Trips</p>
-                        <Clock className="w-4 h-4 text-amber-400" />
-                    </div>
-                    <p className="text-3xl font-black text-amber-400">{todaysTrips.length}</p>
-                    {inProgress.length > 0 && (
-                        <p className="text-[10px] text-purple-400 font-bold mt-1">{inProgress.length} en route now</p>
-                    )}
-                </div>
-
-                <div className="bg-neutral-800 rounded-xl p-5 border border-neutral-700">
-                    <div className="flex items-center justify-between mb-2">
-                        <p className="text-xs text-neutral-400 uppercase font-bold tracking-widest">Confirmed Today</p>
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <p className="text-3xl font-black text-emerald-400">{confirmedToday.length}</p>
-                </div>
-
-                <div className="bg-neutral-800 rounded-xl p-5 border border-neutral-700">
-                    <div className="flex items-center justify-between mb-2">
-                        <p className="text-xs text-neutral-400 uppercase font-bold tracking-widest">Total Revenue</p>
-                        <DollarSign className="w-4 h-4 text-primary" />
-                    </div>
-                    {Object.keys(revenueByCurrency).length === 0 ? (
-                        <p className="text-2xl font-black text-primary">SAR 0</p>
-                    ) : (
-                        Object.entries(revenueByCurrency).map(([curr, amount]) => (
-                            <p key={curr} className="text-2xl font-black text-primary">{curr} {amount.toLocaleString()}</p>
-                        ))
-                    )}
-                    <p className="text-[10px] text-neutral-500 mt-1">Completed trips only</p>
-                </div>
-            </div>
-
-            {/* Quick Action Buttons */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-                <button
-                    onClick={() => router.push('/admin/bookings')}
-                    className="bg-primary text-black font-bold rounded-xl p-4 flex items-center gap-3 hover:bg-primary/90 transition-colors text-left"
-                >
-                    <Zap className="w-5 h-5 shrink-0" />
-                    <div>
-                        <p className="text-xs font-bold">Dispatch Board</p>
-                        <p className="text-[10px] opacity-70">Manage bookings</p>
-                    </div>
-                </button>
-                <button
-                    onClick={() => router.push('/admin/support')}
-                    className={`rounded-xl p-4 flex items-center gap-3 transition-colors text-left border ${
-                        openSupport > 0
-                            ? 'bg-red-500/10 border-red-500/30 hover:bg-red-500/20'
-                            : 'bg-neutral-800 border-neutral-700 hover:bg-neutral-700'
-                    }`}
-                >
-                    <MessageCircle className={`w-5 h-5 shrink-0 ${openSupport > 0 ? 'text-red-400' : 'text-neutral-400'}`} />
-                    <div>
-                        <p className={`text-xs font-bold ${openSupport > 0 ? 'text-red-400' : 'text-white'}`}>Support Inbox</p>
-                        <p className={`text-[10px] ${openSupport > 0 ? 'text-red-300' : 'text-neutral-500'}`}>
-                            {openSupport > 0 ? `${openSupport} open` : 'All clear'}
-                        </p>
-                    </div>
-                </button>
-                <button
-                    onClick={() => router.push('/admin/customers')}
-                    className="bg-neutral-800 border border-neutral-700 rounded-xl p-4 flex items-center gap-3 hover:bg-neutral-700 transition-colors text-left"
-                >
-                    <TrendingUp className="w-5 h-5 shrink-0 text-neutral-400" />
-                    <div>
-                        <p className="text-xs font-bold text-white">Customers</p>
-                        <p className="text-[10px] text-neutral-500">CRM &amp; history</p>
-                    </div>
-                </button>
-                <button
-                    onClick={() => router.push('/admin/reports')}
-                    className="bg-neutral-800 border border-neutral-700 rounded-xl p-4 flex items-center gap-3 hover:bg-neutral-700 transition-colors text-left"
-                >
-                    <BarChart2 className="w-5 h-5 shrink-0 text-neutral-400" />
-                    <div>
-                        <p className="text-xs font-bold text-white">Reports</p>
-                        <p className="text-[10px] text-neutral-500">Analytics</p>
-                    </div>
-                </button>
-            </div>
-
             {/* Today / Tomorrow Schedule */}
             <div className="mb-8">
                 <div className="flex items-center justify-between mb-4">
@@ -441,6 +324,49 @@ export default function AdminDashboard() {
                         </Button>
                     </div>
                 </div>
+            </div>
+
+            {/* At a glance: one compact strip instead of the old big cards */}
+            <div className="mb-8 rounded-xl border border-neutral-800 bg-neutral-900/60 px-4 py-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
+                {needsAction.length > 0 && (
+                    <button
+                        type="button"
+                        onClick={() => router.push('/admin/bookings')}
+                        className="inline-flex items-center gap-1.5 rounded-md bg-amber-500/10 px-2 py-1 font-semibold text-amber-400 hover:bg-amber-500/20"
+                        title={`${bookings.filter(b => b.status === 'pending').length} new requests, ${bookings.filter(b => b.status === 'quote_sent').length} awaiting customer confirmation`}
+                    >
+                        <AlertTriangle className="w-3.5 h-3.5" /> {needsAction.length} need attention
+                    </button>
+                )}
+                <span className="text-neutral-400">Total <b className="text-white">{bookings.length}</b></span>
+                <span className="text-neutral-400">Today <b className="text-amber-400">{todaysTrips.length}</b></span>
+                <span className="text-neutral-400">Confirmed today <b className="text-emerald-400">{confirmedToday.length}</b></span>
+                {inProgress.length > 0 && <span className="text-neutral-400">En route <b className="text-purple-400">{inProgress.length}</b></span>}
+                <span className="text-neutral-400" title="Completed trips only">
+                    Revenue{' '}
+                    <b className="text-primary">
+                        {Object.keys(revenueByCurrency).length === 0
+                            ? 'SAR 0'
+                            : Object.entries(revenueByCurrency).map(([curr, amount]) => `${curr} ${Math.round(amount).toLocaleString()}`).join(' · ')}
+                    </b>
+                </span>
+                <span className="ml-auto flex flex-wrap gap-1.5">
+                    {[
+                        { label: 'Dispatch Board', href: '/admin/bookings' },
+                        { label: openSupport > 0 ? `Support (${openSupport})` : 'Support', href: '/admin/support', alert: openSupport > 0 },
+                        { label: 'Customers', href: '/admin/customers' },
+                        { label: 'Reports', href: '/admin/reports' },
+                    ].map(l => (
+                        <button
+                            key={l.href}
+                            type="button"
+                            onClick={() => router.push(l.href)}
+                            className={`rounded-md border px-2 py-1 font-semibold ${l.alert ? 'border-red-500/40 text-red-400' : 'border-neutral-700 text-neutral-300 hover:text-white'}`}
+                        >
+                            {l.label}
+                        </button>
+                    ))}
+                </span>
             </div>
 
             {/* Analytics */}
