@@ -3,13 +3,14 @@
 
 
 import { useEffect, useState } from 'react';
-import { useBillToCompany, BillToCompanyInput, BillToCompanyBlock } from '@/components/admin/BillToCompany';
+import { useBillToCompany, BillToCompanyInput } from '@/components/admin/BillToCompany';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
 import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
+import { ksaToday } from '@/lib/ksa-time';
 import {
     Printer,
     ArrowLeft,
@@ -32,84 +33,72 @@ type NormalizedStatus = 'paid' | 'unpaid' | 'partial';
 
 const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
     en: {
-        invoice: 'INVOICE', no: 'Invoice No.', issueDate: 'Issue Date:', bookingRef: 'Booking Ref:', roundTrip: 'Round Trip',
-        billTo: 'Bill To', bookingDetails: 'Booking Details',
-        dateLabel: 'Date', timeLabel: 'Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers', luggageLabel: 'Luggage', serviceTypeLabel: 'Service Type',
-        bookingSummary: 'Booking Summary', serviceDate: 'Service Date', vehiclesLabel: 'Vehicle(s)',
-        journeyRoute: 'Journey Route', stop: 'stop', stops: 'stops', fullItinerary: 'Full Itinerary',
-        itinDate: 'Date', itinTime: 'Time', itinPickup: 'Pick-up', itinDest: 'Destination', itinVehicle: 'Vehicle',
-        pickup: 'Pick-up', dropoff: 'Drop-off', destination: 'Destination', returnDropoff: 'Return Drop-off',
-        outbound: 'Outbound', returnLeg: 'Return', sameDay: 'same day', returnNotRecorded: 'Return details not recorded',
-        serviceDescription: 'Service Description', description: 'Description', qty: 'Qty', unitPrice: 'Unit Price', amount: 'Amount',
-        roundTripService: 'Round Trip Transfer Service', privateService: 'Private Transfer Service',
-        multiDayService: 'Multi-Day Private Chauffeur Transportation', completePackage: 'Complete Transportation Package',
-        chauffeurService: 'Professional Chauffeur Service',
-        specialRequests: 'Special Requests:', totalPayable: 'Total Payable',
-        depositPaid: 'Deposit / Advance Paid', balanceDue: 'Balance Due',
-        paymentDetails: 'Payment Details', paymentMethodLabel: 'Payment Method', paymentRequired: 'Payment Required', amountReceived: 'Amount Received', remainingBalance: 'Remaining Balance',
-        bankDetails: 'Bank Transfer Details', bankName: 'Bank Name', accountName: 'Account Name',
-        accountNumber: 'Account Number', swift: 'SWIFT / BIC', iban: 'IBAN', note: 'Note:',
+        invoice: 'INVOICE', no: 'Invoice Number', issueDate: 'Issue Date', bookingRef: 'Booking Reference', roundTrip: 'round trip',
+        invoiceStatus: 'Invoice Status', currencyLabel: 'Currency', bookingStatusLabel: 'Booking Status',
+        bookingConfirmed: 'Booking Confirmed', bookingPending: 'Booking Pending Confirmation',
+        billTo: 'Bill To', attn: 'Attn', bookingDetails: 'Booking Details',
+        serviceDate: 'Service Date', timeLabel: 'Pickup Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers', itemsLabel: 'Items', serviceTypeLabel: 'Service Type',
+        journeyRoute: 'Journey Route', itinDate: 'Date', itinTime: 'Time', itinPickup: 'Pickup', itinDest: 'Drop-off',
+        pickup: 'Pickup', dropoff: 'Drop-off', returnDropoff: 'Return · Drop-off', outbound: 'Outbound', returnLeg: 'Return', stopLabel: 'Stop',
+        charges: 'Service Description & Charges', description: 'Description', qty: 'Qty', unitPrice: 'Unit Price', amount: 'Amount',
+        roundTripService: 'Private Round Trip Transfer', privateService: 'Private Transfer Service', multiDayService: 'Multi-Day Private Chauffeur Service',
+        hourlyService: 'Hourly Chauffeur Service', chauffeurService: 'Professional Chauffeur Service',
+        subtotal: 'Subtotal', totalInvoice: 'Total Invoice Amount', amountReceived: 'Amount Received', outstanding: 'Outstanding Balance', amountDue: 'Amount Due',
+        paymentDetails: 'Payment Details', paymentMethodLabel: 'Payment Method',
         statusPaid: 'PAID', statusUnpaid: 'UNPAID', statusPartial: 'PARTIALLY PAID',
-        confirmedHeading: 'Booking Confirmed', confirmedText: 'Payment received. Your transportation service is fully confirmed.',
-        pendingHeading: 'Payment Pending', pendingText: 'Your reservation will be confirmed upon receipt of payment.',
-        partialHeading: 'Partial Payment Received', partialText: 'Your reservation is held subject to settlement of the remaining balance.',
-        payInstructUnpaid: 'Payment is pending. Please complete payment according to the details below.',
-        payInstructCash: 'Payment to be handed to the driver upon journey completion.',
+        payPaid: 'Payment has been received in full.',
+        payPartial: 'The remaining balance is payable as agreed before or on the day of service.',
+        payCash: 'Payable in cash to the driver on the day of service.',
+        payOther: 'Payment is due according to the agreed payment arrangement.',
+        msgPaidConfirmed: 'Your booking is confirmed and payment has been received in full. Thank you for choosing Taxi Service KSA.',
+        msgConfirmedDue: 'Your booking is confirmed. The outstanding balance shown above is payable as agreed.',
+        msgPending: 'Booking pending confirmation. We will confirm your booking once availability and payment have been finalised.',
+        bankDetails: 'Bank Transfer Details', bankName: 'Bank', accountName: 'Account Name', accountNumber: 'Account Number', iban: 'IBAN', swift: 'SWIFT / BIC',
+        notes: 'Notes',
         terms: 'Terms & Conditions',
-        term1: 'The quoted price covers the transportation services and itinerary stated on this invoice.',
-        term2: 'Fuel and standard chauffeur service are included unless otherwise stated.',
-        term3: 'Additional waiting time beyond the standard allowance may incur extra charges.',
-        term4: 'Additional stops, route changes, or services requested after confirmation may be charged separately.',
-        term5: 'Airport pickups include the company’s standard waiting period.',
-        term6: 'Free cancellation up to 24 hours before the first scheduled pickup.',
-        term7: 'Any additional charges will be communicated before being applied, wherever reasonably possible.',
-        term8: 'The customer is responsible for providing accurate pickup times and locations.',
-        term9: 'This invoice serves as the official booking and payment document.',
-        authorizedSignature: 'Authorized Signature', director: 'Director', partner: 'Founder',
-        thankYou: 'Thank you for choosing Taxi Service KSA', tagline: 'Professional Chauffeur & Private Transportation Services in Saudi Arabia',
-        pax: 'Pax', bags: 'Bags', city: 'Jeddah, Saudi Arabia',
-        hourlyHire: 'Hourly Hire', hourlyService: 'Hourly Chauffeur Service', durationLabel: 'Duration',
-        hours: 'hours', monthlyContract: 'Monthly Contract',
+        term1: 'This invoice covers the transportation service and itinerary stated in this document.',
+        term2: 'Fuel and standard chauffeur service are included only as specified in the agreed quotation or booking.',
+        term3: 'Additional waiting time, stops, route changes or other services may incur additional charges when agreed.',
+        term4: 'Any additional charges will be communicated to the customer before being applied, wherever reasonably practicable.',
+        term5: 'Cancellation and refund conditions are governed by the confirmed booking terms.',
+        term6: 'This invoice records the stated service charges and payment status.',
+        director: 'Director', coFounder: 'Co-Founder',
+        thankYou: 'Thank you for choosing Taxi Service KSA.', tagline: 'Private Transportation & Chauffeur Services', city: 'Jeddah, Saudi Arabia',
+        pax: 'passengers', bags: 'bags', durationLabel: 'Duration', hours: 'hours',
     },
     ar: {
-        invoice: 'فاتورة', no: 'رقم الفاتورة', issueDate: 'تاريخ الإصدار:', bookingRef: 'رقم الحجز:', roundTrip: 'ذهاب وعودة',
-        billTo: 'فاتورة إلى', bookingDetails: 'تفاصيل الحجز',
-        dateLabel: 'التاريخ', timeLabel: 'الوقت', vehicleLabel: 'المركبة', passengersLabel: 'الركاب', luggageLabel: 'الحقائب', serviceTypeLabel: 'نوع الخدمة',
-        bookingSummary: 'ملخص الحجز', serviceDate: 'تاريخ الخدمة', vehiclesLabel: 'المركبات',
-        journeyRoute: 'مسار الرحلة', stop: 'محطة', stops: 'محطات', fullItinerary: 'برنامج الرحلة الكامل',
-        itinDate: 'التاريخ', itinTime: 'الوقت', itinPickup: 'الانطلاق', itinDest: 'الوجهة', itinVehicle: 'المركبة',
-        pickup: 'الانطلاق', dropoff: 'الوصول', destination: 'الوجهة', returnDropoff: 'نقطة العودة',
-        outbound: 'الذهاب', returnLeg: 'العودة', sameDay: 'نفس اليوم', returnNotRecorded: 'تفاصيل العودة غير مسجلة',
-        serviceDescription: 'وصف الخدمة', description: 'الوصف', qty: 'الكمية', unitPrice: 'سعر الوحدة', amount: 'المبلغ',
-        roundTripService: 'خدمة نقل ذهاب وعودة', privateService: 'خدمة نقل خاص',
-        multiDayService: 'خدمة نقل خاص متعددة الأيام', completePackage: 'باقة نقل كاملة',
-        chauffeurService: 'خدمة سائق محترف',
-        specialRequests: 'طلبات خاصة:', totalPayable: 'المبلغ الإجمالي المستحق',
-        depositPaid: 'العربون / الدفعة المقدمة', balanceDue: 'المبلغ المتبقي',
-        paymentDetails: 'تفاصيل الدفع', paymentMethodLabel: 'طريقة الدفع', paymentRequired: 'المبلغ المطلوب', amountReceived: 'المبلغ المستلم', remainingBalance: 'الرصيد المتبقي',
-        bankDetails: 'تفاصيل التحويل البنكي', bankName: 'اسم البنك', accountName: 'اسم صاحب الحساب',
-        accountNumber: 'رقم الحساب', swift: 'رمز السويفت', iban: 'رقم الآيبان', note: 'ملاحظة:',
+        invoice: 'فاتورة', no: 'رقم الفاتورة', issueDate: 'تاريخ الإصدار', bookingRef: 'رقم الحجز', roundTrip: 'ذهاب وعودة',
+        invoiceStatus: 'حالة الفاتورة', currencyLabel: 'العملة', bookingStatusLabel: 'حالة الحجز',
+        bookingConfirmed: 'الحجز مؤكد', bookingPending: 'الحجز بانتظار التأكيد',
+        billTo: 'فاتورة إلى', attn: 'عناية', bookingDetails: 'تفاصيل الحجز',
+        serviceDate: 'تاريخ الخدمة', timeLabel: 'وقت الانطلاق', vehicleLabel: 'المركبة', passengersLabel: 'الركاب', itemsLabel: 'الأغراض', serviceTypeLabel: 'نوع الخدمة',
+        journeyRoute: 'مسار الرحلة', itinDate: 'التاريخ', itinTime: 'الوقت', itinPickup: 'الانطلاق', itinDest: 'الوصول',
+        pickup: 'الانطلاق', dropoff: 'الوصول', returnDropoff: 'العودة · الوصول', outbound: 'الذهاب', returnLeg: 'العودة', stopLabel: 'محطة',
+        charges: 'وصف الخدمة والرسوم', description: 'الوصف', qty: 'الكمية', unitPrice: 'سعر الوحدة', amount: 'المبلغ',
+        roundTripService: 'نقل خاص ذهاب وعودة', privateService: 'خدمة نقل خاص', multiDayService: 'خدمة سائق خاص متعددة الأيام',
+        hourlyService: 'خدمة سائق بالساعة', chauffeurService: 'خدمة سائق محترف',
+        subtotal: 'المجموع الفرعي', totalInvoice: 'إجمالي الفاتورة', amountReceived: 'المبلغ المستلم', outstanding: 'الرصيد المتبقي', amountDue: 'المبلغ المستحق',
+        paymentDetails: 'تفاصيل الدفع', paymentMethodLabel: 'طريقة الدفع',
         statusPaid: 'مدفوع', statusUnpaid: 'غير مدفوع', statusPartial: 'مدفوع جزئياً',
-        confirmedHeading: 'تم تأكيد الحجز', confirmedText: 'تم استلام الدفع. تم تأكيد خدمة النقل الخاصة بكم بالكامل.',
-        pendingHeading: 'الدفع معلق', pendingText: 'سيتم تأكيد الحجز عند استلام الدفع.',
-        partialHeading: 'تم استلام دفعة جزئية', partialText: 'الحجز محجوز رهناً بانتظار تسوية المبلغ المتبقي.',
-        payInstructUnpaid: 'الدفع معلق. يرجى إتمام الدفع وفق التفاصيل أدناه.',
-        payInstructCash: 'يتم تسليم المبلغ للسائق عند انتهاء الرحلة.',
+        payPaid: 'تم استلام المبلغ بالكامل.',
+        payPartial: 'يُدفع الرصيد المتبقي حسب الاتفاق قبل موعد الخدمة أو في يومها.',
+        payCash: 'يُدفع نقداً للسائق في يوم الخدمة.',
+        payOther: 'يستحق الدفع وفق ترتيب الدفع المتفق عليه.',
+        msgPaidConfirmed: 'تم تأكيد حجزكم واستلام المبلغ بالكامل. شكراً لاختياركم تاكسي سيرفس السعودية.',
+        msgConfirmedDue: 'تم تأكيد حجزكم. يُدفع الرصيد المتبقي الموضح أعلاه حسب الاتفاق.',
+        msgPending: 'الحجز بانتظار التأكيد. سنؤكد حجزكم بعد التحقق من التوفر وإتمام الدفع.',
+        bankDetails: 'تفاصيل التحويل البنكي', bankName: 'البنك', accountName: 'اسم الحساب', accountNumber: 'رقم الحساب', iban: 'الآيبان', swift: 'رمز السويفت',
+        notes: 'ملاحظات',
         terms: 'الشروط والأحكام',
-        term1: 'يغطي السعر المذكور خدمات النقل وبرنامج الرحلة الموضح في هذه الفاتورة.',
-        term2: 'الوقود وخدمة السائق الأساسية مشمولة ما لم يُذكر خلاف ذلك.',
-        term3: 'قد يؤدي وقت الانتظار الإضافي إلى رسوم إضافية.',
-        term4: 'قد تُحتسب المحطات الإضافية أو تغيير المسار المطلوبة بعد التأكيد بشكل منفصل.',
-        term5: 'يشمل استلام المطار فترة انتظار الشركة المعتادة.',
-        term6: 'إلغاء مجاني حتى 24 ساعة قبل أول موعد انطلاق محدد.',
-        term7: 'سيتم إبلاغكم بأي رسوم إضافية قبل تطبيقها كلما أمكن ذلك.',
-        term8: 'العميل مسؤول عن تقديم أوقات ومواقع استلام دقيقة.',
-        term9: 'تعد هذه الفاتورة المستند الرسمي للحجز والدفع.',
-        authorizedSignature: 'التوقيع المعتمد', director: 'المدير', partner: 'المؤسس',
-        thankYou: 'شكراً لاختياركم تاكسي سيرفس السعودية', tagline: 'خدمات سائق خاص ونقل خاص احترافية في المملكة العربية السعودية',
-        pax: 'راكب', bags: 'حقيبة', city: 'جدة، المملكة العربية السعودية',
-        hourlyHire: 'إيجار بالساعة', hourlyService: 'خدمة سائق بالساعة', durationLabel: 'المدة',
-        hours: 'ساعات', monthlyContract: 'عقد شهري',
+        term1: 'تغطي هذه الفاتورة خدمة النقل وبرنامج الرحلة الموضح في هذا المستند.',
+        term2: 'الوقود وخدمة السائق الأساسية مشمولة فقط كما هو محدد في عرض السعر أو الحجز المتفق عليه.',
+        term3: 'قد يترتب على وقت الانتظار الإضافي أو المحطات أو تغيير المسار أو الخدمات الأخرى رسوم إضافية عند الاتفاق عليها.',
+        term4: 'سيتم إبلاغ العميل بأي رسوم إضافية قبل تطبيقها كلما أمكن ذلك.',
+        term5: 'تخضع شروط الإلغاء والاسترداد لشروط الحجز المؤكد.',
+        term6: 'تسجل هذه الفاتورة رسوم الخدمة المذكورة وحالة الدفع.',
+        director: 'المدير', coFounder: 'الشريك المؤسس',
+        thankYou: 'شكراً لاختياركم تاكسي سيرفس السعودية.', tagline: 'خدمات النقل الخاص والسائق', city: 'جدة، المملكة العربية السعودية',
+        pax: 'ركاب', bags: 'حقائب', durationLabel: 'المدة', hours: 'ساعات',
     },
 };
 
@@ -191,13 +180,25 @@ export default function InvoicePage() {
     const [emailInput, setEmailInput] = useState('');
     const [bankDetails, setBankDetails] = useState({
         showOnDocument: false,
-        bankName: 'Al Rajhi Bank',
-        accountName: 'Taxi Service KSA LLC',
-        accountNumber: '123456789012345',
-        iban: 'SA8280000000123456789012',
-        swiftCode: 'RAJHSARIXXX',
-        notes: 'Please send transaction screenshot on WhatsApp once completed.'
+        bankName: '',
+        accountName: '',
+        accountNumber: '',
+        iban: '',
+        swiftCode: '',
+        notes: ''
     });
+    useEffect(() => {
+        try {
+            const saved = localStorage.getItem('invoice-bank-details');
+            if (saved) setBankDetails(prev => ({ ...prev, ...JSON.parse(saved), showOnDocument: false }));
+        } catch { /* storage blocked */ }
+    }, []);
+    useEffect(() => {
+        try {
+            const { showOnDocument, ...rest } = bankDetails;
+            if (Object.values(rest).some(Boolean)) localStorage.setItem('invoice-bank-details', JSON.stringify(rest));
+        } catch { /* storage blocked */ }
+    }, [bankDetails]);
 
     const addEmail = () => {
         const val = emailInput.trim().toLowerCase();
@@ -350,47 +351,56 @@ export default function InvoicePage() {
         );
     }
 
-    const invoiceDate = new Date(booking.created_at).toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-    });
+    // Invoice is issued today (Saudi date); the number itself is permanent.
+    const issueIso = ksaToday();
+    const fmtDate = (iso?: string | null) => {
+        if (!iso) return '';
+        const d = new Date(`${iso}T12:00:00Z`);
+        return Number.isNaN(d.getTime()) ? iso : d.toLocaleDateString(lang === 'ar' ? 'ar-SA-u-ca-gregory' : 'en-GB', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    };
     // Falls back to the old date/id-derived format only in the brief window
     // before the permanent sequential number above finishes assigning.
     const invoiceNumber = booking.invoice_number || `INV-${(booking.pickup_date || booking.created_at.slice(0, 10)).replace(/-/g, '')}-${booking.id.slice(0, 6).toUpperCase()}`;
     const bookingRef = `BOOK-${booking.id.slice(0, 8).toUpperCase()}`;
     const t = INVOICE_TEXT[lang];
+    const money = (n: number) => `${currency} ${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-    // --- Single source of truth for payment status → every piece of text
-    // on the document (badge, confirmation box, payment instructions) is
-    // derived from this so they can never contradict each other. ---
+    // Single source of truth for payment: every amount and status on the
+    // document comes from the selected payment status + recorded deposit.
+    // "Cash to Driver" is only the method; it never marks anything as paid.
     const status = normalizeStatus(paymentStatus);
     const total = booking.total_price || 0;
-    const deposit = status === 'partial' ? (booking.deposit_amount || 0) : 0;
-    const balance = status === 'paid' ? 0 : status === 'partial' ? Math.max(total - deposit, 0) : total;
-    const STATUS_STYLE: Record<NormalizedStatus, { badge: string; box: string; icon: 'ok' | 'warn' }> = {
-        paid: { badge: 'bg-green-50 text-green-700 border-green-200', box: 'bg-green-50 border-green-200', icon: 'ok' },
-        unpaid: { badge: 'bg-red-50 text-red-700 border-red-200', box: 'bg-red-50 border-red-200', icon: 'warn' },
-        partial: { badge: 'bg-amber-50 text-amber-700 border-amber-200', box: 'bg-amber-50 border-amber-200', icon: 'warn' },
+    const received = status === 'paid' ? total : status === 'partial' ? Math.min(booking.deposit_amount || 0, total) : 0;
+    const balance = Math.max(total - received, 0);
+    const STATUS_STYLE: Record<NormalizedStatus, string> = {
+        paid: 'border-emerald-600 text-emerald-700',
+        unpaid: 'border-red-600 text-red-700',
+        partial: 'border-amber-500 text-amber-700',
     };
-    const confirmationHeading = status === 'paid' ? t.confirmedHeading : status === 'partial' ? t.partialHeading : t.pendingHeading;
-    const confirmationText = status === 'paid' ? t.confirmedText : status === 'partial' ? t.partialText : t.pendingText;
-    const paymentInstructionText = status === 'paid'
-        ? t.confirmedText
-        : (paymentMethod === 'Cash to Driver' ? t.payInstructCash : t.payInstructUnpaid);
+    const bookingConfirmed = booking.status === 'confirmed' || booking.status === 'in_progress' || booking.status === 'completed';
+    const paymentNote = status === 'paid' ? t.payPaid : status === 'partial' ? t.payPartial : paymentMethod === 'Cash to Driver' ? t.payCash : t.payOther;
+    const statusMessage = bookingConfirmed ? (status === 'paid' ? t.msgPaidConfirmed : t.msgConfirmedDue) : t.msgPending;
+    const showBank = bankDetails.showOnDocument && status !== 'paid' && !!(bankDetails.iban || bankDetails.accountNumber);
+    const companyLines = billToCompany.split('\n').map(l => l.trim()).filter(Boolean);
+    // Things that would make the invoice wrong; shown on screen only.
+    const warnings = [
+        !total && 'No price on this booking: set the total price before sending the invoice.',
+        status === 'partial' && !booking.deposit_amount && 'Partially Paid is selected but no amount received is entered.',
+        bankDetails.showOnDocument && !(bankDetails.iban || bankDetails.accountNumber) && 'Bank details are switched on but no IBAN / account number is entered, so they are not shown.',
+    ].filter(Boolean) as string[];
 
     const hasItinerary = !!(booking.itinerary_legs && booking.itinerary_legs.length > 0);
 
     // Service date range — computed from the full itinerary when present,
     // otherwise from pickup_date (+ trip_end_date for multi-day packages).
-    let serviceDateLabel = booking.pickup_date;
+    let serviceDateLabel = fmtDate(booking.pickup_date);
     if (hasItinerary) {
         const dates = [booking.pickup_date, ...booking.itinerary_legs!.map(l => l.date), ...(isRoundTrip && returnDate ? [returnDate] : [])].filter(Boolean).sort();
         const first = dates[0];
         const last = dates[dates.length - 1];
-        serviceDateLabel = first === last ? first : `${first} – ${last}`;
+        serviceDateLabel = first === last ? fmtDate(first) : `${fmtDate(first)} – ${fmtDate(last)}`;
     } else if (booking.trip_end_date && booking.trip_end_date !== booking.pickup_date) {
-        serviceDateLabel = `${booking.pickup_date} – ${booking.trip_end_date}`;
+        serviceDateLabel = `${fmtDate(booking.pickup_date)} – ${fmtDate(booking.trip_end_date)}`;
     }
 
     const serviceTitle = hasItinerary
@@ -398,6 +408,16 @@ export default function InvoicePage() {
         : booking.trip_type === 'hourly' ? t.hourlyService
         : isRoundTrip ? t.roundTripService
         : t.privateService;
+
+    const Row = ({ label, value }: { label: string; value: React.ReactNode }) => (
+        <div className="grid grid-cols-[110px_1fr] gap-2 py-[3px] border-b border-slate-100">
+            <dt className="text-slate-500">{label}</dt>
+            <dd className="font-semibold text-slate-900">{value}</dd>
+        </div>
+    );
+    const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+        <p role="heading" aria-level={2} className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-emerald-700 border-b-2 border-emerald-600/70 pb-0.5 mb-1.5">{children}</p>
+    );
 
     return (
         <div className="min-h-screen bg-gray-100 py-6 px-4 print:bg-white print:py-0 print:px-0 print:min-h-0">
@@ -608,6 +628,13 @@ export default function InvoicePage() {
 
             <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
 
+            {warnings.length > 0 && (
+                <div className="max-w-[210mm] mx-auto mb-3 print:hidden rounded-xl border border-amber-300 bg-amber-50 px-4 py-2.5 text-xs text-amber-900 space-y-0.5">
+                    <p className="font-bold">Check before sending:</p>
+                    {warnings.map(w => <p key={w}>• {w}</p>)}
+                </div>
+            )}
+
             {/* Quick Note Input — screen only */}
             <div className="max-w-[210mm] mx-auto mb-3 print:hidden">
                 <textarea
@@ -779,403 +806,215 @@ export default function InvoicePage() {
                 </div>
             </div>
 
-            {/* Invoice Container — A4, allowed to flow across multiple pages */}
-            <div id="invoice-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] mx-auto bg-white shadow-lg print:shadow-none print:max-w-none print:w-[210mm] box-border">
-                {/* Decorative Top Bar */}
-                <div className="h-1.5 bg-gray-900 w-full"></div>
+            {/* ============ INVOICE DOCUMENT (A4, may flow to a 2nd page) ============ */}
+            <div id="invoice-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] mx-auto bg-white shadow-lg print:shadow-none print:max-w-none print:w-[210mm] box-border" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
+                <div className="px-10 pt-6 pb-4 print:px-[16mm] print:py-[12mm] text-[11.5px] leading-snug text-slate-800">
 
-                <div className="px-10 py-9 print:px-[18mm] print:py-[16mm] flex flex-col bg-white">
-
-                    {/* ============ HEADER ============ */}
-                    <div className="flex justify-between items-start mb-7 pb-6 border-b border-gray-200">
+                    {/* Company header */}
+                    <div className="flex items-start justify-between gap-6 pb-3 border-b-2 border-slate-900">
                         <div>
-                            <h2 className="text-[26px] leading-tight font-bold tracking-tight text-gray-900">
-                                Taxi Service <span className="text-lime-600">KSA</span>
-                            </h2>
-                            <div className="text-[10.5px] text-gray-500 space-y-1 mt-2.5 leading-snug">
-                                <p className="flex items-center gap-1.5"><MapPin className="w-3 h-3 text-gray-400" /> {t.city}</p>
-                                <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400" /> info@taxiserviceksa.com</p>
-                                <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> <span dir="ltr">+966 57 580 6733</span></p>
-                                <p className="flex items-center gap-1.5"><Globe className="w-3 h-3 text-gray-400" /> www.taxiserviceksa.com</p>
-                            </div>
+                            <p className="text-[22px] font-black tracking-wide text-slate-900">TAXI SERVICE <span className="text-emerald-600">KSA</span></p>
+                            <p className="text-[11.5px] font-semibold text-slate-600">{t.tagline}</p>
+                            <p className="text-[11px] text-slate-500 mt-0.5">{t.city}</p>
                         </div>
-                        <div className={lang === 'ar' ? 'text-left' : 'text-right'}>
-                            <h1 className="text-[34px] leading-none font-bold text-gray-900 tracking-wide">{t.invoice}</h1>
-                            <div className="mt-2 text-[10.5px] text-gray-500 space-y-0.5">
-                                <p><span className="text-gray-400">{t.no}</span> <span className="font-mono font-semibold text-gray-800">{invoiceNumber}</span></p>
-                                <p>{t.issueDate} <span className="font-semibold text-gray-800">{invoiceDate}</span></p>
-                                <p>{t.bookingRef} <span className="font-mono font-semibold text-gray-800">{bookingRef}</span></p>
-                            </div>
-                            <div className={`inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded border text-[11px] font-bold uppercase tracking-wide ${STATUS_STYLE[status].badge}`}>
-                                {STATUS_STYLE[status].icon === 'ok' ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
-                                {t[STATUS_LABEL_KEY[status]]}
-                            </div>
-                            <div className={`flex gap-1.5 mt-2 flex-wrap ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
-                                {isRoundTrip && (
-                                    <span className="px-2 py-0.5 rounded text-[9px] font-semibold uppercase bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1 whitespace-nowrap">
-                                        <Repeat className="w-2.5 h-2.5" /> {t.roundTrip}
-                                    </span>
-                                )}
-                                {booking.trip_type === 'hourly' && (
-                                    <span className="px-2 py-0.5 rounded text-[9px] font-semibold uppercase bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1 whitespace-nowrap">
-                                        <Clock className="w-2.5 h-2.5" /> {t.hourlyHire} · {booking.duration_hours || '?'}{lang === 'ar' ? '' : 'h'}
-                                    </span>
-                                )}
-                                {booking.contract_id && (
-                                    <span className="px-2 py-0.5 rounded text-[9px] font-semibold uppercase bg-purple-50 text-purple-700 border border-purple-200 whitespace-nowrap">
-                                        {t.monthlyContract}
-                                    </span>
-                                )}
-                            </div>
+                        <div className={`text-[11px] text-slate-600 space-y-0.5 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>
+                            <p dir="ltr">+966 57 580 6733</p>
+                            <p>info@taxiserviceksa.com</p>
+                            <p>www.taxiserviceksa.com</p>
                         </div>
                     </div>
 
-                    {/* ============ BILL TO / BOOKING DETAILS ============ */}
-                    <div className="grid grid-cols-2 gap-8 mb-7">
-                        <div>
-                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.billTo}</h3>
-                            <BillToCompanyBlock value={billToCompany} className="text-[12px] leading-snug mb-2 [&>p:first-child]:text-[15px]" />
-                            <p className={billToCompany.trim() ? 'text-[12px] text-gray-700' : 'text-[15px] font-semibold text-gray-900'}>{billToCompany.trim() ? `Attn: ${booking.customer_name}` : booking.customer_name}</p>
-                            <div className="space-y-1 text-[11px] text-gray-600 mt-1.5">
-                                <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400 flex-shrink-0" /> <span dir="ltr">{booking.customer_phone}</span></p>
-                                <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400 flex-shrink-0" /> {booking.customer_email}</p>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.bookingDetails}</h3>
-                            <div className="space-y-1">
-                                {[
-                                    { label: t.serviceDate, value: serviceDateLabel },
-                                    { label: t.timeLabel, value: formatTime12h(booking.pickup_time) },
-                                    { label: t.vehicleLabel, value: booking.vehicle_type },
-                                    booking.booking_type === 'delivery'
-                                        ? { label: t.passengersLabel, value: `${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}` }
-                                        : { label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
-                                    { label: t.serviceTypeLabel, value: serviceTitle },
-                                    ...(booking.trip_type === 'hourly' ? [{ label: t.durationLabel, value: `${booking.duration_hours || '?'} ${t.hours}` }] : []),
-                                ].map(({ label, value }) => (
-                                    <div key={label} className="flex justify-between items-baseline gap-3 text-[11px]">
-                                        <span className="text-gray-500 shrink-0">{label}</span>
-                                        <span className="font-semibold text-gray-900 text-right">{value}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                    {/* Title + status */}
+                    <div className="mt-4 flex items-center justify-between gap-4">
+                        <p role="heading" aria-level={1} className="text-[24px] font-black tracking-[0.12em] text-slate-900">{t.invoice}</p>
+                        <span className={`rounded-md border-2 px-3 py-1 text-[13px] font-black tracking-wider ${STATUS_STYLE[status]}`}>{t[STATUS_LABEL_KEY[status]]}</span>
                     </div>
 
-                    {/* ============ BOOKING SUMMARY STRIP ============ */}
-                    <div className="grid grid-cols-4 gap-px bg-gray-200 border border-gray-200 rounded-lg overflow-hidden mb-7">
-                        {[
-                            { label: t.serviceDate, value: serviceDateLabel },
-                            { label: t.vehiclesLabel, value: booking.vehicle_type },
-                            booking.booking_type === 'delivery'
-                                ? { label: t.passengersLabel, value: `${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}` }
-                                : { label: t.passengersLabel, value: `${booking.passengers} ${t.pax}` },
-                            { label: t.serviceTypeLabel, value: serviceTitle },
-                        ].map(({ label, value }) => (
-                            <div key={label} className="bg-gray-50 px-3 py-2.5">
-                                <p className="text-[8.5px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">{label}</p>
-                                <p className="text-[11.5px] font-semibold text-gray-900 leading-snug break-words">{value}</p>
-                            </div>
-                        ))}
-                    </div>
+                    {/* Metadata panel */}
+                    <dl className="mt-3 grid grid-cols-3 gap-x-6 gap-y-1.5 rounded-lg bg-slate-50 border border-slate-200 px-4 py-2.5 text-[11px]">
+                        <div><dt className="text-slate-500">{t.no}</dt><dd className="font-bold text-slate-900 font-mono">{invoiceNumber}</dd></div>
+                        <div><dt className="text-slate-500">{t.issueDate}</dt><dd className="font-bold text-slate-900">{fmtDate(issueIso)}</dd></div>
+                        <div><dt className="text-slate-500">{t.bookingRef}</dt><dd className="font-bold text-slate-900 font-mono">{bookingRef}</dd></div>
+                        <div><dt className="text-slate-500">{t.invoiceStatus}</dt><dd className="font-bold text-slate-900">{t[STATUS_LABEL_KEY[status]]}</dd></div>
+                        <div><dt className="text-slate-500">{t.currencyLabel}</dt><dd className="font-bold text-slate-900">{currency}</dd></div>
+                        <div><dt className="text-slate-500">{t.bookingStatusLabel}</dt><dd className={`font-bold ${bookingConfirmed ? 'text-emerald-700' : 'text-amber-700'}`}>{bookingConfirmed ? t.bookingConfirmed : t.bookingPending}</dd></div>
+                    </dl>
 
-                    {/* ============ ITINERARY ============ */}
-                    {hasItinerary ? (
-                        <div className="mb-7" style={{ breakInside: 'avoid' }}>
-                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">{t.fullItinerary}</h3>
-                            <table className="w-full border-collapse">
-                                <thead>
-                                    <tr className="bg-gray-50 text-[9.5px] font-bold text-gray-500 uppercase tracking-wide">
-                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinDate}</th>
-                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinTime}</th>
-                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinPickup}</th>
-                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinDest}</th>
-                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinVehicle}</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="text-[10.5px] text-gray-800">
-                                    <tr style={{ breakInside: 'avoid' }} className="border-b border-gray-100">
-                                        <td className="px-3 py-2 font-mono whitespace-nowrap">{booking.pickup_date}</td>
-                                        <td className="px-3 py-2 font-mono whitespace-nowrap">{formatTime12h(booking.pickup_time)}</td>
-                                        <td className="px-3 py-2 font-medium">{booking.pickup_location}</td>
-                                        <td className="px-3 py-2 font-medium">{booking.destination}</td>
-                                        <td className="px-3 py-2 text-gray-500">{booking.vehicle_type}</td>
-                                    </tr>
-                                    {booking.itinerary_legs!.map((leg, i) => (
-                                        <tr key={i} style={{ breakInside: 'avoid' }} className="border-b border-gray-100">
-                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{leg.date}</td>
-                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{leg.time ? formatTime12h(leg.time) : '—'}</td>
-                                            <td className="px-3 py-2 font-medium">{leg.pickup}</td>
-                                            <td className="px-3 py-2 font-medium">{leg.dropoff}</td>
-                                            <td className="px-3 py-2 text-gray-500">{booking.vehicle_type}</td>
-                                        </tr>
-                                    ))}
-                                    {isRoundTrip && returnDate && (
-                                        <tr style={{ breakInside: 'avoid' }}>
-                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{returnDate}</td>
-                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{returnTime ? formatTime12h(returnTime) : '—'}</td>
-                                            <td className="px-3 py-2 font-medium">{returnPickupLocation || booking.destination}</td>
-                                            <td className="px-3 py-2 font-medium">{returnDropoffLocation || booking.pickup_location}</td>
-                                            <td className="px-3 py-2 text-gray-500">{booking.vehicle_type}</td>
-                                        </tr>
-                                    )}
-                                </tbody>
-                            </table>
-                        </div>
-                    ) : (
-                        <>
-                            {/* Route Details — Outbound (simple, single-trip bookings) */}
-                            <div className="mb-6" style={{ breakInside: 'avoid' }}>
-                                <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">
-                                    {isRoundTrip ? t.outbound : t.journeyRoute}
-                                    {booking.pickup_date ? ` · ${booking.pickup_date}${booking.pickup_time ? ` ${formatTime12h(booking.pickup_time)}` : ''}` : ''}
-                                    {stops.length > 0 && <span className="text-orange-500 normal-case font-medium mx-1.5">· {stops.length} {stops.length > 1 ? t.stops : t.stop}</span>}
-                                </h3>
-                                <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-gray-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
-                                    <div className="relative">
-                                        <div className={`absolute top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                        <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.pickup}</p>
-                                        <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
-                                    </div>
-                                    {stops.filter(s => s.location.trim()).map((stop, i) => (
-                                        <div key={i} className="relative">
-                                            <div className={`absolute top-1 w-3 h-3 bg-orange-400 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}>
-                                                <span className="text-white text-[6px] font-bold">{i + 1}</span>
-                                            </div>
-                                            <p className="text-[10px] text-orange-500 font-semibold uppercase">
-                                                {i + 1}. {stop.time ? ` · ${stop.time}` : ''}
-                                            </p>
-                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{stop.location}</p>
-                                        </div>
-                                    ))}
-                                    <div className="relative">
-                                        <div className={`absolute top-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                        <p className="text-[10px] text-gray-400 font-semibold uppercase">{isRoundTrip ? t.destination : t.dropoff}</p>
-                                        <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.destination}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {isRoundTrip && (
-                                <div className="mb-6" style={{ breakInside: 'avoid' }}>
-                                    <h3 className="text-[9.5px] font-bold text-blue-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-                                        <Repeat className="w-2.5 h-2.5" />
-                                        {t.returnLeg}
-                                        {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
-                                    </h3>
-                                    <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-blue-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
-                                        <div className="relative">
-                                            <div className={`absolute top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                            <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.pickup}</p>
-                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnPickupLocation || booking.destination}</p>
-                                        </div>
-                                        <div className="relative">
-                                            <div className={`absolute top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                            <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.dropoff}</p>
-                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnDropoffLocation || booking.pickup_location}</p>
-                                        </div>
-                                    </div>
-                                    {!returnDate && (
-                                        <p className="text-[10px] text-gray-400 italic mt-1.5">{t.returnNotRecorded}</p>
-                                    )}
+                    {/* Bill to + booking details */}
+                    <div className="mt-3 grid grid-cols-2 gap-6">
+                        <section>
+                            <SectionTitle>{t.billTo}</SectionTitle>
+                            {companyLines.length > 0 && (
+                                <div className="mb-1">
+                                    <p className="font-bold text-slate-900 text-[12.5px]">{companyLines[0]}</p>
+                                    {companyLines.slice(1).map((l, i) => <p key={i} className="text-slate-600">{l}</p>)}
                                 </div>
                             )}
-                        </>
-                    )}
+                            <p className={companyLines.length ? 'text-slate-700' : 'font-bold text-slate-900 text-[12.5px]'}>{companyLines.length ? `${t.attn}: ` : ''}{booking.customer_name}</p>
+                            {booking.customer_phone && <p className="text-slate-600" dir="ltr">{booking.customer_phone}</p>}
+                            {booking.customer_email && <p className="text-slate-600 break-all">{booking.customer_email}</p>}
+                        </section>
+                        <section>
+                            <SectionTitle>{t.bookingDetails}</SectionTitle>
+                            <dl>
+                                <Row label={t.serviceDate} value={serviceDateLabel} />
+                                <Row label={t.timeLabel} value={formatTime12h(booking.pickup_time)} />
+                                <Row label={t.vehicleLabel} value={booking.vehicle_type} />
+                                {booking.booking_type === 'delivery'
+                                    ? <Row label={t.itemsLabel} value={`${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}`} />
+                                    : <Row label={t.passengersLabel} value={`${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}`} />}
+                                <Row label={t.serviceTypeLabel} value={serviceTitle} />
+                                {booking.trip_type === 'hourly' && <Row label={t.durationLabel} value={`${booking.duration_hours || '?'} ${t.hours}`} />}
+                            </dl>
+                        </section>
+                    </div>
 
-                    {/* ============ SERVICE DESCRIPTION + PRICING ============ */}
-                    <div className="mb-7" style={{ breakInside: 'avoid' }}>
-                        <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">{t.serviceDescription}</h3>
-                        <div className="border border-gray-200 rounded-lg overflow-hidden">
-                            <table className="w-full text-left">
-                                <thead className="bg-gray-50 text-gray-500 text-[9.5px] font-bold uppercase tracking-wider">
-                                    <tr>
-                                        <th className="px-4 py-2.5">{t.description}</th>
-                                        <th className="px-4 py-2.5 text-center w-16">{t.qty}</th>
-                                        <th className="px-4 py-2.5 text-right w-32">{t.unitPrice}</th>
-                                        <th className="px-4 py-2.5 text-right w-32">{t.amount}</th>
+                    {/* Journey route */}
+                    <section className="mt-3">
+                        <SectionTitle>{t.journeyRoute}</SectionTitle>
+                        {hasItinerary ? (
+                            <table className="w-full text-[11px] border-collapse">
+                                <thead>
+                                    <tr className="text-slate-500 text-left border-b border-slate-200">
+                                        <th className="py-1 pr-2 font-semibold">{t.itinDate}</th>
+                                        <th className="py-1 pr-2 font-semibold">{t.itinTime}</th>
+                                        <th className="py-1 pr-2 font-semibold">{t.itinPickup}</th>
+                                        <th className="py-1 font-semibold">{t.itinDest}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="border-t border-gray-100">
-                                        <td className="px-4 py-3.5 align-top">
-                                            <p className="font-bold text-gray-900 text-[13px]">
-                                                {hasItinerary ? t.completePackage : serviceTitle}
-                                            </p>
-                                            <p className="text-[11px] text-gray-500 mt-0.5">
-                                                {booking.vehicle_type} — {t.chauffeurService}
-                                            </p>
-                                            <p className="text-[10.5px] text-gray-400 mt-1 font-medium">
-                                                {hasItinerary
-                                                    ? `${serviceTitle} · ${serviceDateLabel}`
-                                                    : booking.trip_type === 'hourly'
-                                                        ? `${booking.pickup_location.split(',')[0]} — ${booking.duration_hours || '?'} ${t.hours}`
-                                                        : isRoundTrip
-                                                            ? `${booking.pickup_location.split(',')[0]} ↔ ${booking.destination.split(',')[0]}`
-                                                            : `${booking.pickup_location.split(',')[0]} → ${booking.destination.split(',')[0]}`}
-                                            </p>
-                                            {booking.special_requests && (
-                                                <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 text-[10.5px] text-gray-500 whitespace-pre-wrap leading-snug">
-                                                    <span className="font-semibold">{t.specialRequests} </span>{booking.special_requests}
-                                                </div>
-                                            )}
-                                            {quickNote.trim() && (
-                                                <div className="mt-2 border-l-2 border-primary px-3 py-1.5 bg-primary/5 rounded-r">
-                                                    <p className="text-[11px] text-gray-700 whitespace-pre-wrap leading-snug">{quickNote.trim()}</p>
-                                                </div>
-                                            )}
-                                        </td>
-                                        <td className="px-4 py-3.5 text-center align-top text-[12px] text-gray-700">1</td>
-                                        <td className="px-4 py-3.5 text-right align-top text-[12px] text-gray-700">{currency} {total.toFixed(2)}</td>
-                                        <td className="px-4 py-3.5 text-right align-top">
-                                            <span className="text-[13px] font-bold text-gray-900">{currency} {total.toFixed(2)}</span>
-                                        </td>
-                                    </tr>
+                                    {[{ date: booking.pickup_date, time: booking.pickup_time, pickup: booking.pickup_location, dropoff: booking.destination }, ...booking.itinerary_legs!, ...(isRoundTrip && returnDate ? [{ date: returnDate, time: returnTime, pickup: returnPickupLocation || booking.destination, dropoff: returnDropoffLocation || booking.pickup_location }] : [])].map((leg, i) => (
+                                        <tr key={i} className="border-b border-slate-100 align-top">
+                                            <td className="py-1 pr-2 whitespace-nowrap">{fmtDate(leg.date)}</td>
+                                            <td className="py-1 pr-2 whitespace-nowrap">{formatTime12h(leg.time)}</td>
+                                            <td className="py-1 pr-2 font-semibold text-slate-900">{leg.pickup}</td>
+                                            <td className="py-1 font-semibold text-slate-900">{leg.dropoff}</td>
+                                        </tr>
+                                    ))}
                                 </tbody>
-                                <tfoot>
-                                    {status === 'partial' && (
-                                        <>
-                                            <tr className="border-t border-gray-100">
-                                                <td colSpan={3} className="px-4 py-2 text-right text-[10.5px] font-semibold text-amber-600">{t.depositPaid}</td>
-                                                <td className="px-4 py-2 text-right border-l border-gray-100">
-                                                    <span className="text-[12.5px] font-bold text-amber-700">{currency} {deposit.toFixed(2)}</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colSpan={3} className="px-4 py-2 text-right text-[10.5px] font-semibold text-gray-500">{t.balanceDue}</td>
-                                                <td className="px-4 py-2 text-right border-l border-gray-100">
-                                                    <span className="text-[12.5px] font-bold text-gray-900">{currency} {balance.toFixed(2)}</span>
-                                                </td>
-                                            </tr>
-                                        </>
-                                    )}
-                                    <tr className="bg-gray-900">
-                                        <td colSpan={3} className="px-4 py-3.5 text-right text-[12px] font-bold uppercase tracking-wide text-white/60">{t.totalPayable}</td>
-                                        <td className="px-4 py-3.5 text-right border-l border-white/10">
-                                            <span className="text-[19px] font-bold text-primary">{currency} {total.toFixed(2)}</span>
-                                        </td>
-                                    </tr>
-                                </tfoot>
                             </table>
-                        </div>
-                    </div>
+                        ) : (
+                            <dl>
+                                <Row label={`${isRoundTrip ? t.outbound + ' · ' : ''}${t.pickup}`} value={booking.pickup_location} />
+                                {stops.filter(s => s.location.trim()).map((s, i) => (
+                                    <Row key={i} label={`${t.stopLabel} ${i + 1}${s.time ? ` · ${formatTime12h(s.time)}` : ''}`} value={s.location} />
+                                ))}
+                                {booking.trip_type !== 'hourly' && <Row label={t.dropoff} value={booking.destination} />}
+                                {isRoundTrip && (
+                                    <>
+                                        <Row label={`${t.returnLeg} · ${t.pickup}`} value={<>{returnPickupLocation || booking.destination}{returnDate ? <span className="block font-normal text-slate-500">{fmtDate(returnDate)}{returnTime ? `, ${formatTime12h(returnTime)}` : ''}</span> : null}</>} />
+                                        <Row label={t.returnDropoff} value={returnDropoffLocation || booking.pickup_location} />
+                                    </>
+                                )}
+                            </dl>
+                        )}
+                    </section>
 
-                    {/* ============ PAYMENT DETAILS + BOOKING CONFIRMATION ============ */}
-                    <div className="grid grid-cols-2 gap-4 mb-7" style={{ breakInside: 'avoid' }}>
-                        <div className="bg-gray-50 rounded-lg p-3.5 border border-gray-200">
-                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">{t.paymentDetails}</h3>
-                            <p className="text-[11px] text-gray-500 mb-1">{t.paymentMethodLabel}: <span className="font-semibold text-gray-800">{lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod}</span></p>
-                            <p className="text-[11px] text-gray-700 font-medium leading-snug mb-2">
-                                {paymentInstructionText}
-                            </p>
-                            {status === 'paid' && (
-                                <p className="text-[11px] font-bold text-green-700">{t.amountReceived}: {currency} {total.toFixed(2)}</p>
-                            )}
-                            {status === 'partial' && (
-                                <>
-                                    <p className="text-[11px] font-bold text-amber-700">{t.amountReceived}: {currency} {deposit.toFixed(2)}</p>
-                                    <p className="text-[11px] font-bold text-gray-800">{t.remainingBalance}: {currency} {balance.toFixed(2)}</p>
-                                </>
-                            )}
-                            {status === 'unpaid' && (
-                                <p className="text-[11px] font-bold text-red-700">{t.paymentRequired}: {currency} {total.toFixed(2)}</p>
-                            )}
-                        </div>
-                        <div className={`rounded-lg p-3.5 border ${STATUS_STYLE[status].box}`}>
-                            <h3 className="text-[9.5px] font-bold uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
-                                {STATUS_STYLE[status].icon === 'ok' ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
-                                {confirmationHeading}
-                            </h3>
-                            <p className="text-[11px] text-gray-700 leading-snug">
-                                {confirmationText}
-                            </p>
-                        </div>
-                    </div>
+                    {/* Charges table */}
+                    <section className="mt-3" style={{ breakInside: 'avoid' }}>
+                        <SectionTitle>{t.charges}</SectionTitle>
+                        <table className="w-full text-[11.5px] border-collapse">
+                            <thead>
+                                <tr className="bg-slate-900 text-white">
+                                    <th className={`py-1.5 px-2 font-semibold ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{t.description}</th>
+                                    <th className="py-1.5 px-2 font-semibold text-center w-[50px]">{t.qty}</th>
+                                    <th className={`py-1.5 px-2 font-semibold w-[110px] ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{t.unitPrice}</th>
+                                    <th className={`py-1.5 px-2 font-semibold w-[110px] ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{t.amount}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border-b border-slate-200 align-top">
+                                    <td className="py-2 px-2">
+                                        <p className="font-bold text-slate-900">{serviceTitle}</p>
+                                        <p className="text-slate-600">{booking.vehicle_type} — {t.chauffeurService}</p>
+                                        <p className="text-slate-500 text-[10.5px]">{booking.pickup_location}{booking.trip_type !== 'hourly' ? ` → ${booking.destination}` : ''}{isRoundTrip ? ` (${t.roundTrip})` : ''}</p>
+                                    </td>
+                                    <td className="py-2 px-2 text-center">1</td>
+                                    <td className={`py-2 px-2 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(total)}</td>
+                                    <td className={`py-2 px-2 font-semibold ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(total)}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
 
-                    {/* Printed Bank Details Block */}
-                    {bankDetails.showOnDocument && (
-                        <div className="mb-7 bg-blue-50/40 rounded-lg p-4 border border-blue-100" style={{ breakInside: 'avoid' }}>
-                            <h3 className="text-[10.5px] font-bold text-blue-700 uppercase tracking-wide flex items-center gap-1.5 mb-3 pb-2 border-b border-blue-100">
-                                <Landmark className="w-3.5 h-3.5" /> {t.bankDetails}
-                            </h3>
-                            <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-[11px]">
-                                {bankDetails.bankName && (
-                                    <div className="flex justify-between border-b border-gray-100 pb-1">
-                                        <span className="text-gray-500">{t.bankName}</span>
-                                        <span className="font-semibold text-gray-900">{bankDetails.bankName}</span>
-                                    </div>
-                                )}
-                                {bankDetails.accountName && (
-                                    <div className="flex justify-between border-b border-gray-100 pb-1">
-                                        <span className="text-gray-500">{t.accountName}</span>
-                                        <span className="font-semibold text-gray-900">{bankDetails.accountName}</span>
-                                    </div>
-                                )}
-                                {bankDetails.accountNumber && (
-                                    <div className="flex justify-between border-b border-gray-100 pb-1">
-                                        <span className="text-gray-500">{t.accountNumber}</span>
-                                        <span className="font-semibold font-mono text-gray-900">{bankDetails.accountNumber}</span>
-                                    </div>
-                                )}
-                                {bankDetails.swiftCode && (
-                                    <div className="flex justify-between border-b border-gray-100 pb-1">
-                                        <span className="text-gray-500">{t.swift}</span>
-                                        <span className="font-semibold font-mono text-gray-900">{bankDetails.swiftCode}</span>
-                                    </div>
-                                )}
-                                {bankDetails.iban && (
-                                    <div className="col-span-2 flex justify-between border-b border-gray-100 pb-1">
-                                        <span className="text-gray-500">{t.iban}</span>
-                                        <span className="font-semibold font-mono text-gray-900 tracking-wide">{bankDetails.iban}</span>
-                                    </div>
-                                )}
+                    {/* Payment details + financial summary */}
+                    <div className="mt-3 grid grid-cols-[1fr_270px] gap-5 items-start" style={{ breakInside: 'avoid' }}>
+                        <section>
+                            <SectionTitle>{t.paymentDetails}</SectionTitle>
+                            <dl>
+                                <Row label={t.paymentMethodLabel} value={lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod} />
+                                <Row label={t.invoiceStatus} value={t[STATUS_LABEL_KEY[status]]} />
+                                <Row label={t.amountReceived} value={money(received)} />
+                                <Row label={t.outstanding} value={money(balance)} />
+                            </dl>
+                            <p className="mt-1.5 text-[11px] text-slate-600">{paymentNote}</p>
+                            {showBank && (
+                                <div className="mt-2 rounded border border-slate-200 bg-slate-50 px-3 py-2 text-[10.5px]">
+                                    <p className="font-bold text-slate-800 mb-0.5">{t.bankDetails}</p>
+                                    {bankDetails.bankName && <p>{t.bankName}: <b>{bankDetails.bankName}</b></p>}
+                                    {bankDetails.accountName && <p>{t.accountName}: <b>{bankDetails.accountName}</b></p>}
+                                    {bankDetails.accountNumber && <p>{t.accountNumber}: <b>{bankDetails.accountNumber}</b></p>}
+                                    {bankDetails.iban && <p>{t.iban}: <b className="font-mono">{bankDetails.iban}</b></p>}
+                                    {bankDetails.swiftCode && <p>{t.swift}: <b>{bankDetails.swiftCode}</b></p>}
+                                    {bankDetails.notes && <p className="text-slate-500 mt-0.5">{bankDetails.notes}</p>}
+                                </div>
+                            )}
+                        </section>
+                        <section className="rounded-lg border border-slate-300 overflow-hidden">
+                            <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{t.subtotal}</span><span className="font-semibold">{money(total)}</span></div>
+                            <div className="flex justify-between items-center px-3 py-2 bg-slate-900 text-white">
+                                <span className="font-bold text-[11px] uppercase tracking-wide">{t.totalInvoice}</span>
+                                <span className="text-[15px] font-black whitespace-nowrap">{money(total)}</span>
                             </div>
-                            {bankDetails.notes && (
-                                <p className="text-[10.5px] text-blue-600/80 italic mt-2">{t.note} {bankDetails.notes}</p>
-                            )}
-                        </div>
+                            <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{t.amountReceived}</span><span className="font-semibold text-emerald-700">{money(received)}</span></div>
+                            <div className="flex justify-between px-3 py-1.5"><span className="font-bold">{status === 'unpaid' ? t.amountDue : t.outstanding}</span><span className={`font-black ${balance > 0 ? 'text-red-700' : 'text-slate-900'}`}>{money(balance)}</span></div>
+                        </section>
+                    </div>
+
+                    {/* Booking status message (only when it says something true and useful) */}
+                    {statusMessage && (
+                        <p className={`mt-3 rounded-md border px-3 py-1.5 text-[11px] font-semibold ${bookingConfirmed && status === 'paid' ? 'border-emerald-200 bg-emerald-50 text-emerald-800' : 'border-amber-200 bg-amber-50 text-amber-800'}`}>{statusMessage}</p>
                     )}
 
-                    {/* ============ TERMS ============ */}
-                    <div className="mb-7" style={{ breakInside: 'avoid' }}>
-                        <p className="font-bold text-gray-900 mb-2 uppercase tracking-wide text-[9.5px]">{t.terms}</p>
-                        <ol className="list-decimal list-inside space-y-1 text-[9.5px] text-gray-500 leading-relaxed grid grid-cols-2 gap-x-6">
+                    {(quickNote.trim() || booking.special_requests) && (
+                        <section className="mt-3">
+                            <SectionTitle>{t.notes}</SectionTitle>
+                            {booking.special_requests && <p className="text-slate-700">{booking.special_requests}</p>}
+                            {quickNote.trim() && <p className="text-slate-700 whitespace-pre-wrap">{quickNote.trim()}</p>}
+                        </section>
+                    )}
+
+                    {/* Terms */}
+                    <section className="mt-3" style={{ breakInside: 'avoid' }}>
+                        <SectionTitle>{t.terms}</SectionTitle>
+                        <ol className={`list-decimal space-y-0 text-[10px] text-slate-600 ${lang === 'ar' ? 'pr-5' : 'pl-5'}`}>
                             <li>{t.term1}</li>
                             <li>{t.term2}</li>
                             <li>{t.term3}</li>
                             <li>{t.term4}</li>
                             <li>{t.term5}</li>
                             <li>{t.term6}</li>
-                            <li>{t.term7}</li>
-                            <li>{t.term8}</li>
-                            <li>{t.term9}</li>
                         </ol>
-                    </div>
+                    </section>
 
-                    {/* ============ SIGNATURE ============ */}
-                    <div className="mt-auto pt-2" style={{ breakInside: 'avoid' }}>
-                        <div className={`flex items-end gap-6 ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
-                            <div className="text-center">
-                                <p className="text-[8.5px] font-bold text-gray-400 uppercase tracking-wide mb-2">{t.authorizedSignature}</p>
-                                <img src="/ismail-signature.png" alt="Ismail" className="h-7 w-auto object-contain mx-auto" />
-                                <p className="text-[9.5px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Ismail</p>
-                                <p className="text-[8px] text-gray-400">{t.director}</p>
+                    {/* Signatures */}
+                    <section className={`mt-4 flex ${lang === 'ar' ? 'justify-start' : 'justify-end'} gap-10`} style={{ breakInside: 'avoid' }}>
+                        {[
+                            { img: '/ismail-signature.png', name: 'Ismail', role: t.director },
+                            { img: '/zumer-signature.png', name: 'Zumer', role: t.coFounder },
+                        ].map(sig => (
+                            <div key={sig.name} className="text-center min-w-[120px]">
+                                <img src={sig.img} alt={`Signature of ${sig.name}`} className="h-7 w-auto object-contain mx-auto" />
+                                <p className="border-t border-slate-400 mt-1 pt-0.5 font-bold text-slate-900">{sig.name}</p>
+                                <p className="text-[10.5px] text-slate-600">{sig.role}, Taxi Service KSA</p>
                             </div>
-                            <div className="text-center">
-                                <p className="text-[8.5px] font-bold text-gray-400 uppercase tracking-wide mb-2 invisible">{t.authorizedSignature}</p>
-                                <img src="/zumer-signature.png" alt="Zumer" className="h-7 w-auto object-contain mx-auto" />
-                                <p className="text-[9.5px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Zumer</p>
-                                <p className="text-[8px] text-gray-400">{t.partner}</p>
-                            </div>
-                        </div>
-                    </div>
+                        ))}
+                    </section>
 
-                    {/* ============ FOOTER ============ */}
-                    <div className="mt-6 pt-4 border-t border-gray-100 text-center" style={{ breakInside: 'avoid' }}>
-                        <p className="text-[9px] font-semibold text-gray-500">{t.thankYou}</p>
-                        <p className="text-[8.5px] text-gray-400 mt-1">{t.tagline}</p>
-                        <p className="text-[8.5px] text-gray-400 mt-1">info@taxiserviceksa.com · +966 57 580 6733 · www.taxiserviceksa.com</p>
+                    {/* Footer */}
+                    <div className="mt-3 pt-2 border-t border-slate-300 text-center text-[10px] text-slate-500">
+                        <p>Taxi Service KSA | {t.city} | <span dir="ltr">+966 57 580 6733</span> | info@taxiserviceksa.com | www.taxiserviceksa.com</p>
+                        <p className="italic">{t.thankYou}</p>
                     </div>
                 </div>
             </div>

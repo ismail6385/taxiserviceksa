@@ -69,7 +69,7 @@ const TXT = {
         acceptanceText: 'To proceed, please confirm that the journey details, vehicle arrangement and quoted fare are correct. We will then verify availability, share the payment instructions and confirm your booking.',
         customerAcceptance: 'Customer Acceptance', bookingConfirmation: 'Booking Confirmation', pendingAcceptance: 'Pending', pendingConfirmation: 'Pending until formally confirmed', confirmedText: 'Confirmed',
         note: 'Additional Note',
-        authorised: 'Authorised Representative', director: 'Director',
+        authorised: 'Authorised Representatives', director: 'Director', coFounder: 'Co-Founder',
         thanks: 'Thank you for considering Taxi Service KSA for your transportation requirements.',
         page: 'Page',
     },
@@ -114,7 +114,7 @@ const TXT = {
         acceptanceText: 'للمتابعة، يرجى تأكيد صحة تفاصيل الرحلة وترتيبات المركبة والسعر. سنقوم بعدها بالتحقق من التوفر وإرسال تعليمات الدفع وتأكيد حجزكم.',
         customerAcceptance: 'موافقة العميل', bookingConfirmation: 'تأكيد الحجز', pendingAcceptance: 'قيد الانتظار', pendingConfirmation: 'قيد الانتظار حتى التأكيد الرسمي', confirmedText: 'مؤكد',
         note: 'ملاحظة إضافية',
-        authorised: 'الممثل المفوض', director: 'المدير',
+        authorised: 'الممثلون المفوضون', director: 'المدير', coFounder: 'الشريك المؤسس',
         thanks: 'شكراً لاختياركم تاكسي سيرفس السعودية لاحتياجات النقل الخاصة بكم.',
         page: 'صفحة',
     },
@@ -505,7 +505,7 @@ export default function LetterheadPage() {
                 className="max-w-[210mm] min-h-[297mm] mx-auto bg-white shadow-xl border border-gray-100 print:shadow-none print:border-none print:m-0"
                 style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
-                <div className="px-10 pt-7 pb-4 text-[11.5px] leading-snug text-slate-800">
+                <div className="px-10 pt-6 pb-3 text-[11.5px] leading-snug text-slate-800">
                     {/* Company header */}
                     <header className="flex items-start justify-between gap-6 pb-3 border-b-2 border-slate-900">
                         <div>
@@ -634,7 +634,7 @@ export default function LetterheadPage() {
                     </section>
 
                     {/* Acceptance + signature */}
-                    <section className="mb-3 grid grid-cols-[1fr_170px] gap-6 items-end">
+                    <section className="mb-3 grid grid-cols-[1fr_300px] gap-6 items-end">
                         <div>
                             <SectionTitle>{t.acceptance}</SectionTitle>
                             <p>{t.acceptanceText}</p>
@@ -643,11 +643,20 @@ export default function LetterheadPage() {
                                 <div><dt className="text-slate-500">{t.bookingConfirmation}</dt><dd className="font-bold">{confirmed ? t.confirmedText : t.pendingConfirmation}</dd></div>
                             </dl>
                         </div>
-                        <div className="text-center">
-                            <p className="text-[10px] uppercase tracking-wide text-slate-500 mb-0.5">{t.authorised}</p>
-                            <img src="/ismail-signature.png" alt="Signature of Ismail" className="h-8 w-auto object-contain mx-auto" />
-                            <p className="border-t border-slate-400 mt-1 pt-0.5 font-bold text-slate-900">Ismail</p>
-                            <p className="text-[10.5px] text-slate-600">{t.director}, Taxi Service KSA</p>
+                        <div>
+                            <p className="text-[10px] uppercase tracking-wide text-slate-500 mb-0.5 text-center">{t.authorised}</p>
+                            <div className="grid grid-cols-2 gap-4 text-center">
+                                {[
+                                    { img: '/ismail-signature.png', name: 'Ismail', role: t.director },
+                                    { img: '/zumer-signature.png', name: 'Zumer', role: t.coFounder },
+                                ].map(sig => (
+                                    <div key={sig.name}>
+                                        <img src={sig.img} alt={`Signature of ${sig.name}`} className="h-8 w-auto object-contain mx-auto" />
+                                        <p className="border-t border-slate-400 mt-1 pt-0.5 font-bold text-slate-900">{sig.name}</p>
+                                        <p className="text-[10px] text-slate-600">{sig.role}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </section>
 

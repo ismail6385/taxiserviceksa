@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
                         <td>
                             <img src="https://taxiserviceksa.com/zumer-signature.png" alt="Zumer" style="height: 34px; display: block;" />
                             <p style="margin: 4px 0 0; font-size: 13px; font-weight: bold; color: #111;">Zumer</p>
-                            <p style="margin: 0; font-size: 11px; color: #888;">Founder</p>
+                            <p style="margin: 0; font-size: 11px; color: #888;">Co-Founder</p>
                         </td>
                     </tr>
                 </table>
