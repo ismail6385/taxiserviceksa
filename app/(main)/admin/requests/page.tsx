@@ -7,6 +7,7 @@ import { ksaToday } from '@/lib/ksa-time';
 import { formatTime12h } from '@/lib/format-time';
 import { Loader2, RefreshCw, Phone, MapPin, Users, Briefcase, Plane, RotateCcw, StickyNote, ChevronDown } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import LocationText from '@/components/admin/LocationText';
 
 // Inbox of new booking requests: every booking still 'pending', newest first.
 // Upcoming trips are the work queue; requests whose date has already passed
@@ -117,10 +118,10 @@ export default function RequestsPage() {
                 </div>
 
                 <div className="text-sm space-y-1">
-                    <p className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 text-emerald-600 shrink-0" /><span>{r.pickup_location}</span></p>
+                    <p className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 text-emerald-600 shrink-0" /><LocationText value={r.pickup_location} className="min-w-0" /></p>
                     {r.trip_type === 'hourly'
                         ? <p className="flex gap-2 text-gray-700">Hourly hire · {r.duration_hours || '?'} hours</p>
-                        : <p className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 text-red-500 shrink-0" /><span>{r.destination}</span></p>}
+                        : <p className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 text-red-500 shrink-0" /><LocationText value={r.destination} className="min-w-0" /></p>}
                 </div>
 
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-600">

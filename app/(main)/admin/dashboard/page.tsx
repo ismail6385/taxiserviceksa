@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
+import LocationText from '@/components/admin/LocationText';
 import { ksaToday } from '@/lib/ksa-time';
 
 interface Booking {
@@ -253,7 +254,7 @@ export default function AdminDashboard() {
                                                         {b.customer_name}
                                                         {b.customer_phone && <span className="font-normal text-neutral-400"> · {b.customer_phone}</span>}
                                                     </p>
-                                                    <p className="text-xs text-neutral-300">{b.pickup_location} → {b.destination}</p>
+                                                    <p className="text-xs text-neutral-300"><LocationText value={b.pickup_location} /> → <LocationText value={b.destination} /></p>
                                                     <div className="text-xs text-neutral-500 flex flex-wrap items-center gap-x-1.5 gap-y-1">
                                                         <span>{b.vehicle_type} ·</span>
                                                         {assigning === b.id ? (

@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
 import { ksaToday, ksaNowTime, shiftIsoDate } from '@/lib/ksa-time';
 import ManualEmailBox from '@/components/admin/ManualEmailBox';
+import LocationText from '@/components/admin/LocationText';
 import { profitSplit } from '@/lib/profit-split';
 import { parseBookingPaste, CHATGPT_BOOKING_PROMPT, PASTE_PLACEHOLDER } from '@/lib/booking-paste';
 import { adminFetch } from '@/lib/admin-fetch';
@@ -1463,12 +1464,12 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             </div>
 
             {/* Stats Overview */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
+            <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4 mb-8">
                 <div className="bg-white border border-gray-200 shadow-sm p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 min-w-0">
                     <div className="bg-blue-100 p-2 md:p-3 rounded-xl shrink-0"><Users className="w-5 h-5 text-blue-600" /></div>
                     <div className="min-w-0">
                         <p className="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Total Bookings</p>
-                        <p className="text-lg md:text-2xl font-bold break-words text-gray-900">{bookings.length}</p>
+                        <p className="text-lg xl:text-2xl font-bold whitespace-nowrap text-gray-900">{bookings.length}</p>
                     </div>
                 </div>
                 <div className="bg-white border border-gray-200 shadow-sm p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 min-w-0">
@@ -1476,10 +1477,10 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     <div className="min-w-0">
                         <p className="text-emerald-600 text-[10px] font-bold uppercase tracking-wider">Today's Revenue</p>
                         {Object.keys(todayRevenueByCurrency).length === 0 ? (
-                            <p className="text-lg md:text-2xl font-bold break-words text-emerald-700">SAR 0</p>
+                            <p className="text-lg xl:text-2xl font-bold whitespace-nowrap text-emerald-700">SAR 0</p>
                         ) : (
                             Object.entries(todayRevenueByCurrency).map(([curr, amount]) => (
-                                <p key={curr} className="text-lg md:text-2xl font-bold break-words text-emerald-700">{curr} {amount.toLocaleString()}</p>
+                                <p key={curr} className="text-lg xl:text-2xl font-bold whitespace-nowrap text-emerald-700">{curr} {amount.toLocaleString()}</p>
                             ))
                         )}
                     </div>
@@ -1488,14 +1489,14 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     <div className="bg-indigo-100 p-2 md:p-3 rounded-xl shrink-0"><Activity className="w-5 h-5 text-indigo-600" /></div>
                     <div className="min-w-0">
                         <p className="text-indigo-600 text-[10px] font-bold uppercase tracking-wider">Active Jobs Today</p>
-                        <p className="text-lg md:text-2xl font-bold break-words text-indigo-700">{todayActive}</p>
+                        <p className="text-lg xl:text-2xl font-bold whitespace-nowrap text-indigo-700">{todayActive}</p>
                     </div>
                 </div>
                 <div className={`border p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 min-w-0 shadow-sm transition-all ${urgentCount > 0 ? 'bg-red-50 border-red-200 animate-pulse' : 'bg-white border-gray-200'}`}>
                     <div className={`${urgentCount > 0 ? 'bg-red-200' : 'bg-gray-100'} p-2 md:p-3 rounded-xl shrink-0`}><AlertTriangle className={`w-5 h-5 ${urgentCount > 0 ? 'text-red-700' : 'text-gray-400'}`} /></div>
                     <div className="min-w-0">
                         <p className={`${urgentCount > 0 ? 'text-red-700' : 'text-gray-500'} text-[10px] font-bold uppercase tracking-wider`}>Urgent/Pending</p>
-                        <p className={`text-lg md:text-2xl font-bold break-words ${urgentCount > 0 ? 'text-red-700' : 'text-gray-900'}`}>{urgentCount}</p>
+                        <p className={`text-lg xl:text-2xl font-bold whitespace-nowrap ${urgentCount > 0 ? 'text-red-700' : 'text-gray-900'}`}>{urgentCount}</p>
                     </div>
                 </div>
             </div>
@@ -1572,8 +1573,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+                <div className="min-w-0">
                     <Select value={statusFilter} onValueChange={setStatusFilter}>
                         <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
                             <div className="flex items-center gap-2">
@@ -1594,7 +1595,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SelectContent>
                     </Select>
                 </div>
-                <div className="flex-1">
+                <div className="min-w-0">
                     <Select value={paymentFilter} onValueChange={setPaymentFilter}>
                         <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
                             <div className="flex items-center gap-2">
@@ -1611,7 +1612,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SelectContent>
                     </Select>
                 </div>
-                <div className="flex-1">
+                <div className="min-w-0">
                     <Select value={tripTypeFilter} onValueChange={setTripTypeFilter}>
                         <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
                             <div className="flex items-center gap-2">
@@ -1627,7 +1628,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SelectContent>
                     </Select>
                 </div>
-                <div className="flex-1">
+                <div className="min-w-0">
                     <Select value={bookingTypeFilter} onValueChange={setBookingTypeFilter}>
                         <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
                             <div className="flex items-center gap-2">
@@ -1829,11 +1830,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <div className="flex flex-col gap-1 text-sm">
                                                 <div className="flex items-start gap-1.5 text-gray-700">
                                                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"></span>
-                                                    {booking.pickup_location}
+                                                    <LocationText value={booking.pickup_location} className="min-w-0" />
                                                 </div>
                                                 <div className="flex items-start gap-1.5 text-gray-700">
                                                     <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                                    {booking.destination}
+                                                    <LocationText value={booking.destination} className="min-w-0" />
                                                 </div>
                                                 <div className="2xl:hidden text-xs text-gray-500 pl-3">
                                                     {booking.vehicle_type}
@@ -1852,7 +1853,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             )}
                                         </TableCell>
                                         <TableCell className="text-sm text-gray-700">
-                                            <div className="flex items-center gap-2">
+                                            <div className="flex flex-wrap items-center gap-1.5">
                                                 <span className={isOverdue ? 'text-red-700 font-black' : actionNeeded ? 'text-red-600 font-bold animate-pulse' : 'text-gray-700'}>{booking.pickup_date}</span>
                                                 {isOverdue && <Badge className="bg-red-700 text-white border-none animate-pulse text-[10px]">OVERDUE</Badge>}
                                                 {isToday && !isOverdue && <Badge className="bg-red-500 hover:bg-red-600 animate-pulse text-[10px] uppercase border-none text-white px-1.5 py-0">Today</Badge>}
@@ -2037,11 +2038,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     <div className="col-span-2 flex flex-col gap-1 bg-gray-50 rounded-lg p-2 border border-gray-100">
                                         <div className="flex items-start gap-1.5 text-gray-700">
                                             <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
-                                            <span className="break-words min-w-0">{booking.pickup_location}</span>
+                                            <LocationText value={booking.pickup_location} className="min-w-0" />
                                         </div>
                                         <div className="flex items-start gap-1.5 text-gray-700">
                                             <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5"></span>
-                                            <span className="break-words min-w-0">{booking.destination}</span>
+                                            <LocationText value={booking.destination} className="min-w-0" />
                                         </div>
                                     </div>
                                     <div>
@@ -2424,7 +2425,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         {isEditing ? (
                                             <Input value={editedBooking.pickup_location} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_location: e.target.value })} className="h-8 text-sm bg-white" />
                                         ) : (
-                                            <p className="text-base font-medium text-gray-900">{selectedBooking.pickup_location}</p>
+                                            <p className="text-base font-medium text-gray-900"><LocationText value={selectedBooking.pickup_location} /></p>
                                         )}
                                     </div>
 
@@ -2434,7 +2435,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         {isEditing ? (
                                             <Input value={editedBooking.destination} onChange={(e) => setEditedBooking({ ...editedBooking, destination: e.target.value })} className="h-8 text-sm bg-white" />
                                         ) : (
-                                            <p className="text-base font-medium text-gray-900">{selectedBooking.destination}</p>
+                                            <p className="text-base font-medium text-gray-900"><LocationText value={selectedBooking.destination} /></p>
                                         )}
                                     </div>
 
