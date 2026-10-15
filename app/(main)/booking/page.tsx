@@ -12,6 +12,21 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/booking/',
     },
+    // Own preview for WhatsApp / social shares (otherwise the site default is used).
+    openGraph: {
+        title: 'Book Your Private Transfer | Taxi Service KSA',
+        description: 'Get a quote in a minute: airport pickups, intercity trips, Umrah and GCC transfers across Saudi Arabia. Fixed price confirmed on WhatsApp.',
+        url: 'https://taxiserviceksa.com/booking/',
+        siteName: 'Taxi Service KSA',
+        type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1024, height: 1024, alt: 'Private chauffeur transfer in Saudi Arabia' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Book Your Private Transfer | Taxi Service KSA',
+        description: 'Get a quote in a minute: airport pickups, intercity trips, Umrah and GCC transfers across Saudi Arabia.',
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
+    },
 };
 
 export default function BookingPage() {

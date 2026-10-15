@@ -43,15 +43,15 @@ export const metadata = {
     ],
   },
   openGraph: {
-    title: 'Taxi Service KSA | VIP Jeddah to Makkah Transfers',
-    description: 'Book official taxi services in Saudi Arabia. Reliable private transfers from Jeddah Airport to Makkah & Madinah. Fixed rates, VIP GMCs, and 24/7 customer support.',
+    title: 'Taxi Service KSA | Private Transfers & Chauffeur Service in Saudi Arabia',
+    description: 'Pre-booked private transfers across Saudi Arabia: airport pickups, intercity trips, Umrah transport and GCC border crossings. Fixed prices, 24/7 on WhatsApp.',
     url: './',
     siteName: 'Taxi Service KSA',
     images: [
       {
         url: 'https://taxiserviceksa.com/og-image.jpg',
-        width: 1200,
-        height: 630,
+        width: 1024,
+        height: 1024,
         alt: 'Taxi Service KSA - Premium Saudi Arabia Transfers',
       },
     ],
@@ -61,7 +61,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Taxi Service KSA | VIP Private Transfers',
-    description: 'Book official taxi services in Saudi Arabia. Reliable private transfers from Jeddah Airport to Makkah & Madinah.',
+    description: 'Pre-booked private transfers across Saudi Arabia: airport pickups, intercity trips, Umrah transport and GCC border crossings.',
     images: ['/twitter-image.jpg'],
   },
   other: {
