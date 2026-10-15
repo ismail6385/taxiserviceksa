@@ -1,60 +1,72 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useBillToCompany, BillToCompanyInput, BillToCompanyBlock } from '@/components/admin/BillToCompany';
+import { useBillToCompany, BillToCompanyInput } from '@/components/admin/BillToCompany';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
 import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
-import { ArrowLeft, Mail, Printer, Languages, Repeat } from 'lucide-react';
+import { ksaToday } from '@/lib/ksa-time';
+import { ArrowLeft, Mail, Printer, Languages, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+// Official payment receipt, laid out per the owner's receipt brief: header,
+// receipt number / issue date / PAID, acknowledgement sentence, Particulars |
+// Details | Amount table, Customer (or Payer) Information, both signatories
+// (Ismail, Director and Zumer, Co-Founder) and the company footer.
+// A receipt is only produced after the admin confirms the payment was
+// actually received; nothing marks a booking paid behind their back.
 
 type DocLang = 'en' | 'ar';
 
-const RECEIPT_TEXT: Record<DocLang, Record<string, string>> = {
+const TXT: Record<DocLang, Record<string, string>> = {
     en: {
-        officialReceipt: 'Official Payment Receipt', no: 'No.', date: 'Date:',
-        certifyPrefix: 'This is to certify that we have received from',
-        sumOf: 'the sum of',
-        paymentFor: 'being payment for private transport services rendered on',
+        title: 'Official Payment Receipt', receiptNo: 'Receipt Number', issueDate: 'Issue Date', paymentStatus: 'Payment Status', paid: 'PAID',
+        bookingRef: 'Booking Reference',
+        ackA: 'This is to certify that Taxi Service KSA has received payment from',
+        ackB: 'in the amount of', ackC: 'for the private transportation services provided on',
+        ackCPartial: 'as part payment for the private transportation services scheduled on',
         particulars: 'Particulars', details: 'Details', amount: 'Amount',
-        service: 'Service', privateChauffeurTransfer: 'Private Chauffeur Transfer',
-        hourlyChauffeurService: 'Hourly Chauffeur Service', durationLabel: 'Duration', hours: 'hours',
-        route: 'Route', to: 'to', outboundRoute: 'Outbound Route', returnRoute: 'Return Route',
-        returnDateTime: 'Return Date & Time', sameDay: 'same day',
-        dateTime: 'Date & Time', vehicle: 'Vehicle', passengers: 'Passengers',
-        paymentMethod: 'Payment Method', remarks: 'Remarks',
+        service: 'Service', privateTransfer: 'Private Chauffeur Transfer', roundTrip: 'Private Round Trip Transfer', hourly: 'Hourly Chauffeur Service',
+        route: 'Route', pickup: 'Pickup', dropoff: 'Drop-off', returnRoute: 'Return Route',
+        dateTime: 'Service Date & Pickup Time', returnDateTime: 'Return Date & Time', duration: 'Duration', hours: 'hours',
+        vehicle: 'Vehicle', passengers: 'Passengers', items: 'Items', paymentMethod: 'Payment Method', remarks: 'Remarks',
+        bookingTotal: 'Booking total', balanceRemaining: 'Balance remaining',
         totalReceived: 'Total Amount Received',
-        payeeInfo: 'Payee Information', fullName: 'Full Name', phone: 'Phone', email: 'Email',
-        director: 'Director', partner: 'Co-Founder',
-        issued: 'Issued', officialNote: 'This is an official receipt — Please retain for your records',
-        companyTagline: 'Premium Private Transport — Kingdom of Saudi Arabia',
-        city: 'Jeddah',
+        customerInfo: 'Customer Information', payerInfo: 'Payer Information', onBehalfOf: 'On behalf of',
+        company: 'Company', fullName: 'Full Name', phone: 'Phone', email: 'Email',
+        director: 'Director', coFounder: 'Co-Founder',
+        tagline: 'Premium Private Transport — Kingdom of Saudi Arabia', city: 'Jeddah, Saudi Arabia', cityUpper: 'JEDDAH · SAUDI ARABIA',
+        receiptRef: 'Receipt Reference', issued: 'Issued',
+        thanks: 'Thank you for choosing Taxi Service KSA.',
+        officialNote: 'This is an official payment receipt. Please retain it for your records.',
     },
     ar: {
-        officialReceipt: 'إيصال دفع رسمي', no: 'الرقم', date: 'التاريخ:',
-        certifyPrefix: 'نشهد بأننا استلمنا من',
-        sumOf: 'مبلغاً وقدره',
-        paymentFor: 'كدفعة مقابل خدمات النقل الخاص المقدمة بتاريخ',
+        title: 'إيصال دفع رسمي', receiptNo: 'رقم الإيصال', issueDate: 'تاريخ الإصدار', paymentStatus: 'حالة الدفع', paid: 'مدفوع',
+        bookingRef: 'رقم الحجز',
+        ackA: 'نشهد بأن تاكسي سيرفس السعودية قد استلمت دفعة من',
+        ackB: 'بمبلغ وقدره', ackC: 'مقابل خدمات النقل الخاص المقدمة بتاريخ',
+        ackCPartial: 'كدفعة جزئية مقابل خدمات النقل الخاص المقررة بتاريخ',
         particulars: 'البيان', details: 'التفاصيل', amount: 'المبلغ',
-        service: 'الخدمة', privateChauffeurTransfer: 'نقل خاص بسائق',
-        hourlyChauffeurService: 'خدمة سائق بالساعة', durationLabel: 'المدة', hours: 'ساعات',
-        route: 'المسار', to: 'إلى', outboundRoute: 'مسار الذهاب', returnRoute: 'مسار العودة',
-        returnDateTime: 'تاريخ ووقت العودة', sameDay: 'نفس اليوم',
-        dateTime: 'التاريخ والوقت', vehicle: 'المركبة', passengers: 'الركاب',
-        paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
+        service: 'الخدمة', privateTransfer: 'نقل خاص بسائق', roundTrip: 'نقل خاص ذهاب وعودة', hourly: 'خدمة سائق بالساعة',
+        route: 'المسار', pickup: 'الانطلاق', dropoff: 'الوصول', returnRoute: 'مسار العودة',
+        dateTime: 'تاريخ الخدمة ووقت الانطلاق', returnDateTime: 'تاريخ ووقت العودة', duration: 'المدة', hours: 'ساعات',
+        vehicle: 'المركبة', passengers: 'الركاب', items: 'الأغراض', paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
+        bookingTotal: 'إجمالي الحجز', balanceRemaining: 'الرصيد المتبقي',
         totalReceived: 'إجمالي المبلغ المستلم',
-        payeeInfo: 'معلومات المستلم', fullName: 'الاسم الكامل', phone: 'الهاتف', email: 'البريد الإلكتروني',
-        director: 'المدير', partner: 'الشريك المؤسس',
-        issued: 'تاريخ الإصدار', officialNote: 'هذا إيصال رسمي — يرجى الاحتفاظ به لسجلاتكم',
-        companyTagline: 'خدمة نقل خاصة فاخرة — المملكة العربية السعودية',
-        city: 'جدة',
+        customerInfo: 'معلومات العميل', payerInfo: 'معلومات الدافع', onBehalfOf: 'نيابة عن',
+        company: 'الشركة', fullName: 'الاسم الكامل', phone: 'الهاتف', email: 'البريد الإلكتروني',
+        director: 'المدير', coFounder: 'الشريك المؤسس',
+        tagline: 'خدمة نقل خاصة فاخرة — المملكة العربية السعودية', city: 'جدة، المملكة العربية السعودية', cityUpper: 'جدة · المملكة العربية السعودية',
+        receiptRef: 'مرجع الإيصال', issued: 'تاريخ الإصدار',
+        thanks: 'شكراً لاختياركم تاكسي سيرفس السعودية.',
+        officialNote: 'هذا إيصال دفع رسمي. يرجى الاحتفاظ به لسجلاتكم.',
     },
 };
 
-const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', Online: 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي' };
+const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', Online: 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي', 'Card Payment': 'بطاقة' };
 
 interface Booking {
     id: string;
@@ -73,12 +85,12 @@ interface Booking {
     status: string;
     special_requests?: string;
     total_price?: number;
+    deposit_amount?: number | null;
     currency?: string;
     payment_status?: string;
     payment_method?: string;
     trip_type?: 'point_to_point' | 'hourly';
     duration_hours?: number;
-    contract_id?: string | null;
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
@@ -100,19 +112,24 @@ export default function ReceiptPage() {
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     const [amountPaid, setAmountPaid] = useState('');
     const [receiptNote, setReceiptNote] = useState('');
+    const [payerName, setPayerName] = useState('');
+    const [paymentConfirmed, setPaymentConfirmed] = useState(false);
     const [sendingEmail, setSendingEmail] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
 
     useEffect(() => {
         const fetchBooking = async () => {
             try {
-                const { data, error } = await supabase
-                    .from('bookings').select('*').eq('id', id).single();
+                const { data, error } = await supabase.from('bookings').select('*').eq('id', id).single();
                 if (error) throw error;
                 setBooking(data);
                 if (data.currency) setCurrency(data.currency);
                 if (data.payment_method) setPaymentMethod(data.payment_method);
-                if (data.total_price) setAmountPaid(data.total_price.toFixed(2));
+                const status = (data.payment_status || '').toLowerCase();
+                // Default the amount to what the records say was received.
+                if (status.includes('partial') && data.deposit_amount) setAmountPaid(Number(data.deposit_amount).toFixed(2));
+                else if (data.total_price) setAmountPaid(Number(data.total_price).toFixed(2));
+                if (status === 'paid') setPaymentConfirmed(true);
             } catch (err) {
                 console.error('Error fetching booking:', err);
             } finally {
@@ -123,41 +140,46 @@ export default function ReceiptPage() {
     }, [id]);
 
     const receiptNumber = booking ? `RCP-${booking.id.slice(0, 8).toUpperCase()}` : '';
-    const receiptDate = new Date().toLocaleDateString('en-GB', {
-        day: '2-digit', month: 'short', year: 'numeric',
-    });
+    const issueIso = ksaToday();
+
+    const requireConfirmation = () => {
+        if (paymentConfirmed) return true;
+        alert('Tick "Payment has been received" first. A receipt must only be issued for money actually received.');
+        return false;
+    };
 
     const handlePrint = async () => {
-        if (!booking) return;
+        if (!booking || !requireConfirmation()) return;
         await downloadDocumentPdf('receipt-print', `Receipt-${receiptNumber}.pdf`);
     };
 
     const handleSendEmail = async () => {
-        if (!booking) return;
+        if (!booking || !requireConfirmation()) return;
         setSendingEmail(true);
         setEmailSent(false);
         try {
             const filename = `Receipt-${receiptNumber}.pdf`;
             const base64 = await documentPdfToBase64('receipt-print', filename);
-
+            const received = Number(amountPaid) || 0;
+            const total = Number(booking.total_price) || 0;
+            const fullyPaid = total > 0 && received >= total;
+            // Record exactly what was received: full payment marks the booking
+            // paid; a smaller amount is stored as a partial payment.
             await supabase.from('bookings')
-                .update({ currency, payment_status: 'paid', payment_method: paymentMethod })
+                .update(fullyPaid
+                    ? { currency, payment_status: 'paid', payment_method: paymentMethod }
+                    : { currency, payment_status: 'partial', deposit_amount: received, payment_method: paymentMethod })
                 .eq('id', booking.id);
 
             const res = await adminFetch('/api/send-receipt-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    booking, pdfBase64: base64,
-                    filename,
-                    currency, paymentMethod,
-                    amountPaid: amountPaid || booking.total_price?.toFixed(2),
-                }),
+                body: JSON.stringify({ booking, pdfBase64: base64, filename, currency, paymentMethod, amountPaid: received.toFixed(2) }),
             });
             if (!res.ok) throw new Error('failed');
             setEmailSent(true);
             setTimeout(() => setEmailSent(false), 4000);
-        } catch (err) {
+        } catch {
             alert('Failed to send receipt. Please try again.');
         } finally {
             setSendingEmail(false);
@@ -176,305 +198,216 @@ export default function ReceiptPage() {
         </div>
     );
 
-    const amount = amountPaid || booking.total_price?.toFixed(2) || '0.00';
-    const t = RECEIPT_TEXT[lang];
+    const t = TXT[lang];
+    const fmtDate = (iso?: string | null) => {
+        if (!iso) return '';
+        const d = new Date(`${iso}T12:00:00Z`);
+        return Number.isNaN(d.getTime()) ? iso : d.toLocaleDateString(lang === 'ar' ? 'ar-SA-u-ca-gregory' : 'en-GB', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    };
+    const money = (n: number) => `${currency} ${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    const received = Number(amountPaid) || 0;
+    const total = Number(booking.total_price) || 0;
+    const partial = total > 0 && received > 0 && received < total;
+    const serviceDate = booking.trip_end_date && booking.trip_end_date !== booking.pickup_date
+        ? `${fmtDate(booking.pickup_date)} – ${fmtDate(booking.trip_end_date)}`
+        : fmtDate(booking.pickup_date);
+    const serviceName = booking.trip_type === 'hourly' ? t.hourly : booking.has_return_trip ? t.roundTrip : t.privateTransfer;
+    const companyLines = billToCompany.split('\n').map(l => l.trim()).filter(Boolean);
+    const payer = payerName.trim();
+    const ret = booking.has_return_trip ? getReturnRoute(booking) : null;
+    const warnings = [
+        !paymentConfirmed && 'Tick "Payment has been received" once the money is actually in. Until then the receipt cannot be downloaded or sent.',
+        !received && 'Enter the amount received.',
+        total > 0 && received > total && 'The amount received is more than the booking total.',
+    ].filter(Boolean) as string[];
+
+    const cell = 'px-3 py-2 align-top border-b border-slate-100';
+    const Line = ({ k, v, amt }: { k: string; v: React.ReactNode; amt?: React.ReactNode }) => (
+        <tr>
+            <td className={`${cell} w-[150px] font-semibold text-slate-700`}>{k}</td>
+            <td className={`${cell} text-slate-800`}>{v}</td>
+            <td className={`${cell} w-[120px] font-semibold text-slate-900 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{amt ?? ''}</td>
+        </tr>
+    );
 
     return (
         <div className="min-h-screen bg-gray-100 py-6 px-4 print:bg-white print:py-0 print:px-0">
 
             {/* Controls */}
-            <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
+            <div className="max-w-[210mm] mx-auto mb-3 print:hidden space-y-3">
                 <div className="flex flex-wrap gap-3 items-center justify-between bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
                     <Button variant="outline" onClick={() => router.back()} className="h-9 text-sm">
                         <ArrowLeft className="w-4 h-4 mr-1.5" /> Back
                     </Button>
-
                     <div className="flex flex-wrap gap-2 items-center">
-                        {/* Language Toggle */}
-                        <button
-                            onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
-                            className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2.5 h-9 bg-gray-50 hover:bg-gray-100 transition-all text-xs font-bold"
-                        >
+                        <button onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2.5 h-9 bg-gray-50 hover:bg-gray-100 text-xs font-bold">
                             <Languages className="w-3.5 h-3.5" /> {lang === 'en' ? 'English' : 'عربي'}
                         </button>
-
-                        {/* Amount */}
                         <div className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2 py-1.5 bg-gray-50">
-                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-wider">Amt:</span>
-                            <input value={amountPaid} onChange={e => setAmountPaid(e.target.value)}
-                                className="w-20 text-xs font-bold outline-none bg-transparent" placeholder="0.00" />
+                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-wider">Received:</span>
+                            <input value={amountPaid} onChange={e => setAmountPaid(e.target.value)} className="w-20 text-xs font-bold outline-none bg-transparent" placeholder="0.00" />
                         </div>
-
-                        {/* Currency */}
                         <div className="flex gap-1">
-                            {['SAR','KWD','AED','USD'].map(c => (
-                                <button key={c} onClick={() => setCurrency(c)}
-                                    className={`px-2 py-1 text-[10px] font-bold rounded-md transition-all ${currency === c ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
-                                    {c}
-                                </button>
+                            {['SAR', 'KWD', 'AED', 'USD'].map(c => (
+                                <button key={c} onClick={() => setCurrency(c)} className={`px-2 py-1 text-[10px] font-bold rounded-md ${currency === c ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>{c}</button>
                             ))}
                         </div>
-
-                        {/* Method */}
                         <div className="flex gap-1">
-                            {['Cash to Driver','Online','Bank Transfer'].map(m => (
-                                <button key={m} onClick={() => setPaymentMethod(m)}
-                                    className={`px-2 py-1 text-[10px] font-bold rounded-md transition-all ${paymentMethod === m ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
-                                    {m}
-                                </button>
+                            {['Cash to Driver', 'Bank Transfer', 'Card Payment', 'Online'].map(m => (
+                                <button key={m} onClick={() => setPaymentMethod(m)} className={`px-2 py-1 text-[10px] font-bold rounded-md ${paymentMethod === m ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>{m}</button>
                             ))}
                         </div>
-
-                        <Button onClick={handlePrint} className="bg-gray-900 text-white hover:bg-black font-bold h-9 px-4 text-sm">
+                        <Button onClick={handlePrint} disabled={!paymentConfirmed} className="bg-gray-900 text-white hover:bg-black font-bold h-9 px-4 text-sm">
                             <Printer className="w-4 h-4 mr-1.5" /> PDF
                         </Button>
-                        <Button onClick={handleSendEmail} disabled={sendingEmail}
-                            className={`font-bold h-9 px-4 text-sm ${emailSent ? 'bg-green-500 text-white' : 'bg-green-600 text-white hover:bg-green-700'}`}>
-                            <Mail className="w-4 h-4 mr-1.5" />
-                            {sendingEmail ? 'Sending...' : emailSent ? '✓ Sent!' : 'Email Receipt'}
+                        <Button onClick={handleSendEmail} disabled={sendingEmail || !paymentConfirmed} className={`font-bold h-9 px-4 text-sm ${emailSent ? 'bg-green-500 text-white' : 'bg-green-600 text-white hover:bg-green-700'}`}>
+                            <Mail className="w-4 h-4 mr-1.5" /> {sendingEmail ? 'Sending...' : emailSent ? '✓ Sent!' : 'Email Receipt'}
                         </Button>
                     </div>
                 </div>
 
-                {/* Note */}
-                <div className="mt-3">
-                    <textarea value={receiptNote} onChange={e => setReceiptNote(e.target.value)}
-                        placeholder="Add a note (optional)..." rows={2}
-                        className="w-full border border-dashed border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-600 focus:outline-none focus:border-green-400 resize-none bg-white shadow-sm" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <label className={`flex items-start gap-2 rounded-xl border px-4 py-3 text-sm cursor-pointer ${paymentConfirmed ? 'border-emerald-300 bg-emerald-50 text-emerald-900' : 'border-amber-300 bg-amber-50 text-amber-900'}`}>
+                        <input type="checkbox" className="mt-1" checked={paymentConfirmed} onChange={e => setPaymentConfirmed(e.target.checked)} />
+                        <span><b className="flex items-center gap-1"><ShieldCheck className="w-4 h-4" /> Payment has been received</b>I confirm {money(received)} was actually received from the customer.</span>
+                    </label>
+                    <label className="block rounded-xl border border-gray-200 bg-white px-4 py-3 text-xs font-semibold text-gray-600">
+                        Paid by someone else? (optional)
+                        <input value={payerName} onChange={e => setPayerName(e.target.value)} placeholder="Payer's full name" className="mt-1 block w-full h-8 rounded border border-gray-300 px-2 text-sm font-normal" />
+                    </label>
                 </div>
+
+                <textarea value={receiptNote} onChange={e => setReceiptNote(e.target.value)} placeholder="Remarks on the receipt (optional), e.g. transaction reference" rows={2}
+                    className="w-full border border-dashed border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-600 focus:outline-none focus:border-green-400 resize-none bg-white shadow-sm" />
+
+                {warnings.length > 0 && (
+                    <div className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-2.5 text-xs text-amber-900 space-y-0.5">
+                        {warnings.map(w => <p key={w}>• {w}</p>)}
+                    </div>
+                )}
             </div>
 
             <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
 
             {/* ── A4 RECEIPT ── */}
-            <div id="receipt-print" dir={lang === 'ar' ? 'rtl' : 'ltr'}
-                className="max-w-[210mm] mx-auto bg-white shadow-xl print:shadow-none print:max-w-none print:w-[210mm] print:h-[296mm] print:overflow-hidden">
+            <div id="receipt-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] min-h-[296mm] mx-auto bg-white shadow-xl print:shadow-none print:max-w-none print:w-[210mm]" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
+                <div className="px-11 pt-8 pb-6 flex flex-col min-h-[296mm] text-[12px] leading-snug text-slate-800">
 
-                {/* Top green stripe */}
-                <div className="h-1.5 bg-green-500 w-full" />
-
-                <div className="px-12 py-10 print:px-[14mm] print:py-[12mm] flex flex-col min-h-[calc(296mm-6px)] print:h-[calc(296mm-6px)] print:justify-between">
-
-                    {/* ── HEADER ── */}
-                    <div>
-
-                        {/* Company letterhead */}
-                        <div className="text-center pb-5 border-b-2 border-gray-900">
-                            <p className="text-2xl font-black text-gray-900 uppercase tracking-[0.15em]">Taxi Service KSA</p>
-                            <p className="text-xs text-gray-500 mt-1">{t.companyTagline}</p>
-                            <p className="text-xs text-gray-400">{t.city} · info@taxiserviceksa.com · <span dir="ltr">+966 57 580 6733</span> · www.taxiserviceksa.com</p>
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-6 pb-3 border-b-2 border-slate-900">
+                        <div>
+                            <p className="text-[22px] font-black tracking-wide text-slate-900">TAXI SERVICE <span className="text-emerald-600">KSA</span></p>
+                            <p className="text-[11.5px] font-semibold text-slate-600">{t.tagline}</p>
+                            <p className="text-[11px] text-slate-500 mt-0.5">{t.city}</p>
                         </div>
-
-                        {/* OFFICIAL RECEIPT title */}
-                        <div className="text-center py-4 border-b border-gray-200">
-                            <p className="text-xs font-black text-gray-400 uppercase tracking-[0.3em]">{t.officialReceipt}</p>
-                            <div className="flex items-center justify-center gap-6 mt-1">
-                                <p className="text-xs text-gray-500 font-mono">{t.no} {receiptNumber}</p>
-                                <span className="text-gray-300">·</span>
-                                <p className="text-xs text-gray-500">{t.date} {receiptDate}</p>
-                            </div>
-                        </div>
-
-                        {/* Received from statement */}
-                        <div className="mt-6 mb-5 px-2">
-                            <p className="text-sm text-gray-700 leading-relaxed">
-                                {t.certifyPrefix}{' '}
-                                <strong className="text-gray-900 border-b border-gray-400">&nbsp;{booking.customer_name}&nbsp;</strong>
-                                {' '}{t.sumOf}{' '}
-                                <strong className="text-gray-900 border-b border-gray-400">&nbsp;{currency} {amount}&nbsp;</strong>
-                                {' '}{t.paymentFor}{' '}
-                                <strong className="text-gray-900 border-b border-gray-400">&nbsp;{booking.pickup_date}&nbsp;</strong>.
-                            </p>
-                        </div>
-
-                        {/* Details table */}
-                        <table className="w-full text-sm mb-5 border border-gray-200">
-                            <thead>
-                                <tr className="bg-gray-50">
-                                    <th className="text-left px-4 py-2.5 text-[10px] font-black text-gray-500 uppercase tracking-widest border-b border-gray-200">{t.particulars}</th>
-                                    <th className="text-left px-4 py-2.5 text-[10px] font-black text-gray-500 uppercase tracking-widest border-b border-gray-200">{t.details}</th>
-                                    <th className="text-right px-4 py-2.5 text-[10px] font-black text-gray-500 uppercase tracking-widest border-b border-gray-200">{t.amount}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="border-b border-gray-100">
-                                    <td className="px-4 py-3 text-gray-700 font-medium align-top">{t.service}</td>
-                                    <td className="px-4 py-3 text-gray-600 align-top">{booking.trip_type === 'hourly' ? t.hourlyChauffeurService : t.privateChauffeurTransfer}</td>
-                                    <td className="px-4 py-3 text-right font-bold text-gray-900 align-top">{currency} {amount}</td>
-                                </tr>
-                                <tr className="border-b border-gray-100">
-                                    <td className="px-4 py-3 text-gray-700 font-medium align-top">{booking.has_return_trip ? t.outboundRoute : t.route}</td>
-                                    <td className="px-4 py-3 text-gray-600 align-top">
-                                        {booking.pickup_location}<br />
-                                        <span className="text-gray-400 text-xs">↓ {t.to}</span><br />
-                                        {booking.destination}
-                                    </td>
-                                    <td className="px-4 py-3"></td>
-                                </tr>
-                                {booking.has_return_trip && (
-                                    <>
-                                        <tr className="border-b border-gray-100">
-                                            <td className="px-4 py-3 text-gray-700 font-medium align-top flex items-center gap-1.5"><Repeat className="w-3 h-3 text-blue-500" /> {t.returnRoute}</td>
-                                            <td className="px-4 py-3 text-gray-600 align-top">
-                                                {getReturnRoute(booking).pickupLocation}<br />
-                                                <span className="text-gray-400 text-xs">↓ {t.to}</span><br />
-                                                {getReturnRoute(booking).destination}
-                                            </td>
-                                            <td className="px-4 py-3"></td>
-                                        </tr>
-                                        <tr className="border-b border-gray-100">
-                                            <td className="px-4 py-3 text-gray-700 font-medium">{t.returnDateTime}</td>
-                                            <td className="px-4 py-3 text-gray-600">
-                                                {booking.return_date
-                                                    ? `${booking.return_date}${booking.return_date === booking.pickup_date ? ` (${t.sameDay})` : ''} — ${formatTime12h(booking.return_time)}`
-                                                    : <span className="italic text-gray-400">—</span>}
-                                            </td>
-                                            <td className="px-4 py-3"></td>
-                                        </tr>
-                                    </>
-                                )}
-                                {booking.trip_type === 'hourly' && (
-                                    <tr className="border-b border-gray-100">
-                                        <td className="px-4 py-3 text-gray-700 font-medium">{t.durationLabel}</td>
-                                        <td className="px-4 py-3 text-gray-600">{booking.duration_hours || '?'} {t.hours}</td>
-                                        <td className="px-4 py-3"></td>
-                                    </tr>
-                                )}
-                                <tr className="border-b border-gray-100">
-                                    <td className="px-4 py-3 text-gray-700 font-medium">{t.dateTime}</td>
-                                    <td className="px-4 py-3 text-gray-600">{booking.trip_end_date && booking.trip_end_date !== booking.pickup_date ? `${booking.pickup_date} → ${booking.trip_end_date}` : `${booking.pickup_date} — ${formatTime12h(booking.pickup_time)}`}</td>
-                                    <td className="px-4 py-3"></td>
-                                </tr>
-                                <tr className="border-b border-gray-100">
-                                    <td className="px-4 py-3 text-gray-700 font-medium">{t.vehicle}</td>
-                                    <td className="px-4 py-3 text-gray-600">{booking.vehicle_type} · {booking.booking_type === 'delivery' ? `${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}` : `${booking.passengers} ${t.passengers}`}</td>
-                                    <td className="px-4 py-3"></td>
-                                </tr>
-                                <tr className="border-b border-gray-100">
-                                    <td className="px-4 py-3 text-gray-700 font-medium">{t.paymentMethod}</td>
-                                    <td className="px-4 py-3 text-gray-600">{lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod}</td>
-                                    <td className="px-4 py-3"></td>
-                                </tr>
-                                {receiptNote.trim() && (
-                                    <tr className="border-b border-gray-100">
-                                        <td className="px-4 py-3 text-gray-700 font-medium">{t.remarks}</td>
-                                        <td className="px-4 py-3 text-gray-600 italic">{receiptNote.trim()}</td>
-                                        <td className="px-4 py-3"></td>
-                                    </tr>
-                                )}
-                                <tr className="bg-gray-50">
-                                    <td className="px-4 py-3 font-black text-gray-900 uppercase tracking-wide text-sm" colSpan={2}>{t.totalReceived}</td>
-                                    <td className="px-4 py-3 text-right font-black text-gray-900 text-lg">{currency} {amount}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        {/* Customer details */}
-                        <div className="border border-gray-200 rounded p-4 mb-5 bg-gray-50">
-                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">{t.payeeInfo}</p>
-                            <BillToCompanyBlock value={billToCompany} className="text-xs leading-snug mb-3 [&>p:first-child]:text-sm" />
-                            <div className="flex gap-12 text-sm">
-                                <div>
-                                    <span className="text-gray-400 text-xs">{t.fullName}</span>
-                                    <p className="font-bold text-gray-900">{booking.customer_name}</p>
-                                </div>
-                                <div>
-                                    <span className="text-gray-400 text-xs">{t.phone}</span>
-                                    <p className="font-bold text-gray-900" dir="ltr">{booking.customer_phone}</p>
-                                </div>
-                                <div>
-                                    <span className="text-gray-400 text-xs">{t.email}</span>
-                                    <p className="font-bold text-gray-900">{booking.customer_email}</p>
-                                </div>
-                            </div>
+                        <div className={`text-[11px] text-slate-600 space-y-0.5 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>
+                            <p dir="ltr">+966 57 580 6733</p>
+                            <p>info@taxiserviceksa.com</p>
+                            <p>www.taxiserviceksa.com</p>
                         </div>
                     </div>
 
-                    {/* ── FOOTER: Signatures + Stamp ── */}
-                    <div className="mt-auto">
-                        <div className="flex justify-between items-end pt-5 border-t-2 border-gray-900">
-
-                            {/* Signatures */}
-                            <div className="flex gap-10">
-                                <div className="text-center">
-                                    <img src="/ismail-signature.png" alt="Ismail" className="h-10 w-auto max-w-[90px] object-contain select-none mx-auto" />
-                                    <div className="border-t border-gray-800 mt-1 pt-1 w-28">
-                                        <p className="text-xs font-black text-gray-700">Ismail</p>
-                                        <p className="text-[10px] text-gray-400">{t.director}</p>
-                                    </div>
-                                </div>
-                                <div className="text-center">
-                                    <img src="/zumer-signature.png" alt="Zumer" className="h-10 w-auto max-w-[90px] object-contain select-none mx-auto" />
-                                    <div className="border-t border-gray-800 mt-1 pt-1 w-28">
-                                        <p className="text-xs font-black text-gray-700">Zumer</p>
-                                        <p className="text-[10px] text-gray-400">{t.partner}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Official round stamp */}
-                            <div className="stamp-circle flex-shrink-0">
-                                <div className="stamp-outer">
-                                    <svg viewBox="0 0 120 120" className="stamp-svg">
-                                        <defs>
-                                            <path id="topArc" d="M 15,60 a 45,45 0 1,1 90,0" />
-                                            <path id="botArc" d="M 105,60 a 45,45 0 1,1 -90,0" />
-                                        </defs>
-                                        {/* Outer ring */}
-                                        <circle cx="60" cy="60" r="56" fill="none" stroke="#15803d" strokeWidth="2.5" />
-                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#15803d" strokeWidth="1" />
-                                        {/* Curved top text */}
-                                        <text fill="#15803d" fontSize="9" fontWeight="900" letterSpacing="2" fontFamily="Arial, sans-serif">
-                                            <textPath href="#topArc" startOffset="10%">TAXI SERVICE KSA</textPath>
-                                        </text>
-                                        {/* Curved bottom text */}
-                                        <text fill="#15803d" fontSize="8" fontWeight="700" letterSpacing="1.5" fontFamily="Arial, sans-serif">
-                                            <textPath href="#botArc" startOffset="18%">JEDDAH · SAUDI ARABIA</textPath>
-                                        </text>
-                                        {/* Center checkmark */}
-                                        <circle cx="60" cy="60" r="18" fill="#15803d" />
-                                        <path d="M 50,60 L 57,68 L 72,52" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                        {/* Star decorators */}
-                                        {[0, 60, 120, 180, 240, 300].map((angle, i) => {
-                                            const rad = (angle * Math.PI) / 180;
-                                            const x = 60 + 44 * Math.cos(rad);
-                                            const y = 60 + 44 * Math.sin(rad);
-                                            return <circle key={i} cx={x} cy={y} r="2" fill="#15803d" />;
-                                        })}
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-5 py-2.5 border-t-2 border-gray-900 flex justify-between items-center">
-                            <p className="text-[10px] text-gray-400 font-mono">{receiptNumber} · {t.issued} {receiptDate}</p>
-                            <p className="text-[10px] text-gray-500 uppercase tracking-wide font-bold">{t.officialNote}</p>
-                        </div>
+                    {/* Title + meta */}
+                    <div className="mt-5 flex items-center justify-between gap-4">
+                        <p role="heading" aria-level={1} className="text-[20px] font-black uppercase tracking-[0.1em] text-slate-900">{t.title}</p>
+                        <span className="rounded-md border-2 border-emerald-600 px-3 py-1 text-[13px] font-black tracking-wider text-emerald-700">{t.paid}</span>
                     </div>
+                    <dl className="mt-3 grid grid-cols-4 gap-x-5 rounded-lg bg-slate-50 border border-slate-200 px-4 py-2.5 text-[11px]">
+                        <div><dt className="text-slate-500">{t.receiptNo}</dt><dd className="font-bold font-mono text-slate-900">{receiptNumber}</dd></div>
+                        <div><dt className="text-slate-500">{t.issueDate}</dt><dd className="font-bold text-slate-900">{fmtDate(issueIso)}</dd></div>
+                        <div><dt className="text-slate-500">{t.paymentStatus}</dt><dd className="font-bold text-emerald-700">{t.paid}</dd></div>
+                        <div><dt className="text-slate-500">{t.bookingRef}</dt><dd className="font-bold font-mono text-slate-900">BOOK-{booking.id.slice(0, 8).toUpperCase()}</dd></div>
+                    </dl>
 
+                    {/* Acknowledgement */}
+                    <p className="mt-5 text-[13px] leading-relaxed text-slate-800">
+                        {t.ackA} <b className="text-slate-900">{payer || booking.customer_name}</b>{payer ? <> ({t.onBehalfOf} {companyLines[0] || booking.customer_name})</> : companyLines[0] ? <> ({companyLines[0]})</> : null} {t.ackB} <b className="text-slate-900 whitespace-nowrap">{money(received)}</b> {partial ? t.ackCPartial : t.ackC} <b className="text-slate-900">{serviceDate}</b>.
+                    </p>
+
+                    {/* Particulars table */}
+                    <table className="mt-4 w-full border border-slate-200 text-[11.5px] border-collapse">
+                        <thead>
+                            <tr className="bg-slate-900 text-white">
+                                <th className={`px-3 py-1.5 font-semibold ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{t.particulars}</th>
+                                <th className={`px-3 py-1.5 font-semibold ${lang === 'ar' ? 'text-right' : 'text-left'}`}>{t.details}</th>
+                                <th className={`px-3 py-1.5 font-semibold ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{t.amount}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <Line k={t.service} v={serviceName} amt={money(received)} />
+                            <Line k={t.route} v={<><span className="block"><span className="text-slate-500">{t.pickup}: </span>{booking.pickup_location}</span>{booking.trip_type !== 'hourly' && <span className="block"><span className="text-slate-500">{t.dropoff}: </span>{booking.destination}</span>}</>} />
+                            {ret && <Line k={t.returnRoute} v={<><span className="block"><span className="text-slate-500">{t.pickup}: </span>{ret.pickupLocation}</span><span className="block"><span className="text-slate-500">{t.dropoff}: </span>{ret.destination}</span></>} />}
+                            <Line k={t.dateTime} v={`${serviceDate}, ${formatTime12h(booking.pickup_time)}`} />
+                            {ret && booking.return_date && <Line k={t.returnDateTime} v={`${fmtDate(booking.return_date)}${booking.return_time ? `, ${formatTime12h(booking.return_time)}` : ''}`} />}
+                            {booking.trip_type === 'hourly' && <Line k={t.duration} v={`${booking.duration_hours || '?'} ${t.hours}`} />}
+                            <Line k={t.vehicle} v={booking.vehicle_type} />
+                            {booking.booking_type === 'delivery'
+                                ? <Line k={t.items} v={`${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}`} />
+                                : <Line k={t.passengers} v={booking.passengers} />}
+                            <Line k={t.paymentMethod} v={lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod} />
+                            {partial && <Line k={t.bookingTotal} v={`${t.balanceRemaining}: ${money(total - received)}`} amt={money(total)} />}
+                            {receiptNote.trim() && <Line k={t.remarks} v={<span className="italic">{receiptNote.trim()}</span>} />}
+                            <tr className="bg-emerald-50">
+                                <td colSpan={2} className="px-3 py-2.5 font-black uppercase tracking-wide text-slate-900">{t.totalReceived}</td>
+                                <td className={`px-3 py-2.5 text-[17px] font-black text-emerald-800 whitespace-nowrap ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(received)}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    {/* Customer / payer information */}
+                    <section className="mt-4">
+                        <p role="heading" aria-level={2} className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-emerald-700 border-b-2 border-emerald-600/70 pb-0.5 mb-1.5">{payer ? t.payerInfo : t.customerInfo}</p>
+                        <dl className="grid grid-cols-3 gap-x-5 gap-y-1 text-[11.5px]">
+                            {payer && <div><dt className="text-slate-500">{t.payerInfo}</dt><dd className="font-bold text-slate-900">{payer}</dd></div>}
+                            {companyLines.length > 0 && <div><dt className="text-slate-500">{t.company}</dt><dd className="font-bold text-slate-900">{companyLines[0]}{companyLines.slice(1).map((l, i) => <span key={i} className="block font-normal text-slate-600">{l}</span>)}</dd></div>}
+                            <div><dt className="text-slate-500">{t.fullName}</dt><dd className="font-bold text-slate-900">{booking.customer_name}</dd></div>
+                            {booking.customer_phone && <div><dt className="text-slate-500">{t.phone}</dt><dd className="font-bold text-slate-900" dir="ltr">{booking.customer_phone}</dd></div>}
+                            {booking.customer_email && <div><dt className="text-slate-500">{t.email}</dt><dd className="font-bold text-slate-900 break-all">{booking.customer_email}</dd></div>}
+                        </dl>
+                    </section>
+
+                    {/* Both signatories, equal width */}
+                    <section className="mt-auto pt-8 grid grid-cols-2 gap-16 px-6">
+                        {[
+                            { img: '/ismail-signature.png', name: 'Ismail', role: t.director },
+                            { img: '/zumer-signature.png', name: 'Zumer', role: t.coFounder },
+                        ].map(sig => (
+                            <div key={sig.name} className="text-center">
+                                <div className="h-11 flex items-end justify-center">
+                                    <img src={sig.img} alt={`Signature of ${sig.name}`} className="max-h-11 w-auto object-contain" />
+                                </div>
+                                <div className="border-t border-slate-700 mt-1 pt-1">
+                                    <p className="font-bold text-slate-900">{sig.name}</p>
+                                    <p className="text-[11px] text-slate-600">{sig.role}</p>
+                                    <p className="text-[10.5px] text-slate-500">Taxi Service KSA</p>
+                                </div>
+                            </div>
+                        ))}
+                    </section>
+
+                    {/* Footer */}
+                    <div className="mt-6 pt-3 border-t-2 border-slate-900 text-center text-[10.5px] text-slate-600 space-y-0.5">
+                        <p className="font-black tracking-[0.15em] text-slate-900">TAXI SERVICE KSA</p>
+                        <p className="tracking-[0.12em]">{t.cityUpper}</p>
+                        <p className="font-mono">{t.receiptRef}: {receiptNumber} · {t.issued}: {fmtDate(issueIso)}</p>
+                        <p className="pt-1">{t.thanks} {t.officialNote}</p>
+                        <p dir="ltr">info@taxiserviceksa.com · +966 57 580 6733 · www.taxiserviceksa.com</p>
+                    </div>
                 </div>
             </div>
 
             <style jsx global>{`
-                .stamp-svg { width: 110px; height: 110px; }
                 @media print {
                     @page { size: A4; margin: 0; }
                     html, body {
-                        width: 210mm; height: 297mm;
+                        width: 210mm;
                         margin: 0 !important; padding: 0 !important;
                         background: white !important;
                         -webkit-print-color-adjust: exact;
                         print-color-adjust: exact;
                     }
-                    #receipt-print {
-                        width: 210mm !important; height: 296mm !important;
-                        box-shadow: none !important;
-                        overflow: hidden !important;
-                    }
-                    * {
-                        -webkit-print-color-adjust: exact !important;
-                        print-color-adjust: exact !important;
-                    }
+                    #receipt-print { width: 210mm !important; box-shadow: none !important; }
+                    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
                 }
             `}</style>
         </div>
