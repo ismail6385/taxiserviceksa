@@ -35,7 +35,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
     en: {
         invoice: 'INVOICE', no: 'Invoice Number', issueDate: 'Issue Date', bookingRef: 'Booking Reference', roundTrip: 'round trip',
         invoiceStatus: 'Invoice Status', currencyLabel: 'Currency', bookingStatusLabel: 'Booking Status',
-        bookingConfirmed: 'Booking Confirmed', bookingPending: 'Booking Pending Confirmation',
+        bookingConfirmed: 'Booking Confirmed', bookingPending: 'Booking Pending Confirmation', bookingCompleted: 'Service Completed', bookingCancelled: 'Booking Cancelled',
         billTo: 'Bill To', attn: 'Attn', bookingDetails: 'Booking Details',
         serviceDate: 'Service Date', timeLabel: 'Pickup Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers', itemsLabel: 'Items', serviceTypeLabel: 'Service Type',
         journeyRoute: 'Journey Route', itinDate: 'Date', itinTime: 'Time', itinPickup: 'Pickup', itinDest: 'Drop-off',
@@ -52,6 +52,9 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         payOther: 'Payment is due according to the agreed payment arrangement.',
         msgPaidConfirmed: 'Your booking is confirmed and payment has been received in full. Thank you for choosing Taxi Service KSA.',
         msgConfirmedDue: 'Your booking is confirmed. The outstanding balance shown above is payable as agreed.',
+        msgCompletedPaid: 'Your journey has been completed and payment has been received in full. Thank you for choosing Taxi Service KSA.',
+        msgCompletedDue: 'Your journey has been completed. The outstanding balance shown above is now due.',
+        payDue: 'The outstanding balance is now due.',
         msgPending: 'Booking pending confirmation. We will confirm your booking once availability and payment have been finalised.',
         bankDetails: 'Bank Transfer Details', bankName: 'Bank', accountName: 'Account Name', accountNumber: 'Account Number', iban: 'IBAN', swift: 'SWIFT / BIC',
         notes: 'Notes',
@@ -69,7 +72,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
     ar: {
         invoice: 'فاتورة', no: 'رقم الفاتورة', issueDate: 'تاريخ الإصدار', bookingRef: 'رقم الحجز', roundTrip: 'ذهاب وعودة',
         invoiceStatus: 'حالة الفاتورة', currencyLabel: 'العملة', bookingStatusLabel: 'حالة الحجز',
-        bookingConfirmed: 'الحجز مؤكد', bookingPending: 'الحجز بانتظار التأكيد',
+        bookingConfirmed: 'الحجز مؤكد', bookingPending: 'الحجز بانتظار التأكيد', bookingCompleted: 'تمت الخدمة', bookingCancelled: 'الحجز ملغى',
         billTo: 'فاتورة إلى', attn: 'عناية', bookingDetails: 'تفاصيل الحجز',
         serviceDate: 'تاريخ الخدمة', timeLabel: 'وقت الانطلاق', vehicleLabel: 'المركبة', passengersLabel: 'الركاب', itemsLabel: 'الأغراض', serviceTypeLabel: 'نوع الخدمة',
         journeyRoute: 'مسار الرحلة', itinDate: 'التاريخ', itinTime: 'الوقت', itinPickup: 'الانطلاق', itinDest: 'الوصول',
@@ -86,6 +89,9 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         payOther: 'يستحق الدفع وفق ترتيب الدفع المتفق عليه.',
         msgPaidConfirmed: 'تم تأكيد حجزكم واستلام المبلغ بالكامل. شكراً لاختياركم تاكسي سيرفس السعودية.',
         msgConfirmedDue: 'تم تأكيد حجزكم. يُدفع الرصيد المتبقي الموضح أعلاه حسب الاتفاق.',
+        msgCompletedPaid: 'تمت رحلتكم واستلام المبلغ بالكامل. شكراً لاختياركم تاكسي سيرفس السعودية.',
+        msgCompletedDue: 'تمت رحلتكم. الرصيد المتبقي الموضح أعلاه مستحق الآن.',
+        payDue: 'الرصيد المتبقي مستحق الآن.',
         msgPending: 'الحجز بانتظار التأكيد. سنؤكد حجزكم بعد التحقق من التوفر وإتمام الدفع.',
         bankDetails: 'تفاصيل التحويل البنكي', bankName: 'البنك', accountName: 'اسم الحساب', accountNumber: 'رقم الحساب', iban: 'الآيبان', swift: 'رمز السويفت',
         notes: 'ملاحظات',
@@ -377,9 +383,20 @@ export default function InvoicePage() {
         unpaid: 'border-red-600 text-red-700',
         partial: 'border-amber-500 text-amber-700',
     };
-    const bookingConfirmed = booking.status === 'confirmed' || booking.status === 'in_progress' || booking.status === 'completed';
-    const paymentNote = status === 'paid' ? t.payPaid : status === 'partial' ? t.payPartial : paymentMethod === 'Cash to Driver' ? t.payCash : t.payOther;
-    const statusMessage = bookingConfirmed ? (status === 'paid' ? t.msgPaidConfirmed : t.msgConfirmedDue) : t.msgPending;
+    // Booking status shown on the invoice follows the real booking status:
+    // a completed trip says "Service Completed", not "Booking Confirmed".
+    const bookingCompleted = booking.status === 'completed';
+    const bookingCancelled = booking.status === 'cancelled';
+    const bookingConfirmed = booking.status === 'confirmed' || booking.status === 'in_progress' || bookingCompleted;
+    const bookingStatusText = bookingCompleted ? t.bookingCompleted : bookingCancelled ? t.bookingCancelled : bookingConfirmed ? t.bookingConfirmed : t.bookingPending;
+    const paymentNote = status === 'paid' ? t.payPaid
+        : bookingCompleted ? t.payDue
+        : status === 'partial' ? t.payPartial
+        : paymentMethod === 'Cash to Driver' ? t.payCash : t.payOther;
+    const statusMessage = bookingCancelled ? ''
+        : bookingCompleted ? (status === 'paid' ? t.msgCompletedPaid : t.msgCompletedDue)
+        : bookingConfirmed ? (status === 'paid' ? t.msgPaidConfirmed : t.msgConfirmedDue)
+        : t.msgPending;
     const showBank = bankDetails.showOnDocument && status !== 'paid' && !!(bankDetails.iban || bankDetails.accountNumber);
     const companyLines = billToCompany.split('\n').map(l => l.trim()).filter(Boolean);
     // Things that would make the invoice wrong; shown on screen only.
@@ -837,7 +854,7 @@ export default function InvoicePage() {
                         <div><dt className="text-slate-500">{t.bookingRef}</dt><dd className="font-bold text-slate-900 font-mono">{bookingRef}</dd></div>
                         <div><dt className="text-slate-500">{t.invoiceStatus}</dt><dd className="font-bold text-slate-900">{t[STATUS_LABEL_KEY[status]]}</dd></div>
                         <div><dt className="text-slate-500">{t.currencyLabel}</dt><dd className="font-bold text-slate-900">{currency}</dd></div>
-                        <div><dt className="text-slate-500">{t.bookingStatusLabel}</dt><dd className={`font-bold ${bookingConfirmed ? 'text-emerald-700' : 'text-amber-700'}`}>{bookingConfirmed ? t.bookingConfirmed : t.bookingPending}</dd></div>
+                        <div><dt className="text-slate-500">{t.bookingStatusLabel}</dt><dd className={`font-bold ${bookingCancelled ? 'text-red-700' : bookingConfirmed ? 'text-emerald-700' : 'text-amber-700'}`}>{bookingStatusText}</dd></div>
                     </dl>
 
                     {/* Bill to + booking details */}
