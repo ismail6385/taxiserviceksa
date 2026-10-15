@@ -39,6 +39,7 @@ import { cn } from '@/lib/utils';
 
 const menuItems = [
     { name: 'Dashboard',       href: '/admin/dashboard',           icon: LayoutDashboard },
+    { name: 'New Requests',    href: '/admin/requests',            icon: Inbox },
     { name: 'Bookings',        href: '/admin/bookings',            icon: CalendarDays },
     { name: 'Contracts',       href: '/admin/contracts',           icon: Repeat },
     { name: 'Calendar',        href: '/admin/calendar',            icon: Calendar },

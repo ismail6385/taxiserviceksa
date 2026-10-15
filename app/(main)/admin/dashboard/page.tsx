@@ -331,7 +331,7 @@ export default function AdminDashboard() {
                 {needsAction.length > 0 && (
                     <button
                         type="button"
-                        onClick={() => router.push('/admin/bookings')}
+                        onClick={() => router.push('/admin/requests')}
                         className="inline-flex items-center gap-1.5 rounded-md bg-amber-500/10 px-2 py-1 font-semibold text-amber-400 hover:bg-amber-500/20"
                         title={`${bookings.filter(b => b.status === 'pending').length} new requests, ${bookings.filter(b => b.status === 'quote_sent').length} awaiting customer confirmation`}
                     >
