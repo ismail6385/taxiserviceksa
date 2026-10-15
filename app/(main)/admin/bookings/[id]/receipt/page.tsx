@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useBillToCompany, BillToCompanyInput, BillToCompanyBlock } from '@/components/admin/BillToCompany';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
@@ -92,6 +93,7 @@ export default function ReceiptPage() {
     const { id } = useParams();
     const router = useRouter();
     const [booking, setBooking] = useState<Booking | null>(null);
+    const [billToCompany, setBillToCompany] = useBillToCompany(booking?.id);
     const [loading, setLoading] = useState(true);
     const [lang, setLang] = useState<DocLang>('en');
     const [currency, setCurrency] = useState('SAR');
@@ -242,6 +244,8 @@ export default function ReceiptPage() {
                 </div>
             </div>
 
+            <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
+
             {/* ── A4 RECEIPT ── */}
             <div id="receipt-print" dir={lang === 'ar' ? 'rtl' : 'ltr'}
                 className="max-w-[210mm] mx-auto bg-white shadow-xl print:shadow-none print:max-w-none print:w-[210mm] print:h-[296mm] print:overflow-hidden">
@@ -368,6 +372,7 @@ export default function ReceiptPage() {
                         {/* Customer details */}
                         <div className="border border-gray-200 rounded p-4 mb-5 bg-gray-50">
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">{t.payeeInfo}</p>
+                            <BillToCompanyBlock value={billToCompany} className="text-xs leading-snug mb-3 [&>p:first-child]:text-sm" />
                             <div className="flex gap-12 text-sm">
                                 <div>
                                     <span className="text-gray-400 text-xs">{t.fullName}</span>

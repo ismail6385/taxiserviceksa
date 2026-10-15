@@ -3,6 +3,7 @@
 
 
 import { useEffect, useState } from 'react';
+import { useBillToCompany, BillToCompanyInput, BillToCompanyBlock } from '@/components/admin/BillToCompany';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
@@ -171,6 +172,7 @@ export default function InvoicePage() {
     const { id } = useParams();
     const router = useRouter();
     const [booking, setBooking] = useState<Booking | null>(null);
+    const [billToCompany, setBillToCompany] = useBillToCompany(booking?.id);
     const [loading, setLoading] = useState(true);
     const [lang, setLang] = useState<DocLang>('en');
     const [quickNote, setQuickNote] = useState('');
@@ -604,6 +606,8 @@ export default function InvoicePage() {
                 </div>
             </div>
 
+            <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
+
             {/* Quick Note Input — screen only */}
             <div className="max-w-[210mm] mx-auto mb-3 print:hidden">
                 <textarea
@@ -830,7 +834,8 @@ export default function InvoicePage() {
                     <div className="grid grid-cols-2 gap-8 mb-7">
                         <div>
                             <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.billTo}</h3>
-                            <p className="text-[15px] font-semibold text-gray-900">{booking.customer_name}</p>
+                            <BillToCompanyBlock value={billToCompany} className="text-[12px] leading-snug mb-2 [&>p:first-child]:text-[15px]" />
+                            <p className={billToCompany.trim() ? 'text-[12px] text-gray-700' : 'text-[15px] font-semibold text-gray-900'}>{billToCompany.trim() ? `Attn: ${booking.customer_name}` : booking.customer_name}</p>
                             <div className="space-y-1 text-[11px] text-gray-600 mt-1.5">
                                 <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400 flex-shrink-0" /> <span dir="ltr">{booking.customer_phone}</span></p>
                                 <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400 flex-shrink-0" /> {booking.customer_email}</p>

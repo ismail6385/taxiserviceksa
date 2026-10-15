@@ -5,6 +5,7 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
 import { useEffect, useState } from 'react';
+import { useBillToCompany, BillToCompanyInput, BillToCompanyBlock } from '@/components/admin/BillToCompany';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
@@ -107,6 +108,7 @@ export default function LetterheadPage() {
     const { id } = useParams();
     const router = useRouter();
     const [booking, setBooking] = useState<Booking | null>(null);
+    const [billToCompany, setBillToCompany] = useBillToCompany(booking?.id);
     const [loading, setLoading] = useState(true);
     const [lang, setLang] = useState<DocLang>('en');
     const [quickNote, setQuickNote] = useState('');
@@ -405,6 +407,8 @@ export default function LetterheadPage() {
                 </div>
             </div>
 
+            <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
+
             {/* Quick Note Input — screen only */}
             <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
                 <textarea
@@ -459,7 +463,8 @@ export default function LetterheadPage() {
                         <div className="mb-8">
                             <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.preparedFor}</h3>
                             <div className="bg-gray-50 border border-gray-100 rounded-lg p-4">
-                                <p className="font-bold text-sm text-gray-900">{booking.customer_name || t.clientName}</p>
+                                <BillToCompanyBlock value={billToCompany} className="text-xs leading-snug mb-2 [&>p:first-child]:text-sm" />
+                                <p className="font-bold text-sm text-gray-900">{billToCompany.trim() ? `Attn: ${booking.customer_name || t.clientName}` : booking.customer_name || t.clientName}</p>
                                 <div className="text-xs text-gray-600 mt-1.5 space-y-1">
                                     {booking.customer_phone && <p>{t.phone} <span dir="ltr">{booking.customer_phone}</span></p>}
                                     {booking.customer_email && <p>{t.email} {booking.customer_email}</p>}
