@@ -437,6 +437,8 @@ export const adminBookingSchema = z
             .nullable()
             .refine((v) => !v || EMAIL_RE.test(v), { message: 'Please enter a valid email address.' }),
         customer_phone: z.string().optional().nullable(),
+        // Admin only: what the trip cost (fuel, car, driver pay); profit = total_price - driver_cost.
+        driver_cost: z.union([z.number(), z.string()]).optional().nullable(),
         ...bookingFieldsShape,
     })
     .superRefine(refineTripRules);

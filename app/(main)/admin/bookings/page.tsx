@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
 import { ksaToday, ksaNowTime, shiftIsoDate } from '@/lib/ksa-time';
 import ManualEmailBox from '@/components/admin/ManualEmailBox';
+import { profitSplit } from '@/lib/profit-split';
 import { parseBookingPaste, CHATGPT_BOOKING_PROMPT, PASTE_PLACEHOLDER } from '@/lib/booking-paste';
 import { adminFetch } from '@/lib/admin-fetch';
 import { useRouter } from 'next/navigation';
@@ -142,6 +143,7 @@ interface Booking {
     distance_km?: number;
     duration_estimate?: string;
     commission_rate?: number;
+    driver_cost?: number | null;
     itinerary_legs?: ItineraryLeg[] | null;
     additional_stops?: AdditionalStop[] | null;
     // Delivery / Item Transfer — see lib/booking-validation.ts. Sender is
@@ -3106,39 +3108,37 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         );
                                     })()}
 
-                                    {/* Commission (admin-only — never shown on customer documents) */}
+                                    {/* Profit split (admin-only, never on customer documents): fare - trip cost, 50/50 */}
                                     <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
                                         <div className="flex items-center justify-between mb-1.5">
-                                            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">Commission (Internal Only)</span>
+                                            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">Profit split (Internal Only)</span>
                                             {isEditing ? (
                                                 <div className="flex items-center gap-1">
+                                                    <span className="text-xs text-emerald-700">Trip cost</span>
                                                     <Input
                                                         type="number"
                                                         min={0}
-                                                        max={100}
-                                                        step={0.5}
-                                                        value={editedBooking.commission_rate ?? ''}
-                                                        onChange={(e) => setEditedBooking({ ...editedBooking, commission_rate: e.target.value ? Number(e.target.value) : undefined })}
-                                                        className="h-6 w-16 text-xs bg-white"
-                                                        placeholder="%"
+                                                        step={1}
+                                                        value={editedBooking.driver_cost ?? ''}
+                                                        onChange={(e) => setEditedBooking({ ...editedBooking, driver_cost: e.target.value === '' ? null : Number(e.target.value) })}
+                                                        className="h-6 w-20 text-xs bg-white"
+                                                        placeholder="0"
                                                     />
-                                                    <span className="text-xs text-emerald-700">%</span>
                                                 </div>
                                             ) : (
-                                                <span className="text-xs font-bold text-emerald-700">{selectedBooking.commission_rate ? `${selectedBooking.commission_rate}%` : 'Not set'}</span>
+                                                <span className="text-xs font-bold text-emerald-700">{selectedBooking.driver_cost != null ? `Cost: ${selectedBooking.currency || 'SAR'} ${selectedBooking.driver_cost}` : 'Cost not set'}</span>
                                             )}
                                         </div>
                                         {(() => {
                                             const source = isEditing ? editedBooking : selectedBooking;
-                                            if (!source.total_price || !source.commission_rate) return (
-                                                <p className="text-[10px] text-emerald-600">Set commission % and price to see the payout split.</p>
-                                            );
-                                            const commissionAmount = Math.round(source.total_price * (source.commission_rate / 100) * 100) / 100;
-                                            const payout = Math.round((source.total_price - commissionAmount) * 100) / 100;
+                                            const split = profitSplit(source.total_price, source.driver_cost ?? null);
+                                            if (!split) return <p className="text-[10px] text-emerald-600">Enter the trip cost (the driver can also add it from their trip link) to see the profit split.</p>;
+                                            const c = source.currency || 'SAR';
                                             return (
-                                                <div className="flex items-center justify-between text-xs text-emerald-800">
-                                                    <span>Driver Payout: <strong>{source.currency || 'SAR'} {payout}</strong></span>
-                                                    <span>Your Commission: <strong>{source.currency || 'SAR'} {commissionAmount}</strong></span>
+                                                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-emerald-800">
+                                                    <span>Profit: <strong>{c} {split.profit}</strong></span>
+                                                    <span>Your share: <strong>{c} {split.ownerShare}</strong></span>
+                                                    <span>Driver share: <strong>{c} {split.driverShare}</strong></span>
                                                 </div>
                                             );
                                         })()}
@@ -4007,23 +4007,24 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     })()}
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="text-sm font-medium text-gray-700">Commission % (Internal)</label>
+                                    <label className="text-sm font-medium text-gray-700">Trip cost (Internal)</label>
                                     <Input
                                         type="number"
                                         min={0}
-                                        max={100}
-                                        step={0.5}
-                                        placeholder="e.g. 15"
-                                        value={newBooking.commission_rate ?? ''}
-                                        onChange={(e) => setNewBooking({ ...newBooking, commission_rate: e.target.value ? Number(e.target.value) : undefined })}
+                                        step={1}
+                                        placeholder="e.g. 3000 (optional)"
+                                        value={newBooking.driver_cost ?? ''}
+                                        onChange={(e) => setNewBooking({ ...newBooking, driver_cost: e.target.value === '' ? null : Number(e.target.value) })}
                                         className="bg-white border-gray-200"
                                     />
-                                    {!!(newBooking.total_price && newBooking.commission_rate) && (
-                                        <p className="text-[10px] text-emerald-700 font-semibold">
-                                            Driver Payout: {newBooking.currency || 'SAR'} {Math.round((newBooking.total_price - newBooking.total_price * (newBooking.commission_rate / 100)) * 100) / 100}
-                                            {' · '}Your Commission: {newBooking.currency || 'SAR'} {Math.round(newBooking.total_price * (newBooking.commission_rate / 100) * 100) / 100}
-                                        </p>
-                                    )}
+                                    {(() => {
+                                        const split = profitSplit(newBooking.total_price, newBooking.driver_cost ?? null);
+                                        return split ? (
+                                            <p className="text-[10px] text-emerald-700 font-semibold">
+                                                Profit {newBooking.currency || 'SAR'} {split.profit} · Your share {split.ownerShare} · Driver share {split.driverShare}
+                                            </p>
+                                        ) : null;
+                                    })()}
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Internal Management Tags</label>

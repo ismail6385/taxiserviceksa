@@ -5,10 +5,13 @@ import { CalendarDays, Clock, MapPin, Users, Briefcase, Plane, Phone, Car, Rotat
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { findTeamDriver } from '@/lib/team-drivers';
 import { isValidDriverLinkToken } from '@/lib/driver-links';
+import { profitSplit, isMissingCostColumn } from '@/lib/profit-split';
+import DriverCostForm from '@/components/DriverCostForm';
 
 // Private trip sheet for one driver. Only reachable through the link the
-// owner shares with that driver (see /admin/commissions). Shows trip details
-// only — never the fare, commission or payout.
+// owner shares with that driver (see /admin/commissions). Shows the trips,
+// and per trip the fare, the cost the driver enters, the profit and the
+// driver's 50% share of it.
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
@@ -44,9 +47,12 @@ interface Trip {
     recipient_name: string | null;
     recipient_phone: string | null;
     item_description: string | null;
+    total_price: number | null;
+    currency: string | null;
+    driver_cost?: number | null;
 }
 
-const FIELDS = 'id,customer_name,customer_phone,pickup_location,destination,pickup_date,pickup_time,vehicle_type,actual_vehicle,passengers,luggage,child_seats,flight_number,special_requests,status,trip_type,duration_hours,has_return_trip,return_date,return_time,return_pickup_location,return_destination,booking_type,recipient_name,recipient_phone,item_description';
+const FIELDS = 'id,total_price,currency,customer_name,customer_phone,pickup_location,destination,pickup_date,pickup_time,vehicle_type,actual_vehicle,passengers,luggage,child_seats,flight_number,special_requests,status,trip_type,duration_hours,has_return_trip,return_date,return_time,return_pickup_location,return_destination,booking_type,recipient_name,recipient_phone,item_description';
 
 const STATUS: Record<string, string> = {
     confirmed: 'bg-emerald-100 text-emerald-800',
@@ -71,7 +77,9 @@ const fmtTime = (t: string | null) => {
 };
 const digits = (p: string) => p.replace(/[^\d]/g, '');
 
-function TripCard({ t }: { t: Trip }) {
+const money = (curr: string, n: number) => `${curr} ${n.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+
+function TripCard({ t, slug, token, costsEnabled }: { t: Trip; slug: string; token: string; costsEnabled: boolean }) {
     const delivery = t.booking_type === 'delivery';
     const contactName = delivery ? t.recipient_name || t.customer_name : t.customer_name;
     const contactPhone = delivery ? t.recipient_phone || t.customer_phone : t.customer_phone;
@@ -114,6 +122,23 @@ function TripCard({ t }: { t: Trip }) {
                 <p className="flex gap-2 text-sm bg-amber-50 rounded-xl px-3 py-2 text-amber-900"><StickyNote className="w-4 h-4 mt-0.5 shrink-0" />{t.special_requests}</p>
             )}
 
+            {t.total_price ? (() => {
+                const curr = t.currency || 'SAR';
+                const split = profitSplit(t.total_price, t.driver_cost ?? null);
+                return (
+                    <div className="rounded-xl bg-gray-50 border border-gray-200 px-3 py-2.5 space-y-2">
+                        <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                            <span><span className="text-gray-500">Fare: </span><b>{money(curr, t.total_price)}</b></span>
+                            {split && <span><span className="text-gray-500">Profit: </span><b className={split.profit < 0 ? 'text-red-600' : ''}>{money(curr, split.profit)}</b></span>}
+                            {split && <span><span className="text-gray-500">Your share (50%): </span><b className="text-emerald-700">{money(curr, split.driverShare)}</b></span>}
+                        </div>
+                        {costsEnabled
+                            ? <DriverCostForm slug={slug} token={token} bookingId={t.id} initialCost={t.driver_cost ?? null} currency={curr} />
+                            : <p className="text-xs text-gray-500">Cost entry will be available soon.</p>}
+                    </div>
+                );
+            })() : null}
+
             <div className="flex flex-wrap items-center justify-between gap-2 border-t border-gray-100 pt-3">
                 <p className="text-sm"><span className="text-gray-500">{delivery ? 'Recipient' : 'Customer'}: </span><span className="font-semibold text-gray-900">{contactName}</span></p>
                 {contactPhone && (
@@ -133,17 +158,26 @@ export default async function DriverTripsPage({ params }: { params: { slug: stri
     if (!driver || !isValidDriverLinkToken(driver.slug, params.token)) notFound();
 
     const today = riyadhToday();
-    const { data, error } = await supabaseAdmin
+    const query = (fields: string) => supabaseAdmin
         .from('bookings')
-        .select(FIELDS)
+        .select(fields)
         .is('deleted_at', null)
         .ilike('driver_name', driver.name)
         .neq('status', 'cancelled')
-        .gte('pickup_date', shiftDays(today, -14))
+        .gte('pickup_date', shiftDays(today, -60))
         .order('pickup_date', { ascending: true })
         .order('pickup_time', { ascending: true });
+    let costsEnabled = true;
+    let { data, error } = await query(`${FIELDS},driver_cost`);
+    if (isMissingCostColumn(error)) {
+        // driver_cost not added to the database yet: show trips without it.
+        costsEnabled = false;
+        ({ data, error } = await query(FIELDS));
+    }
 
-    const trips = (data as Trip[] | null) || [];
+    const trips = (data as unknown as Trip[] | null) || [];
+    const earned = trips.reduce((sum, t) => sum + (profitSplit(t.total_price, t.driver_cost ?? null)?.driverShare || 0), 0);
+    const missingCost = trips.filter(t => t.total_price && (t.driver_cost === null || t.driver_cost === undefined) && t.pickup_date <= today).length;
     const upcoming = trips.filter(t => t.pickup_date >= today && t.status !== 'completed');
     const recent = trips.filter(t => !upcoming.includes(t)).reverse();
 
@@ -158,19 +192,27 @@ export default async function DriverTripsPage({ params }: { params: { slug: stri
                     <p className="text-xs text-gray-500 text-right">Updated<br />{new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })}</p>
                 </header>
 
+                {costsEnabled && trips.some(t => t.total_price) && (
+                    <div className="rounded-2xl bg-emerald-600 text-white px-4 py-3">
+                        <p className="text-xs uppercase tracking-wider text-emerald-100">Your share, last 60 days</p>
+                        <p className="text-2xl font-black">SAR {earned.toLocaleString('en-US', { maximumFractionDigits: 2 })}</p>
+                        {missingCost > 0 && <p className="text-xs text-emerald-100 mt-0.5">{missingCost} past trip{missingCost === 1 ? '' : 's'} still need the trip cost.</p>}
+                    </div>
+                )}
+
                 {error && <p className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-800">Could not load trips right now. Please refresh in a minute.</p>}
 
                 <section className="space-y-3">
                     <h2 className="font-bold text-gray-900">Upcoming ({upcoming.length})</h2>
-                    {upcoming.length ? upcoming.map(t => <TripCard key={t.id} t={t} />) : (
+                    {upcoming.length ? upcoming.map(t => <TripCard key={t.id} t={t} slug={driver.slug} token={params.token} costsEnabled={costsEnabled} />) : (
                         <p className="rounded-2xl border border-dashed border-gray-300 bg-white px-4 py-8 text-center text-sm text-gray-500">No upcoming trips assigned to you yet.</p>
                     )}
                 </section>
 
                 {recent.length > 0 && (
                     <section className="space-y-3">
-                        <h2 className="font-bold text-gray-500">Last 14 days ({recent.length})</h2>
-                        <div className="space-y-3 opacity-75">{recent.map(t => <TripCard key={t.id} t={t} />)}</div>
+                        <h2 className="font-bold text-gray-500">Last 60 days ({recent.length})</h2>
+                        <div className="space-y-3">{recent.map(t => <TripCard key={t.id} t={t} slug={driver.slug} token={params.token} costsEnabled={costsEnabled} />)}</div>
                     </section>
                 )}
 

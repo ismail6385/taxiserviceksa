@@ -7,11 +7,11 @@ import { Loader2, AlertTriangle, Check, Copy, Link2 } from 'lucide-react';
 import { adminFetch } from '@/lib/admin-fetch';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { profitSplit, isMissingCostColumn } from '@/lib/profit-split';
 
-// Internal-only view: which booking went to which driver, and how the fare
-// splits into the owner's commission and the driver's payout. Reads the same
-// bookings.driver_name / bookings.commission_rate fields the booking detail
-// panel edits; nothing here is ever shown to customers.
+// Internal-only view: which booking went to which driver and how each trip's
+// profit is shared. Profit = fare - trip cost (entered by the driver on their
+// trip link, or here), split 50/50 between the owner and the driver.
 
 interface Row {
     id: string;
@@ -24,10 +24,10 @@ interface Row {
     total_price?: number | null;
     currency?: string | null;
     driver_name?: string | null;
-    commission_rate?: number | null;
+    driver_cost?: number | null;
 }
 
-interface Driver { full_name: string; commission_rate?: number | null }
+const FIELDS = 'id,customer_name,pickup_location,destination,pickup_date,status,vehicle_type,total_price,currency,driver_name';
 
 const PRESETS = [
     { label: 'This Month', get: () => { const d = new Date(); return { from: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`, to: '' }; } },
@@ -37,22 +37,18 @@ const PRESETS = [
 ];
 
 const round2 = (n: number) => Math.round(n * 100) / 100;
-const split = (r: Row) => {
-    if (!r.total_price || r.commission_rate == null) return null;
-    const commission = round2(r.total_price * (r.commission_rate / 100));
-    return { commission, payout: round2(r.total_price - commission) };
-};
 const money = (byCurr: Record<string, number>) => {
     const parts = Object.entries(byCurr).filter(([, v]) => v).map(([c, v]) => `${c} ${v.toLocaleString('en-US', { maximumFractionDigits: 2 })}`);
     return parts.length ? parts.join(' · ') : '—';
 };
 const add = (acc: Record<string, number>, curr: string, n: number) => { acc[curr] = round2((acc[curr] || 0) + n); };
+const one = (curr: string, n: number) => `${curr} ${n.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
 
 export default function CommissionsPage() {
     const router = useRouter();
     const [rows, setRows] = useState<Row[]>([]);
-    const [drivers, setDrivers] = useState<Driver[]>([]);
     const [loading, setLoading] = useState(true);
+    const [costsEnabled, setCostsEnabled] = useState(true);
     const [dateFrom, setDateFrom] = useState('');
     const [dateTo, setDateTo] = useState('');
     const [preset, setPreset] = useState('All Time');
@@ -69,31 +65,26 @@ export default function CommissionsPage() {
     useEffect(() => {
         supabase.auth.getSession().then(async ({ data: { session } }) => {
             if (!session) { router.push('/admin/login'); return; }
-            const [b, d] = await Promise.all([
-                supabase
-                    .from('bookings')
-                    .select('id,customer_name,pickup_location,destination,pickup_date,status,vehicle_type,total_price,currency,driver_name,commission_rate')
-                    .is('deleted_at', null)
-                    .not('driver_name', 'is', null)
-                    .neq('driver_name', '')
-                    .order('pickup_date', { ascending: false }),
-                supabase.from('drivers').select('full_name,commission_rate'),
-            ]);
             adminFetch('/api/admin/driver-links')
                 .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
                 .then(j => setLinks(j.links || []))
                 .catch(() => setLinksError('Could not load driver links.'));
-            setRows((b.data as Row[]) || []);
-            setDrivers((d.data as Driver[]) || []);
+            const query = (fields: string) => supabase
+                .from('bookings')
+                .select(fields)
+                .is('deleted_at', null)
+                .not('driver_name', 'is', null)
+                .neq('driver_name', '')
+                .order('pickup_date', { ascending: false });
+            let { data, error } = await query(`${FIELDS},driver_cost`);
+            if (isMissingCostColumn(error)) {
+                setCostsEnabled(false);
+                ({ data, error } = await query(FIELDS));
+            }
+            setRows((data as unknown as Row[]) || []);
             setLoading(false);
         });
     }, [router]);
-
-    const driverDefault = useMemo(() => {
-        const m = new Map<string, number>();
-        for (const d of drivers) if (d.full_name && d.commission_rate != null) m.set(d.full_name.trim().toLowerCase(), d.commission_rate);
-        return m;
-    }, [drivers]);
 
     const driverNames = useMemo(() => Array.from(new Set(rows.map(r => (r.driver_name || '').trim()).filter(Boolean))).sort(), [rows]);
 
@@ -102,37 +93,41 @@ export default function CommissionsPage() {
         if (dateFrom && r.pickup_date < dateFrom) return false;
         if (dateTo && r.pickup_date > dateTo) return false;
         if (driverFilter && (r.driver_name || '').trim() !== driverFilter) return false;
-        if (onlyMissing && split(r)) return false;
+        if (onlyMissing && profitSplit(r.total_price, r.driver_cost)) return false;
         return true;
     }), [rows, includeCancelled, dateFrom, dateTo, driverFilter, onlyMissing]);
 
     const totals = useMemo(() => {
-        const fares: Record<string, number> = {}, commission: Record<string, number> = {}, payout: Record<string, number> = {};
+        const fares: Record<string, number> = {}, costs: Record<string, number> = {}, profit: Record<string, number> = {}, owner: Record<string, number> = {}, driverShare: Record<string, number> = {};
         let missing = 0;
-        const perDriver = new Map<string, { trips: number; fares: Record<string, number>; commission: Record<string, number>; payout: Record<string, number>; missing: number }>();
+        type D = { trips: number; fares: Record<string, number>; profit: Record<string, number>; owner: Record<string, number>; driver: Record<string, number>; missing: number };
+        const perDriver = new Map<string, D>();
         for (const r of filtered) {
             const curr = r.currency || 'SAR';
             const name = (r.driver_name || '').trim();
-            const d = perDriver.get(name) || { trips: 0, fares: {}, commission: {}, payout: {}, missing: 0 };
+            const d = perDriver.get(name) || { trips: 0, fares: {}, profit: {}, owner: {}, driver: {}, missing: 0 };
             d.trips++;
             if (r.total_price) { add(fares, curr, r.total_price); add(d.fares, curr, r.total_price); }
-            const s = split(r);
+            const s = profitSplit(r.total_price, r.driver_cost);
             if (s) {
-                add(commission, curr, s.commission); add(d.commission, curr, s.commission);
-                add(payout, curr, s.payout); add(d.payout, curr, s.payout);
+                add(costs, curr, Number(r.driver_cost));
+                add(profit, curr, s.profit); add(d.profit, curr, s.profit);
+                add(owner, curr, s.ownerShare); add(d.owner, curr, s.ownerShare);
+                add(driverShare, curr, s.driverShare); add(d.driver, curr, s.driverShare);
             } else { missing++; d.missing++; }
             perDriver.set(name, d);
         }
-        return { fares, commission, payout, missing, perDriver: Array.from(perDriver.entries()).sort((a, b) => b[1].trips - a[1].trips) };
+        return { fares, costs, profit, owner, driverShare, missing, perDriver: Array.from(perDriver.entries()).sort((a, b) => b[1].trips - a[1].trips) };
     }, [filtered]);
 
-    const saveRate = async (id: string, rate: number) => {
-        if (Number.isNaN(rate) || rate < 0 || rate > 100) { alert('Enter a commission percentage between 0 and 100.'); return; }
+    const saveCost = async (id: string, raw: string) => {
+        const cost = raw.trim() === '' ? null : Number(raw);
+        if (cost !== null && (!Number.isFinite(cost) || cost < 0)) { alert('Enter a valid amount.'); return; }
         setSaving(id);
-        const { error } = await supabase.from('bookings').update({ commission_rate: rate }).eq('id', id);
+        const { error } = await supabase.from('bookings').update({ driver_cost: cost }).eq('id', id);
         setSaving(null);
         if (error) { alert('Could not save: ' + error.message); return; }
-        setRows(prev => prev.map(r => r.id === id ? { ...r, commission_rate: rate } : r));
+        setRows(prev => prev.map(r => r.id === id ? { ...r, driver_cost: cost } : r));
         setDrafts(prev => { const { [id]: _, ...rest } = prev; return rest; });
         setSaved(id);
         setTimeout(() => setSaved(s => (s === id ? null : s)), 2000);
@@ -144,13 +139,21 @@ export default function CommissionsPage() {
         <div className="max-w-7xl mx-auto space-y-6">
             <div>
                 <h1 className="text-2xl font-bold text-gray-900">Driver Commissions</h1>
-                <p className="text-sm text-gray-500 mt-1">Internal only. Which booking went to which driver, your commission and the driver&apos;s payout. Set a driver on a booking from the Bookings page.</p>
+                <p className="text-sm text-gray-500 mt-1">Internal only. Profit = fare − trip cost, shared 50/50 between you and the driver. Drivers enter the trip cost on their own link; you can also enter or correct it here.</p>
             </div>
+
+            {!costsEnabled && (
+                <div className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                    <p className="font-bold">One-time setup needed</p>
+                    <p>Open Supabase → SQL Editor and run this line, then refresh this page:</p>
+                    <code className="mt-1 block rounded bg-white px-2 py-1 font-mono text-xs">ALTER TABLE bookings ADD COLUMN IF NOT EXISTS driver_cost numeric(10,2);</code>
+                </div>
+            )}
 
             {/* Private driver links */}
             <div className="bg-white border border-gray-200 rounded-xl p-4">
                 <h2 className="flex items-center gap-2 font-bold text-gray-900"><Link2 className="w-4 h-4" /> Driver trip links</h2>
-                <p className="text-xs text-gray-500 mt-1 mb-3">Send each driver only their own link. It shows the trips assigned to them (no prices or commission). Assign a trip by picking the driver&apos;s name on the booking.</p>
+                <p className="text-xs text-gray-500 mt-1 mb-3">Send each driver only their own link. They see their trips and fares, enter each trip&apos;s cost, and see their 50% share of the profit.</p>
                 {linksError && <p className="text-sm text-red-600">{linksError}</p>}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {links.map(l => (
@@ -161,7 +164,7 @@ export default function CommissionsPage() {
                                 className="inline-flex items-center gap-1 rounded-md border border-gray-200 px-2 py-1 text-xs font-semibold text-gray-700 hover:border-gray-400">
                                 {copied === l.slug ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}{copied === l.slug ? 'Copied' : 'Copy'}
                             </button>
-                            <a href={`https://wa.me/?text=${encodeURIComponent(`Assalam o Alaikum ${l.name}, yeh aap ki trips ka link hai. Kisi aur ko share na karein: ${l.url}`)}`} target="_blank" rel="noopener noreferrer"
+                            <a href={`https://wa.me/?text=${encodeURIComponent(`Assalam o Alaikum ${l.name}, yeh aap ki trips ka link hai. Har trip ka kharcha (cost) yahan likhein, aap ka hissa khud ban jayega. Kisi aur ko share na karein: ${l.url}`)}`} target="_blank" rel="noopener noreferrer"
                                 className="rounded-md bg-emerald-600 px-2 py-1 text-xs font-semibold text-white hover:bg-emerald-700">WhatsApp</a>
                         </div>
                     ))}
@@ -187,36 +190,37 @@ export default function CommissionsPage() {
                     </select>
                 </label>
                 <label className="flex items-center gap-2 text-sm text-gray-600 h-9"><input type="checkbox" checked={includeCancelled} onChange={e => setIncludeCancelled(e.target.checked)} /> Include cancelled</label>
-                <label className="flex items-center gap-2 text-sm text-gray-600 h-9"><input type="checkbox" checked={onlyMissing} onChange={e => setOnlyMissing(e.target.checked)} /> Only missing price/commission</label>
+                <label className="flex items-center gap-2 text-sm text-gray-600 h-9"><input type="checkbox" checked={onlyMissing} onChange={e => setOnlyMissing(e.target.checked)} /> Only missing fare/cost</label>
             </div>
 
             {/* Summary */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
                 {[
-                    ['Trips with a driver', String(filtered.length)],
-                    ['Total fares', money(totals.fares)],
-                    ['Your commission', money(totals.commission)],
-                    ['Driver payouts', money(totals.payout)],
-                ].map(([k, v], i) => (
-                    <div key={k} className={`rounded-xl p-4 border ${i === 2 ? 'bg-emerald-50 border-emerald-200' : 'bg-white border-gray-200'}`}>
+                    ['Trips with a driver', String(filtered.length), ''],
+                    ['Total fares', money(totals.fares), ''],
+                    ['Total profit', money(totals.profit), ''],
+                    ['Your share (50%)', money(totals.owner), 'emerald'],
+                    ['Drivers’ share (50%)', money(totals.driverShare), ''],
+                ].map(([k, v, tone]) => (
+                    <div key={k} className={`rounded-xl p-4 border ${tone ? 'bg-emerald-50 border-emerald-200' : 'bg-white border-gray-200'}`}>
                         <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">{k}</p>
-                        <p className={`text-lg font-bold mt-1 ${i === 2 ? 'text-emerald-700' : 'text-gray-900'}`}>{v}</p>
+                        <p className={`text-lg font-bold mt-1 ${tone ? 'text-emerald-700' : 'text-gray-900'}`}>{v}</p>
                     </div>
                 ))}
             </div>
             {totals.missing > 0 && (
                 <p className="flex items-center gap-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
                     <AlertTriangle className="w-4 h-4 shrink-0" />
-                    {totals.missing} booking{totals.missing === 1 ? '' : 's'} below have no price or no commission %, so they are not counted in the totals.
+                    {totals.missing} booking{totals.missing === 1 ? '' : 's'} below have no fare or no trip cost yet, so they are not in the profit totals.
                 </p>
             )}
 
             {/* Per driver */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-x-auto">
                 <h2 className="px-4 pt-4 pb-2 font-bold text-gray-900">By driver</h2>
-                <table className="w-full min-w-[640px] text-sm">
+                <table className="w-full min-w-[720px] text-sm">
                     <thead className="bg-gray-50 text-left text-xs uppercase tracking-wide text-gray-500">
-                        <tr><th className="px-4 py-2">Driver</th><th className="px-4 py-2">Trips</th><th className="px-4 py-2">Fares</th><th className="px-4 py-2">Your commission</th><th className="px-4 py-2">Driver payout</th><th className="px-4 py-2">Missing</th></tr>
+                        <tr><th className="px-4 py-2">Driver</th><th className="px-4 py-2">Trips</th><th className="px-4 py-2">Fares</th><th className="px-4 py-2">Profit</th><th className="px-4 py-2">Your share</th><th className="px-4 py-2">Driver share</th><th className="px-4 py-2">Missing cost</th></tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                         {totals.perDriver.map(([name, d]) => (
@@ -224,12 +228,13 @@ export default function CommissionsPage() {
                                 <td className="px-4 py-2 font-semibold text-gray-900">{name}</td>
                                 <td className="px-4 py-2">{d.trips}</td>
                                 <td className="px-4 py-2">{money(d.fares)}</td>
-                                <td className="px-4 py-2 font-semibold text-emerald-700">{money(d.commission)}</td>
-                                <td className="px-4 py-2">{money(d.payout)}</td>
+                                <td className="px-4 py-2">{money(d.profit)}</td>
+                                <td className="px-4 py-2 font-semibold text-emerald-700">{money(d.owner)}</td>
+                                <td className="px-4 py-2">{money(d.driver)}</td>
                                 <td className="px-4 py-2">{d.missing ? <span className="text-amber-700">{d.missing}</span> : '—'}</td>
                             </tr>
                         ))}
-                        {!totals.perDriver.length && <tr><td colSpan={6} className="px-4 py-6 text-center text-gray-400">No bookings with a driver in this range.</td></tr>}
+                        {!totals.perDriver.length && <tr><td colSpan={7} className="px-4 py-6 text-center text-gray-400">No bookings with a driver in this range.</td></tr>}
                     </tbody>
                 </table>
             </div>
@@ -237,20 +242,20 @@ export default function CommissionsPage() {
             {/* Bookings */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-x-auto">
                 <h2 className="px-4 pt-4 pb-2 font-bold text-gray-900">Bookings</h2>
-                <table className="w-full min-w-[980px] text-sm">
+                <table className="w-full min-w-[1000px] text-sm">
                     <thead className="bg-gray-50 text-left text-xs uppercase tracking-wide text-gray-500">
                         <tr>
                             <th className="px-3 py-2">Date</th><th className="px-3 py-2">Booking</th><th className="px-3 py-2">Route</th><th className="px-3 py-2">Driver</th>
-                            <th className="px-3 py-2">Fare</th><th className="px-3 py-2">Commission %</th><th className="px-3 py-2">Your commission</th><th className="px-3 py-2">Driver payout</th>
+                            <th className="px-3 py-2">Fare</th><th className="px-3 py-2">Trip cost</th><th className="px-3 py-2">Profit</th><th className="px-3 py-2">Your share</th><th className="px-3 py-2">Driver share</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                         {filtered.map(r => {
                             const curr = r.currency || 'SAR';
-                            const s = split(r);
-                            const def = driverDefault.get((r.driver_name || '').trim().toLowerCase());
-                            const draft = drafts[r.id] ?? (r.commission_rate != null ? String(r.commission_rate) : '');
-                            const dirty = draft !== (r.commission_rate != null ? String(r.commission_rate) : '');
+                            const s = profitSplit(r.total_price, r.driver_cost);
+                            const current = r.driver_cost != null ? String(r.driver_cost) : '';
+                            const draft = drafts[r.id] ?? current;
+                            const dirty = draft !== current;
                             return (
                                 <tr key={r.id} className={r.status === 'cancelled' ? 'opacity-50' : ''}>
                                     <td className="px-3 py-2 whitespace-nowrap">{r.pickup_date}</td>
@@ -259,31 +264,31 @@ export default function CommissionsPage() {
                                         <span className="block text-gray-900">{r.customer_name}</span>
                                         <span className="text-[11px] uppercase text-gray-400">{r.status.replace('_', ' ')}</span>
                                     </td>
-                                    <td className="px-3 py-2 max-w-[240px]"><span className="line-clamp-2">{r.pickup_location} → {r.destination}</span></td>
+                                    <td className="px-3 py-2 max-w-[220px]"><span className="line-clamp-2">{r.pickup_location} → {r.destination}</span></td>
                                     <td className="px-3 py-2 font-semibold">{r.driver_name}</td>
-                                    <td className="px-3 py-2 whitespace-nowrap">{r.total_price ? `${curr} ${r.total_price.toLocaleString('en-US')}` : <span className="text-amber-700">No price</span>}</td>
+                                    <td className="px-3 py-2 whitespace-nowrap">{r.total_price ? one(curr, r.total_price) : <span className="text-amber-700">No fare</span>}</td>
                                     <td className="px-3 py-2">
-                                        <div className="flex items-center gap-1">
-                                            <Input type="number" min={0} max={100} step={0.5} value={draft} placeholder="%"
-                                                onChange={e => setDrafts(prev => ({ ...prev, [r.id]: e.target.value }))}
-                                                className="h-8 w-16 text-sm" />
-                                            {dirty && draft !== '' && (
-                                                <Button size="sm" className="h-8 px-2 text-xs" disabled={saving === r.id} onClick={() => saveRate(r.id, Number(draft))}>
-                                                    {saving === r.id ? <Loader2 className="w-3 h-3 animate-spin" /> : 'Save'}
-                                                </Button>
-                                            )}
-                                            {saved === r.id && <Check className="w-4 h-4 text-emerald-600" />}
-                                            {r.commission_rate == null && !dirty && def != null && (
-                                                <button type="button" onClick={() => saveRate(r.id, def)} className="text-[11px] font-semibold text-emerald-700 hover:underline whitespace-nowrap">Use {def}%</button>
-                                            )}
-                                        </div>
+                                        {costsEnabled ? (
+                                            <div className="flex items-center gap-1">
+                                                <Input type="number" min={0} step={1} value={draft} placeholder="cost"
+                                                    onChange={e => setDrafts(prev => ({ ...prev, [r.id]: e.target.value }))}
+                                                    className="h-8 w-24 text-sm" />
+                                                {dirty && (
+                                                    <Button size="sm" className="h-8 px-2 text-xs" disabled={saving === r.id} onClick={() => saveCost(r.id, draft)}>
+                                                        {saving === r.id ? <Loader2 className="w-3 h-3 animate-spin" /> : 'Save'}
+                                                    </Button>
+                                                )}
+                                                {saved === r.id && <Check className="w-4 h-4 text-emerald-600" />}
+                                            </div>
+                                        ) : <span className="text-gray-400">—</span>}
                                     </td>
-                                    <td className="px-3 py-2 font-semibold text-emerald-700 whitespace-nowrap">{s ? `${curr} ${s.commission.toLocaleString('en-US')}` : '—'}</td>
-                                    <td className="px-3 py-2 whitespace-nowrap">{s ? `${curr} ${s.payout.toLocaleString('en-US')}` : '—'}</td>
+                                    <td className={`px-3 py-2 whitespace-nowrap ${s && s.profit < 0 ? 'text-red-600' : ''}`}>{s ? one(curr, s.profit) : '—'}</td>
+                                    <td className="px-3 py-2 font-semibold text-emerald-700 whitespace-nowrap">{s ? one(curr, s.ownerShare) : '—'}</td>
+                                    <td className="px-3 py-2 whitespace-nowrap">{s ? one(curr, s.driverShare) : '—'}</td>
                                 </tr>
                             );
                         })}
-                        {!filtered.length && <tr><td colSpan={8} className="px-4 py-6 text-center text-gray-400">No bookings match these filters.</td></tr>}
+                        {!filtered.length && <tr><td colSpan={9} className="px-4 py-6 text-center text-gray-400">No bookings match these filters.</td></tr>}
                     </tbody>
                 </table>
             </div>
