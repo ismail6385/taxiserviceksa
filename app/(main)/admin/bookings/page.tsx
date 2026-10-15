@@ -887,6 +887,18 @@ export default function BookingsPage() {
         setFlightStatusResult(null);
     };
 
+    // Clicking anywhere on a booking row/card opens it, so the details are
+    // never hidden behind the Actions column on smaller screens. Clicks on
+    // the row's own controls (buttons, links, checkbox, status dropdown,
+    // including its portalled options) keep doing their own thing.
+    const openFromRow = (e: React.MouseEvent, booking: Booking) => {
+        const target = e.target as HTMLElement;
+        if (!e.currentTarget.contains(target)) return; // event bubbled from a portal (e.g. status dropdown)
+        if (target.closest('button, a, input, select, textarea, label, [role="option"], [role="listbox"], [role="combobox"], .cursor-copy')) return;
+        if (window.getSelection()?.toString()) return; // user is selecting text to copy
+        openBookingDetails(booking);
+    };
+
     const checkFlightStatus = async (flightNumber: string) => {
         setCheckingFlight(true);
         setFlightStatusResult(null);
@@ -1742,7 +1754,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     Status <ArrowUpDown className="w-3 h-3" />
                                 </div>
                             </TableHead>
-                            <TableHead className="text-gray-500 font-semibold text-right">Actions</TableHead>
+                            <TableHead className="text-gray-500 font-semibold text-right sticky right-0 bg-gray-50 z-[1]">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -1774,7 +1786,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     booking.status !== 'completed' && booking.status !== 'cancelled';
 
                                 return (
-                                    <TableRow key={booking.id} className={`border-gray-200 hover:bg-gray-50 transition-colors ${isOverdue ? 'bg-red-100/50' : actionNeeded ? 'bg-red-50/50' : ''} ${isSelected ? 'bg-primary/5' : ''}`}>
+                                    <TableRow key={booking.id} onClick={(e) => openFromRow(e, booking)} className={`cursor-pointer border-gray-200 hover:bg-gray-50 transition-colors ${isOverdue ? 'bg-red-100/50' : actionNeeded ? 'bg-red-50/50' : ''} ${isSelected ? 'bg-primary/5' : ''}`}>
                                         <TableCell>
                                             <input 
                                                 type="checkbox" 
@@ -1900,7 +1912,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 </SelectContent>
                                             </Select>
                                         </TableCell>
-                                        <TableCell className="text-right">
+                                        <TableCell className="text-right sticky right-0 z-[1] bg-white shadow-[-6px_0_8px_-6px_rgba(0,0,0,0.12)]">
                                             <div className="grid grid-cols-3 gap-0.5 w-[104px] ml-auto">
                                                 <Button
                                                     variant="ghost"
@@ -1995,7 +2007,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         return (
                             <div
                                 key={booking.id}
-                                className={`bg-white rounded-xl border shadow-sm p-4 ${isOverdue ? 'border-red-300 bg-red-50/40' : isSelected ? 'border-primary/40 bg-primary/5' : 'border-gray-200'}`}
+                                onClick={(e) => openFromRow(e, booking)}
+                                className={`cursor-pointer bg-white rounded-xl border shadow-sm p-4 ${isOverdue ? 'border-red-300 bg-red-50/40' : isSelected ? 'border-primary/40 bg-primary/5' : 'border-gray-200'}`}
                             >
                                 <div className="flex items-start justify-between gap-2 mb-3">
                                     <div className="flex items-start gap-2 min-w-0">
