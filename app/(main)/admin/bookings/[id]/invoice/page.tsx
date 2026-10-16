@@ -11,6 +11,7 @@ import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday } from '@/lib/ksa-time';
+import { cleanCustomerNote, splitVat, isCardOrOnline } from '@/lib/doc-helpers';
 import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 import {
     Printer,
@@ -44,7 +45,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         charges: 'Service Description & Charges', description: 'Description', qty: 'Qty', unitPrice: 'Unit Price', amount: 'Amount',
         roundTripService: 'Private Round Trip Transfer', privateService: 'Private Transfer Service', multiDayService: 'Multi-Day Private Chauffeur Service',
         hourlyService: 'Hourly Chauffeur Service', chauffeurService: 'Professional Chauffeur Service',
-        subtotal: 'Subtotal', totalInvoice: 'Total Invoice Amount', amountReceived: 'Amount Received', outstanding: 'Outstanding Balance', amountDue: 'Amount Due',
+        subtotal: 'Subtotal', subtotalExVat: 'Subtotal (excl. VAT)', vatLine: 'VAT (15%)', totalInvoice: 'Total Invoice Amount', amountReceived: 'Amount Received', outstanding: 'Outstanding Balance', amountDue: 'Amount Due',
         paymentDetails: 'Payment Details', paymentMethodLabel: 'Payment Method',
         statusPaid: 'PAID', statusUnpaid: 'UNPAID', statusPartial: 'PARTIALLY PAID',
         payPaid: 'Payment has been received in full.',
@@ -81,7 +82,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         charges: 'وصف الخدمة والرسوم', description: 'الوصف', qty: 'الكمية', unitPrice: 'سعر الوحدة', amount: 'المبلغ',
         roundTripService: 'نقل خاص ذهاب وعودة', privateService: 'خدمة نقل خاص', multiDayService: 'خدمة سائق خاص متعددة الأيام',
         hourlyService: 'خدمة سائق بالساعة', chauffeurService: 'خدمة سائق محترف',
-        subtotal: 'المجموع الفرعي', totalInvoice: 'إجمالي الفاتورة', amountReceived: 'المبلغ المستلم', outstanding: 'الرصيد المتبقي', amountDue: 'المبلغ المستحق',
+        subtotal: 'المجموع الفرعي', subtotalExVat: 'المجموع الفرعي (بدون الضريبة)', vatLine: 'ضريبة القيمة المضافة (15%)', totalInvoice: 'إجمالي الفاتورة', amountReceived: 'المبلغ المستلم', outstanding: 'الرصيد المتبقي', amountDue: 'المبلغ المستحق',
         paymentDetails: 'تفاصيل الدفع', paymentMethodLabel: 'طريقة الدفع',
         statusPaid: 'مدفوع', statusUnpaid: 'غير مدفوع', statusPartial: 'مدفوع جزئياً',
         payPaid: 'تم استلام المبلغ بالكامل.',
@@ -179,6 +180,8 @@ export default function InvoicePage() {
     const [currency, setCurrency] = useState('SAR');
     const [paymentStatus, setPaymentStatus] = useState('Unpaid');
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
+    // Total already includes 15% VAT (card / online payments): show subtotal + VAT.
+    const [includesVat, setIncludesVat] = useState(false);
     const [isRoundTrip, setIsRoundTrip] = useState(false);
     const [returnPickupLocation, setReturnPickupLocation] = useState('');
     const [returnDropoffLocation, setReturnDropoffLocation] = useState('');
@@ -251,6 +254,7 @@ export default function InvoicePage() {
                 }
                 // Note: payment_method might not be in the DB yet, but we check just in case
                 if (data.payment_method) setPaymentMethod(data.payment_method);
+                if (isCardOrOnline(data.payment_method)) setIncludesVat(true);
                 // Auto-detect round trip from booking data. getReturnRoute()
                 // prefers explicitly recorded return locations and falls back
                 // to the outbound route reversed for legacy bookings that
@@ -378,6 +382,7 @@ export default function InvoicePage() {
     const total = booking.total_price || 0;
     const received = status === 'paid' ? total : status === 'partial' ? Math.min(booking.deposit_amount || 0, total) : 0;
     const balance = Math.max(total - received, 0);
+    const vatSplit = includesVat && total ? splitVat(total) : null;
     const STATUS_STYLE: Record<NormalizedStatus, string> = {
         paid: 'border-emerald-600 text-emerald-700',
         unpaid: 'border-red-600 text-red-700',
@@ -600,6 +605,11 @@ export default function InvoicePage() {
                             ))}
                         </div>
                     </div>
+
+                    <label className="flex items-center gap-1.5 rounded-lg border bg-white px-2 h-10 text-[11px] font-bold text-gray-700 shadow-sm cursor-pointer">
+                        <input type="checkbox" checked={includesVat} onChange={e => setIncludesVat(e.target.checked)} />
+                        Incl. 15% VAT
+                    </label>
 
                     {/* Currency Custom Input */}
                     <div className="flex flex-col gap-1">
@@ -951,8 +961,8 @@ export default function InvoicePage() {
                                         <p className="text-slate-500 text-[10.5px]">{booking.pickup_location}{booking.trip_type !== 'hourly' ? ` → ${booking.destination}` : ''}{isRoundTrip ? ` (${t.roundTrip})` : ''}</p>
                                     </td>
                                     <td className="py-2 px-2 text-center">1</td>
-                                    <td className={`py-2 px-2 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(total)}</td>
-                                    <td className={`py-2 px-2 font-semibold ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(total)}</td>
+                                    <td className={`py-2 px-2 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(vatSplit ? vatSplit.base : total)}</td>
+                                    <td className={`py-2 px-2 font-semibold ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(vatSplit ? vatSplit.base : total)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -982,7 +992,8 @@ export default function InvoicePage() {
                             )}
                         </section>
                         <section className="rounded-lg border border-slate-300 overflow-hidden">
-                            <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{t.subtotal}</span><span className="font-semibold">{money(total)}</span></div>
+                            <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{vatSplit ? t.subtotalExVat : t.subtotal}</span><span className="font-semibold">{money(vatSplit ? vatSplit.base : total)}</span></div>
+                            {vatSplit && <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{t.vatLine}</span><span className="font-semibold">{money(vatSplit.vat)}</span></div>}
                             <div className="flex justify-between items-center px-3 py-2 bg-slate-900 text-white">
                                 <span className="font-bold text-[11px] uppercase tracking-wide">{t.totalInvoice}</span>
                                 <span className="text-[15px] font-black whitespace-nowrap">{money(total)}</span>
@@ -997,10 +1008,10 @@ export default function InvoicePage() {
                         <p className={`mt-3 rounded-md border px-3 py-1.5 text-[11px] font-semibold ${bookingConfirmed && status === 'paid' ? 'border-emerald-200 bg-emerald-50 text-emerald-800' : 'border-amber-200 bg-amber-50 text-amber-800'}`}>{statusMessage}</p>
                     )}
 
-                    {(quickNote.trim() || booking.special_requests) && (
+                    {(quickNote.trim() || cleanCustomerNote(booking.special_requests)) && (
                         <section className="mt-3">
                             <SectionTitle>{t.notes}</SectionTitle>
-                            {booking.special_requests && <p className="text-slate-700">{booking.special_requests}</p>}
+                            {cleanCustomerNote(booking.special_requests) && <p className="text-slate-700">{cleanCustomerNote(booking.special_requests)}</p>}
                             {quickNote.trim() && <p className="text-slate-700 whitespace-pre-wrap">{quickNote.trim()}</p>}
                         </section>
                     )}

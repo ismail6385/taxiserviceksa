@@ -8,6 +8,7 @@ import { formatTime12h } from '@/lib/format-time';
 import { Loader2, RefreshCw, ChevronDown, Users, Plane, RotateCcw } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import LocationText from '@/components/admin/LocationText';
+import { cleanCustomerNote } from '@/lib/doc-helpers';
 
 // New booking requests (status 'pending'), kept deliberately simple:
 // sorted by trip date and grouped Today / Tomorrow / Later, one line per
@@ -45,15 +46,7 @@ const ago = (iso: string) => {
     const h = Math.round(mins / 60);
     return h < 48 ? `${h} h ago` : `${Math.round(h / 24)} days ago`;
 };
-// The booking form appends boilerplate like "Please Provide Quote" and
-// "| Source: /calculator/"; show only what the customer actually wrote.
-const cleanNote = (n: string | null) => (n || '')
-    .replace(/Please Provide Quote/gi, '')
-    .replace(/\|?\s*Source:\s*\S+/gi, '')
-    .replace(/Request:\s*One Way\.?/gi, '')
-    .replace(/\s*\.\s*\./g, '.')
-    .replace(/^[\s.|]+|[\s.|]+$/g, '')
-    .trim();
+const cleanNote = cleanCustomerNote;
 
 export default function RequestsPage() {
     const router = useRouter();

@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { formatTime12h } from '@/lib/format-time';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday, shiftIsoDate } from '@/lib/ksa-time';
+import { cleanCustomerNote, splitVat, isCardOrOnline } from '@/lib/doc-helpers';
 import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 
 // Official customer quotation, laid out per the owner's quotation brief:
@@ -26,7 +27,7 @@ import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 type DocLang = 'en' | 'ar';
 type QuoteStatus = 'pending' | 'availability' | 'confirmed';
 type Arrangement = 'none' | 'direct' | 'border_change' | 'multiple';
-type PaymentPlan = 'cash' | 'advance' | 'prepaid' | 'none';
+type PaymentPlan = 'cash' | 'advance' | 'prepaid' | 'paid' | 'none';
 type IncludedKey = 'vehicleDriver' | 'fuel' | 'tolls' | 'parking' | 'waiting' | 'borderFees';
 
 const TXT = {
@@ -63,6 +64,10 @@ const TXT = {
         payCashNote: 'No advance payment is required. Please have the exact amount ready for the driver.',
         payPrepaidRow: 'Full amount, payable in advance by bank transfer',
         payPrepaidNote: 'The booking is confirmed once the payment has been received. Bank transfer details will be provided on confirmation.',
+        payPaidRow: 'Paid in full',
+        payPaidNote: 'Payment has been received in full. Thank you.',
+        vatLine: 'VAT (15%)', baseFareExVat: 'Base Transportation Fare (excl. VAT)',
+        acceptancePaid: 'Your booking is confirmed and paid in full. We will share your driver\'s name and contact details before the pickup.',
         terms: 'Terms & Conditions',
         termValidity: (d: string) => `This quotation is valid until ${d}, unless otherwise stated.`,
         termAvailability: 'This quotation is subject to vehicle availability. The booking is confirmed once the required payment and our final booking confirmation have been completed.',
@@ -112,6 +117,10 @@ const TXT = {
         payCashNote: 'لا يلزم دفع أي مبلغ مقدم. يرجى تجهيز المبلغ للسائق.',
         payPrepaidRow: 'المبلغ كاملاً يُدفع مقدماً بالتحويل البنكي',
         payPrepaidNote: 'يتم تأكيد الحجز بعد استلام المبلغ. سيتم تزويدكم بتفاصيل التحويل البنكي عند التأكيد.',
+        payPaidRow: 'مدفوع بالكامل',
+        payPaidNote: 'تم استلام المبلغ بالكامل. شكراً لكم.',
+        vatLine: 'ضريبة القيمة المضافة (15%)', baseFareExVat: 'أجرة النقل الأساسية (بدون الضريبة)',
+        acceptancePaid: 'تم تأكيد حجزكم ودفع المبلغ بالكامل. سنرسل لكم اسم السائق ورقم التواصل قبل موعد الانطلاق.',
         terms: 'الشروط والأحكام',
         termValidity: (d: string) => `هذا العرض صالح حتى ${d} ما لم يُذكر خلاف ذلك.`,
         termAvailability: 'هذا العرض خاضع لتوفر المركبة. يتم تأكيد الحجز بعد إتمام الدفع المطلوب وتأكيدنا النهائي.',
@@ -154,6 +163,7 @@ interface Booking {
     deposit_amount?: number | null;
     currency?: string;
     payment_method?: string;
+    payment_status?: string | null;
     distance_km?: number;
     duration_estimate?: string;
     trip_type?: string | null;
@@ -206,6 +216,8 @@ export default function LetterheadPage() {
     const [paymentPlan, setPaymentPlan] = useState<PaymentPlan>('advance');
     const [advancePercent, setAdvancePercent] = useState(25);
     const [showCardVat, setShowCardVat] = useState(true);
+    // Price already includes 15% VAT (card / online payments): show base + VAT.
+    const [includesVat, setIncludesVat] = useState(false);
     const [validityDays, setValidityDays] = useState(7);
     const [showCancellation, setShowCancellation] = useState(true);
     const [showDocuments, setShowDocuments] = useState(false);
@@ -226,6 +238,8 @@ export default function LetterheadPage() {
                 if (data.status === 'confirmed' || data.status === 'completed') setQuoteStatus('confirmed');
                 // Cash-to-driver bookings with no advance recorded default to "full amount in cash".
                 if (!Number(data.deposit_amount) && (data.payment_method || 'Cash to Driver') === 'Cash to Driver') setPaymentPlan('cash');
+                if ((data.payment_status || '').toLowerCase() === 'paid') setPaymentPlan('paid');
+                if (isCardOrOnline(data.payment_method)) { setIncludesVat(true); setShowCardVat(false); }
                 if (GCC_HINT.test(`${data.pickup_location} ${data.destination}`)) setShowDocuments(true);
             } catch (error) {
                 console.error('Error fetching booking:', error);
@@ -493,6 +507,7 @@ export default function LetterheadPage() {
                             <option value="cash">Full amount cash to driver (no advance)</option>
                             <option value="advance">Advance + balance cash to driver</option>
                             <option value="prepaid">Full amount in advance (bank transfer)</option>
+                            <option value="paid">Paid in full (online / already received)</option>
                             <option value="none">Don&apos;t mention payment</option>
                         </select>
                         {paymentPlan === 'advance' && (
@@ -500,6 +515,7 @@ export default function LetterheadPage() {
                                 {recordedDeposit > 0 ? `Advance recorded: ${curr} ${money(recordedDeposit)}` : <>Advance <input type="number" min={0} max={100} value={advancePercent} onChange={e => setAdvancePercent(Math.min(100, Math.max(0, Number(e.target.value) || 0)))} className="w-12 h-6 rounded border border-gray-300 px-1" />%</>}
                             </p>
                         )}
+                        <label className="flex items-center gap-1.5"><input type="checkbox" checked={includesVat} onChange={e => setIncludesVat(e.target.checked)} /> Price includes 15% VAT (show base + VAT)</label>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showCardVat} onChange={e => setShowCardVat(e.target.checked)} /> Card payments +15% VAT note</label>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showCancellation} onChange={e => setShowCancellation(e.target.checked)} /> Free cancellation up to 24 h</label>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showDocuments} onChange={e => setShowDocuments(e.target.checked)} /> Travel documents note (international)</label>
@@ -595,7 +611,7 @@ export default function LetterheadPage() {
                             )}
                             {isRoundTrip && <Row label={t.returnJourney} value={`${returnPickupLocation || booking.destination} → ${returnDropoffLocation || booking.pickup_location}`} />}
                             {booking.duration_estimate ? <Row label={t.duration} value={<>{booking.duration_estimate}<span className="block text-[10.5px] font-normal text-slate-500">{t.durationNote}</span></>} /> : null}
-                            {booking.special_requests && <Row label={t.specialRequests} value={<span className="font-normal">{booking.special_requests}</span>} />}
+                            {cleanCustomerNote(booking.special_requests) && <Row label={t.specialRequests} value={<span className="font-normal">{cleanCustomerNote(booking.special_requests)}</span>} />}
                         </dl>
                     </section>
 
@@ -611,9 +627,23 @@ export default function LetterheadPage() {
                         <section className="mb-3.5">
                             <SectionTitle>{t.summary}</SectionTitle>
                             <div className="rounded-lg border border-slate-300 overflow-hidden">
-                                <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
-                                    <span>{t.baseFare}</span><span className="font-semibold">{curr} {money(total)}</span>
-                                </div>
+                                {includesVat ? (() => {
+                                    const v = splitVat(total);
+                                    return (
+                                        <>
+                                            <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
+                                                <span>{t.baseFareExVat}</span><span className="font-semibold">{curr} {money(v.base)}</span>
+                                            </div>
+                                            <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
+                                                <span>{t.vatLine}</span><span className="font-semibold">{curr} {money(v.vat)}</span>
+                                            </div>
+                                        </>
+                                    );
+                                })() : (
+                                    <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
+                                        <span>{t.baseFare}</span><span className="font-semibold">{curr} {money(total)}</span>
+                                    </div>
+                                )}
                                 <div className="flex items-center justify-between px-4 py-2 bg-slate-900 text-white">
                                     <span className="font-bold uppercase tracking-wide text-[11.5px]">{t.total}</span>
                                     <span className="text-[18px] font-black">{curr} {money(total)}</span>
@@ -621,6 +651,11 @@ export default function LetterheadPage() {
                                 {paymentPlan === 'cash' && (
                                     <div className="flex justify-between gap-3 px-4 py-1.5 border-b border-slate-200 text-[11px] bg-emerald-50">
                                         <span className="font-semibold text-emerald-800">{t.payCashRow}</span><b className="text-emerald-900 whitespace-nowrap">{curr} {money(total)}</b>
+                                    </div>
+                                )}
+                                {paymentPlan === 'paid' && (
+                                    <div className="flex justify-between gap-3 px-4 py-1.5 border-b border-slate-200 text-[11px] bg-emerald-50">
+                                        <span className="font-semibold text-emerald-800">✓ {t.payPaidRow}</span><b className="text-emerald-900 whitespace-nowrap">{curr} {money(total)}</b>
                                     </div>
                                 )}
                                 {paymentPlan === 'prepaid' && (
@@ -638,10 +673,11 @@ export default function LetterheadPage() {
                                     <p><span className="text-slate-500">{t.basis}: </span>{isHourly ? t.basisHourly : t.basisText}</p>
                                     {includedList.length > 0 && <p><span className="text-slate-500">{t.included}: </span>{includedList.map(k => t.includedLabels[k]).join(', ')}.</p>}
                                     <p className="text-slate-600">{t.notIncluded}</p>
-                                    {showCardVat && <p className="font-semibold text-slate-800">{t.vatCard}</p>}
+                                    {showCardVat && !includesVat && paymentPlan !== 'paid' && <p className="font-semibold text-slate-800">{t.vatCard}</p>}
                                     {paymentPlan === 'advance' && advance > 0 && advance < total && <p className="text-slate-600">{t.paymentSecured} {t.bankNote}</p>}
                                     {paymentPlan === 'cash' && <p className="text-slate-600">{t.payCashNote}</p>}
                                     {paymentPlan === 'prepaid' && <p className="text-slate-600">{t.payPrepaidNote}</p>}
+                                    {paymentPlan === 'paid' && <p className="font-semibold text-emerald-800">{t.payPaidNote}</p>}
                                 </div>
                             </div>
                         </section>
@@ -672,7 +708,7 @@ export default function LetterheadPage() {
                     <section className="mb-3 grid grid-cols-[1fr_300px] gap-6 items-end">
                         <div>
                             <SectionTitle>{t.acceptance}</SectionTitle>
-                            <p>{t.acceptanceText}</p>
+                            <p>{paymentPlan === 'paid' && confirmed ? t.acceptancePaid : t.acceptanceText}</p>
                             <dl className="mt-1 grid grid-cols-2 gap-4 text-[11px]">
                                 <div><dt className="text-slate-500">{t.customerAcceptance}</dt><dd className="font-bold">{confirmed ? t.confirmedText : t.pendingAcceptance}</dd></div>
                                 <div><dt className="text-slate-500">{t.bookingConfirmation}</dt><dd className="font-bold">{confirmed ? t.confirmedText : t.pendingConfirmation}</dd></div>
