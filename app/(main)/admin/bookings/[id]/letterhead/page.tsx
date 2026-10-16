@@ -26,6 +26,7 @@ import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 type DocLang = 'en' | 'ar';
 type QuoteStatus = 'pending' | 'availability' | 'confirmed';
 type Arrangement = 'none' | 'direct' | 'border_change' | 'multiple';
+type PaymentPlan = 'cash' | 'advance' | 'prepaid' | 'none';
 type IncludedKey = 'vehicleDriver' | 'fuel' | 'tolls' | 'parking' | 'waiting' | 'borderFees';
 
 const TXT = {
@@ -58,6 +59,10 @@ const TXT = {
         payment: 'Payment Terms', advance: 'Advance to secure the booking', balance: 'Remaining balance, payable in cash to the driver',
         paymentSecured: 'The booking is secured only after the advance has been received and the booking has been confirmed by us.',
         paymentAgreed: 'Payment method', bankNote: 'Bank transfer details will be provided on confirmation.',
+        payCashRow: 'Full amount, payable in cash to the driver on the day of service',
+        payCashNote: 'No advance payment is required. Please have the exact amount ready for the driver.',
+        payPrepaidRow: 'Full amount, payable in advance by bank transfer',
+        payPrepaidNote: 'The booking is confirmed once the payment has been received. Bank transfer details will be provided on confirmation.',
         terms: 'Terms & Conditions',
         termValidity: (d: string) => `This quotation is valid until ${d}, unless otherwise stated.`,
         termAvailability: 'This quotation is subject to vehicle availability. The booking is confirmed once the required payment and our final booking confirmation have been completed.',
@@ -103,6 +108,10 @@ const TXT = {
         payment: 'شروط الدفع', advance: 'دفعة مقدمة لتأكيد الحجز', balance: 'المبلغ المتبقي يُدفع نقداً للسائق',
         paymentSecured: 'يتم تأكيد الحجز فقط بعد استلام الدفعة المقدمة وتأكيدنا النهائي للحجز.',
         paymentAgreed: 'طريقة الدفع', bankNote: 'سيتم تزويدكم بتفاصيل التحويل البنكي عند التأكيد.',
+        payCashRow: 'المبلغ كاملاً يُدفع نقداً للسائق يوم الخدمة',
+        payCashNote: 'لا يلزم دفع أي مبلغ مقدم. يرجى تجهيز المبلغ للسائق.',
+        payPrepaidRow: 'المبلغ كاملاً يُدفع مقدماً بالتحويل البنكي',
+        payPrepaidNote: 'يتم تأكيد الحجز بعد استلام المبلغ. سيتم تزويدكم بتفاصيل التحويل البنكي عند التأكيد.',
         terms: 'الشروط والأحكام',
         termValidity: (d: string) => `هذا العرض صالح حتى ${d} ما لم يُذكر خلاف ذلك.`,
         termAvailability: 'هذا العرض خاضع لتوفر المركبة. يتم تأكيد الحجز بعد إتمام الدفع المطلوب وتأكيدنا النهائي.',
@@ -193,7 +202,7 @@ export default function LetterheadPage() {
     const [quoteStatus, setQuoteStatus] = useState<QuoteStatus>('pending');
     const [arrangement, setArrangement] = useState<Arrangement>('none');
     const [included, setIncluded] = useState<Record<IncludedKey, boolean>>({ vehicleDriver: true, fuel: true, tolls: true, parking: false, waiting: false, borderFees: false });
-    const [showAdvance, setShowAdvance] = useState(true);
+    const [paymentPlan, setPaymentPlan] = useState<PaymentPlan>('advance');
     const [advancePercent, setAdvancePercent] = useState(25);
     const [showCardVat, setShowCardVat] = useState(true);
     const [validityDays, setValidityDays] = useState(7);
@@ -214,6 +223,8 @@ export default function LetterheadPage() {
                     if (data.return_time) setReturnTime(data.return_time);
                 }
                 if (data.status === 'confirmed' || data.status === 'completed') setQuoteStatus('confirmed');
+                // Cash-to-driver bookings with no advance recorded default to "full amount in cash".
+                if (!Number(data.deposit_amount) && (data.payment_method || 'Cash to Driver') === 'Cash to Driver') setPaymentPlan('cash');
                 if (GCC_HINT.test(`${data.pickup_location} ${data.destination}`)) setShowDocuments(true);
             } catch (error) {
                 console.error('Error fetching booking:', error);
@@ -477,10 +488,17 @@ export default function LetterheadPage() {
                     </div>
                     <div className="space-y-1.5">
                         <p className="font-semibold text-gray-600">Payment &amp; terms</p>
-                        <label className="flex items-center gap-1.5">
-                            <input type="checkbox" checked={showAdvance} onChange={e => setShowAdvance(e.target.checked)} />
-                            {recordedDeposit > 0 ? `Advance (recorded: ${curr} ${money(recordedDeposit)})` : <>Advance <input type="number" min={0} max={100} value={advancePercent} onChange={e => setAdvancePercent(Math.min(100, Math.max(0, Number(e.target.value) || 0)))} className="w-12 h-6 rounded border border-gray-300 px-1" />% + balance cash to driver</>}
-                        </label>
+                        <select value={paymentPlan} onChange={e => setPaymentPlan(e.target.value as PaymentPlan)} className="block w-full h-8 rounded border border-gray-300 px-2">
+                            <option value="cash">Full amount cash to driver (no advance)</option>
+                            <option value="advance">Advance + balance cash to driver</option>
+                            <option value="prepaid">Full amount in advance (bank transfer)</option>
+                            <option value="none">Don&apos;t mention payment</option>
+                        </select>
+                        {paymentPlan === 'advance' && (
+                            <p className="flex items-center gap-1.5">
+                                {recordedDeposit > 0 ? `Advance recorded: ${curr} ${money(recordedDeposit)}` : <>Advance <input type="number" min={0} max={100} value={advancePercent} onChange={e => setAdvancePercent(Math.min(100, Math.max(0, Number(e.target.value) || 0)))} className="w-12 h-6 rounded border border-gray-300 px-1" />%</>}
+                            </p>
+                        )}
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showCardVat} onChange={e => setShowCardVat(e.target.checked)} /> Card payments +15% VAT note</label>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showCancellation} onChange={e => setShowCancellation(e.target.checked)} /> Free cancellation up to 24 h</label>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showDocuments} onChange={e => setShowDocuments(e.target.checked)} /> Travel documents note (international)</label>
@@ -598,7 +616,17 @@ export default function LetterheadPage() {
                                     <span className="font-bold uppercase tracking-wide text-[11.5px]">{t.total}</span>
                                     <span className="text-[18px] font-black">{curr} {money(total)}</span>
                                 </div>
-                                {showAdvance && advance > 0 && advance < total && (
+                                {paymentPlan === 'cash' && (
+                                    <div className="flex justify-between gap-3 px-4 py-1.5 border-b border-slate-200 text-[11px] bg-emerald-50">
+                                        <span className="font-semibold text-emerald-800">{t.payCashRow}</span><b className="text-emerald-900 whitespace-nowrap">{curr} {money(total)}</b>
+                                    </div>
+                                )}
+                                {paymentPlan === 'prepaid' && (
+                                    <div className="flex justify-between gap-3 px-4 py-1.5 border-b border-slate-200 text-[11px]">
+                                        <span className="font-semibold text-slate-800">{t.payPrepaidRow}</span><b className="whitespace-nowrap">{curr} {money(total)}</b>
+                                    </div>
+                                )}
+                                {paymentPlan === 'advance' && advance > 0 && advance < total && (
                                     <div className="grid grid-cols-2 border-b border-slate-200 text-[11px]">
                                         <div className="px-4 py-1.5 border-r border-slate-200"><span className="text-slate-500">{t.advance}{recordedDeposit > 0 ? '' : ` (${advancePercent}%)`}: </span><b>{curr} {money(advance)}</b></div>
                                         <div className="px-4 py-1.5"><span className="text-slate-500">{t.balance}: </span><b>{curr} {money(balance)}</b></div>
@@ -609,7 +637,9 @@ export default function LetterheadPage() {
                                     {includedList.length > 0 && <p><span className="text-slate-500">{t.included}: </span>{includedList.map(k => t.includedLabels[k]).join(', ')}.</p>}
                                     <p className="text-slate-600">{t.notIncluded}</p>
                                     {showCardVat && <p className="font-semibold text-slate-800">{t.vatCard}</p>}
-                                    {showAdvance && advance > 0 && advance < total && <p className="text-slate-600">{t.paymentSecured} {t.bankNote}</p>}
+                                    {paymentPlan === 'advance' && advance > 0 && advance < total && <p className="text-slate-600">{t.paymentSecured} {t.bankNote}</p>}
+                                    {paymentPlan === 'cash' && <p className="text-slate-600">{t.payCashNote}</p>}
+                                    {paymentPlan === 'prepaid' && <p className="text-slate-600">{t.payPrepaidNote}</p>}
                                 </div>
                             </div>
                         </section>
