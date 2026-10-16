@@ -100,6 +100,7 @@ const VEHICLE_OPTIONS = [
     'BMW 7 Series',
     'Mercedes Sprinter',
     'Luxurious Bus',
+    'Toyota RAV4 Hybrid 2025',
 ];
 
 interface Booking {

@@ -125,6 +125,7 @@ const VEHICLE_HINTS: [RegExp, string][] = [
     [/camry|sedan/i, 'Toyota Camry'],
     [/yukon|gmc|tahoe|suburban|denali/i, 'GMC Yukon XL / Denali'],
     [/fortuner/i, 'Toyota Fortuner'],
+    [/rav ?4/i, 'Toyota RAV4 Hybrid 2025'],
     [/staria/i, 'Hyundai Staria VIP'],
     [/starex|h-?1\b/i, 'Hyundai Starex'],
     [/hiace/i, 'Toyota Hiace'],

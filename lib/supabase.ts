@@ -171,3 +171,27 @@ export const vehicles = [
         description: "VIP Coach for major groups and spiritual delegations."
     }
 ];
+
+// Vehicles offered only in some areas. Kept out of `vehicles` (which city and
+// route pages render as "our fleet") and added on the booking form only when
+// the pickup or drop-off matches one of the areas.
+export const regionalVehicles = [
+    {
+        name: "Toyota RAV4 Hybrid 2025",
+        image: "/fleet/toyota-rav4-hybrid-2025.webp",
+        passengers: 4,
+        luggage: 3,
+        description: "New 2025 hybrid SUV for Riyadh, Dammam, Al Khobar, Al Qassim Airport and Khafji border trips.",
+        areas: /riyadh|\bruh\b|dammam|\bdmm\b|khobar|qassim|gassim|qasim|buraid|unaizah|\belq\b|khafji/i,
+    },
+];
+
+/** Standard fleet plus any regional vehicle that serves this route. */
+export function vehiclesForRoute(...places: (string | null | undefined)[]) {
+    const text = places.filter(Boolean).join(' ');
+    const regional = text ? regionalVehicles.filter(v => v.areas.test(text)).map(({ areas, ...v }) => v) : [];
+    return [...vehicles, ...regional];
+}
+
+/** Every vehicle, for looking one up by name. */
+export const allVehicles = [...vehicles, ...regionalVehicles.map(({ areas, ...v }) => v)];

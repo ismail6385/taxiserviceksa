@@ -22,7 +22,7 @@ import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Us
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import LocationAutocomplete from '@/components/LocationAutocomplete';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
-import { vehicles, type BookingData } from '@/lib/supabase';
+import { allVehicles, vehiclesForRoute, type BookingData } from '@/lib/supabase';
 import { validateBookingForm, validateRoundTrip, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 
 import { countryCodes } from '@/data/countryCodes';
@@ -112,7 +112,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
             if (vehicle) {
                 const vName = vehicle.replace(/-/g, ' ');
-                const vObj = vehicles.find(v => v.name === vName);
+                const vObj = allVehicles.find(v => v.name === vName);
                 if (vObj) {
                     updates.vehicle_type = vObj.name;
                     updates.vehicle_image = vObj.image;
@@ -159,7 +159,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         }));
     };
 
-    const selectVehicle = (vehicle: typeof vehicles[0]) => {
+    const selectVehicle = (vehicle: typeof allVehicles[0]) => {
         setFormData(prev => ({
             ...prev,
             vehicle_type: vehicle.name,
@@ -372,7 +372,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
     const prevStep = () => setStep(val => val - 1);
 
-    const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
+    const selectedVehicle = allVehicles.find(v => v.name === formData.vehicle_type);
+    // Regional cars (e.g. RAV4 Hybrid) only appear on routes they serve.
+    const routeVehicles = vehiclesForRoute(formData.pickup_location, formData.destination);
     const showVehicleList = !selectedVehicle || choosingVehicle;
 
     return (
@@ -845,7 +847,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
                         {showVehicleList ? (
                         <div className="grid grid-cols-1 gap-3">
-                            {vehicles.map((v) => (
+                            {routeVehicles.map((v) => (
                                 <div
                                     key={v.name}
                                     onClick={() => selectVehicle(v)}
