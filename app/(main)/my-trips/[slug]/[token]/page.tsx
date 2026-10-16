@@ -7,6 +7,7 @@ import { findTeamDriver } from '@/lib/team-drivers';
 import { isValidDriverLinkToken } from '@/lib/driver-links';
 import { profitSplit, isMissingCostColumn } from '@/lib/profit-split';
 import DriverCostForm from '@/components/DriverCostForm';
+import DriverTripActions from '@/components/DriverTripActions';
 
 // Private trip sheet for one driver. Only reachable through the link the
 // owner shares with that driver (see /admin/commissions). Shows the trips,
@@ -50,9 +51,14 @@ interface Trip {
     total_price: number | null;
     currency: string | null;
     driver_cost?: number | null;
+    driver_arrived_at?: string | null;
+    trip_started_at?: string | null;
+    internal_notes?: string | null;
+    // Only this driver's own "🚗" update lines, extracted on the server.
+    driverNotes?: string[];
 }
 
-const FIELDS = 'id,total_price,currency,customer_name,customer_phone,pickup_location,destination,pickup_date,pickup_time,vehicle_type,actual_vehicle,passengers,luggage,child_seats,flight_number,special_requests,status,trip_type,duration_hours,has_return_trip,return_date,return_time,return_pickup_location,return_destination,booking_type,recipient_name,recipient_phone,item_description';
+const FIELDS = 'id,total_price,currency,driver_arrived_at,trip_started_at,internal_notes,customer_name,customer_phone,pickup_location,destination,pickup_date,pickup_time,vehicle_type,actual_vehicle,passengers,luggage,child_seats,flight_number,special_requests,status,trip_type,duration_hours,has_return_trip,return_date,return_time,return_pickup_location,return_destination,booking_type,recipient_name,recipient_phone,item_description';
 
 const STATUS: Record<string, string> = {
     confirmed: 'bg-emerald-100 text-emerald-800',
@@ -122,6 +128,10 @@ function TripCard({ t, slug, token, costsEnabled }: { t: Trip; slug: string; tok
                 <p className="flex gap-2 text-sm bg-amber-50 rounded-xl px-3 py-2 text-amber-900"><StickyNote className="w-4 h-4 mt-0.5 shrink-0" />{t.special_requests}</p>
             )}
 
+            {t.status !== 'cancelled' && (
+                <DriverTripActions slug={slug} token={token} bookingId={t.id} status={t.status} arrivedAt={t.driver_arrived_at ? fmtTime(t.driver_arrived_at) : null} startedAt={t.trip_started_at ? fmtTime(t.trip_started_at) : null} notes={t.driverNotes || []} />
+            )}
+
             {t.total_price ? (() => {
                 const curr = t.currency || 'SAR';
                 const split = profitSplit(t.total_price, t.driver_cost ?? null);
@@ -187,7 +197,11 @@ export default async function DriverTripsPage({ params }: { params: { slug: stri
         ({ data, error } = await query(FIELDS));
     }
 
-    const trips = (data as unknown as Trip[] | null) || [];
+    const trips = ((data as unknown as Trip[] | null) || []).map(t => {
+        const mine = (t.internal_notes || '').split(/\r?\n/).filter(l => l.startsWith('🚗') && l.includes(`] ${driver.name}: `));
+        const { internal_notes: _private, ...rest } = t;
+        return { ...rest, driverNotes: mine.map(l => l.replace(`${driver.name}: `, '').replace(/^🚗\s*/, '')) };
+    });
     const earned = trips.reduce((sum, t) => sum + (profitSplit(t.total_price, t.driver_cost ?? null)?.driverShare || 0), 0);
     const missingCost = trips.filter(t => t.total_price && (t.driver_cost === null || t.driver_cost === undefined) && t.pickup_date <= today).length;
     const upcoming = trips.filter(t => t.pickup_date >= today && t.status !== 'completed');

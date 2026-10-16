@@ -9,6 +9,7 @@ export const TEAM_DRIVERS = [
     { slug: 'sheraz', name: 'Sheraz' },
     { slug: 'umer', name: 'Umer' },
     { slug: 'naimat-ullah', name: 'Naimat Ullah' },
+    { slug: 'shammas-thayyil', name: 'Shammas Thayyil' },
 ] as const;
 
 export type TeamDriver = (typeof TEAM_DRIVERS)[number];
