@@ -4,6 +4,7 @@ import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { bookingSchema, adminBookingSchema, toFieldErrors } from '@/lib/booking-validation';
 import { getAdminSession } from '@/lib/admin-auth';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -82,17 +83,24 @@ export async function POST(request: NextRequest) {
     }
 
     if (sendCustomerEmail) {
-        // Fire-and-forget — don't block booking success on email delivery.
+        // Don't block booking success on email delivery. On Cloudflare an
+        // un-awaited fetch is cancelled once the response is sent, so hand
+        // it to waitUntil to keep it running.
         const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://taxiserviceksa.com';
         const internalHeaders: Record<string, string> = { 'Content-Type': 'application/json' };
         if (process.env.INTERNAL_API_SECRET) {
             internalHeaders['x-internal-secret'] = process.env.INTERNAL_API_SECRET;
         }
-        fetch(`${baseUrl}/api/send-booking-emails`, {
+        const emailJob = fetch(`${baseUrl}/api/send-booking-emails/`, {
             method: 'POST',
             headers: internalHeaders,
             body: JSON.stringify({ booking: inserted }),
         }).catch((err) => console.error('send-booking-emails fetch failed:', err));
+        try {
+            getCloudflareContext().ctx.waitUntil(emailJob);
+        } catch {
+            // Not running on Cloudflare (local dev): the fetch just runs.
+        }
     }
 
     return NextResponse.json({ booking: inserted }, { status: 201 });
