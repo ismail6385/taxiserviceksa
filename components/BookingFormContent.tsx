@@ -5,13 +5,6 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import {
     Command,
     CommandEmpty,
     CommandGroup,
@@ -37,28 +30,6 @@ import { format } from "date-fns";
 import { ksaToday } from '@/lib/ksa-time';
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { BRAND } from '@/lib/brand-config';
-
-const POPULAR_ROUTES = [
-    { id: 'custom', label: 'Custom Location (Enter below)' },
-    // Core intercity routes
-    { id: 'jeddah-makkah', from: 'Jeddah Airport', to: 'Makkah Hotel', label: 'Jeddah Airport → Makkah' },
-    { id: 'makkah-madinah-hotel', from: 'Makkah Hotel', to: 'Madinah Hotel', label: 'Makkah → Madinah Hotel' },
-    { id: 'makkah-madinah-badr-ziyarat', from: 'Makkah', to: 'Madinah (via Badr Ziyarat)', label: 'Makkah → Madinah (via Baddar Ziyarat)' },
-    { id: 'makkah-ziyarat-tour', from: 'Makkah Hotel', to: 'Makkah Ziyarat Tour', label: 'Makkah Ziyarat Tour' },
-    { id: 'madinah-hotel-airport', from: 'Madinah Hotel', to: 'Madinah Airport', label: 'Madinah Hotel → Jeddah Airport' },
-    { id: 'madinah-ziyarat-tour', from: 'Madinah Hotel', to: 'Madinah Ziyarat Tour', label: 'Madinah Ziyarat Tour' },
-    { id: 'jeddah-train-station-transfer', from: 'Jeddah City', to: 'Jeddah Train Station (Haramain)', label: 'City → Jeddah Train Station' },
-    { id: 'madinah-train-station-transfer', from: 'Madinah City', to: 'Madinah Train Station (Haramain)', label: 'City → Madinah Train Station' },
-    // Riyadh Routes
-    { id: 'ruh-olaya', from: 'King Khalid Airport (RUH)', to: 'Olaya District', label: 'RUH Airport → Olaya' },
-    { id: 'ruh-kafd', from: 'King Khalid Airport (RUH)', to: 'KAFD Financial District', label: 'RUH Airport → KAFD' },
-    { id: 'ruh-dq', from: 'King Khalid Airport (RUH)', to: 'Diplomatic Quarter', label: 'RUH Airport → DQ' },
-    { id: 'ruh-diriyah', from: 'King Khalid Airport (RUH)', to: 'Diriyah / Bujairi Terrace', label: 'RUH Airport → Diriyah' },
-    // Border Crossings / GCC
-    { id: 'khobar-bahrain', from: 'Al Khobar / Dammam', to: 'Manama, Bahrain (via Causeway)', label: 'Khobar → Bahrain Border' },
-    { id: 'ruh-uae-border', from: 'Riyadh', to: 'Al Batha (UAE Border)', label: 'Riyadh → UAE Border' },
-    { id: 'jeddah-jordan-border', from: 'Jeddah', to: 'Halat Ammar (Jordan Border)', label: 'Jeddah → Jordan Border' },
-];
 
 interface BookingFormProps {
     prefilledData?: Partial<BookingData>;
@@ -478,22 +449,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 >
                                     <Clock className="w-4 h-4" /> Hourly Hire
                                 </button>
-                            </div>
-                        )}
-
-                        {!isDelivery && formData.trip_type !== 'hourly' && (
-                            <div className="bg-gray-50/50 p-3 rounded-xl border border-dashed border-gray-200">
-                                <label className="text-xs font-semibold text-gray-500 ml-2 mb-1 block">Quick Select Route</label>
-                                <Select onValueChange={(val) => {
-                                    if (val === 'custom') setFormData(prev => ({ ...prev, pickup_location: '', destination: '' }));
-                                    else {
-                                        const r = POPULAR_ROUTES.find(pr => pr.id === val);
-                                        if (r) setFormData(prev => ({ ...prev, pickup_location: r.from || '', destination: r.to || '' }));
-                                    }
-                                }}>
-                                    <SelectTrigger className="bg-white border-gray-200"><SelectValue placeholder="Select a popular route..." /></SelectTrigger>
-                                    <SelectContent className="z-[200]">{POPULAR_ROUTES.map((r) => <SelectItem key={r.id} value={r.id}>{r.label}</SelectItem>)}</SelectContent>
-                                </Select>
                             </div>
                         )}
 
