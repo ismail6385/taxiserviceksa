@@ -11,6 +11,7 @@ import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday } from '@/lib/ksa-time';
+import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 import {
     Printer,
     ArrowLeft,
@@ -164,7 +165,10 @@ interface Booking {
 }
 
 export default function InvoicePage() {
-    const { id } = useParams();
+    const params = useParams();
+    const id = params.id as string;
+    // Opened from a driver's private trip link: load via the token, hide admin-only actions.
+    const driverDoc = driverDocFromParams(params as Record<string, string>);
     const router = useRouter();
     const [booking, setBooking] = useState<Booking | null>(null);
     const [billToCompany, setBillToCompany] = useBillToCompany(booking?.id);
@@ -222,18 +226,13 @@ export default function InvoicePage() {
     useEffect(() => {
         const fetchBooking = async () => {
             try {
-                const { data, error } = await supabase
-                    .from('bookings')
-                    .select('*')
-                    .eq('id', id)
-                    .single();
-
-                if (error) throw error;
+                const data = await loadDocBooking<Booking>(id, driverDoc, { invoice: true });
                 let bookingData = data;
                 // Assign a permanent sequential invoice number the first time
                 // this invoice is ever opened — accounting numbers must not
                 // change on re-visits, so it's stored back on the booking.
-                if (!bookingData.invoice_number) {
+                // (In driver mode the API has already assigned it.)
+                if (!bookingData.invoice_number && !driverDoc) {
                     const { data: assignedNumber, error: rpcError } = await supabase.rpc('assign_invoice_number', { p_booking_id: id });
                     if (!rpcError && assignedNumber) {
                         bookingData = { ...bookingData, invoice_number: assignedNumber };
@@ -632,14 +631,14 @@ export default function InvoicePage() {
                         <Printer className="w-4 h-4 mr-2" /> Download PDF
                     </Button>
 
-                    <Button
+                    {!driverDoc && <Button
                         onClick={handleSendEmail}
                         disabled={sendingEmail}
                         className={`font-bold h-10 px-6 ${emailSent ? 'bg-green-500 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
                     >
                         <Mail className="w-4 h-4 mr-2" />
                         {sendingEmail ? 'Sending...' : emailSent ? '✓ Email Sent!' : 'Send Invoice Email'}
-                    </Button>
+                    </Button>}
                 </div>
             </div>
 
@@ -713,6 +712,7 @@ export default function InvoicePage() {
                 </div>
             )}
 
+            {!driverDoc && (<>
             {/* Additional Recipients */}
             <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
                 <div className="bg-white border-2 border-dashed border-blue-200 rounded-xl p-4">
@@ -822,6 +822,8 @@ export default function InvoicePage() {
                     )}
                 </div>
             </div>
+
+            </>)}
 
             {/* ============ INVOICE DOCUMENT (A4, may flow to a 2nd page) ============ */}
             <div id="invoice-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] mx-auto bg-white shadow-lg print:shadow-none print:max-w-none print:w-[210mm] box-border" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>

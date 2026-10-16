@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { formatTime12h } from '@/lib/format-time';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday, shiftIsoDate } from '@/lib/ksa-time';
+import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 
 // Official customer quotation, laid out per the owner's quotation brief:
 // company header, reference / issue / validity / status, Prepared For,
@@ -168,7 +169,10 @@ const longDate = (iso: string | null | undefined, lang: DocLang) => {
 const money = (n: number) => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 export default function LetterheadPage() {
-    const { id } = useParams();
+    const params = useParams();
+    const id = params.id as string;
+    // Opened from a driver's private trip link: load via the token, hide admin-only actions.
+    const driverDoc = driverDocFromParams(params as Record<string, string>);
     const router = useRouter();
     const [booking, setBooking] = useState<Booking | null>(null);
     const [billToCompany, setBillToCompany] = useBillToCompany(booking?.id);
@@ -199,8 +203,7 @@ export default function LetterheadPage() {
     useEffect(() => {
         const fetchBooking = async () => {
             try {
-                const { data, error } = await supabase.from('bookings').select('*').eq('id', id).single();
-                if (error) throw error;
+                const data = await loadDocBooking<Booking>(id, driverDoc);
                 setBooking(data);
                 if (data.has_return_trip) {
                     setIsRoundTrip(true);
@@ -435,12 +438,12 @@ export default function LetterheadPage() {
                     <Button onClick={handleDownloadOnly} disabled={isDownloading} variant="outline" className="bg-white font-bold">
                         {isDownloading ? <><div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-gray-900 mr-2"></div> Generating...</> : <><Printer className="w-4 h-4 mr-2" /> Download PDF</>}
                     </Button>
-                    <Button onClick={handleSendEmailOnly} disabled={isEmailingOnly} className={`font-bold ${emailSent ? 'bg-green-500 text-white hover:bg-green-500' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>
+                    {!driverDoc && <><Button onClick={handleSendEmailOnly} disabled={isEmailingOnly} className={`font-bold ${emailSent ? 'bg-green-500 text-white hover:bg-green-500' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>
                         {isEmailingOnly ? <><div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></div> Sending...</> : <><Mail className="w-4 h-4 mr-2" /> {emailSent ? '✓ Email Sent!' : 'Send Email'}</>}
                     </Button>
                     <Button onClick={handlePrint} disabled={sendingEmail} className="bg-primary text-black hover:bg-black hover:text-white font-bold">
                         {sendingEmail ? <><div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-black mr-2"></div> Sending & Generating...</> : <><Printer className="w-4 h-4 mr-2" /> Send & Download</>}
-                    </Button>
+                    </Button></>}
                 </div>
             </div>
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { CalendarDays, Clock, MapPin, Users, Briefcase, Plane, Phone, Car, RotateCcw, StickyNote } from 'lucide-react';
+import { CalendarDays, Clock, MapPin, Users, Briefcase, Plane, Phone, Car, RotateCcw, StickyNote, FileText } from 'lucide-react';
 
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { findTeamDriver } from '@/lib/team-drivers';
@@ -147,6 +147,18 @@ function TripCard({ t, slug, token, costsEnabled }: { t: Trip; slug: string; tok
                         <a href={`https://wa.me/${digits(contactPhone)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3 py-2 text-sm font-semibold text-white">WhatsApp</a>
                     </div>
                 )}
+            </div>
+            {/* Customer documents the driver can download and share */}
+            <div className="grid grid-cols-3 gap-2">
+                {[
+                    { label: 'Quotation', path: 'quote' },
+                    { label: 'Invoice', path: 'invoice' },
+                    { label: 'Receipt', path: 'receipt' },
+                ].map(d => (
+                    <a key={d.path} href={`/my-trips/${slug}/${token}/${t.id}/${d.path}/`} className="flex items-center justify-center gap-1.5 rounded-lg border border-gray-300 bg-white px-2 py-2.5 text-sm font-semibold text-gray-800 hover:border-gray-500">
+                        <FileText className="w-4 h-4" />{d.label}
+                    </a>
+                ))}
             </div>
             <p className="text-[11px] font-mono text-gray-400">#{t.id.slice(0, 8).toUpperCase()}</p>
         </article>

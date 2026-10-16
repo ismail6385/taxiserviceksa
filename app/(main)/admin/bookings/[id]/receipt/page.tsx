@@ -9,6 +9,7 @@ import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday } from '@/lib/ksa-time';
+import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 import { ArrowLeft, Mail, Printer, Languages, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -102,7 +103,10 @@ interface Booking {
 }
 
 export default function ReceiptPage() {
-    const { id } = useParams();
+    const params = useParams();
+    const id = params.id as string;
+    // Opened from a driver's private trip link: load via the token, hide admin-only actions.
+    const driverDoc = driverDocFromParams(params as Record<string, string>);
     const router = useRouter();
     const [booking, setBooking] = useState<Booking | null>(null);
     const [billToCompany, setBillToCompany] = useBillToCompany(booking?.id);
@@ -120,8 +124,7 @@ export default function ReceiptPage() {
     useEffect(() => {
         const fetchBooking = async () => {
             try {
-                const { data, error } = await supabase.from('bookings').select('*').eq('id', id).single();
-                if (error) throw error;
+                const data = await loadDocBooking<Booking>(id, driverDoc);
                 setBooking(data);
                 if (data.currency) setCurrency(data.currency);
                 if (data.payment_method) setPaymentMethod(data.payment_method);
@@ -260,9 +263,9 @@ export default function ReceiptPage() {
                         <Button onClick={handlePrint} disabled={!paymentConfirmed} className="bg-gray-900 text-white hover:bg-black font-bold h-9 px-4 text-sm">
                             <Printer className="w-4 h-4 mr-1.5" /> PDF
                         </Button>
-                        <Button onClick={handleSendEmail} disabled={sendingEmail || !paymentConfirmed} className={`font-bold h-9 px-4 text-sm ${emailSent ? 'bg-green-500 text-white' : 'bg-green-600 text-white hover:bg-green-700'}`}>
+                        {!driverDoc && <Button onClick={handleSendEmail} disabled={sendingEmail || !paymentConfirmed} className={`font-bold h-9 px-4 text-sm ${emailSent ? 'bg-green-500 text-white' : 'bg-green-600 text-white hover:bg-green-700'}`}>
                             <Mail className="w-4 h-4 mr-1.5" /> {sendingEmail ? 'Sending...' : emailSent ? '✓ Sent!' : 'Email Receipt'}
-                        </Button>
+                        </Button>}
                     </div>
                 </div>
 
