@@ -95,7 +95,8 @@ export async function POST(request: NextRequest) {
 
         console.log('Sending emails for booking:', booking.id || 'new booking');
 
-        // 1. Send email to customer
+        // 1. Send email to customer. A failure here must not stop the admin
+        // alert and the booking log below.
         await sendMail({
             to: booking.customer_email,
             subject: isDelivery ? 'Delivery Request Received - Taxi Service KSA' : 'Quotation Request Received - Taxi Service KSA',
@@ -134,7 +135,7 @@ export async function POST(request: NextRequest) {
                 </div>
             </div>
             `,
-        });
+        }).catch((e) => console.error('Customer confirmation email failed:', e));
 
         // 2. Alert admin (sent from the booking@ identity so it arrives from/to
         // the mailbox the admin actually watches)

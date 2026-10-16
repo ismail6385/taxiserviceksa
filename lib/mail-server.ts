@@ -1,72 +1,45 @@
 import nodemailer from 'nodemailer';
-import { Resend } from 'resend';
 
-// Resend Config (tried first if configured; harmless to leave enabled even
-// while the domain is unverified there — it fails fast with a 403 and we
-// fall through to SMTP below)
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+// All site email goes out through ImprovMX SMTP, the same provider that
+// already receives mail for taxiserviceksa.com. (Resend was dropped at the
+// owner's request on 2026-10-16; its domain was never verified.)
+// Port 465 (implicit TLS) is used by default; it was confirmed to connect
+// from inside the Cloudflare Workers runtime with nodejs_compat.
 
-// SMTP Config — ImprovMX (each mailbox alias has its own SMTP credentials,
-// unlike a single shared account)
 const smtpHost = process.env.SMTP_HOST || 'smtp.improvmx.com';
-const smtpPort = parseInt(process.env.SMTP_PORT || '587', 10);
+const smtpPort = () => parseInt(process.env.SMTP_PORT || '465', 10);
 
-// Google/ImprovMX both display generated passwords in "xxxx xxxx xxxx xxxx"
-// grouped form for readability, but the real credential has no spaces — a
-// copy-paste of the displayed form fails auth with a generic "Username and
-// Password not accepted" error that gives no hint the spaces are the
-// problem. Stripping them here makes that mistake harmless regardless of
-// how the env var gets set.
+// ImprovMX shows generated passwords grouped with spaces for readability;
+// the real credential has none, so strip them in case they were pasted.
 function cleanPass(pass?: string): string | undefined {
-    return pass?.replace(/\s+/g, '');
+    const p = pass?.replace(/\s+/g, '');
+    // Treat the old "REPLACE_WITH_..." placeholders as not configured.
+    if (!p || /^REPLACE_WITH/i.test(p)) return undefined;
+    return p;
 }
 
 type FromIdentity = 'info' | 'booking';
 
-const identities: Record<FromIdentity, { user: string; pass?: string }> = {
-    // Used for all customer-facing emails (quotes, invoices, receipts, driver
-    // assignment, confirmations, etc.)
-    info: {
-        user: process.env.EMAIL_USER || 'info@taxiserviceksa.com',
-        pass: cleanPass(process.env.EMAIL_PASS),
-    },
-    // Used only for the admin "new booking/delivery request" alert
-    booking: {
-        user: process.env.BOOKING_EMAIL_USER || 'booking@taxiserviceksa.com',
-        pass: cleanPass(process.env.BOOKING_EMAIL_PASS),
-    },
-};
-
-console.log(' Mail Config Status:', {
-    hasResendKey: !!process.env.RESEND_API_KEY,
-    smtpHost,
-    smtpPort,
-    infoUser: identities.info.user,
-    hasInfoSmtpPass: !!identities.info.pass,
-    bookingUser: identities.booking.user,
-    hasBookingSmtpPass: !!identities.booking.pass,
-});
-
-function makeTransporter(user: string, pass?: string) {
-    return nodemailer.createTransport({
-        host: smtpHost,
-        port: smtpPort,
-        secure: smtpPort === 465,
-        auth: { user, pass },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
+// ImprovMX issues separate SMTP credentials per mailbox alias. Read at call
+// time: on Cloudflare, secrets are only available while handling a request.
+function identity(kind: FromIdentity): { user: string; pass?: string } {
+    if (kind === 'booking') {
+        const pass = cleanPass(process.env.BOOKING_EMAIL_PASS);
+        // Fall back to info@ if booking@ has no credentials of its own.
+        if (pass) return { user: process.env.BOOKING_EMAIL_USER || 'booking@taxiserviceksa.com', pass };
+    }
+    return { user: process.env.EMAIL_USER || 'info@taxiserviceksa.com', pass: cleanPass(process.env.EMAIL_PASS) };
 }
 
-/**
- * Send an email using Resend (Primary) or Nodemailer/ImprovMX SMTP (Fallback)
- */
 interface Attachment {
     filename: string;
     content: string; // base64 encoded
 }
 
+/**
+ * Sends an email via ImprovMX SMTP. Throws when email is not configured or
+ * the send fails, so callers report a real failure instead of a false "sent".
+ */
 export async function sendMail({ to, cc, subject, html, fromName = 'Taxi Service KSA', replyTo, attachments, fromIdentity = 'info' }: {
     to: string;
     cc?: string[];
@@ -77,64 +50,40 @@ export async function sendMail({ to, cc, subject, html, fromName = 'Taxi Service
     attachments?: Attachment[];
     fromIdentity?: FromIdentity;
 }) {
-    const identity = identities[fromIdentity];
-
-    // 1. Try Resend First (Best for Vercel)
-    if (resend) {
-        try {
-            console.log(`📧 Sending via Resend to: ${to}${cc?.length ? ` + CC: ${cc.join(', ')}` : ''}`);
-            const { data, error } = await resend.emails.send({
-                from: `${fromName} <${identity.user}>`,
-                to,
-                cc: cc?.length ? cc : undefined,
-                subject,
-                html,
-                replyTo: replyTo || identity.user,
-                attachments: attachments?.map(a => ({
-                    filename: a.filename,
-                    content: a.content,
-                })),
-            });
-
-            if (error) {
-                console.warn('⚠️ Resend failed, falling back to SMTP:', error);
-                // Continue to SMTP fallback
-            } else {
-                console.log(`✅ Email sent via Resend: ${data?.id}`);
-                return data;
-            }
-        } catch (e) {
-            console.error('❌ Resend Exception, falling back to SMTP:', e);
-        }
+    const from = identity(fromIdentity);
+    if (!from.pass) {
+        throw new Error(`Email is not configured: set the ImprovMX SMTP password for ${from.user} (EMAIL_PASS) in the Cloudflare Worker secrets.`);
     }
 
-    // 2. Fallback to Nodemailer/ImprovMX SMTP
-    if (!identity.pass) {
-        console.warn(`⚠️ SMTP Fallback skipped (no password configured for ${identity.user})`);
-        return { message: 'Email skipped (no secrets)' };
-    }
+    const port = smtpPort();
+    const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port,
+        secure: port === 465,
+        auth: { user: from.user, pass: from.pass },
+        connectionTimeout: 15000,
+        greetingTimeout: 15000,
+        socketTimeout: 30000,
+    });
 
     try {
-        console.log(`📧 SMTP Fallback (${identity.user}) to: ${to}${cc?.length ? ` + CC: ${cc.join(', ')}` : ''}`);
-        const transporter = makeTransporter(identity.user, identity.pass);
         const info = await transporter.sendMail({
-            from: `"${fromName}" <${identity.user}>`,
+            from: `"${fromName}" <${from.user}>`,
             to,
             cc: cc?.length ? cc.join(', ') : undefined,
             subject,
             html,
-            replyTo: replyTo || identity.user,
+            replyTo: replyTo || from.user,
             attachments: attachments?.map(a => ({
                 filename: a.filename,
                 content: Buffer.from(a.content, 'base64'),
                 contentType: 'application/pdf',
             })),
         });
-
-        console.log(`✅ Email sent via SMTP: ${info.messageId}`);
+        console.log(`✅ Email sent via ImprovMX (${from.user}) to ${to}: ${info.messageId}`);
         return info;
-    } catch (error: any) {
-        console.error('❌ All email providers failed!');
+    } catch (error) {
+        console.error(`❌ Email to ${to} failed via ImprovMX (${from.user}):`, error);
         throw error;
     }
 }
