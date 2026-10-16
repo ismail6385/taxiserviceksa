@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { writeWithOptionalColumns } from '@/lib/optional-columns';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
 import { adminBookingSchema, toFieldErrors } from '@/lib/booking-validation';
@@ -52,12 +53,12 @@ export async function PUT(
             item_size_weight: isDelivery ? data.item_size_weight ?? null : null,
         };
 
-        const { data: updated, error } = await supabaseAdmin
+        const { data: updated, error } = await writeWithOptionalColumns(updatePayload, (p) => supabaseAdmin
             .from('bookings')
-            .update(updatePayload)
+            .update(p)
             .eq('id', id)
             .select()
-            .single();
+            .single());
 
         if (error || !updated) {
             console.error('Supabase Update Error:', error);

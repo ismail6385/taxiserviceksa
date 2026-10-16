@@ -38,7 +38,7 @@ const TXT = {
         preparedFor: 'Prepared For', name: 'Customer Name', contact: 'Contact Number', email: 'Email Address', company: 'Company', attn: 'Attention',
         journey: 'Service & Journey Details',
         serviceType: 'Service Type', pickupDate: 'Pickup Date', pickupTime: 'Pickup Time', pickup: 'Pickup Location', destination: 'Destination',
-        stops: 'Intermediate Stops', vehicle: 'Vehicle', passengers: 'Passengers', luggage: 'Luggage', items: 'Items', flight: 'Flight Number',
+        stops: 'Intermediate Stops', vehicle: 'Vehicle', nationality: 'Passenger Nationality', passengers: 'Passengers', luggage: 'Luggage', items: 'Items', flight: 'Flight Number',
         specialRequests: 'Special Requests', returnJourney: 'Return Journey', returnDateTime: 'Return Date & Time', itinerary: 'Itinerary',
         distance: 'Approx. Distance', duration: 'Est. Journey Duration', durationNote: 'Journey times can vary with traffic and border processing.',
         hourly: 'Hours Booked',
@@ -87,7 +87,7 @@ const TXT = {
         preparedFor: 'مُعد لـ', name: 'اسم العميل', contact: 'رقم التواصل', email: 'البريد الإلكتروني', company: 'الشركة', attn: 'عناية',
         journey: 'تفاصيل الخدمة والرحلة',
         serviceType: 'نوع الخدمة', pickupDate: 'تاريخ الانطلاق', pickupTime: 'وقت الانطلاق', pickup: 'مكان الانطلاق', destination: 'الوجهة',
-        stops: 'محطات التوقف', vehicle: 'المركبة', passengers: 'الركاب', luggage: 'الأمتعة', items: 'الأغراض', flight: 'رقم الرحلة الجوية',
+        stops: 'محطات التوقف', vehicle: 'المركبة', nationality: 'جنسية الركاب', passengers: 'الركاب', luggage: 'الأمتعة', items: 'الأغراض', flight: 'رقم الرحلة الجوية',
         specialRequests: 'طلبات خاصة', returnJourney: 'رحلة العودة', returnDateTime: 'تاريخ ووقت العودة', itinerary: 'برنامج الرحلة',
         distance: 'المسافة التقريبية', duration: 'المدة التقديرية', durationNote: 'قد تختلف مدة الرحلة بسبب الازدحام وإجراءات الحدود.',
         hourly: 'عدد الساعات',
@@ -149,6 +149,7 @@ interface Booking {
     status: string;
     special_requests?: string;
     flight_number?: string | null;
+    passenger_nationality?: string | null;
     total_price?: number;
     deposit_amount?: number | null;
     currency?: string;
@@ -580,6 +581,7 @@ export default function LetterheadPage() {
                                     <Row label={t.luggage} value={`${booking.luggage} ${t.bags}`} />
                                 </>}
                             {booking.flight_number && <Row label={t.flight} value={booking.flight_number} />}
+                            {booking.passenger_nationality && <Row label={t.nationality} value={booking.passenger_nationality} />}
                             {isHourly && <Row label={t.hourly} value={`${booking.duration_hours || '—'}`} />}
                             {booking.distance_km ? <Row label={t.distance} value={`${booking.distance_km} km`} /> : null}
                             {isRoundTrip && returnDate && <Row label={t.returnDateTime} value={`${longDate(returnDate, lang)}${returnTime ? `, ${formatTime12h(returnTime)}` : ''}`} />}

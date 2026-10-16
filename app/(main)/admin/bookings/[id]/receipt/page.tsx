@@ -33,7 +33,7 @@ const TXT: Record<DocLang, Record<string, string>> = {
         service: 'Service', privateTransfer: 'Private Chauffeur Transfer', roundTrip: 'Private Round Trip Transfer', hourly: 'Hourly Chauffeur Service',
         route: 'Route', pickup: 'Pickup', dropoff: 'Drop-off', returnRoute: 'Return Route',
         dateTime: 'Service Date & Pickup Time', returnDateTime: 'Return Date & Time', duration: 'Duration', hours: 'hours',
-        vehicle: 'Vehicle', passengers: 'Passengers', items: 'Items', paymentMethod: 'Payment Method', remarks: 'Remarks',
+        vehicle: 'Vehicle', passengers: 'Passengers', nationality: 'Passenger Nationality', items: 'Items', paymentMethod: 'Payment Method', remarks: 'Remarks',
         bookingTotal: 'Booking total', balanceRemaining: 'Balance remaining',
         totalReceived: 'Total Amount Received',
         customerInfo: 'Customer Information', payerInfo: 'Payer Information', onBehalfOf: 'On behalf of',
@@ -54,7 +54,7 @@ const TXT: Record<DocLang, Record<string, string>> = {
         service: 'الخدمة', privateTransfer: 'نقل خاص بسائق', roundTrip: 'نقل خاص ذهاب وعودة', hourly: 'خدمة سائق بالساعة',
         route: 'المسار', pickup: 'الانطلاق', dropoff: 'الوصول', returnRoute: 'مسار العودة',
         dateTime: 'تاريخ الخدمة ووقت الانطلاق', returnDateTime: 'تاريخ ووقت العودة', duration: 'المدة', hours: 'ساعات',
-        vehicle: 'المركبة', passengers: 'الركاب', items: 'الأغراض', paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
+        vehicle: 'المركبة', passengers: 'الركاب', nationality: 'جنسية الركاب', items: 'الأغراض', paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
         bookingTotal: 'إجمالي الحجز', balanceRemaining: 'الرصيد المتبقي',
         totalReceived: 'إجمالي المبلغ المستلم',
         customerInfo: 'معلومات العميل', payerInfo: 'معلومات الدافع', onBehalfOf: 'نيابة عن',
@@ -87,6 +87,7 @@ interface Booking {
     special_requests?: string;
     total_price?: number;
     deposit_amount?: number | null;
+    passenger_nationality?: string | null;
     currency?: string;
     payment_status?: string;
     payment_method?: string;
@@ -347,6 +348,7 @@ export default function ReceiptPage() {
                             {booking.booking_type === 'delivery'
                                 ? <Line k={t.items} v={`${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}`} />
                                 : <Line k={t.passengers} v={booking.passengers} />}
+                            {booking.passenger_nationality && <Line k={t.nationality} v={booking.passenger_nationality} />}
                             <Line k={t.paymentMethod} v={lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod} />
                             {partial && <Line k={t.bookingTotal} v={`${t.balanceRemaining}: ${money(total - received)}`} amt={money(total)} />}
                             {receiptNote.trim() && <Line k={t.remarks} v={<span className="italic">{receiptNote.trim()}</span>} />}

@@ -5,7 +5,7 @@ import { CalendarDays, Clock, MapPin, Users, Briefcase, Plane, Phone, Car, Rotat
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { findTeamDriver } from '@/lib/team-drivers';
 import { isValidDriverLinkToken } from '@/lib/driver-links';
-import { profitSplit, isMissingCostColumn } from '@/lib/profit-split';
+import { profitSplit } from '@/lib/profit-split';
 import DriverCostForm from '@/components/DriverCostForm';
 import DriverTripActions from '@/components/DriverTripActions';
 
@@ -56,9 +56,9 @@ interface Trip {
     internal_notes?: string | null;
     // Only this driver's own "🚗" update lines, extracted on the server.
     driverNotes?: string[];
+    passenger_nationality?: string | null;
 }
 
-const FIELDS = 'id,total_price,currency,driver_arrived_at,trip_started_at,internal_notes,customer_name,customer_phone,pickup_location,destination,pickup_date,pickup_time,vehicle_type,actual_vehicle,passengers,luggage,child_seats,flight_number,special_requests,status,trip_type,duration_hours,has_return_trip,return_date,return_time,return_pickup_location,return_destination,booking_type,recipient_name,recipient_phone,item_description';
 
 const STATUS: Record<string, string> = {
     confirmed: 'bg-emerald-100 text-emerald-800',
@@ -114,6 +114,7 @@ function TripCard({ t, slug, token, costsEnabled }: { t: Trip; slug: string; tok
                 {!delivery && t.luggage != null && <span className="flex items-center gap-1.5"><Briefcase className="w-4 h-4 text-gray-500" />{t.luggage} bags</span>}
                 {!!t.child_seats && <span>{t.child_seats} child seat{t.child_seats > 1 ? 's' : ''}</span>}
                 {t.flight_number && <span className="flex items-center gap-1.5"><Plane className="w-4 h-4 text-gray-500" />Flight {t.flight_number}</span>}
+                {t.passenger_nationality && <span>Nationality: <b>{t.passenger_nationality}</b></span>}
                 {delivery && t.item_description && <span>Delivery: {t.item_description}</span>}
             </div>
 
@@ -180,22 +181,19 @@ export default async function DriverTripsPage({ params }: { params: { slug: stri
     if (!driver || !isValidDriverLinkToken(driver.slug, params.token)) notFound();
 
     const today = riyadhToday();
-    const query = (fields: string) => supabaseAdmin
+    // select('*'): columns added by optional SQL files (driver_cost,
+    // passenger_nationality) simply appear once they exist; internal notes are
+    // stripped below before anything reaches the page.
+    const { data, error } = await supabaseAdmin
         .from('bookings')
-        .select(fields)
+        .select('*')
         .is('deleted_at', null)
         .ilike('driver_name', driver.name)
         .neq('status', 'cancelled')
         .gte('pickup_date', shiftDays(today, -60))
         .order('pickup_date', { ascending: true })
         .order('pickup_time', { ascending: true });
-    let costsEnabled = true;
-    let { data, error } = await query(`${FIELDS},driver_cost`);
-    if (isMissingCostColumn(error)) {
-        // driver_cost not added to the database yet: show trips without it.
-        costsEnabled = false;
-        ({ data, error } = await query(FIELDS));
-    }
+    const costsEnabled = !data?.length || 'driver_cost' in data[0];
 
     const trips = ((data as unknown as Trip[] | null) || []).map(t => {
         const mine = (t.internal_notes || '').split(/\r?\n/).filter(l => l.startsWith('🚗') && l.includes(`] ${driver.name}: `));

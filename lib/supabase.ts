@@ -34,6 +34,7 @@ export type BookingData = {
     passengers: number;
     luggage: number;
     special_requests?: string;
+    passenger_nationality?: string;
     status?: 'pending' | 'confirmed' | 'cancelled' | 'completed';
     has_return_trip?: boolean;
     return_date?: string | null;

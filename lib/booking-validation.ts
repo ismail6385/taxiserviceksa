@@ -332,6 +332,8 @@ const bookingFieldsShape = {
         distance_km: z.union([z.number(), z.string()]).optional().nullable(),
         duration_estimate: z.string().optional().nullable(),
         commission_rate: z.union([z.number(), z.string()]).optional().nullable(),
+        // Nationality of the passengers, needed at land borders (free text, e.g. "2 Pakistani, 1 Indian").
+        passenger_nationality: z.string().max(200).optional().nullable(),
         contract_id: z.string().optional().nullable(),
         // Extra pickup/drop-off legs beyond the primary pickup_location/
         // destination and the single return leg — for multi-day/multi-stop

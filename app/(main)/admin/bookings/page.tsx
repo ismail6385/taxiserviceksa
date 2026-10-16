@@ -145,6 +145,7 @@ interface Booking {
     duration_estimate?: string;
     commission_rate?: number;
     driver_cost?: number | null;
+    passenger_nationality?: string | null;
     itinerary_legs?: ItineraryLeg[] | null;
     additional_stops?: AdditionalStop[] | null;
     // Delivery / Item Transfer — see lib/booking-validation.ts. Sender is
@@ -2945,6 +2946,14 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 <span className="font-medium text-gray-900">{selectedBooking.luggage} <span className="text-xs text-gray-500">Bags</span></span>
                                             )}
                                         </div>
+                                        <div className="sm:col-span-2">
+                                            <span className="block text-xs text-gray-500 mb-1">Passenger Nationality (border crossings)</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.passenger_nationality || ''} onChange={(e) => setEditedBooking({ ...editedBooking, passenger_nationality: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. 2 Pakistani, 1 Indian" maxLength={200} />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.passenger_nationality || '—'}</span>
+                                            )}
+                                        </div>
                                     </div>
                                     )}
 
@@ -3856,6 +3865,16 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 placeholder="e.g. SV123 or EK803"
                                                 value={newBooking.flight_number}
                                                 onChange={(e) => setNewBooking({ ...newBooking, flight_number: e.target.value })}
+                                                className="bg-white border-gray-200"
+                                            />
+                                        </div>
+                                        <div className="space-y-1 sm:col-span-2">
+                                            <label className="text-sm font-medium text-gray-700">Passenger Nationality (border crossings)</label>
+                                            <Input
+                                                placeholder="e.g. 2 Pakistani, 1 Indian"
+                                                maxLength={200}
+                                                value={newBooking.passenger_nationality || ''}
+                                                onChange={(e) => setNewBooking({ ...newBooking, passenger_nationality: e.target.value })}
                                                 className="bg-white border-gray-200"
                                             />
                                         </div>

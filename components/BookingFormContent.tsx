@@ -28,6 +28,7 @@ import { validateBookingForm, validateRoundTrip, DELIVERY_ITEM_TYPES } from '@/l
 import { countryCodes } from '@/data/countryCodes';
 import { format } from "date-fns";
 import { ksaToday } from '@/lib/ksa-time';
+import { isCrossBorder } from '@/lib/cross-border';
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { BRAND } from '@/lib/brand-config';
 
@@ -982,6 +983,22 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             );
                         })()}
 
+                        {/* Passenger nationality: only for trips that cross a land border */}
+                        {!isDelivery && !showVehicleList && isCrossBorder(formData.pickup_location, formData.destination) && (
+                            <div className="bg-blue-50/60 p-5 rounded-3xl border border-dashed border-blue-200">
+                                <label htmlFor="passenger-nationality" className="font-black text-gray-900 block leading-none">Passenger nationality</label>
+                                <p className="text-[11px] text-gray-500 mt-1.5 mb-2">Needed for the border crossing. If passengers have different nationalities, list them all, e.g. &quot;2 Pakistani, 1 Indian&quot;.</p>
+                                <Input
+                                    id="passenger-nationality"
+                                    value={formData.passenger_nationality || ''}
+                                    onChange={(e) => setFormData(prev => ({ ...prev, passenger_nationality: e.target.value }))}
+                                    maxLength={200}
+                                    placeholder="e.g. Pakistani"
+                                    className="h-11 bg-white rounded-xl"
+                                />
+                            </div>
+                        )}
+
                         {/* Extras: Child Seats */}
                         {!isDelivery && !showVehicleList && (
                         <div className="bg-amber-50/50 p-5 rounded-3xl border border-dashed border-amber-200">
@@ -1260,7 +1277,8 @@ Please provide a quote for this delivery.` : `*New Booking Request - ${BRAND.nam
 *Time:* ${formData.pickup_time}
 *Vehicle:* ${formData.vehicle_type}
 *Passengers:* ${formData.passengers}
-*Luggage:* ${formData.luggage} bags
+*Luggage:* ${formData.luggage} bags${formData.passenger_nationality ? `
+*Nationality:* ${formData.passenger_nationality}` : ''}
 *Child Seats:* ${formData.child_seats || 0}${formData.flight_number ? `\n*Flight Number:* ${formData.flight_number}` : ''}${formData.trip_type === 'hourly' ? `\n*Trip Type:* Hourly Hire (${formData.duration_hours || '?'} hours)` : `\n*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}${formData.has_return_trip && returnDate ? `\n*Return Date:* ${returnDate}${returnTime ? ` at ${returnTime}` : ''}` : ''}${formData.has_return_trip && (returnPickupLocation || returnDropoffLocation) ? `\n*Return Route:* ${returnPickupLocation || formData.destination} → ${returnDropoffLocation || formData.pickup_location}` : ''}`}
 *Special Requests:* ${formData.special_requests || 'None'}
 ---

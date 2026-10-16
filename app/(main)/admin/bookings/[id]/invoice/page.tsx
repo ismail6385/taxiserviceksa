@@ -38,7 +38,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         invoiceStatus: 'Invoice Status', currencyLabel: 'Currency', bookingStatusLabel: 'Booking Status',
         bookingConfirmed: 'Booking Confirmed', bookingPending: 'Booking Pending Confirmation', bookingCompleted: 'Service Completed', bookingCancelled: 'Booking Cancelled',
         billTo: 'Bill To', attn: 'Attn', bookingDetails: 'Booking Details',
-        serviceDate: 'Service Date', timeLabel: 'Pickup Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers', itemsLabel: 'Items', serviceTypeLabel: 'Service Type',
+        serviceDate: 'Service Date', timeLabel: 'Pickup Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers', nationalityLabel: 'Nationality', itemsLabel: 'Items', serviceTypeLabel: 'Service Type',
         journeyRoute: 'Journey Route', itinDate: 'Date', itinTime: 'Time', itinPickup: 'Pickup', itinDest: 'Drop-off',
         pickup: 'Pickup', dropoff: 'Drop-off', returnDropoff: 'Return · Drop-off', outbound: 'Outbound', returnLeg: 'Return', stopLabel: 'Stop',
         charges: 'Service Description & Charges', description: 'Description', qty: 'Qty', unitPrice: 'Unit Price', amount: 'Amount',
@@ -75,7 +75,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         invoiceStatus: 'حالة الفاتورة', currencyLabel: 'العملة', bookingStatusLabel: 'حالة الحجز',
         bookingConfirmed: 'الحجز مؤكد', bookingPending: 'الحجز بانتظار التأكيد', bookingCompleted: 'تمت الخدمة', bookingCancelled: 'الحجز ملغى',
         billTo: 'فاتورة إلى', attn: 'عناية', bookingDetails: 'تفاصيل الحجز',
-        serviceDate: 'تاريخ الخدمة', timeLabel: 'وقت الانطلاق', vehicleLabel: 'المركبة', passengersLabel: 'الركاب', itemsLabel: 'الأغراض', serviceTypeLabel: 'نوع الخدمة',
+        serviceDate: 'تاريخ الخدمة', timeLabel: 'وقت الانطلاق', vehicleLabel: 'المركبة', passengersLabel: 'الركاب', nationalityLabel: 'الجنسية', itemsLabel: 'الأغراض', serviceTypeLabel: 'نوع الخدمة',
         journeyRoute: 'مسار الرحلة', itinDate: 'التاريخ', itinTime: 'الوقت', itinPickup: 'الانطلاق', itinDest: 'الوصول',
         pickup: 'الانطلاق', dropoff: 'الوصول', returnDropoff: 'العودة · الوصول', outbound: 'الذهاب', returnLeg: 'العودة', stopLabel: 'محطة',
         charges: 'وصف الخدمة والرسوم', description: 'الوصف', qty: 'الكمية', unitPrice: 'سعر الوحدة', amount: 'المبلغ',
@@ -157,6 +157,7 @@ interface Booking {
     itinerary_legs?: { date: string; time: string; pickup: string; dropoff: string }[] | null;
     additional_stops?: Stop[] | null;
     deposit_amount?: number | null;
+    passenger_nationality?: string | null;
     booking_type?: 'passenger' | 'delivery';
     recipient_name?: string | null;
     recipient_phone?: string | null;
@@ -882,6 +883,7 @@ export default function InvoicePage() {
                                 {booking.booking_type === 'delivery'
                                     ? <Row label={t.itemsLabel} value={`${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}`} />
                                     : <Row label={t.passengersLabel} value={`${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}`} />}
+                                {booking.passenger_nationality && <Row label={t.nationalityLabel} value={booking.passenger_nationality} />}
                                 <Row label={t.serviceTypeLabel} value={serviceTitle} />
                                 {booking.trip_type === 'hourly' && <Row label={t.durationLabel} value={`${booking.duration_hours || '?'} ${t.hours}`} />}
                             </dl>

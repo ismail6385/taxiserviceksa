@@ -13,6 +13,7 @@ Vehicle:
 Passengers:
 Bags:
 Flight:
+Nationality:
 Return trip: No
 Return date:
 Return time:
@@ -68,6 +69,7 @@ const KEYS: Record<string, string> = {
     passengers: 'passengers', pax: 'passengers', persons: 'passengers', people: 'passengers', log: 'passengers', adults: 'passengers',
     bags: 'luggage', luggage: 'luggage', suitcases: 'luggage',
     childseats: 'child_seats', childseat: 'child_seats',
+    nationality: 'passenger_nationality', nationalities: 'passenger_nationality', passengernationality: 'passenger_nationality',
     flight: 'flight_number', flightnumber: 'flight_number', flightno: 'flight_number',
     return: 'has_return_trip', returntrip: 'has_return_trip', roundtrip: 'has_return_trip',
     returndate: 'return_date', returntime: 'return_time',
@@ -84,7 +86,7 @@ const KEYS: Record<string, string> = {
 const LABELS: Record<string, string> = {
     customer_name: 'Name', customer_phone: 'Phone', customer_email: 'Email', pickup_location: 'Pickup', destination: 'Drop-off',
     pickup_date: 'Date', pickup_time: 'Time', vehicle_type: 'Vehicle', passengers: 'Passengers', luggage: 'Bags', child_seats: 'Child seats',
-    flight_number: 'Flight', has_return_trip: 'Return trip', return_date: 'Return date', return_time: 'Return time',
+    flight_number: 'Flight', passenger_nationality: 'Nationality', has_return_trip: 'Return trip', return_date: 'Return date', return_time: 'Return time',
     return_pickup_location: 'Return pickup', return_destination: 'Return drop-off', duration_hours: 'Hours', total_price: 'Price',
     currency: 'Currency', payment_method: 'Payment', driver_name: 'Driver', special_requests: 'Notes',
 };

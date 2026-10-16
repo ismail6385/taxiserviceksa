@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { writeWithOptionalColumns } from '@/lib/optional-columns';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { bookingSchema, adminBookingSchema, toFieldErrors } from '@/lib/booking-validation';
@@ -69,11 +70,11 @@ export async function POST(request: NextRequest) {
         status: data.status || 'pending',
     };
 
-    const { data: inserted, error } = await supabaseAdmin
+    const { data: inserted, error } = await writeWithOptionalColumns(insertPayload, (p) => supabaseAdmin
         .from('bookings')
-        .insert([insertPayload])
+        .insert([p])
         .select()
-        .single();
+        .single());
 
     if (error || !inserted) {
         console.error('Booking create error:', error);
