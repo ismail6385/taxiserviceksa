@@ -227,8 +227,10 @@ export default function LetterheadPage() {
     const [advancePercent, setAdvancePercent] = useState(25);
     const [paymentLink, setPaymentLink] = useState('');
     const [showCardVat, setShowCardVat] = useState(true);
-    // Price already includes 15% VAT (card / online payments): show base + VAT.
-    const [includesVat, setIncludesVat] = useState(false);
+    // 15% VAT on card / online payments: 'included' splits the quoted price
+    // into base + VAT; 'added' charges VAT on top of the quoted price.
+    const [vatMode, setVatMode] = useState<'none' | 'included' | 'added'>('none');
+    const includesVat = vatMode !== 'none';
     const [validityDays, setValidityDays] = useState(7);
     const [showCancellation, setShowCancellation] = useState(true);
     const [showDocuments, setShowDocuments] = useState(false);
@@ -251,8 +253,10 @@ export default function LetterheadPage() {
                 if (!Number(data.deposit_amount) && (data.payment_method || 'Cash to Driver') === 'Cash to Driver') setPaymentPlan('cash');
                 if ((data.payment_status || '').toLowerCase() === 'paid') setPaymentPlan('paid');
                 if (isCardOrOnline(data.payment_method)) {
-                    setIncludesVat(true); setShowCardVat(false);
-                    if ((data.payment_status || '').toLowerCase() !== 'paid') setPaymentPlan('online');
+                    setShowCardVat(false);
+                    // Already paid: the amount received includes VAT. Not yet paid: add VAT on top.
+                    if ((data.payment_status || '').toLowerCase() === 'paid') setVatMode('included');
+                    else { setVatMode('added'); setPaymentPlan('online'); }
                 }
                 if (GCC_HINT.test(`${data.pickup_location} ${data.destination}`)) setShowDocuments(true);
             } catch (error) {
@@ -395,8 +399,13 @@ export default function LetterheadPage() {
 
     const t = TXT[lang];
     const curr = booking.currency || 'SAR';
-    const total = Number(booking.total_price || 0);
-    const hasPrice = booking.total_price !== undefined && booking.total_price !== null && total > 0;
+    // price = the amount entered on the booking; total = what the customer pays.
+    const price = Number(booking.total_price || 0);
+    const vatParts = vatMode === 'added'
+        ? { base: price, vat: Math.round(price * 15) / 100 }
+        : vatMode === 'included' ? splitVat(price) : null;
+    const total = vatMode === 'added' && vatParts ? vatParts.base + vatParts.vat : price;
+    const hasPrice = booking.total_price !== undefined && booking.total_price !== null && price > 0;
     const recordedDeposit = Number(booking.deposit_amount || 0);
     const advance = recordedDeposit > 0 ? recordedDeposit : Math.round(total * advancePercent) / 100;
     const balance = Math.max(0, total - advance);
@@ -521,7 +530,7 @@ export default function LetterheadPage() {
                             const plan = e.target.value as PaymentPlan;
                             setPaymentPlan(plan);
                             // Card payments carry 15% VAT: show the price as base + VAT.
-                            if (plan === 'online' || plan === 'onboard') { setIncludesVat(true); setShowCardVat(false); }
+                            if (plan === 'online' || plan === 'onboard') { setVatMode('added'); setShowCardVat(false); }
                         }} className="block w-full h-8 rounded border border-gray-300 px-2">
                             <option value="cash">Full amount cash to driver (no advance)</option>
                             <option value="advance">Advance + balance cash to driver</option>
@@ -539,7 +548,7 @@ export default function LetterheadPage() {
                                 {recordedDeposit > 0 ? `Advance recorded: ${curr} ${money(recordedDeposit)}` : <>Advance <input type="number" min={0} max={100} value={advancePercent} onChange={e => setAdvancePercent(Math.min(100, Math.max(0, Number(e.target.value) || 0)))} className="w-12 h-6 rounded border border-gray-300 px-1" />%</>}
                             </p>
                         )}
-                        <label className="flex items-center gap-1.5"><input type="checkbox" checked={includesVat} onChange={e => setIncludesVat(e.target.checked)} /> Price includes 15% VAT (show base + VAT)</label>
+                        <select value={vatMode} onChange={e => setVatMode(e.target.value as typeof vatMode)} className="block w-full h-8 rounded border border-gray-300 px-2"><option value="none">No VAT line</option><option value="added">Add 15% VAT on top (e.g. 4,500 + 675 = 5,175)</option><option value="included">Price already includes 15% VAT (split it)</option></select>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showCardVat} onChange={e => setShowCardVat(e.target.checked)} /> Card payments +15% VAT note</label>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showCancellation} onChange={e => setShowCancellation(e.target.checked)} /> Free cancellation up to 24 h</label>
                         <label className="flex items-center gap-1.5"><input type="checkbox" checked={showDocuments} onChange={e => setShowDocuments(e.target.checked)} /> Travel documents note (international)</label>
@@ -651,8 +660,8 @@ export default function LetterheadPage() {
                         <section className="mb-3.5">
                             <SectionTitle>{t.summary}</SectionTitle>
                             <div className="rounded-lg border border-slate-300 overflow-hidden">
-                                {includesVat ? (() => {
-                                    const v = splitVat(total);
+                                {vatParts ? (() => {
+                                    const v = vatParts;
                                     return (
                                         <>
                                             <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
