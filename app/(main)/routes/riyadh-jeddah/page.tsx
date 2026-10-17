@@ -28,14 +28,14 @@ export default function RiyadhJeddahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: 'Approx. 950 km', icon: Navigation },
         { label: 'Travel Time', value: '9-10 Hours', icon: Clock },
-        { label: '2026 Base Fare', value: 'From 1000 SAR', icon: DollarSign },
+        { label: '2026 Base Fare', value: 'From 1500 SAR', icon: DollarSign },
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
     const pricingRows = [
-        { vehicle: 'Toyota Camry', description: 'Sedan — up to 4 passengers.', price: '1000', capacity: '4 Pax', isPopular: false },
-        { vehicle: 'Hyundai Staria VIP', description: 'Van with captain seats, dual AC.', price: '1600', capacity: '7 Pax', isPopular: true },
-        { vehicle: 'GMC Yukon XL', description: 'Full-size premium SUV.', price: '2000', capacity: '7 Pax', isPopular: false },
+        { vehicle: 'Toyota Camry', description: 'Sedan — up to 4 passengers.', price: '1500', capacity: '4 Pax', isPopular: false },
+        { vehicle: 'Hyundai Staria VIP', description: 'Van with captain seats, dual AC.', price: '1700', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'GMC Yukon XL', description: 'Full-size premium SUV.', price: '2500', capacity: '7 Pax', isPopular: false },
         { vehicle: 'Mercedes S-Class', description: 'VIP sedan for executive travel.', price: '3500', capacity: '3 Pax', isPopular: false },
         { vehicle: 'Mercedes Sprinter', description: 'Large van for bigger groups.', price: '4000', capacity: '14 Pax', isPopular: false },
     ];
@@ -52,16 +52,16 @@ export default function RiyadhJeddahRoutePage() {
 
     const faqs = [
         { question: "How long does Riyadh to Jeddah take by taxi?", shortAnswer: "Usually around 9-10 hours", detailedAnswer: "Driving time is typically 9-10 hours for the approximately 950 km journey, depending on traffic, rest stops and road conditions.", perspectives: [] },
-        { question: "How much is a Riyadh to Jeddah taxi?", shortAnswer: "From 1000 SAR", detailedAnswer: "Rates start from 1000 SAR for a sedan (Toyota Camry). A Hyundai Staria VIP is 1600 SAR, a GMC Yukon XL is 2000 SAR, a Mercedes S-Class is 3500 SAR, and a Mercedes Sprinter (up to 14 passengers) is 4000 SAR. All prices are per vehicle, confirmed before booking.", perspectives: [] },
+        { question: "How much is a Riyadh to Jeddah taxi?", shortAnswer: "From 1500 SAR", detailedAnswer: "Rates start from 1500 SAR for a sedan (Toyota Camry). A Hyundai Staria VIP is 1700 SAR, a GMC Yukon XL is 2500 SAR, a Mercedes S-Class is 3500 SAR, and a Mercedes Sprinter (up to 14 passengers) is 4000 SAR. All prices are per vehicle, confirmed before booking.", perspectives: [] },
         { question: "Is the Riyadh to Jeddah taxi private?", shortAnswer: "Yes", detailedAnswer: "Yes, this is a private vehicle and chauffeur — no shared passengers.", perspectives: [] },
-        { question: "Is the fare per person or per vehicle?", shortAnswer: "Per vehicle", detailedAnswer: "The quoted price is for the entire vehicle, not per passenger. A group of 6-7 in a GMC Yukon XL pays 2000 SAR total, not per person.", perspectives: [] },
+        { question: "Is the fare per person or per vehicle?", shortAnswer: "Per vehicle", detailedAnswer: "The quoted price is for the entire vehicle, not per passenger. A group of 6-7 in a GMC Yukon XL pays 2500 SAR total, not per person.", perspectives: [] },
         { question: "Can I book a return trip?", shortAnswer: "Yes", detailedAnswer: "Yes, one-way or return trips can be booked. Let us know your return date when booking and we'll confirm return pricing.", perspectives: [] },
         { question: "Can I book from Riyadh Airport?", shortAnswer: "Yes", detailedAnswer: "Yes, pickup from King Khalid International Airport (RUH) is available.", perspectives: [] },
         { question: "Can you pick me up from my hotel?", shortAnswer: "Yes", detailedAnswer: "Yes, pickup is available from any Riyadh hotel, residence or business address.", perspectives: [] },
         { question: "Can I request rest stops?", shortAnswer: "Yes", detailedAnswer: "Yes, for a 9-10 hour journey you can request planned rest stops for meals, prayer, fuel or refreshments — let us know when booking, especially if travelling with children or elderly passengers.", perspectives: [] },
         { question: "How much luggage can I bring?", shortAnswer: "Depends on the vehicle", detailedAnswer: "A sedan suits smaller loads, while the Staria, GMC Yukon XL and Sprinter offer more space for families and groups. See the vehicle options below for exact capacity.", perspectives: [] },
         { question: "Can I travel overnight?", shortAnswer: "Yes", detailedAnswer: "Yes, for overnight journeys some passengers prefer an evening departure with a morning arrival. Let us know your preferred departure time when booking.", perspectives: [] },
-        { question: "Can I book a GMC Yukon?", shortAnswer: "Yes", detailedAnswer: "Yes, the GMC Yukon XL (2000 SAR, 7 passengers) is available for this route, subject to availability.", perspectives: [] },
+        { question: "Can I book a GMC Yukon?", shortAnswer: "Yes", detailedAnswer: "Yes, the GMC Yukon XL (2500 SAR, 7 passengers) is available for this route, subject to availability.", perspectives: [] },
         { question: "How far is Riyadh from Jeddah?", shortAnswer: "Approx. 950 km", detailedAnswer: "The road distance is approximately 950 km, via Highway 40.", perspectives: [] },
     ];
 

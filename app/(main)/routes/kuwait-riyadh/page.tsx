@@ -20,14 +20,14 @@ import ReviewForm from '@/components/seo/ReviewForm';
 
 export const metadata: Metadata = {
     title: 'Kuwait to Riyadh Taxi & Private Car Transfer | Taxi Service KSA',
-    description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border crossing assistance. Fixed per-vehicle rates, 24/7.',
+    description: 'Book a private car transfer from Kuwait City to Riyadh for 300 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border crossing assistance. Fixed per-vehicle rates, 24/7.',
     keywords: ['Kuwait to Riyadh taxi', 'private car transfer Kuwait City Riyadh', 'Kuwait Riyadh transfer', 'cross border taxi Saudi Arabia', 'Nuwaiseeb border crossing taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/kuwait-riyadh/',
     },
     openGraph: {
         title: 'Kuwait to Riyadh Taxi & Private Car Transfer | Taxi Service KSA',
-        description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border crossing assistance. Fixed per-vehicle rates, 24/7.',
+        description: 'Book a private car transfer from Kuwait City to Riyadh for 300 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border crossing assistance. Fixed per-vehicle rates, 24/7.',
         url: 'https://taxiserviceksa.com/routes/kuwait-riyadh/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/hero-slide-1.webp', width: 1200, height: 630, alt: 'Private car transfer from Kuwait City to Riyadh' }],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Kuwait to Riyadh Taxi & Private Car Transfer | Taxi Service KSA',
-        description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border crossing assistance. Fixed per-vehicle rates, 24/7.',
+        description: 'Book a private car transfer from Kuwait City to Riyadh for 300 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border crossing assistance. Fixed per-vehicle rates, 24/7.',
         images: ['https://taxiserviceksa.com/hero-slide-1.webp'],
     },
 };
@@ -47,25 +47,14 @@ export default function KuwaitRiyadhRoutePage() {
         '/jeddah-airport.webp'
     ];
 
+    // Only an SUV runs this cross-border route.
     const pricingRows = [
         {
-            vehicle: "Sedan (Camry/Sonata)",
-            description: "Comfortable standard sedan",
-            price: "170",
-            capacity: "4 Passengers",
-        },
-        {
-            vehicle: "Toyota Fortuner",
-            description: "Mid-size SUV for families",
-            price: "200",
-            capacity: "6 Passengers",
-            isPopular: true
-        },
-        {
-            vehicle: "GMC / Chevrolet Tahoe",
-            description: "Spacious premium VIP SUV",
-            price: "250",
+            vehicle: "GMC Yukon / Chevrolet Tahoe",
+            description: "Private SUV, the only vehicle on this route",
+            price: "300",
             capacity: "7 Passengers",
+            isPopular: true
         }
     ];
 
@@ -73,7 +62,7 @@ export default function KuwaitRiyadhRoutePage() {
         {
             icon: <Users className="w-5 h-5 text-emerald-600" />,
             heading: "Families",
-            body: "Our Fortuner and Tahoe SUVs have room for car seats, strollers, and children's bags. Drivers make rest stops on request. Book at least 24 hours ahead to help guarantee a family-sized vehicle."
+            body: "Our GMC Yukon and Chevrolet Tahoe SUVs have room for car seats, strollers, and children's bags. Drivers make rest stops on request. Book at least 24 hours ahead to help guarantee a family-sized vehicle."
         },
         {
             icon: <Briefcase className="w-5 h-5 text-emerald-600" />,
@@ -98,7 +87,7 @@ export default function KuwaitRiyadhRoutePage() {
                 cityName="Kuwait to Riyadh"
                 description="Private car transfer from Kuwait City to Riyadh. Door-to-door transfers with SUVs and bilingual drivers."
                 services={[
-                    { name: 'Private Car Transfer Kuwait to Riyadh', description: 'Private transfer with fixed per-vehicle rates starting from 170 KD.' },
+                    { name: 'Private Car Transfer Kuwait to Riyadh', description: 'Private transfer with a fixed fare of 300 KD per SUV.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
                     { name: 'Family SUV Service', description: 'Spacious vehicles for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Pickups and drop-offs at major locations in Riyadh.' }
@@ -119,7 +108,7 @@ export default function KuwaitRiyadhRoutePage() {
             >
                 <div className="max-w-7xl mx-auto px-4 mt-8 flex flex-col items-center">
                     <div className="bg-emerald-600 text-white font-bold px-6 py-2 rounded-full mb-6 shadow-lg inline-flex items-center gap-2 text-lg">
-                        <CheckCircle2 className="w-5 h-5" /> Starting from 170 KD
+                        <CheckCircle2 className="w-5 h-5" /> 300 KD per SUV
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
@@ -297,10 +286,10 @@ export default function KuwaitRiyadhRoutePage() {
                 <div className="max-w-5xl mx-auto px-4">
                     <PricingTable
                         title="Kuwait to Riyadh Taxi Prices"
-                        subtitle="Starting Fares — Per Vehicle, All-Inclusive"
+                        subtitle="Fixed Fare — Per Vehicle, All-Inclusive"
                         rows={pricingRows}
                         currency="KD"
-                        disclaimer="Starting fares — confirm the current price and full inclusions before booking. Approx. 170 KD ≈ 2,050 SAR / $545 USD for reference. Prices include fuel, border crossing vehicle insurance, and applicable tolls."
+                        disclaimer="This route runs with a private SUV only. 300 KD is about 3,650 SAR / $975 USD for reference. Prices include fuel, border crossing vehicle insurance, and applicable tolls."
                     />
 
                     <div className="mt-8 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
@@ -390,7 +379,7 @@ export default function KuwaitRiyadhRoutePage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl font-bold mb-4">Vehicle Options</h2>
-                            <p className="text-gray-400 mb-6 leading-relaxed">For the 7-8 hour journey between Kuwait and Riyadh, our fleet for this route is primarily <strong>Toyota Camry/Sonata sedans, Toyota Fortuner, and GMC Yukon/Chevrolet Tahoe</strong> SUVs.</p>
+                            <p className="text-gray-400 mb-6 leading-relaxed">For the 7-8 hour journey between Kuwait and Riyadh, this route runs with a private <strong>GMC Yukon or Chevrolet Tahoe</strong> SUV only.</p>
                             <ul className="space-y-3 mb-8">
                                 <li className="flex items-center gap-3 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Comfortable seating with ample legroom</li>
                                 <li className="flex items-center gap-3 text-sm text-gray-300"><CheckCircle2 className="w-5 h-5 text-emerald-500" /> Rear AC vents & climate control</li>
@@ -539,8 +528,8 @@ export default function KuwaitRiyadhRoutePage() {
                     },
                     {
                         question: "What vehicle options do you have for this route?",
-                        shortAnswer: "Sedan, SUV, or Large SUV",
-                        detailedAnswer: "We offer three vehicle tiers: a Camry/Sonata sedan (up to 4 passengers, 170 KD), a Toyota Fortuner mid-size SUV (up to 6 passengers, 200 KD), and a GMC Yukon/Chevrolet Tahoe large SUV (up to 7 passengers, 250 KD). For the 650 km journey we recommend an SUV for comfort and luggage space.",
+                        shortAnswer: "Private SUV only, 300 KD",
+                        detailedAnswer: "This cross-border route runs with a private SUV only: a GMC Yukon or Chevrolet Tahoe for up to 7 passengers, at 300 KD per vehicle, one way.",
                         perspectives: []
                     },
                     {
@@ -582,7 +571,7 @@ export default function KuwaitRiyadhRoutePage() {
                     {
                         question: "Is it cheaper to fly or take a taxi from Kuwait to Riyadh?",
                         shortAnswer: "For groups, the private transfer is often cheaper",
-                        detailedAnswer: "A one-way flight ticket from Kuwait to Riyadh typically costs 80-150 KD per person, so a family of 4 could pay 320-600 KD in flights alone, plus airport transfers and checked baggage fees. Our private SUV transfer starts at 250 KD total for up to 7 passengers, door-to-door, with no per-person luggage fees.",
+                        detailedAnswer: "A one-way flight ticket from Kuwait to Riyadh typically costs 80-150 KD per person, so a family of 4 could pay 320-600 KD in flights alone, plus airport transfers and checked baggage fees. Our private SUV transfer is 300 KD total for up to 7 passengers, door-to-door, with no per-person luggage fees.",
                         perspectives: []
                     },
                     {
@@ -672,7 +661,7 @@ export default function KuwaitRiyadhRoutePage() {
                         Book your Kuwait to Riyadh transfer today
                     </h2>
                     <p className="text-gray-400 text-lg mb-4 leading-relaxed">
-                        Private vehicle from 170 KD · Door-to-door · Border assistance included · 24/7
+                        Private SUV 300 KD · Door-to-door · Border assistance included · 24/7
                     </p>
                     <p className="text-gray-500 text-sm mb-10">
                         WhatsApp us your travel date, Kuwait pickup address, and Riyadh destination — we confirm within minutes.

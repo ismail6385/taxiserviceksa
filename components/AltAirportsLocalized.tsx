@@ -9,7 +9,7 @@ const AIRPORTS = [
     { code: 'DMM', href: '/routes/riyadh-to-dammam-airport/', km: '400', fare: { ur: 'سیڈان 1,000 ریال · ایس یو وی 1,500 ریال', ar: 'سيدان 1,000 ريال · دفع رباعي 1,500 ريال' }, domestic: true },
     { code: 'BAH', href: '/routes/riyadh-bahrain/', km: '430–480', fare: { ur: 'ایس یو وی 2,000 ریال', ar: 'دفع رباعي 2,000 ريال' }, domestic: false },
     { code: 'DOH', href: '/routes/riyadh-doha/', km: '600', fare: { ur: 'جی ایم سی 3,000 ریال', ar: 'جمس 3,000 ريال' }, domestic: false },
-    { code: 'JED', href: '/routes/riyadh-to-jeddah-airport/', km: '950–1,000', fare: { ur: 'سیڈان 1,000 · اسٹاریا 1,600 · جی ایم سی 2,000 ریال', ar: 'سيدان 1,000 · ستاريا 1,600 · جمس 2,000 ريال' }, domestic: true },
+    { code: 'JED', href: '/routes/riyadh-to-jeddah-airport/', km: '950–1,000', fare: { ur: 'سیڈان 1,500 · اسٹاریا 1,700 · جی ایم سی 2,500 ریال', ar: 'سيدان 1,500 · ستاريا 1,700 · جمس 2,500 ريال' }, domestic: true },
     { code: 'DXB', href: '/routes/riyadh-dubai/', km: '990–1,000', fare: { ur: 'سیڈان 3,500 · فورچونر 3,800 · جی ایم سی 4,500 ریال', ar: 'سيدان 3,500 · فورتشنر 3,800 · جمس 4,500 ريال' }, domestic: false },
 ] as const;
 

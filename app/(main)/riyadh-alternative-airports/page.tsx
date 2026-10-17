@@ -37,7 +37,7 @@ const AIRPORTS = [
     {
         code: 'JED', name: 'Jeddah', airport: 'King Abdulaziz International Airport', country: 'Saudi Arabia',
         distance: 'About 950–1,000 km', drive: 'Around 9–11 hours', border: 'None - domestic trip',
-        fares: 'Sedan 1,000 SAR · Staria VIP 1,600 SAR · GMC 2,000 SAR', href: '/routes/riyadh-to-jeddah-airport/',
+        fares: 'Sedan 1,500 SAR · Staria VIP 1,700 SAR · GMC 2,500 SAR', href: '/routes/riyadh-to-jeddah-airport/',
         note: 'No visa needed, but it is a full day on the road. Leave early for an evening flight.',
     },
     {
@@ -81,7 +81,7 @@ const faqs = [
     { q: 'How much is a taxi from Riyadh to Dubai Airport?', a: 'Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR, one way per vehicle.' },
     { q: 'How much is a taxi from Riyadh to Bahrain Airport?', a: 'The private SUV is 2,000 SAR one way, including fuel and the King Fahd Causeway toll.' },
     { q: 'How much is a taxi from Riyadh to Doha Airport?', a: 'We run this route with a private GMC SUV at 3,000 SAR one way.' },
-    { q: 'How much is a taxi from Riyadh to Jeddah Airport?', a: 'Sedan 1,000 SAR, Hyundai Staria VIP 1,600 SAR, GMC Yukon XL 2,000 SAR, one way per vehicle.' },
+    { q: 'How much is a taxi from Riyadh to Jeddah Airport?', a: 'Sedan 1,500 SAR, Hyundai Staria VIP 1,700 SAR, GMC Yukon XL 2,500 SAR, one way per vehicle.' },
     { q: 'How much is a taxi from Riyadh to Dammam Airport?', a: 'Sedan 1,000 SAR, SUV 1,500 SAR, one way per vehicle.' },
     { q: 'Can you leave at short notice?', a: 'Often, yes, but it depends on vehicle availability for that day. Message us on WhatsApp with the airport and flight time and we will tell you straight away what we can do.' },
     { q: 'What if my new flight changes again?', a: 'Tell us as soon as the airline changes it. If the trip has not started, we can move the pickup time or change the airport, subject to availability and the fare for the new route.' },

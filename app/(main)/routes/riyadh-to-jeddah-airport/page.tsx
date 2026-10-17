@@ -16,17 +16,17 @@ const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hel
 
 // Owner-confirmed Riyadh <-> Jeddah fares (per vehicle, one way); the airport is in Jeddah, so the same fares apply.
 const FARES = [
-    { name: 'Sedan (Toyota Camry)', booking: 'Toyota Camry', price: 1000, seats: 'Up to 3–4 passengers · about 2 suitcases', image: '/toyota-camry.webp', alt: 'Toyota Camry for a Riyadh to Jeddah Airport transfer' },
-    { name: 'Hyundai Staria VIP', booking: 'Hyundai Staria VIP', price: 1600, seats: 'Up to 7 passengers · about 4 suitcases', image: '/hyundai-staria.webp', alt: 'Hyundai Staria VIP van driving a family to Jeddah Airport' },
-    { name: 'GMC Yukon XL', booking: 'GMC Yukon XL / Denali', price: 2000, seats: 'Up to 6–7 passengers · about 4–5 suitcases', image: '/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp', alt: 'GMC Yukon XL private car from Riyadh to King Abdulaziz International Airport' },
+    { name: 'Sedan (Toyota Camry)', booking: 'Toyota Camry', price: 1500, seats: 'Up to 3–4 passengers · about 2 suitcases', image: '/toyota-camry.webp', alt: 'Toyota Camry for a Riyadh to Jeddah Airport transfer' },
+    { name: 'Hyundai Staria VIP', booking: 'Hyundai Staria VIP', price: 1700, seats: 'Up to 7 passengers · about 4 suitcases', image: '/hyundai-staria.webp', alt: 'Hyundai Staria VIP van driving a family to Jeddah Airport' },
+    { name: 'GMC Yukon XL', booking: 'GMC Yukon XL / Denali', price: 2500, seats: 'Up to 6–7 passengers · about 4–5 suitcases', image: '/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp', alt: 'GMC Yukon XL private car from Riyadh to King Abdulaziz International Airport' },
     { name: 'Mercedes S-Class', booking: 'Mercedes S-Class', price: 3500, seats: 'Up to 3 passengers · 2 suitcases', image: '/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp', alt: 'Mercedes S-Class executive transfer to Jeddah Airport' },
     { name: 'Mercedes Sprinter', booking: 'Mercedes Sprinter', price: 4000, seats: 'Up to 14 passengers', image: '/fleet/mercedes-sprinter-luxury-van-transfer-saudi.webp', alt: 'Mercedes Sprinter group van from Riyadh to Jeddah Airport' },
 ] as const;
 const sar = (n: number) => `${n.toLocaleString('en-US')} SAR`;
 const book = (vehicle: string) => `/booking/?${new URLSearchParams({ from: 'Riyadh', to: JED, vehicle }).toString()}`;
 
-const TITLE = 'Riyadh to Jeddah Airport Taxi | JED Transfer from 1,000 SAR';
-const DESCRIPTION = 'Private car from Riyadh to King Abdulaziz International Airport (JED). Sedan 1,000 SAR, Staria VIP 1,600 SAR, GMC 2,000 SAR. Pickup timed around your flight.';
+const TITLE = 'Riyadh to Jeddah Airport Taxi | JED Transfer from 1,500 SAR';
+const DESCRIPTION = 'Private car from Riyadh to King Abdulaziz International Airport (JED). Sedan 1,500 SAR, Staria VIP 1,700 SAR, GMC 2,500 SAR. Pickup timed around your flight.';
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-    { q: 'How much is a taxi from Riyadh to Jeddah Airport?', a: 'Sedan 1,000 SAR, Hyundai Staria VIP 1,600 SAR, GMC Yukon XL 2,000 SAR, Mercedes S-Class 3,500 SAR and Mercedes Sprinter 4,000 SAR, one way per vehicle.' },
+    { q: 'How much is a taxi from Riyadh to Jeddah Airport?', a: 'Sedan 1,500 SAR, Hyundai Staria VIP 1,700 SAR, GMC Yukon XL 2,500 SAR, Mercedes S-Class 3,500 SAR and Mercedes Sprinter 4,000 SAR, one way per vehicle.' },
     { q: 'How long does Riyadh to Jeddah Airport take by car?', a: 'Roughly 9–11 hours of driving, plus stops. It is a full day on the road, so for most flights the car leaves Riyadh very early or the night before.' },
     { q: 'How far is Jeddah Airport from Riyadh?', a: 'About 950–1,000 km by road, depending on where in Riyadh you start.' },
     { q: 'Do I need a visa to drive from Riyadh to Jeddah Airport?', a: 'No. It is a domestic trip inside Saudi Arabia, with no border crossing.' },
@@ -158,7 +158,7 @@ export default function RiyadhToJeddahAirportPage() {
                     </div>
                     <aside className="lg:pt-16">
                         <dl className="rounded-3xl bg-[#1c2b22] text-white p-7 space-y-4 text-sm">
-                            {[['Distance', 'About 950–1,000 km'], ['Driving', 'Around 9–11 hours'], ['Border', 'None'], ['Visa', 'Not needed'], ['From', sar(1000)]].map(([k, v]) => (
+                            {[['Distance', 'About 950–1,000 km'], ['Driving', 'Around 9–11 hours'], ['Border', 'None'], ['Visa', 'Not needed'], ['From', sar(1500)]].map(([k, v]) => (
                                 <div key={k} className="flex justify-between gap-4 border-b border-white/10 pb-3 last:border-0 last:pb-0">
                                     <dt className="text-white/60">{k}</dt>
                                     <dd className="font-semibold text-right">{v}</dd>

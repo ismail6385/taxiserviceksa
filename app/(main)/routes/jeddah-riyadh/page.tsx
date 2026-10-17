@@ -298,8 +298,8 @@ export default function JeddahRiyadhRoutePage() {
                     },
                     {
                         question: "What is the price of a taxi from Jeddah to Riyadh?",
-                        shortAnswer: "Affordable Fixed Intercity Rates.",
-                        detailedAnswer: "We offer fixed rates for the entire vehicle. For such a long distance, the GMC Yukon is our most popular choice due to its superior comfort and luggage capacity for family relocations.",
+                        shortAnswer: "From 1500 SAR per vehicle.",
+                        detailedAnswer: "Fixed rates for the entire vehicle, one way: Toyota Camry sedan 1500 SAR, Hyundai Staria VIP 1700 SAR, GMC Yukon XL 2500 SAR. For such a long distance, the GMC Yukon is our most popular choice due to its superior comfort and luggage capacity for family relocations.",
                         perspectives: []
                     },
                     {

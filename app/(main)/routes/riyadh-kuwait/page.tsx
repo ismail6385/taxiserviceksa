@@ -68,7 +68,7 @@ export default function RiyadhKuwaitRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh&dropoff=Kuwait">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            WhatsApp Booking (1600 SAR)
+                            WhatsApp Booking (300 KWD)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -184,14 +184,14 @@ export default function RiyadhKuwaitRoutePage() {
                     },
                     {
                         question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 650 km journey.",
+                        shortAnswer: "Private SUV only",
+                        detailedAnswer: "This cross-border route runs with a private SUV only (GMC Yukon or Chevrolet Tahoe class), for up to 7 passengers. The fare is 300 KWD per vehicle, one way.",
                         perspectives: []
                     },
                     {
                         question: "Is the border vehicle insurance included in the price?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, our quoted price of 1600 SAR includes the vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Yes, our fare of 300 KWD per SUV includes the vehicle crossing insurance and toll fees.",
                         perspectives: []
                     }
                 ]}
