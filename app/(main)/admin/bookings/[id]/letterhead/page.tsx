@@ -27,7 +27,7 @@ import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 type DocLang = 'en' | 'ar';
 type QuoteStatus = 'pending' | 'availability' | 'confirmed';
 type Arrangement = 'none' | 'direct' | 'border_change' | 'multiple';
-type PaymentPlan = 'cash' | 'advance' | 'prepaid' | 'online' | 'paid' | 'none';
+type PaymentPlan = 'cash' | 'advance' | 'prepaid' | 'online' | 'onboard' | 'paid' | 'none';
 type IncludedKey = 'vehicleDriver' | 'fuel' | 'tolls' | 'parking' | 'waiting' | 'borderFees';
 
 const TXT = {
@@ -67,6 +67,8 @@ const TXT = {
         payOnlineRow: 'Full amount, payable online by card (secure payment link)',
         payOnlineNote: 'Pay securely online with a debit or credit card. The booking is confirmed once the payment has been received.',
         payOnlineLink: 'Payment link',
+        payOnboardRow: 'Full amount, payable on the day when you board the vehicle, by card or online payment link',
+        payOnboardNote: 'No advance payment is required. Pay in the car at pickup by card or through the secure payment link we send you.',
         payPaidRow: 'Paid in full',
         payPaidNote: 'Payment has been received in full. Thank you.',
         vatLine: 'VAT (15%)', baseFareExVat: 'Base Transportation Fare (excl. VAT)',
@@ -123,6 +125,8 @@ const TXT = {
         payOnlineRow: 'المبلغ كاملاً يُدفع إلكترونياً بالبطاقة (رابط دفع آمن)',
         payOnlineNote: 'ادفع بأمان عبر الإنترنت باستخدام بطاقة مدى أو بطاقة ائتمانية. يتم تأكيد الحجز بعد استلام المبلغ.',
         payOnlineLink: 'رابط الدفع',
+        payOnboardRow: 'المبلغ كاملاً يُدفع يوم الخدمة عند الركوب، بالبطاقة أو عبر رابط الدفع',
+        payOnboardNote: 'لا يلزم دفع أي مبلغ مقدم. ادفع داخل السيارة عند الانطلاق بالبطاقة أو عبر رابط الدفع الآمن الذي نرسله لكم.',
         payPaidRow: 'مدفوع بالكامل',
         payPaidNote: 'تم استلام المبلغ بالكامل. شكراً لكم.',
         vatLine: 'ضريبة القيمة المضافة (15%)', baseFareExVat: 'أجرة النقل الأساسية (بدون الضريبة)',
@@ -517,16 +521,17 @@ export default function LetterheadPage() {
                             const plan = e.target.value as PaymentPlan;
                             setPaymentPlan(plan);
                             // Card payments carry 15% VAT: show the price as base + VAT.
-                            if (plan === 'online') { setIncludesVat(true); setShowCardVat(false); }
+                            if (plan === 'online' || plan === 'onboard') { setIncludesVat(true); setShowCardVat(false); }
                         }} className="block w-full h-8 rounded border border-gray-300 px-2">
                             <option value="cash">Full amount cash to driver (no advance)</option>
                             <option value="advance">Advance + balance cash to driver</option>
                             <option value="prepaid">Full amount in advance (bank transfer)</option>
                             <option value="online">Pay online by card (payment link)</option>
+                            <option value="onboard">Pay in the car at pickup (card / payment link)</option>
                             <option value="paid">Paid in full (online / already received)</option>
                             <option value="none">Don&apos;t mention payment</option>
                         </select>
-                        {paymentPlan === 'online' && (
+                        {(paymentPlan === 'online' || paymentPlan === 'onboard') && (
                             <input type="url" value={paymentLink} onChange={e => setPaymentLink(e.target.value)} placeholder="Paste payment link (optional)" className="block w-full h-8 rounded border border-gray-300 px-2" />
                         )}
                         {paymentPlan === 'advance' && (
@@ -682,6 +687,11 @@ export default function LetterheadPage() {
                                         <span className="font-semibold text-sky-900">{t.payOnlineRow}</span><b className="text-sky-950 whitespace-nowrap">{curr} {money(total)}</b>
                                     </div>
                                 )}
+                                {paymentPlan === 'onboard' && (
+                                    <div className="flex justify-between gap-3 px-4 py-1.5 border-b border-slate-200 text-[11px] bg-sky-50">
+                                        <span className="font-semibold text-sky-900">{t.payOnboardRow}</span><b className="text-sky-950 whitespace-nowrap">{curr} {money(total)}</b>
+                                    </div>
+                                )}
                                 {paymentPlan === 'prepaid' && (
                                     <div className="flex justify-between gap-3 px-4 py-1.5 border-b border-slate-200 text-[11px]">
                                         <span className="font-semibold text-slate-800">{t.payPrepaidRow}</span><b className="whitespace-nowrap">{curr} {money(total)}</b>
@@ -702,7 +712,8 @@ export default function LetterheadPage() {
                                     {paymentPlan === 'cash' && <p className="text-slate-600">{t.payCashNote}</p>}
                                     {paymentPlan === 'prepaid' && <p className="text-slate-600">{t.payPrepaidNote}</p>}
                                     {paymentPlan === 'online' && <p className="text-slate-600">{t.payOnlineNote}</p>}
-                                    {paymentPlan === 'online' && paymentLink.trim() && (
+                                    {paymentPlan === 'onboard' && <p className="text-slate-600">{t.payOnboardNote}</p>}
+                                    {(paymentPlan === 'online' || paymentPlan === 'onboard') && paymentLink.trim() && (
                                         <p><span className="text-slate-500">{t.payOnlineLink}: </span><a href={paymentLink.trim()} target="_blank" rel="noopener noreferrer" className="font-semibold text-sky-800 underline [overflow-wrap:anywhere]">{paymentLink.trim()}</a></p>
                                     )}
                                     {paymentPlan === 'paid' && <p className="font-semibold text-emerald-800">{t.payPaidNote}</p>}
