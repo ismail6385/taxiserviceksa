@@ -16,6 +16,8 @@ import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday, shiftIsoDate } from '@/lib/ksa-time';
 import { cleanCustomerNote, splitVat, isCardOrOnline } from '@/lib/doc-helpers';
 import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
+import { ExtraCharge, readExtras, extrasTotal } from '@/lib/extra-charges';
+import ExtraChargesEditor from '@/components/admin/ExtraChargesEditor';
 
 // Official customer quotation, laid out per the owner's quotation brief:
 // company header, reference / issue / validity / status, Prepared For,
@@ -70,6 +72,8 @@ const TXT = {
         payOnboardRow: 'Full amount, payable on the day when you board the vehicle, by card or online payment link',
         payOnboardNote: 'No advance payment is required. Pay in the car at pickup by card or through the secure payment link we send you.',
         payPaidRow: 'Paid in full',
+        optionCash: 'Option 1: Cash to the driver on the day', optionTransfer: 'Option 2: Bank transfer in advance',
+        optionsNote: 'Please choose one option. The price depends on the payment method.',
         payPaidNote: 'Payment has been received in full. Thank you.',
         vatLine: 'VAT (15%)', baseFareExVat: 'Base Transportation Fare (excl. VAT)',
         acceptancePaid: 'Your booking is confirmed and paid in full. We will share your driver\'s name and contact details before the pickup.',
@@ -128,6 +132,8 @@ const TXT = {
         payOnboardRow: 'المبلغ كاملاً يُدفع يوم الخدمة عند الركوب، بالبطاقة أو عبر رابط الدفع',
         payOnboardNote: 'لا يلزم دفع أي مبلغ مقدم. ادفع داخل السيارة عند الانطلاق بالبطاقة أو عبر رابط الدفع الآمن الذي نرسله لكم.',
         payPaidRow: 'مدفوع بالكامل',
+        optionCash: 'الخيار 1: نقداً للسائق يوم الخدمة', optionTransfer: 'الخيار 2: تحويل بنكي مقدماً',
+        optionsNote: 'يرجى اختيار أحد الخيارين، يختلف السعر حسب طريقة الدفع.',
         payPaidNote: 'تم استلام المبلغ بالكامل. شكراً لكم.',
         vatLine: 'ضريبة القيمة المضافة (15%)', baseFareExVat: 'أجرة النقل الأساسية (بدون الضريبة)',
         acceptancePaid: 'تم تأكيد حجزكم ودفع المبلغ بالكامل. سنرسل لكم اسم السائق ورقم التواصل قبل موعد الانطلاق.',
@@ -170,6 +176,8 @@ interface Booking {
     flight_number?: string | null;
     passenger_nationality?: string | null;
     total_price?: number;
+    extra_charges?: unknown;
+    transfer_price?: number | null;
     deposit_amount?: number | null;
     currency?: string;
     payment_method?: string;
@@ -226,6 +234,8 @@ export default function LetterheadPage() {
     const [paymentPlan, setPaymentPlan] = useState<PaymentPlan>('advance');
     const [advancePercent, setAdvancePercent] = useState(25);
     const [paymentLink, setPaymentLink] = useState('');
+    const [extras, setExtras] = useState<ExtraCharge[]>([]);
+    const [transferPrice, setTransferPrice] = useState<number | null>(null);
     const [showCardVat, setShowCardVat] = useState(true);
     // 15% VAT on card / online payments: 'included' splits the quoted price
     // into base + VAT; 'added' charges VAT on top of the quoted price.
@@ -240,6 +250,8 @@ export default function LetterheadPage() {
             try {
                 const data = await loadDocBooking<Booking>(id, driverDoc);
                 setBooking(data);
+                setExtras(readExtras(data.extra_charges));
+                if (Number(data.transfer_price) > 0) setTransferPrice(Number(data.transfer_price));
                 if (data.has_return_trip) {
                     setIsRoundTrip(true);
                     const route = getReturnRoute(data);
@@ -316,6 +328,8 @@ export default function LetterheadPage() {
             body: JSON.stringify({
                 booking: {
                     ...booking,
+                    // Email body shows what the customer pays: VAT on top (if chosen) plus extra charges.
+                    total_price: (vatMode === 'added' ? Number(booking.total_price || 0) * 1.15 : Number(booking.total_price || 0)) + extrasTotal(extras),
                     special_requests: quickNote.trim() ? `${booking.special_requests || ''}\nNote: ${quickNote}` : booking.special_requests,
                     has_return_trip: isRoundTrip,
                     return_date: isRoundTrip ? (returnDate || booking.return_date || null) : null,
@@ -401,10 +415,17 @@ export default function LetterheadPage() {
     const curr = booking.currency || 'SAR';
     // price = the amount entered on the booking; total = what the customer pays.
     const price = Number(booking.total_price || 0);
-    const vatParts = vatMode === 'added'
-        ? { base: price, vat: Math.round(price * 15) / 100 }
-        : vatMode === 'included' ? splitVat(price) : null;
-    const total = vatMode === 'added' && vatParts ? vatParts.base + vatParts.vat : price;
+    // Fare lines for one price (VAT applies to the fare only), then the
+    // extra charges (border crossing etc.) on top.
+    const priceLines = (fare: number) => {
+        const v = vatMode === 'added' ? { base: fare, vat: Math.round(fare * 15) / 100 } : vatMode === 'included' ? splitVat(fare) : null;
+        const lines: [string, number][] = v ? [[t.baseFareExVat, v.base], [t.vatLine, v.vat]] : [[t.baseFare, fare]];
+        extras.forEach(e => lines.push([e.label, e.amount]));
+        return { lines, total: (v ? v.base + v.vat : fare) + extrasTotal(extras) };
+    };
+    const cashPrice = priceLines(price);
+    const total = cashPrice.total;
+    const twoOptions = !!transferPrice && transferPrice > 0 && transferPrice !== price;
     const hasPrice = booking.total_price !== undefined && booking.total_price !== null && price > 0;
     const recordedDeposit = Number(booking.deposit_amount || 0);
     const advance = recordedDeposit > 0 ? recordedDeposit : Math.round(total * advancePercent) / 100;
@@ -558,6 +579,10 @@ export default function LetterheadPage() {
 
             <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
 
+            {!driverDoc && (
+                <ExtraChargesEditor bookingId={booking.id} extras={extras} onChange={setExtras} transferPrice={transferPrice} onTransferPriceChange={setTransferPrice} currency={curr} />
+            )}
+
             {/* Additional note: screen only input */}
             <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
                 <textarea
@@ -660,23 +685,29 @@ export default function LetterheadPage() {
                         <section className="mb-3.5">
                             <SectionTitle>{t.summary}</SectionTitle>
                             <div className="rounded-lg border border-slate-300 overflow-hidden">
-                                {vatParts ? (() => {
-                                    const v = vatParts;
-                                    return (
-                                        <>
-                                            <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
-                                                <span>{t.baseFareExVat}</span><span className="font-semibold">{curr} {money(v.base)}</span>
+                                {twoOptions ? (
+                                    <>
+                                        {([[t.optionCash, cashPrice], [t.optionTransfer, priceLines(transferPrice!)]] as const).map(([title, opt]) => (
+                                            <div key={title} className="border-b border-slate-300">
+                                                <p className="px-4 py-1.5 bg-slate-100 font-bold text-slate-900">{title}</p>
+                                                {opt.lines.map(([label, amt], i) => (
+                                                    <div key={i} className="flex justify-between px-4 py-1 border-b border-slate-100"><span>{label}</span><span className="font-semibold">{curr} {money(amt)}</span></div>
+                                                ))}
+                                                <div className="flex items-center justify-between px-4 py-1.5 bg-slate-900 text-white">
+                                                    <span className="font-bold uppercase tracking-wide text-[11px]">{t.total}</span>
+                                                    <span className="text-[16px] font-black">{curr} {money(opt.total)}</span>
+                                                </div>
                                             </div>
-                                            <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
-                                                <span>{t.vatLine}</span><span className="font-semibold">{curr} {money(v.vat)}</span>
-                                            </div>
-                                        </>
-                                    );
-                                })() : (
-                                    <div className="flex justify-between px-4 py-1.5 border-b border-slate-200">
-                                        <span>{t.baseFare}</span><span className="font-semibold">{curr} {money(total)}</span>
+                                        ))}
+                                        <p className="px-4 py-1.5 text-[11px] font-semibold text-slate-800 border-b border-slate-200">{t.optionsNote}</p>
+                                    </>
+                                ) : (
+                                <>
+                                {cashPrice.lines.map(([label, amt], i) => (
+                                    <div key={i} className="flex justify-between px-4 py-1.5 border-b border-slate-200">
+                                        <span>{label}</span><span className="font-semibold">{curr} {money(amt)}</span>
                                     </div>
-                                )}
+                                ))}
                                 <div className="flex items-center justify-between px-4 py-2 bg-slate-900 text-white">
                                     <span className="font-bold uppercase tracking-wide text-[11.5px]">{t.total}</span>
                                     <span className="text-[18px] font-black">{curr} {money(total)}</span>
@@ -712,20 +743,22 @@ export default function LetterheadPage() {
                                         <div className="px-4 py-1.5"><span className="text-slate-500">{t.balance}: </span><b>{curr} {money(balance)}</b></div>
                                     </div>
                                 )}
+                                </>
+                                )}
                                 <div className="px-4 py-2 text-[11px] space-y-1 bg-slate-50">
                                     <p><span className="text-slate-500">{t.basis}: </span>{isHourly ? t.basisHourly : t.basisText}</p>
                                     {includedList.length > 0 && <p><span className="text-slate-500">{t.included}: </span>{includedList.map(k => t.includedLabels[k]).join(', ')}.</p>}
                                     <p className="text-slate-600">{t.notIncluded}</p>
                                     {showCardVat && !includesVat && paymentPlan !== 'paid' && <p className="font-semibold text-slate-800">{t.vatCard}</p>}
-                                    {paymentPlan === 'advance' && advance > 0 && advance < total && <p className="text-slate-600">{t.paymentSecured} {t.bankNote}</p>}
-                                    {paymentPlan === 'cash' && <p className="text-slate-600">{t.payCashNote}</p>}
-                                    {paymentPlan === 'prepaid' && <p className="text-slate-600">{t.payPrepaidNote}</p>}
-                                    {paymentPlan === 'online' && <p className="text-slate-600">{t.payOnlineNote}</p>}
-                                    {paymentPlan === 'onboard' && <p className="text-slate-600">{t.payOnboardNote}</p>}
-                                    {(paymentPlan === 'online' || paymentPlan === 'onboard') && paymentLink.trim() && (
+                                    {!twoOptions && paymentPlan === 'advance' && advance > 0 && advance < total && <p className="text-slate-600">{t.paymentSecured} {t.bankNote}</p>}
+                                    {!twoOptions && paymentPlan === 'cash' && <p className="text-slate-600">{t.payCashNote}</p>}
+                                    {!twoOptions && paymentPlan === 'prepaid' && <p className="text-slate-600">{t.payPrepaidNote}</p>}
+                                    {!twoOptions && paymentPlan === 'online' && <p className="text-slate-600">{t.payOnlineNote}</p>}
+                                    {!twoOptions && paymentPlan === 'onboard' && <p className="text-slate-600">{t.payOnboardNote}</p>}
+                                    {!twoOptions && (paymentPlan === 'online' || paymentPlan === 'onboard') && paymentLink.trim() && (
                                         <p><span className="text-slate-500">{t.payOnlineLink}: </span><a href={paymentLink.trim()} target="_blank" rel="noopener noreferrer" className="font-semibold text-sky-800 underline [overflow-wrap:anywhere]">{paymentLink.trim()}</a></p>
                                     )}
-                                    {paymentPlan === 'paid' && <p className="font-semibold text-emerald-800">{t.payPaidNote}</p>}
+                                    {!twoOptions && paymentPlan === 'paid' && <p className="font-semibold text-emerald-800">{t.payPaidNote}</p>}
                                 </div>
                             </div>
                         </section>

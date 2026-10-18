@@ -13,6 +13,8 @@ import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday } from '@/lib/ksa-time';
 import { cleanCustomerNote, splitVat, isCardOrOnline } from '@/lib/doc-helpers';
 import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
+import { ExtraCharge, readExtras, extrasTotal } from '@/lib/extra-charges';
+import ExtraChargesEditor from '@/components/admin/ExtraChargesEditor';
 import {
     Printer,
     ArrowLeft,
@@ -143,6 +145,7 @@ interface Booking {
     status: string;
     special_requests?: string;
     total_price?: number;
+    extra_charges?: unknown;
     currency?: string;
     payment_status?: string;
     payment_method?: string;
@@ -182,6 +185,7 @@ export default function InvoicePage() {
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     // Total already includes 15% VAT (card / online payments): show subtotal + VAT.
     const [includesVat, setIncludesVat] = useState(false);
+    const [extras, setExtras] = useState<ExtraCharge[]>([]);
     const [isRoundTrip, setIsRoundTrip] = useState(false);
     const [returnPickupLocation, setReturnPickupLocation] = useState('');
     const [returnDropoffLocation, setReturnDropoffLocation] = useState('');
@@ -232,6 +236,7 @@ export default function InvoicePage() {
             try {
                 const data = await loadDocBooking<Booking>(id, driverDoc, { invoice: true });
                 let bookingData = data;
+                setExtras(readExtras(data.extra_charges));
                 // Assign a permanent sequential invoice number the first time
                 // this invoice is ever opened — accounting numbers must not
                 // change on re-visits, so it's stored back on the booking.
@@ -318,6 +323,7 @@ export default function InvoicePage() {
                 body: JSON.stringify({
                     booking: {
                         ...booking,
+                        total_price: (booking.total_price || 0) + extrasTotal(extras),
                         has_return_trip: isRoundTrip,
                         return_date: isRoundTrip ? (returnDate || booking.return_date || null) : null,
                         return_time: isRoundTrip ? (returnTime || booking.return_time || null) : null,
@@ -379,10 +385,12 @@ export default function InvoicePage() {
     // document comes from the selected payment status + recorded deposit.
     // "Cash to Driver" is only the method; it never marks anything as paid.
     const status = normalizeStatus(paymentStatus);
-    const total = booking.total_price || 0;
+    // fare = the booking price; total adds the extra charges (border crossing etc.).
+    const fare = booking.total_price || 0;
+    const total = fare + extrasTotal(extras);
     const received = status === 'paid' ? total : status === 'partial' ? Math.min(booking.deposit_amount || 0, total) : 0;
     const balance = Math.max(total - received, 0);
-    const vatSplit = includesVat && total ? splitVat(total) : null;
+    const vatSplit = includesVat && fare ? splitVat(fare) : null;
     const STATUS_STYLE: Record<NormalizedStatus, string> = {
         paid: 'border-emerald-600 text-emerald-700',
         unpaid: 'border-red-600 text-red-700',
@@ -654,6 +662,8 @@ export default function InvoicePage() {
             </div>
 
             <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
+
+            {!driverDoc && <ExtraChargesEditor bookingId={booking.id} extras={extras} onChange={setExtras} currency={currency} />}
 
             {warnings.length > 0 && (
                 <div className="max-w-[210mm] mx-auto mb-3 print:hidden rounded-xl border border-amber-300 bg-amber-50 px-4 py-2.5 text-xs text-amber-900 space-y-0.5">
@@ -961,9 +971,17 @@ export default function InvoicePage() {
                                         <p className="text-slate-500 text-[10.5px]">{booking.pickup_location}{booking.trip_type !== 'hourly' ? ` → ${booking.destination}` : ''}{isRoundTrip ? ` (${t.roundTrip})` : ''}</p>
                                     </td>
                                     <td className="py-2 px-2 text-center">1</td>
-                                    <td className={`py-2 px-2 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(vatSplit ? vatSplit.base : total)}</td>
-                                    <td className={`py-2 px-2 font-semibold ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(vatSplit ? vatSplit.base : total)}</td>
+                                    <td className={`py-2 px-2 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(vatSplit ? vatSplit.base : fare)}</td>
+                                    <td className={`py-2 px-2 font-semibold ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(vatSplit ? vatSplit.base : fare)}</td>
                                 </tr>
+                                {extras.map((e, i) => (
+                                    <tr key={i} className="border-b border-slate-200 align-top">
+                                        <td className="py-2 px-2 font-semibold text-slate-900">{e.label}</td>
+                                        <td className="py-2 px-2 text-center">1</td>
+                                        <td className={`py-2 px-2 ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(e.amount)}</td>
+                                        <td className={`py-2 px-2 font-semibold ${lang === 'ar' ? 'text-left' : 'text-right'}`}>{money(e.amount)}</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </section>
@@ -992,8 +1010,9 @@ export default function InvoicePage() {
                             )}
                         </section>
                         <section className="rounded-lg border border-slate-300 overflow-hidden">
-                            <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{vatSplit ? t.subtotalExVat : t.subtotal}</span><span className="font-semibold">{money(vatSplit ? vatSplit.base : total)}</span></div>
+                            <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{vatSplit ? t.subtotalExVat : t.subtotal}</span><span className="font-semibold">{money(vatSplit ? vatSplit.base : fare)}</span></div>
                             {vatSplit && <div className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{t.vatLine}</span><span className="font-semibold">{money(vatSplit.vat)}</span></div>}
+                            {extras.map((e, i) => <div key={i} className="flex justify-between px-3 py-1.5 border-b border-slate-200"><span>{e.label}</span><span className="font-semibold">{money(e.amount)}</span></div>)}
                             <div className="flex justify-between items-center px-3 py-2 bg-slate-900 text-white">
                                 <span className="font-bold text-[11px] uppercase tracking-wide">{t.totalInvoice}</span>
                                 <span className="text-[15px] font-black whitespace-nowrap">{money(total)}</span>

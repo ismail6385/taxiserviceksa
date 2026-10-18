@@ -10,6 +10,8 @@ import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
 import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ksaToday } from '@/lib/ksa-time';
 import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
+import { ExtraCharge, readExtras, extrasTotal } from '@/lib/extra-charges';
+import ExtraChargesEditor from '@/components/admin/ExtraChargesEditor';
 import { ArrowLeft, Mail, Printer, Languages, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -86,6 +88,7 @@ interface Booking {
     status: string;
     special_requests?: string;
     total_price?: number;
+    extra_charges?: unknown;
     deposit_amount?: number | null;
     passenger_nationality?: string | null;
     currency?: string;
@@ -116,6 +119,7 @@ export default function ReceiptPage() {
     const [currency, setCurrency] = useState('SAR');
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     const [amountPaid, setAmountPaid] = useState('');
+    const [extras, setExtras] = useState<ExtraCharge[]>([]);
     const [receiptNote, setReceiptNote] = useState('');
     const [payerName, setPayerName] = useState('');
     const [paymentConfirmed, setPaymentConfirmed] = useState(false);
@@ -127,12 +131,14 @@ export default function ReceiptPage() {
             try {
                 const data = await loadDocBooking<Booking>(id, driverDoc);
                 setBooking(data);
+                const ex = readExtras(data.extra_charges);
+                setExtras(ex);
                 if (data.currency) setCurrency(data.currency);
                 if (data.payment_method) setPaymentMethod(data.payment_method);
                 const status = (data.payment_status || '').toLowerCase();
                 // Default the amount to what the records say was received.
                 if (status.includes('partial') && data.deposit_amount) setAmountPaid(Number(data.deposit_amount).toFixed(2));
-                else if (data.total_price) setAmountPaid(Number(data.total_price).toFixed(2));
+                else if (data.total_price) setAmountPaid((Number(data.total_price) + extrasTotal(ex)).toFixed(2));
                 if (status === 'paid') setPaymentConfirmed(true);
             } catch (err) {
                 console.error('Error fetching booking:', err);
@@ -165,7 +171,7 @@ export default function ReceiptPage() {
             const filename = `Receipt-${receiptNumber}.pdf`;
             const base64 = await documentPdfToBase64('receipt-print', filename);
             const received = Number(amountPaid) || 0;
-            const total = Number(booking.total_price) || 0;
+            const total = (Number(booking.total_price) || 0) + extrasTotal(extras);
             const fullyPaid = total > 0 && received >= total;
             // Record exactly what was received: full payment marks the booking
             // paid; a smaller amount is stored as a partial payment.
@@ -210,7 +216,9 @@ export default function ReceiptPage() {
     };
     const money = (n: number) => `${currency} ${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     const received = Number(amountPaid) || 0;
-    const total = Number(booking.total_price) || 0;
+    // fare = booking price; total adds the extra charges (border crossing etc.).
+    const fare = Number(booking.total_price) || 0;
+    const total = fare + extrasTotal(extras);
     const partial = total > 0 && received > 0 && received < total;
     const serviceDate = booking.trip_end_date && booking.trip_end_date !== booking.pickup_date
         ? `${fmtDate(booking.pickup_date)} – ${fmtDate(booking.trip_end_date)}`
@@ -293,6 +301,8 @@ export default function ReceiptPage() {
 
             <BillToCompanyInput value={billToCompany} onChange={setBillToCompany} />
 
+            {!driverDoc && <ExtraChargesEditor bookingId={booking.id} extras={extras} onChange={setExtras} currency={currency} />}
+
             {/* ── A4 RECEIPT ── */}
             <div id="receipt-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] min-h-[296mm] mx-auto bg-white shadow-xl print:shadow-none print:max-w-none print:w-[210mm]" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
                 <div className="px-11 pt-8 pb-6 flex flex-col min-h-[296mm] text-[12px] leading-snug text-slate-800">
@@ -338,7 +348,8 @@ export default function ReceiptPage() {
                             </tr>
                         </thead>
                         <tbody>
-                            <Line k={t.service} v={serviceName} amt={money(received)} />
+                            <Line k={t.service} v={serviceName} amt={extras.length ? (partial ? '' : money(fare)) : money(received)} />
+                            {extras.map((e, i) => <Line key={i} k={e.label} v="" amt={partial ? '' : money(e.amount)} />)}
                             <Line k={t.route} v={<><span className="block"><span className="text-slate-500">{t.pickup}: </span>{booking.pickup_location}</span>{booking.trip_type !== 'hourly' && <span className="block"><span className="text-slate-500">{t.dropoff}: </span>{booking.destination}</span>}</>} />
                             {ret && <Line k={t.returnRoute} v={<><span className="block"><span className="text-slate-500">{t.pickup}: </span>{ret.pickupLocation}</span><span className="block"><span className="text-slate-500">{t.dropoff}: </span>{ret.destination}</span></>} />}
                             <Line k={t.dateTime} v={`${serviceDate}, ${formatTime12h(booking.pickup_time)}`} />
