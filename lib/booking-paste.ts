@@ -150,9 +150,9 @@ const VEHICLE_HINTS: [RegExp, string][] = [
     [/genesis|g80/i, 'Genesis G80 VIP'],
     [/\bbus\b/i, 'Luxurious Bus'],
     // Generic classes last, so a named model always wins.
-    [/\bsedan\b/i, 'Sedan (Toyota Camry or similar)'],
-    [/\bsuv\b|4x4/i, 'SUV (GMC Yukon or similar)'],
-    [/\bvan\b/i, 'Family Van (Hyundai Staria or similar)'],
+    [/\bsedan\b/i, 'Sedan (Toyota Camry, Hyundai Sonata, Kia K5, Nissan Altima or similar)'],
+    [/\bsuv\b|4x4/i, 'SUV (GMC Yukon, Chevrolet Tahoe, Toyota Land Cruiser or similar)'],
+    [/\bvan\b/i, 'Family Van (Hyundai Staria, Kia Carnival, Hyundai H1 or similar)'],
 ];
 
 const PAYMENTS: [RegExp, string][] = [
