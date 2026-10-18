@@ -59,7 +59,7 @@ const TXT = {
         includedLabels: { vehicleDriver: 'Vehicle and professional driver', fuel: 'Fuel', tolls: 'Road tolls', parking: 'Parking fees', waiting: 'Agreed standard waiting time', borderFees: 'Border-related vehicle fees' } as Record<IncludedKey, string>,
         notIncluded: 'Any other charge (extra stops, extended waiting, route changes) is not included and will be agreed with you before it applies.',
         vatCard: 'Card payments are subject to an additional 15% VAT.',
-        payment: 'Payment Terms', advance: 'Advance to secure the booking', balance: 'Remaining balance, payable in cash to the driver',
+        payment: 'Payment Terms', advance: 'Advance by bank transfer to secure the booking', balance: 'Remaining balance, payable in cash to the driver',
         paymentSecured: 'The booking is secured only after the advance has been received and the booking has been confirmed by us.',
         paymentAgreed: 'Payment method', bankNote: 'Bank transfer details will be provided on confirmation.',
         payCashRow: 'Full amount, payable in cash to the driver on the day of service',
@@ -119,7 +119,7 @@ const TXT = {
         includedLabels: { vehicleDriver: 'المركبة وسائق محترف', fuel: 'الوقود', tolls: 'رسوم الطرق', parking: 'رسوم المواقف', waiting: 'وقت الانتظار القياسي المتفق عليه', borderFees: 'رسوم المركبة عند الحدود' } as Record<IncludedKey, string>,
         notIncluded: 'أي رسوم أخرى (محطات إضافية، انتظار إضافي، تغيير المسار) غير مشمولة وسيتم الاتفاق عليها معكم قبل تطبيقها.',
         vatCard: 'الدفع بالبطاقة تضاف إليه ضريبة القيمة المضافة 15%.',
-        payment: 'شروط الدفع', advance: 'دفعة مقدمة لتأكيد الحجز', balance: 'المبلغ المتبقي يُدفع نقداً للسائق',
+        payment: 'شروط الدفع', advance: 'دفعة مقدمة بالتحويل البنكي لتأكيد الحجز', balance: 'المبلغ المتبقي يُدفع نقداً للسائق',
         paymentSecured: 'يتم تأكيد الحجز فقط بعد استلام الدفعة المقدمة وتأكيدنا النهائي للحجز.',
         paymentAgreed: 'طريقة الدفع', bankNote: 'سيتم تزويدكم بتفاصيل التحويل البنكي عند التأكيد.',
         payCashRow: 'المبلغ كاملاً يُدفع نقداً للسائق يوم الخدمة',
@@ -233,6 +233,8 @@ export default function LetterheadPage() {
     const [included, setIncluded] = useState<Record<IncludedKey, boolean>>({ vehicleDriver: true, fuel: true, tolls: true, parking: false, waiting: false, borderFees: false });
     const [paymentPlan, setPaymentPlan] = useState<PaymentPlan>('advance');
     const [advancePercent, setAdvancePercent] = useState(25);
+    // A fixed advance amount (e.g. 3,500 by bank, rest cash) wins over the percentage.
+    const [advanceAmount, setAdvanceAmount] = useState('');
     const [paymentLink, setPaymentLink] = useState('');
     const [extras, setExtras] = useState<ExtraCharge[]>([]);
     const [transferPrice, setTransferPrice] = useState<number | null>(null);
@@ -428,7 +430,8 @@ export default function LetterheadPage() {
     const twoOptions = !!transferPrice && transferPrice > 0 && transferPrice !== price;
     const hasPrice = booking.total_price !== undefined && booking.total_price !== null && price > 0;
     const recordedDeposit = Number(booking.deposit_amount || 0);
-    const advance = recordedDeposit > 0 ? recordedDeposit : Math.round(total * advancePercent) / 100;
+    const advanceFixed = recordedDeposit > 0 ? recordedDeposit : Number(advanceAmount) > 0 ? Number(advanceAmount) : 0;
+    const advance = advanceFixed > 0 ? advanceFixed : Math.round(total * advancePercent) / 100;
     const balance = Math.max(0, total - advance);
     const validUntilIso = shiftIsoDate(issueIso, { days: validityDays });
     const quoteRef = `QT-${booking.id.slice(0, 8).toUpperCase()}`;
@@ -566,7 +569,7 @@ export default function LetterheadPage() {
                         )}
                         {paymentPlan === 'advance' && (
                             <p className="flex items-center gap-1.5">
-                                {recordedDeposit > 0 ? `Advance recorded: ${curr} ${money(recordedDeposit)}` : <>Advance <input type="number" min={0} max={100} value={advancePercent} onChange={e => setAdvancePercent(Math.min(100, Math.max(0, Number(e.target.value) || 0)))} className="w-12 h-6 rounded border border-gray-300 px-1" />%</>}
+                                {recordedDeposit > 0 ? `Advance recorded: ${curr} ${money(recordedDeposit)}` : <>Bank advance {curr} <input type="number" min={0} value={advanceAmount} onChange={e => setAdvanceAmount(e.target.value)} placeholder="e.g. 3500" className="w-20 h-6 rounded border border-gray-300 px-1" /> or <input type="number" min={0} max={100} value={advancePercent} onChange={e => setAdvancePercent(Math.min(100, Math.max(0, Number(e.target.value) || 0)))} className="w-12 h-6 rounded border border-gray-300 px-1" />%</>}
                             </p>
                         )}
                         <select value={vatMode} onChange={e => setVatMode(e.target.value as typeof vatMode)} className="block w-full h-8 rounded border border-gray-300 px-2"><option value="none">No VAT line</option><option value="added">Add 15% VAT on top (e.g. 4,500 + 675 = 5,175)</option><option value="included">Price already includes 15% VAT (split it)</option></select>
@@ -739,7 +742,7 @@ export default function LetterheadPage() {
                                 )}
                                 {paymentPlan === 'advance' && advance > 0 && advance < total && (
                                     <div className="grid grid-cols-2 border-b border-slate-200 text-[11px]">
-                                        <div className="px-4 py-1.5 border-r border-slate-200"><span className="text-slate-500">{t.advance}{recordedDeposit > 0 ? '' : ` (${advancePercent}%)`}: </span><b>{curr} {money(advance)}</b></div>
+                                        <div className="px-4 py-1.5 border-r border-slate-200"><span className="text-slate-500">{t.advance}{advanceFixed > 0 ? '' : ` (${advancePercent}%)`}: </span><b>{curr} {money(advance)}</b></div>
                                         <div className="px-4 py-1.5"><span className="text-slate-500">{t.balance}: </span><b>{curr} {money(balance)}</b></div>
                                     </div>
                                 )}

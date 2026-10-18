@@ -52,7 +52,7 @@ export default function ExtraChargesEditor({ bookingId, extras, onChange, transf
             ))}
             {onTransferPriceChange && (
                 <label className="flex flex-wrap items-center gap-2 pt-1 border-t border-gray-100">
-                    <span className="font-semibold text-gray-700">Bank transfer price (optional, shows cash and transfer as two options)</span>
+                    <span className="font-semibold text-gray-700">Different price if the WHOLE amount is paid by bank transfer (optional, shows 2 options). For part bank + rest cash, leave empty and use "Advance + balance cash" under Payment &amp; terms.</span>
                     <span className="text-gray-500">{currency}</span>
                     <input type="number" min={0} value={transferPrice ?? ''} onChange={e => { setMsg(null); onTransferPriceChange(Number(e.target.value) > 0 ? Number(e.target.value) : null); }} placeholder="e.g. 3500" className="w-24 h-8 rounded border border-gray-300 px-2" />
                 </label>
