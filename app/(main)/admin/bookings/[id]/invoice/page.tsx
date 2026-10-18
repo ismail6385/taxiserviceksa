@@ -113,7 +113,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
 };
 
 const STATUS_LABEL_KEY: Record<NormalizedStatus, string> = { paid: 'statusPaid', unpaid: 'statusUnpaid', partial: 'statusPartial' };
-const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', 'Online': 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي' };
+const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', 'Online': 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي', 'Cash + Bank Transfer': 'نقداً + تحويل بنكي' };
 
 function normalizeStatus(raw: string): NormalizedStatus {
     const v = (raw || '').toLowerCase();
@@ -594,7 +594,7 @@ export default function InvoicePage() {
                             />
                         </div>
                         <div className="flex gap-1 px-1">
-                            {['Cash to Driver', 'Online', 'Bank Transfer'].map((method) => (
+                            {['Cash to Driver', 'Online', 'Bank Transfer', 'Cash + Bank Transfer'].map((method) => (
                                 <button
                                     key={method}
                                     onClick={() => {

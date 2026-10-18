@@ -35,6 +35,7 @@ const TXT: Record<DocLang, Record<string, string>> = {
         service: 'Service', privateTransfer: 'Private Chauffeur Transfer', roundTrip: 'Private Round Trip Transfer', hourly: 'Hourly Chauffeur Service',
         route: 'Route', pickup: 'Pickup', dropoff: 'Drop-off', returnRoute: 'Return Route',
         dateTime: 'Service Date & Pickup Time', returnDateTime: 'Return Date & Time', duration: 'Duration', hours: 'hours',
+        cashPart: 'Cash to driver', bankPart: 'Bank transfer',
         vehicle: 'Vehicle', passengers: 'Passengers', nationality: 'Passenger Nationality', items: 'Items', paymentMethod: 'Payment Method', remarks: 'Remarks',
         bookingTotal: 'Booking total', balanceRemaining: 'Balance remaining',
         totalReceived: 'Total Amount Received',
@@ -56,6 +57,7 @@ const TXT: Record<DocLang, Record<string, string>> = {
         service: 'الخدمة', privateTransfer: 'نقل خاص بسائق', roundTrip: 'نقل خاص ذهاب وعودة', hourly: 'خدمة سائق بالساعة',
         route: 'المسار', pickup: 'الانطلاق', dropoff: 'الوصول', returnRoute: 'مسار العودة',
         dateTime: 'تاريخ الخدمة ووقت الانطلاق', returnDateTime: 'تاريخ ووقت العودة', duration: 'المدة', hours: 'ساعات',
+        cashPart: 'نقداً للسائق', bankPart: 'تحويل بنكي',
         vehicle: 'المركبة', passengers: 'الركاب', nationality: 'جنسية الركاب', items: 'الأغراض', paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
         bookingTotal: 'إجمالي الحجز', balanceRemaining: 'الرصيد المتبقي',
         totalReceived: 'إجمالي المبلغ المستلم',
@@ -69,7 +71,7 @@ const TXT: Record<DocLang, Record<string, string>> = {
     },
 };
 
-const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', Online: 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي', 'Card Payment': 'بطاقة' };
+const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', Online: 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي', 'Card Payment': 'بطاقة', 'Cash + Bank Transfer': 'نقداً + تحويل بنكي' };
 
 interface Booking {
     id: string;
@@ -120,6 +122,14 @@ export default function ReceiptPage() {
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     const [amountPaid, setAmountPaid] = useState('');
     const [extras, setExtras] = useState<ExtraCharge[]>([]);
+    // Split payment (part cash, part bank transfer): the received amount is the sum.
+    const [cashPart, setCashPart] = useState('');
+    const [bankPart, setBankPart] = useState('');
+    const isSplit = paymentMethod === 'Cash + Bank Transfer';
+    const setSplit = (cash: string, bank: string) => {
+        setCashPart(cash); setBankPart(bank);
+        setAmountPaid(((Number(cash) || 0) + (Number(bank) || 0)).toFixed(2));
+    };
     const [receiptNote, setReceiptNote] = useState('');
     const [payerName, setPayerName] = useState('');
     const [paymentConfirmed, setPaymentConfirmed] = useState(false);
@@ -265,10 +275,16 @@ export default function ReceiptPage() {
                             ))}
                         </div>
                         <div className="flex gap-1">
-                            {['Cash to Driver', 'Bank Transfer', 'Card Payment', 'Online'].map(m => (
+                            {['Cash to Driver', 'Bank Transfer', 'Cash + Bank Transfer', 'Card Payment', 'Online'].map(m => (
                                 <button key={m} onClick={() => setPaymentMethod(m)} className={`px-2 py-1 text-[10px] font-bold rounded-md ${paymentMethod === m ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>{m}</button>
                             ))}
                         </div>
+                        {isSplit && (
+                            <div className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2 py-1.5 bg-gray-50 text-[10px] font-bold text-gray-500">
+                                Cash <input value={cashPart} onChange={e => setSplit(e.target.value, bankPart)} className="w-16 text-xs font-bold outline-none bg-white border border-gray-200 rounded px-1" placeholder="0" />
+                                + Bank <input value={bankPart} onChange={e => setSplit(cashPart, e.target.value)} className="w-16 text-xs font-bold outline-none bg-white border border-gray-200 rounded px-1" placeholder="0" />
+                            </div>
+                        )}
                         <Button onClick={handlePrint} disabled={!paymentConfirmed} className="bg-gray-900 text-white hover:bg-black font-bold h-9 px-4 text-sm">
                             <Printer className="w-4 h-4 mr-1.5" /> PDF
                         </Button>
@@ -361,6 +377,8 @@ export default function ReceiptPage() {
                                 : <Line k={t.passengers} v={booking.passengers} />}
                             {booking.passenger_nationality && <Line k={t.nationality} v={booking.passenger_nationality} />}
                             <Line k={t.paymentMethod} v={lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod} />
+                            {isSplit && Number(cashPart) > 0 && <Line k={t.cashPart} v="" amt={money(Number(cashPart))} />}
+                            {isSplit && Number(bankPart) > 0 && <Line k={t.bankPart} v="" amt={money(Number(bankPart))} />}
                             {partial && <Line k={t.bookingTotal} v={`${t.balanceRemaining}: ${money(total - received)}`} amt={money(total)} />}
                             {receiptNote.trim() && <Line k={t.remarks} v={<span className="italic">{receiptNote.trim()}</span>} />}
                             <tr className="bg-emerald-50">
