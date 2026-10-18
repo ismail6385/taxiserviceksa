@@ -89,8 +89,53 @@ import {
     DialogDescription,
 } from '@/components/ui/dialog';
 
+// Generic classes, for when the customer is quoted "a sedan" or "an SUV"
+// rather than a specific model. Shown first in the vehicle dropdown.
+const VEHICLE_CATEGORIES = [
+    'Sedan (Toyota Camry or similar)',
+    'Economy Sedan (Hyundai Accent or similar)',
+    'SUV (GMC Yukon or similar)',
+    'Mid-size SUV (Toyota Fortuner or similar)',
+    'Luxury SUV (Cadillac Escalade or similar)',
+    'Family Van (Hyundai Staria or similar)',
+    'Minibus (Toyota Hiace or similar)',
+    'Luxury Sedan (Mercedes S-Class or similar)',
+];
+
+// Specific models, including the cars commonly driven in Saudi Arabia.
 const VEHICLE_OPTIONS = [
     'Toyota Camry',
+    'Toyota Corolla',
+    'Toyota Yaris',
+    'Hyundai Sonata',
+    'Hyundai Elantra',
+    'Hyundai Accent',
+    'Kia K5',
+    'Kia Pegas',
+    'Nissan Sunny',
+    'Nissan Altima',
+    'Chevrolet Malibu',
+    'Ford Taurus 2025',
+    'Genesis G80 VIP',
+    'Lexus ES',
+    'Mercedes E-Class',
+    'Toyota Land Cruiser',
+    'Toyota Prado',
+    'Toyota Fortuner',
+    'Nissan Patrol',
+    'Chevrolet Tahoe',
+    'Chevrolet Suburban',
+    'GMC Yukon',
+    'Cadillac Escalade',
+    'Hyundai Palisade',
+    'Hyundai Santa Fe',
+    'Kia Sorento',
+    'Lexus LX',
+    'Kia Carnival',
+    'Toyota Innova',
+    'Toyota Veloz 2024',
+    'Mercedes Vito',
+    'Mercedes V-Class',
     'GMC Yukon XL / Denali',
     'Hyundai Staria VIP',
     'Hyundai Starex',
@@ -931,11 +976,14 @@ export default function BookingsPage() {
     // Vehicle dropdown source — the hardcoded list plus any car type added
     // from the Pricing page (hourly_rates / pricing_rules), so a new car
     // type is immediately bookable without a code change.
-    const dynamicVehicleOptions = Array.from(new Set([
-        ...VEHICLE_OPTIONS,
-        ...Object.keys(hourlyRates),
-        ...Object.values(dbPrices).flatMap(routeVehicles => Object.keys(routeVehicles)),
-    ])).sort();
+    const dynamicVehicleOptions = [
+        ...VEHICLE_CATEGORIES,
+        ...Array.from(new Set([
+            ...VEHICLE_OPTIONS,
+            ...Object.keys(hourlyRates),
+            ...Object.values(dbPrices).flatMap(routeVehicles => Object.keys(routeVehicles)),
+        ])).filter(v => !VEHICLE_CATEGORIES.includes(v)).sort(),
+    ];
 
     // Filter Logic
     const filteredBookings = bookings.filter(booking => {

@@ -122,8 +122,18 @@ export function parseTime(v: string): string | null {
 }
 
 const VEHICLE_HINTS: [RegExp, string][] = [
-    [/camry|sedan/i, 'Toyota Camry'],
-    [/yukon|gmc|tahoe|suburban|denali/i, 'GMC Yukon XL / Denali'],
+    [/camry/i, 'Toyota Camry'],
+    [/tahoe/i, 'Chevrolet Tahoe'],
+    [/suburban/i, 'Chevrolet Suburban'],
+    [/yukon|gmc|denali/i, 'GMC Yukon XL / Denali'],
+    [/land ?cruiser/i, 'Toyota Land Cruiser'],
+    [/prado/i, 'Toyota Prado'],
+    [/patrol/i, 'Nissan Patrol'],
+    [/sonata/i, 'Hyundai Sonata'],
+    [/elantra/i, 'Hyundai Elantra'],
+    [/accent/i, 'Hyundai Accent'],
+    [/carnival/i, 'Kia Carnival'],
+    [/palisade/i, 'Hyundai Palisade'],
     [/fortuner/i, 'Toyota Fortuner'],
     [/rav ?4/i, 'Toyota RAV4 Hybrid 2025'],
     [/staria/i, 'Hyundai Staria VIP'],
@@ -139,6 +149,10 @@ const VEHICLE_HINTS: [RegExp, string][] = [
     [/veloz/i, 'Toyota Veloz 2024'],
     [/genesis|g80/i, 'Genesis G80 VIP'],
     [/\bbus\b/i, 'Luxurious Bus'],
+    // Generic classes last, so a named model always wins.
+    [/\bsedan\b/i, 'Sedan (Toyota Camry or similar)'],
+    [/\bsuv\b|4x4/i, 'SUV (GMC Yukon or similar)'],
+    [/\bvan\b/i, 'Family Van (Hyundai Staria or similar)'],
 ];
 
 const PAYMENTS: [RegExp, string][] = [
