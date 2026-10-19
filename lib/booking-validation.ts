@@ -441,6 +441,8 @@ export const adminBookingSchema = z
         customer_phone: z.string().optional().nullable(),
         // Admin only: what the trip cost (fuel, car, driver pay); profit = total_price - driver_cost.
         driver_cost: z.union([z.number(), z.string()]).optional().nullable(),
+        // Admin only: 15% VAT charged on top of total_price.
+        vat_added: z.boolean().optional().nullable(),
         ...bookingFieldsShape,
     })
     .superRefine(refineTripRules);

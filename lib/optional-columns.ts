@@ -2,7 +2,7 @@
 // booking write must never fail because of them: if the database rejects
 // the write for a missing optional column, it is retried without it.
 // Passenger nationality is then kept in special_requests so it is not lost.
-const OPTIONAL = ['passenger_nationality', 'driver_cost'] as const;
+const OPTIONAL = ['passenger_nationality', 'driver_cost', 'vat_added'] as const;
 
 type Result<T> = { data: T | null; error: { code?: string; message?: string } | null };
 

@@ -35,7 +35,7 @@ const TXT: Record<DocLang, Record<string, string>> = {
         service: 'Service', privateTransfer: 'Private Chauffeur Transfer', roundTrip: 'Private Round Trip Transfer', hourly: 'Hourly Chauffeur Service',
         route: 'Route', pickup: 'Pickup', dropoff: 'Drop-off', returnRoute: 'Return Route',
         dateTime: 'Service Date & Pickup Time', returnDateTime: 'Return Date & Time', duration: 'Duration', hours: 'hours',
-        cashPart: 'Cash to driver', bankPart: 'Bank transfer',
+        cashPart: 'Cash to driver', bankPart: 'Bank transfer', vatLine: 'VAT (15%)',
         vehicle: 'Vehicle', passengers: 'Passengers', nationality: 'Passenger Nationality', items: 'Items', paymentMethod: 'Payment Method', remarks: 'Remarks',
         bookingTotal: 'Booking total', balanceRemaining: 'Balance remaining',
         totalReceived: 'Total Amount Received',
@@ -57,7 +57,7 @@ const TXT: Record<DocLang, Record<string, string>> = {
         service: 'الخدمة', privateTransfer: 'نقل خاص بسائق', roundTrip: 'نقل خاص ذهاب وعودة', hourly: 'خدمة سائق بالساعة',
         route: 'المسار', pickup: 'الانطلاق', dropoff: 'الوصول', returnRoute: 'مسار العودة',
         dateTime: 'تاريخ الخدمة ووقت الانطلاق', returnDateTime: 'تاريخ ووقت العودة', duration: 'المدة', hours: 'ساعات',
-        cashPart: 'نقداً للسائق', bankPart: 'تحويل بنكي',
+        cashPart: 'نقداً للسائق', bankPart: 'تحويل بنكي', vatLine: 'ضريبة القيمة المضافة (15%)',
         vehicle: 'المركبة', passengers: 'الركاب', nationality: 'جنسية الركاب', items: 'الأغراض', paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
         bookingTotal: 'إجمالي الحجز', balanceRemaining: 'الرصيد المتبقي',
         totalReceived: 'إجمالي المبلغ المستلم',
@@ -91,6 +91,7 @@ interface Booking {
     special_requests?: string;
     total_price?: number;
     extra_charges?: unknown;
+    vat_added?: boolean | null;
     deposit_amount?: number | null;
     passenger_nationality?: string | null;
     currency?: string;
@@ -122,6 +123,9 @@ export default function ReceiptPage() {
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     const [amountPaid, setAmountPaid] = useState('');
     const [extras, setExtras] = useState<ExtraCharge[]>([]);
+    // 15% VAT charged on top of the price (booking form "+15% VAT").
+    const [vatAdded, setVatAdded] = useState(false);
+    const vatOn = (fare: number) => (vatAdded ? Math.round(fare * 15) / 100 : 0);
     // Split payment (part cash, part bank transfer): the received amount is the sum.
     const [cashPart, setCashPart] = useState('');
     const [bankPart, setBankPart] = useState('');
@@ -143,12 +147,14 @@ export default function ReceiptPage() {
                 setBooking(data);
                 const ex = readExtras(data.extra_charges);
                 setExtras(ex);
+                setVatAdded(!!data.vat_added);
+                const vat = data.vat_added ? Math.round(Number(data.total_price || 0) * 15) / 100 : 0;
                 if (data.currency) setCurrency(data.currency);
                 if (data.payment_method) setPaymentMethod(data.payment_method);
                 const status = (data.payment_status || '').toLowerCase();
                 // Default the amount to what the records say was received.
                 if (status.includes('partial') && data.deposit_amount) setAmountPaid(Number(data.deposit_amount).toFixed(2));
-                else if (data.total_price) setAmountPaid((Number(data.total_price) + extrasTotal(ex)).toFixed(2));
+                else if (data.total_price) setAmountPaid((Number(data.total_price) + vat + extrasTotal(ex)).toFixed(2));
                 if (status === 'paid') setPaymentConfirmed(true);
             } catch (err) {
                 console.error('Error fetching booking:', err);
@@ -181,7 +187,7 @@ export default function ReceiptPage() {
             const filename = `Receipt-${receiptNumber}.pdf`;
             const base64 = await documentPdfToBase64('receipt-print', filename);
             const received = Number(amountPaid) || 0;
-            const total = (Number(booking.total_price) || 0) + extrasTotal(extras);
+            const total = (Number(booking.total_price) || 0) + vatOn(Number(booking.total_price) || 0) + extrasTotal(extras);
             const fullyPaid = total > 0 && received >= total;
             // Record exactly what was received: full payment marks the booking
             // paid; a smaller amount is stored as a partial payment.
@@ -228,7 +234,9 @@ export default function ReceiptPage() {
     const received = Number(amountPaid) || 0;
     // fare = booking price; total adds the extra charges (border crossing etc.).
     const fare = Number(booking.total_price) || 0;
-    const total = fare + extrasTotal(extras);
+    const vat = vatOn(fare);
+    const total = fare + vat + extrasTotal(extras);
+    const itemised = extras.length > 0 || vat > 0;
     const partial = total > 0 && received > 0 && received < total;
     const serviceDate = booking.trip_end_date && booking.trip_end_date !== booking.pickup_date
         ? `${fmtDate(booking.pickup_date)} – ${fmtDate(booking.trip_end_date)}`
@@ -279,6 +287,14 @@ export default function ReceiptPage() {
                                 <button key={m} onClick={() => setPaymentMethod(m)} className={`px-2 py-1 text-[10px] font-bold rounded-md ${paymentMethod === m ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>{m}</button>
                             ))}
                         </div>
+                        <label className="flex items-center gap-1 border border-gray-200 rounded-lg px-2 h-9 bg-gray-50 text-[10px] font-bold text-gray-600 cursor-pointer">
+                            <input type="checkbox" checked={vatAdded} onChange={e => {
+                                const on = e.target.checked;
+                                setVatAdded(on);
+                                const fare = Number(booking?.total_price) || 0;
+                                setAmountPaid((fare + (on ? Math.round(fare * 15) / 100 : 0) + extrasTotal(extras)).toFixed(2));
+                            }} /> +15% VAT
+                        </label>
                         {isSplit && (
                             <div className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2 py-1.5 bg-gray-50 text-[10px] font-bold text-gray-500">
                                 Cash <input value={cashPart} onChange={e => setSplit(e.target.value, bankPart)} className="w-16 text-xs font-bold outline-none bg-white border border-gray-200 rounded px-1" placeholder="0" />
@@ -364,7 +380,8 @@ export default function ReceiptPage() {
                             </tr>
                         </thead>
                         <tbody>
-                            <Line k={t.service} v={serviceName} amt={extras.length ? (partial ? '' : money(fare)) : money(received)} />
+                            <Line k={t.service} v={serviceName} amt={itemised ? (partial ? '' : money(fare)) : money(received)} />
+                            {vat > 0 && <Line k={t.vatLine} v="" amt={partial ? '' : money(vat)} />}
                             {extras.map((e, i) => <Line key={i} k={e.label} v="" amt={partial ? '' : money(e.amount)} />)}
                             <Line k={t.route} v={<><span className="block"><span className="text-slate-500">{t.pickup}: </span>{booking.pickup_location}</span>{booking.trip_type !== 'hourly' && <span className="block"><span className="text-slate-500">{t.dropoff}: </span>{booking.destination}</span>}</>} />
                             {ret && <Line k={t.returnRoute} v={<><span className="block"><span className="text-slate-500">{t.pickup}: </span>{ret.pickupLocation}</span><span className="block"><span className="text-slate-500">{t.dropoff}: </span>{ret.destination}</span></>} />}

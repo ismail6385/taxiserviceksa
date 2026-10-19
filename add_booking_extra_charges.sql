@@ -6,3 +6,5 @@
 
 ALTER TABLE bookings ADD COLUMN IF NOT EXISTS extra_charges jsonb;
 ALTER TABLE bookings ADD COLUMN IF NOT EXISTS transfer_price numeric(10,2);
+-- true = 15% VAT is charged on top of total_price (4,500 + 675 = 5,175).
+ALTER TABLE bookings ADD COLUMN IF NOT EXISTS vat_added boolean;

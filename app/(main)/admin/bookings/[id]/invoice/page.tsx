@@ -146,6 +146,7 @@ interface Booking {
     special_requests?: string;
     total_price?: number;
     extra_charges?: unknown;
+    vat_added?: boolean | null;
     currency?: string;
     payment_status?: string;
     payment_method?: string;
@@ -184,7 +185,9 @@ export default function InvoicePage() {
     const [paymentStatus, setPaymentStatus] = useState('Unpaid');
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     // Total already includes 15% VAT (card / online payments): show subtotal + VAT.
-    const [includesVat, setIncludesVat] = useState(false);
+    // 'added' = 15% VAT on top of the price (booking form "+15% VAT");
+    // 'included' = the price already includes VAT (split it).
+    const [vatMode, setVatMode] = useState<'none' | 'added' | 'included'>('none');
     const [extras, setExtras] = useState<ExtraCharge[]>([]);
     const [isRoundTrip, setIsRoundTrip] = useState(false);
     const [returnPickupLocation, setReturnPickupLocation] = useState('');
@@ -259,7 +262,8 @@ export default function InvoicePage() {
                 }
                 // Note: payment_method might not be in the DB yet, but we check just in case
                 if (data.payment_method) setPaymentMethod(data.payment_method);
-                if (isCardOrOnline(data.payment_method)) setIncludesVat(true);
+                if (data.vat_added) setVatMode('added');
+                else if (isCardOrOnline(data.payment_method)) setVatMode('included');
                 // Auto-detect round trip from booking data. getReturnRoute()
                 // prefers explicitly recorded return locations and falls back
                 // to the outbound route reversed for legacy bookings that
@@ -323,7 +327,7 @@ export default function InvoicePage() {
                 body: JSON.stringify({
                     booking: {
                         ...booking,
-                        total_price: (booking.total_price || 0) + extrasTotal(extras),
+                        total_price: (booking.total_price || 0) * (vatMode === 'added' ? 1.15 : 1) + extrasTotal(extras),
                         has_return_trip: isRoundTrip,
                         return_date: isRoundTrip ? (returnDate || booking.return_date || null) : null,
                         return_time: isRoundTrip ? (returnTime || booking.return_time || null) : null,
@@ -387,10 +391,12 @@ export default function InvoicePage() {
     const status = normalizeStatus(paymentStatus);
     // fare = the booking price; total adds the extra charges (border crossing etc.).
     const fare = booking.total_price || 0;
-    const total = fare + extrasTotal(extras);
+    const vatSplit = !fare ? null
+        : vatMode === 'added' ? { base: fare, vat: Math.round(fare * 15) / 100 }
+        : vatMode === 'included' ? splitVat(fare) : null;
+    const total = (vatMode === 'added' && vatSplit ? fare + vatSplit.vat : fare) + extrasTotal(extras);
     const received = status === 'paid' ? total : status === 'partial' ? Math.min(booking.deposit_amount || 0, total) : 0;
     const balance = Math.max(total - received, 0);
-    const vatSplit = includesVat && fare ? splitVat(fare) : null;
     const STATUS_STYLE: Record<NormalizedStatus, string> = {
         paid: 'border-emerald-600 text-emerald-700',
         unpaid: 'border-red-600 text-red-700',
@@ -615,8 +621,11 @@ export default function InvoicePage() {
                     </div>
 
                     <label className="flex items-center gap-1.5 rounded-lg border bg-white px-2 h-10 text-[11px] font-bold text-gray-700 shadow-sm cursor-pointer">
-                        <input type="checkbox" checked={includesVat} onChange={e => setIncludesVat(e.target.checked)} />
-                        Incl. 15% VAT
+                        <select value={vatMode} onChange={e => setVatMode(e.target.value as typeof vatMode)} className="bg-transparent outline-none">
+                            <option value="none">No VAT</option>
+                            <option value="added">+15% VAT on top</option>
+                            <option value="included">Price incl. 15% VAT</option>
+                        </select>
                     </label>
 
                     {/* Currency Custom Input */}

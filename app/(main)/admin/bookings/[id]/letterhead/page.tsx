@@ -178,6 +178,7 @@ interface Booking {
     total_price?: number;
     extra_charges?: unknown;
     transfer_price?: number | null;
+    vat_added?: boolean | null;
     deposit_amount?: number | null;
     currency?: string;
     payment_method?: string;
@@ -272,6 +273,8 @@ export default function LetterheadPage() {
                     if ((data.payment_status || '').toLowerCase() === 'paid') setVatMode('included');
                     else { setVatMode('added'); setPaymentPlan('online'); }
                 }
+                // "+15% VAT" ticked on the booking form: VAT on top of the price.
+                if (data.vat_added) setVatMode('added');
                 if (GCC_HINT.test(`${data.pickup_location} ${data.destination}`)) setShowDocuments(true);
             } catch (error) {
                 console.error('Error fetching booking:', error);

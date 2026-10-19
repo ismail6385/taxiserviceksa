@@ -91,6 +91,10 @@ import {
 
 // Generic classes, for when the customer is quoted "a sedan" or "an SUV"
 // rather than a specific model. Shown first in the vehicle dropdown.
+// 15% VAT charged on top of the price (booking.vat_added).
+const vatOf = (price: number) => Math.round(price * 15) / 100;
+const withVat = (price: number) => Math.round((price + vatOf(price)) * 100) / 100;
+
 const VEHICLE_CATEGORIES = [
     'Sedan (Toyota Camry, Hyundai Sonata, Kia K5, Nissan Altima or similar)',
     'Economy Sedan (Hyundai Accent, Toyota Yaris, Nissan Sunny or similar)',
@@ -191,6 +195,7 @@ interface Booking {
     duration_estimate?: string;
     commission_rate?: number;
     driver_cost?: number | null;
+    vat_added?: boolean | null;
     passenger_nationality?: string | null;
     itinerary_legs?: ItineraryLeg[] | null;
     additional_stops?: AdditionalStop[] | null;
@@ -2875,6 +2880,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                                 className="h-8 text-sm bg-white font-bold w-24" 
                                                                 placeholder="Price"
                                                             />
+                                                            <label className="flex items-center gap-1 text-[11px] font-bold text-gray-700 whitespace-nowrap" title="Add 15% VAT on top of the price">
+                                                                <input type="checkbox" checked={!!editedBooking.vat_added} onChange={(e) => setEditedBooking({ ...editedBooking, vat_added: e.target.checked })} /> +15% VAT
+                                                            </label>
                                                             <Button 
                                                                 variant="ghost" 
                                                                 size="icon" 
@@ -2885,6 +2893,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                                 <Calculator className="h-4 w-4" />
                                                             </Button>
                                                         </div>
+                                                        {editedBooking.vat_added && !!editedBooking.total_price && (
+                                                            <p className="text-[11px] text-gray-600">Customer pays <b>{editedBooking.currency || 'SAR'} {withVat(editedBooking.total_price)}</b> ({editedBooking.total_price} + {vatOf(editedBooking.total_price)} VAT)</p>
+                                                        )}
                                                         <div className="flex flex-wrap gap-1">
                                                             {['SAR', 'USD', 'AED', 'KWD', 'OMR', 'BHD'].map((curr) => (
                                                                 <span 
@@ -2904,8 +2915,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 ) : (
                                                     <div className="flex items-center gap-2 flex-wrap">
                                                         <span className="text-lg font-bold text-green-600">
-                                                            {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.total_price}` : 'Calculating...'}
+                                                            {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.vat_added ? withVat(selectedBooking.total_price) : selectedBooking.total_price}` : 'Calculating...'}
                                                         </span>
+                                                        {selectedBooking.vat_added && !!selectedBooking.total_price && <span className="text-[11px] text-gray-500">({selectedBooking.total_price} + {vatOf(selectedBooking.total_price)} VAT 15%)</span>}
                                                         {selectedBooking.total_price ? (
                                                             <div className="flex flex-col gap-1 w-full mt-1">
                                                                 <input
@@ -3969,6 +3981,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             onChange={(e) => setNewBooking({ ...newBooking, total_price: parseFloat(e.target.value) })}
                                             className="bg-white border-gray-200 font-bold"
                                         />
+                                        <label className="flex items-center gap-1 text-xs font-bold text-gray-700 whitespace-nowrap" title="Add 15% VAT on top of the price">
+                                            <input type="checkbox" checked={!!newBooking.vat_added} onChange={(e) => setNewBooking({ ...newBooking, vat_added: e.target.checked })} /> +15% VAT
+                                        </label>
                                         <Button
                                             variant="outline"
                                             size="icon"
@@ -4005,6 +4020,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         onChange={(e) => setNewBooking({ ...newBooking, deposit_amount: e.target.value ? parseFloat(e.target.value) : null })}
                                         className="bg-white border-gray-200 font-bold"
                                     />
+                                    {newBooking.vat_added && !!newBooking.total_price && (
+                                        <p className="text-xs text-gray-600">Customer pays <b>{newBooking.currency || 'SAR'} {withVat(newBooking.total_price)}</b> ({newBooking.total_price} + {vatOf(newBooking.total_price)} VAT)</p>
+                                    )}
                                     {!!newBooking.total_price && (
                                         <p className="text-[11px] text-gray-500">
                                             Balance due: <strong className="text-gray-900">{newBooking.currency || 'SAR'} {(newBooking.total_price - (newBooking.deposit_amount || 0)).toFixed(2)}</strong>
