@@ -926,15 +926,15 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         {!isDelivery && !showVehicleList && (() => {
                             const maxPax = selectedVehicle?.passengers || 1;
                             return (
-                                <div className="bg-primary/5 p-5 rounded-3xl border border-dashed border-primary/30">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-white rounded-xl shadow-sm">
+                                <div className="bg-primary/5 p-4 sm:p-5 rounded-3xl border border-dashed border-primary/30">
+                                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                        <div className="flex items-center gap-3 min-w-0">
+                                            <div className="p-2 bg-white rounded-xl shadow-sm shrink-0">
                                                 <Users className="w-5 h-5 text-primary" />
                                             </div>
-                                            <div>
-                                                <h4 className="font-black text-gray-900 leading-none">Number of Passengers</h4>
-                                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tight mt-1">
+                                            <div className="min-w-0">
+                                                <h4 className="font-black text-gray-900 leading-tight">Number of Passengers</h4>
+                                                <p className="text-[11px] text-gray-500 font-semibold mt-1 leading-snug">
                                                     How many people are traveling? (Max {maxPax} for this vehicle)
                                                 </p>
                                             </div>
@@ -945,6 +945,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                             min={1}
                                             max={maxPax}
                                             enforceMax
+                                            className="self-end sm:self-auto"
                                             aria-label="passengers"
                                         />
                                     </div>
@@ -956,15 +957,15 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         {!isDelivery && !showVehicleList && (() => {
                             const vehicleLuggageCapacity = selectedVehicle?.luggage || 0;
                             return (
-                                <div className="bg-primary/5 p-5 rounded-3xl border border-dashed border-primary/30">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 bg-white rounded-xl shadow-sm">
+                                <div className="bg-primary/5 p-4 sm:p-5 rounded-3xl border border-dashed border-primary/30">
+                                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                        <div className="flex items-center gap-3 min-w-0">
+                                            <div className="p-2 bg-white rounded-xl shadow-sm shrink-0">
                                                 <Briefcase className="w-5 h-5 text-primary" />
                                             </div>
-                                            <div>
-                                                <h4 className="font-black text-gray-900 leading-none">Number of Luggage</h4>
-                                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tight mt-1">
+                                            <div className="min-w-0">
+                                                <h4 className="font-black text-gray-900 leading-tight">Number of Luggage</h4>
+                                                <p className="text-[11px] text-gray-500 font-semibold mt-1 leading-snug">
                                                     How many bags/suitcases? (Vehicle capacity: {vehicleLuggageCapacity} — need more? No problem.)
                                                 </p>
                                             </div>
@@ -978,6 +979,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                             min={0}
                                             max={50}
                                             enforceMax
+                                            className="self-end sm:self-auto"
                                             aria-label="luggage"
                                         />
                                     </div>
