@@ -172,6 +172,20 @@ export const vehicles = [
     }
 ];
 
+// Generic vehicle classes ("a sedan", "an SUV") listing the models each
+// covers. Shown first on the booking form and in the admin vehicle dropdown;
+// not part of `vehicles`, which city and route pages render as "our fleet".
+export const vehicleClasses = [
+    { name: 'Sedan (Toyota Camry, Hyundai Sonata, Kia K5, Nissan Altima or similar)', image: '/toyota-camry.webp', passengers: 4, luggage: 2, description: 'Comfortable sedan for airport transfers and intercity trips.' },
+    { name: 'Economy Sedan (Hyundai Accent, Toyota Yaris, Nissan Sunny or similar)', image: '/fleet/ford-taurus-executive-sedan-saudi-arabia.webp', passengers: 3, luggage: 2, description: 'Budget-friendly sedan for short city rides.' },
+    { name: 'SUV (GMC Yukon, Chevrolet Tahoe, Toyota Land Cruiser or similar)', image: '/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp', passengers: 7, luggage: 5, description: 'Full-size SUV for families, groups and long trips.' },
+    { name: 'Mid-size SUV (Toyota Fortuner, Toyota Prado, Hyundai Santa Fe or similar)', image: '/fleet/toyota-rav4-hybrid-2025.webp', passengers: 7, luggage: 4, description: 'Mid-size SUV for small families.' },
+    { name: 'Luxury SUV (Cadillac Escalade, Lexus LX, GMC Yukon Denali or similar)', image: '/fleet/cadillac-escalade-chauffeur-service-ksa.webp', passengers: 7, luggage: 4, description: 'Premium SUV for VIP and executive travel.' },
+    { name: 'Family Van (Hyundai Staria, Kia Carnival, Hyundai H1 or similar)', image: '/hyundai-staria.webp', passengers: 7, luggage: 4, description: 'Spacious van for families with luggage.' },
+    { name: 'Minibus (Toyota Hiace, Mercedes Sprinter or similar)', image: '/toyota-hiace.webp', passengers: 11, luggage: 12, description: 'For larger groups and Umrah parties.' },
+    { name: 'Luxury Sedan (Mercedes S-Class, BMW 7 Series, Genesis G80 or similar)', image: '/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp', passengers: 3, luggage: 2, description: 'Executive sedan for VIP guests.' },
+];
+
 // Vehicles offered only in some areas. Kept out of `vehicles` (which city and
 // route pages render as "our fleet") and added on the booking form only when
 // the pickup or drop-off matches one of the areas.
@@ -190,8 +204,8 @@ export const regionalVehicles = [
 export function vehiclesForRoute(...places: (string | null | undefined)[]) {
     const text = places.filter(Boolean).join(' ');
     const regional = text ? regionalVehicles.filter(v => v.areas.test(text)).map(({ areas, ...v }) => v) : [];
-    return [...vehicles, ...regional];
+    return [...vehicleClasses, ...vehicles, ...regional];
 }
 
 /** Every vehicle, for looking one up by name. */
-export const allVehicles = [...vehicles, ...regionalVehicles.map(({ areas, ...v }) => v)];
+export const allVehicles = [...vehicleClasses, ...vehicles, ...regionalVehicles.map(({ areas, ...v }) => v)];

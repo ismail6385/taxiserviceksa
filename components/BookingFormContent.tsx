@@ -866,7 +866,16 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
                                         {/* Info */}
                                         <div className="flex-1 min-w-0">
-                                            <h3 className="font-bold text-base text-gray-900 leading-tight">{v.name}</h3>
+                                            {/* Vehicle classes read "Sedan (Camry, Sonata ... or similar)": show the class big, the models small. */}
+                                            {(() => {
+                                                const m = v.name.match(/^(.+?) \((.+)\)$/);
+                                                return m ? (
+                                                    <>
+                                                        <h3 className="font-bold text-base text-gray-900 leading-tight">{m[1]}</h3>
+                                                        <p className="text-[11px] text-gray-500 leading-snug mt-0.5">{m[2]}</p>
+                                                    </>
+                                                ) : <h3 className="font-bold text-base text-gray-900 leading-tight">{v.name}</h3>;
+                                            })()}
                                             <div className="flex items-center gap-3 text-xs text-gray-500 mt-1">
                                                 <span className="flex items-center gap-1 font-bold"><Users className="w-3 h-3 text-primary" /> {v.passengers} Pax</span>
                                                 <span className="flex items-center gap-1 font-bold"><Briefcase className="w-3 h-3 text-primary" /> {v.luggage} Bags</span>

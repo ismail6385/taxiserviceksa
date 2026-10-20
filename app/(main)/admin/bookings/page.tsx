@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { supabase, vehicleClasses } from '@/lib/supabase';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
 import { ksaToday, ksaNowTime, shiftIsoDate } from '@/lib/ksa-time';
 import ManualEmailBox from '@/components/admin/ManualEmailBox';
@@ -95,16 +95,7 @@ import {
 const vatOf = (price: number) => Math.round(price * 15) / 100;
 const withVat = (price: number) => Math.round((price + vatOf(price)) * 100) / 100;
 
-const VEHICLE_CATEGORIES = [
-    'Sedan (Toyota Camry, Hyundai Sonata, Kia K5, Nissan Altima or similar)',
-    'Economy Sedan (Hyundai Accent, Toyota Yaris, Nissan Sunny or similar)',
-    'SUV (GMC Yukon, Chevrolet Tahoe, Toyota Land Cruiser or similar)',
-    'Mid-size SUV (Toyota Fortuner, Toyota Prado, Hyundai Santa Fe or similar)',
-    'Luxury SUV (Cadillac Escalade, Lexus LX, GMC Yukon Denali or similar)',
-    'Family Van (Hyundai Staria, Kia Carnival, Hyundai H1 or similar)',
-    'Minibus (Toyota Hiace, Mercedes Sprinter or similar)',
-    'Luxury Sedan (Mercedes S-Class, BMW 7 Series, Genesis G80 or similar)',
-];
+const VEHICLE_CATEGORIES = vehicleClasses.map(v => v.name);
 
 // Specific models, including the cars commonly driven in Saudi Arabia.
 const VEHICLE_OPTIONS = [
