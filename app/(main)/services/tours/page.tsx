@@ -1,342 +1,389 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
-import { Button } from '@/components/ui/button'; // Assuming Button is available
-import { MapPin, Camera, Sun, Clock, Users, Star, Car, Shield } from 'lucide-react';
-import Hero from '@/components/Hero';
-import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
-import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
-import QuestionGrouper from '@/components/seo/QuestionGrouper';
-import TravelConsensus from '@/components/seo/TravelConsensus'; // Reusing components
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedServices from '@/components/seo/RelatedServices'; // Reusing components
-import ReviewsDisplay from '@/components/ReviewsDisplay'; // Reusing
-import QuestionsDisplay from '@/components/QuestionsDisplay'; // Reusing
-import ReviewForm from '@/components/seo/ReviewForm'; // Reusing
-import QuestionForm from '@/components/seo/QuestionForm'; // Reusing
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import { ArrowRight } from 'lucide-react';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import { ArrowRight, Check, X, Info, MapPin, Mountain, Landmark, Waves, Users, Route, Clock, Ticket, Languages } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import ReviewsDisplay from '@/components/ReviewsDisplay';
+import QuestionsDisplay from '@/components/QuestionsDisplay';
+import ReviewForm from '@/components/seo/ReviewForm';
+import QuestionForm from '@/components/seo/QuestionForm';
+
+const PAGE_URL = 'https://taxiserviceksa.com/services/tours/';
+const PHONE = '+966575806733';
+const wa = (msg: string) => `https://wa.me/966575806733?text=${encodeURIComponent(msg)}`;
+const WHATSAPP_HREF = wa('Hello, I want a private tour. City, date, start time, places I want to visit, passengers: ');
+
+const TOURS = [
+    {
+        id: 'madinah', icon: Landmark, name: 'Madinah Ziyarat', time: 'Often 3–4 hours',
+        stops: ['Masjid Quba', 'Mount Uhud', 'The Seven Mosques area', 'Masjid al-Qiblatain'],
+        text: 'Hotel to the main Ziyarat sites and back. Tell us which sites matter most and how much time you have; some visitors like to linger at Quba or Uhud, others need to be back before a departure.',
+        note: 'The driver provides transport. If you want a religious guide or detailed history, ask when booking.',
+        href: '/services/madinah-ziyarat/', label: 'Madinah Ziyarat transportation',
+    },
+    {
+        id: 'makkah', icon: Mountain, name: 'Makkah Ziyarat', time: 'Often 3–4 hours',
+        stops: ['Jabal Al-Nour', 'Jabal Thawr', 'Mina and Arafat', 'Other agreed stops'],
+        text: 'A loop around Makkah’s historic sites. Some places involve walking or climbing, and the car cannot always reach the point you want to see, so tell us about older passengers or limited mobility.',
+        note: 'Access to some sites changes during Hajj and on busy days. Only Muslims may enter Makkah.',
+        href: '/ziyarat-in-makkah/', label: 'Makkah Ziyarat transportation',
+    },
+    {
+        id: 'alula', icon: MapPin, name: 'AlUla heritage day', time: 'Usually a full day',
+        stops: ['Hegra (Madain Saleh)', 'Elephant Rock', 'AlUla Old Town', 'Dadan'],
+        text: 'AlUla’s sights are spread out across the valley, so a private car for the day saves a lot of waiting. Build the day around any ticketed times first.',
+        note: 'Hegra has controlled entry: book tickets and check the official visitor arrangements before you plan the transport.',
+        href: '/locations/alula/', label: 'AlUla heritage and sightseeing transport',
+    },
+    {
+        id: 'taif', icon: Mountain, name: 'Taif city and Al Hada', time: 'Often 4–6 hours',
+        stops: ['Shubra Palace', 'Al Rudaf Park', 'Rose farms (in season)', 'Al Hada viewpoints'],
+        text: 'Taif’s city sights and the mountain road at Al Hada, at a cooler altitude than the coast. Many visitors come up from Jeddah or Makkah for the day.',
+        note: 'Rose farms and distilleries open seasonally, and the Al Hada cable car depends on weather and its own schedule. Check before you go.',
+        href: '/locations/taif/', label: 'Taif city tour and mountain sights',
+    },
+    {
+        id: 'jeddah', icon: Waves, name: 'Jeddah: Al-Balad and the Corniche', time: 'Often around 4 hours',
+        stops: ['Al-Balad historic district', 'Jeddah Corniche', 'King Fahd’s Fountain', 'Floating Mosque'],
+        text: 'Old Jeddah’s coral-stone houses in the afternoon, then the waterfront at sunset. Al-Balad is best on foot, so allow time to walk rather than treating it as a quick stop.',
+        note: 'The fountain does not always run; do not plan the whole evening around it.',
+        href: '/locations/jeddah/', label: 'Jeddah historical tour',
+    },
+];
+
+const TITLE = 'Private Tours in Saudi Arabia | Custom Multi-Stop Trips';
+const DESCRIPTION = 'Private tours in Saudi Arabia with your own car and driver: Madinah and Makkah Ziyarat, AlUla, Taif, Jeddah Al-Balad and custom multi-stop or multi-city itineraries.';
 
 export const metadata: Metadata = {
-    title: 'Private Car, Taxi and Chauffeur Service for Combination Tours & Multi-Stop Itineraries | Taxi Service KSA',
-    description: 'Combine multiple Saudi Arabia sights in one private hire — Jeddah Al-Balad + Corniche, Taif city + cable car, or a custom multi-city day. Not sure which tour fits you? Compare all our tour pages here.',
-    keywords: ['Saudi Arabia multi-stop tour', 'combination day trip Saudi Arabia', 'custom tour itinerary KSA', 'Taif Jeddah combined tour', 'private tour driver KSA'],
+    title: TITLE,
+    description: DESCRIPTION,
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/tours/',
+        canonical: PAGE_URL,
         languages: {
-            'en': 'https://taxiserviceksa.com/services/tours/',
+            'en': PAGE_URL,
             'ar': 'https://taxiserviceksa.com/ar/services/tours/',
             'ur': 'https://taxiserviceksa.com/ur/services/tours/',
-            'x-default': 'https://taxiserviceksa.com/services/tours/',
+            'x-default': PAGE_URL,
         },
+    },
+    openGraph: {
+        title: TITLE,
+        description: DESCRIPTION,
+        url: PAGE_URL,
+        siteName: 'Taxi Service KSA',
+        type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private tours in Saudi Arabia' }],
     },
 };
 
+const faqs = [
+    { q: 'What exactly do you provide on a tour?', a: 'A private car and driver for your itinerary: pickup, transport between the places you choose, and waiting while you visit. Attraction tickets, licensed guides and special access are separate unless your confirmation says otherwise.' },
+    { q: 'Do the drivers speak English?', a: 'Yes, our drivers speak English and Arabic. The driver is not a licensed tour guide, so if you want detailed history or a religious guide, ask when booking.' },
+    { q: 'Are attraction tickets included?', a: 'No. Tickets, official guided visits, permits and official visitor shuttles are booked by you with the attraction. Send us your confirmed entry times and we plan the transport around them.' },
+    { q: 'Can you build a custom multi-stop itinerary?', a: 'Yes. Send your starting point, date, the places you want to see in order of priority, group size and the time you have. We suggest a realistic route and quote it.' },
+    { q: 'Can I combine places from different tours?', a: 'Yes, if the route works. Within one city that is usually simple. Combining cities, for example Madinah and AlUla, is planned as a multi-day trip with the driving time and overnight stops included.' },
+    { q: 'How long does a Madinah Ziyarat take?', a: 'Often around 3–4 hours for the main sites, depending on traffic and how long you stay at each.' },
+    { q: 'Can you take us to Hegra?', a: 'We can drive you to the site and back as part of an AlUla day. Entry to Hegra depends on its ticketing and visitor arrangements, which you need to book directly before we plan the day.' },
+    { q: 'How long does a Taif tour take?', a: 'A selection of city sights often takes 4–6 hours. Adding Al Hada, Al Shafa or a rose farm needs more time. From Jeddah or Makkah, add the drive up the mountain each way.' },
+    { q: 'Can we visit Al-Balad and the Corniche in one trip?', a: 'Yes. A common plan is Al-Balad in the late afternoon and the Corniche at sunset, roughly four hours in total.' },
+    { q: 'Can a tour start at the airport?', a: 'Yes, if the timing works. Send your flight number, arrival time, the places you want to see and where you are staying.' },
+    { q: 'Can we add stops during the day?', a: 'Yes, within the booked time. If a change means extra hours or a longer drive, we agree the cost before it happens.' },
+    { q: 'Do you have vehicles for large families or groups?', a: 'Yes: a Hyundai Staria or GMC Yukon XL for up to 7 people, and a Toyota Hiace for up to 11. Tell us the number of people and bags.' },
+    { q: 'How do I book?', a: 'Send the city, date, start time, places, passengers and preferred vehicle on WhatsApp or email. We confirm the vehicle and price; the booking is final once you accept.' },
+];
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'Service',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Private tours and multi-stop trips in Saudi Arabia',
+            serviceType: 'Private sightseeing transport with driver',
+            url: PAGE_URL,
+            provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: PHONE },
+            areaServed: ['Madinah', 'Makkah', 'AlUla', 'Taif', 'Jeddah'].map((c) => ({ '@type': 'City', name: c })),
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxiserviceksa.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://taxiserviceksa.com/services/' },
+                { '@type': 'ListItem', position: 3, name: 'Private Tours', item: PAGE_URL },
+            ],
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
+
+const eyebrow = 'text-xs font-bold uppercase tracking-[0.22em]';
+const link = 'font-semibold text-[#9a3412] underline-offset-2 hover:underline';
+const h2 = 'text-3xl md:text-4xl font-extrabold text-[#2b1a12]';
+const h3 = 'text-xl font-bold text-[#2b1a12]';
+const prose = 'space-y-4 text-stone-700 leading-relaxed text-[1.05rem]';
+const primary = 'group inline-flex items-center justify-center gap-2 rounded-xl bg-[#9a3412] px-6 py-3.5 font-bold text-white hover:bg-[#7c2d12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9a3412] focus-visible:ring-offset-2';
+const ghost = 'inline-flex items-center justify-center gap-2 rounded-xl border border-[#2b1a12]/20 px-6 py-3.5 font-bold text-[#2b1a12] hover:border-[#9a3412] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9a3412]';
+
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
+
+function Tick({ children }: { children: React.ReactNode }) {
+    return <li className="flex gap-2.5"><Check className="w-4 h-4 mt-1 text-[#9a3412] shrink-0" aria-hidden="true" /><span>{children}</span></li>;
+}
+
 export default function ToursPage() {
-    const popularTours = [
-        {
-            name: 'Madinah Ziyarat',
-            duration: '3-4 Hours',
-            spots: ['Masjid Quba', 'Mount Uhud', 'Seven Mosques', 'Qiblatain'],
-            price: 'WhatsApp Booking',
-            image: '/madinah-prophets-mosque.webp', // Using existing asset
-            link: '/services/madinah-ziyarat'
-        },
-        {
-            name: 'Makkah Ziyarat',
-            duration: '3-4 Hours',
-            spots: ['Jabal Al-Nour', 'Jabal Thawr', 'Mina/Arafat', 'Jannat al-Mualla'],
-            price: 'WhatsApp Booking',
-            image: '/locations/makkah.webp', // Placeholder path, falling back if not exists is handled in Hero usually, here in card just img tag
-            link: '/locations/makkah-ziyarat'
-        },
-        {
-            name: 'AlUla Heritage Tour',
-            duration: 'Full Day',
-            spots: ['Hegra (Madain Saleh)', 'Elephant Rock', 'Old Town', 'Dadan'],
-            price: 'WhatsApp Booking',
-            image: '/alula-hegra.webp', // User provided link content
-            link: '/locations/alula'
-        },
-        {
-            name: 'Taif City Tour',
-            duration: '4-6 Hours',
-            spots: ['Shubra Palace', 'Al Rudaf Park', 'Taif Rose Factory', 'Al Hada Mountain'],
-            price: 'WhatsApp Booking',
-            image: '/locations/taif.webp', // Placeholder
-            link: '/locations/taif'
-        },
-        {
-            name: 'Jeddah Historical Tour',
-            duration: '4 Hours',
-            spots: ['Al-Balad (Old Jeddah)', 'Corniche', 'King Fahd Fountain', 'Floating Mosque'],
-            price: 'WhatsApp Booking',
-            image: '/jeddah-airport.webp', // Using existing asset
-            link: '/locations/jeddah'
-        }
-    ];
-
-    const faqs = [
-        {
-            question: 'Do the drivers speak English?',
-            answer: 'Yes — our tour drivers are selected for their language skills and ability to communicate basic historical information about the sites. For specialized historical lectures, we recommend hiring a licensed tour guide, but our drivers provide excellent logistical and basic historical support.',
-        },
-        {
-            question: 'Are entry tickets to sites included?',
-            answer: 'No — our prices cover the private vehicle, fuel, and driver only. Entry tickets to gated museums or AlUla sites must be purchased separately (e.g. via the Experience AlUla app). Mosques and open historical sites are free.',
-        },
-        {
-            question: 'Can you build a custom multi-stop itinerary?',
-            answer: 'Yes — this is what this page is for. Tell us which sites you want to combine (across cities or over several days) via WhatsApp, and we\'ll build a private itinerary with one driver for the whole trip.',
-        },
-        {
-            question: 'How is this different from booking Heritage Tours or Tourism Transport directly?',
-            answer: 'Those pages are built for one specific destination — AlUla heritage sites, or general city/desert sightseeing. This page is for combining multiple stops (possibly across more than one of those categories) into a single custom-planned trip.',
-        },
-    ];
-
-    const schemas = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Saudi Arabia Combination Tours & Custom Itineraries",
-
-        "description": "Private multi-stop and combination day trips across Saudi Arabia — combining sights across cities into one custom-planned itinerary.",
-        "areaServed": "Saudi Arabia",
-        "serviceType": "TourOperator"
-    };
-
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="tour-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
-            />
-            <JsonLdFAQ faqs={faqs} />
+        <div className="tours-hub bg-[#f8f4ef]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            <Hero
-                images={['/hero-slide-2.webp', '/alula-hegra.webp']}
-                h1Text="Private Car, Taxi and Chauffeur Service for Combination Tours & Multi-Stop Itineraries"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Build Your Own Day
-                    </span>
-                }
-                subtitle="Combine Multiple Sights in One Private Hire"
-                location="KSA Historic Sites"
-            >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Tours"
-                        description="Experience the deep history of Arabia with knowledgeable private drivers. From the sacred paths of the Prophets to ancient Nabatean tombs."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Tour Routes', value: '50+', icon: MapPin },
-                            { label: 'Happy Tourists', value: '10k+', icon: DefaultUserIcon },
-                            { label: 'Local Experts', value: '100%', icon: Star }
-                        ]}
-                    />
-                </div>
-            </Hero>
-
-            {/* Trending Note */}
-            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
-                <TrendingTravelNote
-                    topic="Taif Rose Season"
-                    status="Seasonal Update"
-
-                    lastUpdated="Spring 2026"
-                    content="Experience the blooming of the famous Taif Roses in spring (March-April). Our Taif City Tour includes visits to traditional rose water distilleries during this fragrant season."
-                    tags={["TaifRoses", "Nature", "Seasonal"]}
-                    linkText="WhatsApp Booking for Taif Tour"
-                />
-            </div>
-
-            {/* Combination Itineraries — the genuine differentiator for this page */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">Combination Day Trips</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Want more than one stop in a single hire? These combine sights across our other tour pages into one day.</p>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#2b1a12]">
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_#7c4a2d_0%,_#2b1a12_62%)]" aria-hidden="true" />
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+                    <div className="text-white min-w-0">
+                        <p className={`${eyebrow} text-[#fdba74] mb-4`}>Your own car and driver for the day</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight mb-4">Private Tours and Multi-Stop Trips in Saudi Arabia</h1>
+                        <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-7 max-w-xl">
+                            Ziyarat in Madinah and Makkah, a day in AlUla, Taif&apos;s mountains, old Jeddah and the Corniche, or your own list of places across several cities. You choose the stops; we provide the car, the driver and the plan to get between them.
+                        </p>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-[#fdba74] text-[#2b1a12] hover:bg-[#fed7aa]">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Plan a tour on WhatsApp</a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href="#tours">See tour ideas</a>
+                            </Button>
+                        </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="rounded-3xl bg-white/[0.06] border border-white/10 p-7 text-white space-y-3 text-sm">
+                        <h2 className="text-lg font-bold">What you get</h2>
                         {[
-                            { name: 'Jeddah Al-Balad + Corniche', duration: 'Half Day', desc: 'Historic Old Jeddah in the morning, then the waterfront Corniche and King Fahd Fountain in the afternoon — one driver, one booking.' },
-                            { name: 'Taif City + Cable Car', duration: 'Full Day', desc: 'Shubra Palace and the Rose Factory, then a ride up the Al Hada cable car — see our Cable Car page for the ride itself.' },
-                            { name: 'Custom Multi-City Itinerary', duration: 'Your Schedule', desc: "Want to combine sites across two or more of our tour pages — say, AlUla plus Madinah Ziyarat over a few days? Tell us your plan on WhatsApp and we'll build it." },
-                        ].map((combo, i) => (
-                            <div key={i} className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-emerald-500 hover:shadow-lg transition-all">
-                                <h3 className="text-xl font-bold text-gray-900 mb-1">{combo.name}</h3>
-                                <div className="flex items-center gap-1 text-sm text-emerald-600 font-semibold mb-4"><Clock className="w-4 h-4" /> {combo.duration}</div>
-                                <p className="text-gray-600 text-sm leading-relaxed">{combo.desc}</p>
-                            </div>
+                            [Route, 'A private car and driver for your itinerary'],
+                            [Clock, 'Waiting at each stop within the booked time'],
+                            [Languages, 'Drivers who speak English and Arabic'],
+                            [Users, 'Vehicles for 1 to 11 people'],
+                        ].map(([Icon, t]) => {
+                            const I = Icon as typeof Route;
+                            return <p key={t as string} className="flex gap-2.5"><I className="w-4 h-4 mt-0.5 text-[#fdba74] shrink-0" aria-hidden="true" />{t as string}</p>;
+                        })}
+                        <p className="flex gap-2.5 text-white/60 pt-2 border-t border-white/10"><Ticket className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />Tickets and licensed guides are not included; book them with the attraction.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= HOW IT WORKS ================= */}
+            <section aria-labelledby="how" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                    <div className={prose}>
+                        <h2 id="how" className={`${h2} mb-2`}>How a Private Tour Works</h2>
+                        <p>
+                            A tour with us is a car and driver booked for your itinerary, not a group coach and not a guided tour. You tell us the places you want to see; we suggest a sensible order, estimate the time, and quote for the vehicle. On the day, the driver collects you, takes you from stop to stop and waits while you visit.
+                        </p>
+                        <p>
+                            That makes it flexible. You can spend longer where you like, skip what you lose interest in, and stop for food or prayer when you need to, all within the time you booked. Families, couples and small groups use it because nobody has to find a new taxi at every site.
+                        </p>
+                        <p>
+                            What it does not include: attraction tickets, licensed guides, official visitor shuttles or special access. Where a site needs a booking, such as Hegra in AlUla, book it first and send us the time so we plan the day around it.
+                        </p>
+                    </div>
+                    <div className="rounded-3xl bg-[#f8f4ef] p-7">
+                        <h3 className={`${h3} mb-4`}>Choosing how long to book</h3>
+                        <ul className="space-y-4 text-sm text-stone-700">
+                            <li><strong className="text-[#2b1a12]">A few hours</strong> for a handful of nearby sites, like a Ziyarat loop or Al-Balad and the Corniche.</li>
+                            <li><strong className="text-[#2b1a12]">A full day</strong> when the sights are spread out or you want time at each, like AlUla or Taif with Al Hada.</li>
+                            <li><strong className="text-[#2b1a12]">Several days</strong> for a trip across cities, planned as one route with overnight stops. See <Link href="/services/private-driver/" className={link}>private driver hire</Link> for hourly and daily packages.</li>
+                        </ul>
+                        <p className="text-xs text-stone-500 mt-5">Times on this page are planning estimates. Traffic, opening hours, prayer times and how long you stay change them.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= TOURS ================= */}
+            <section id="tours" aria-labelledby="tours-h" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-24">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="tours-h" className={`${h2} mb-3`}>Popular Tour Ideas</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">Starting points, not fixed packages. Take one as it is, change the stops, or combine two.</p>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        {TOURS.map((t) => (
+                            <article key={t.id} id={t.id} className="rounded-3xl bg-white border border-[#2b1a12]/10 p-7 flex flex-col scroll-mt-24">
+                                <div className="flex items-start justify-between gap-3 mb-3">
+                                    <h3 className={`${h3} flex items-center gap-2`}><t.icon className="w-5 h-5 text-[#9a3412]" aria-hidden="true" />{t.name}</h3>
+                                    <span className="shrink-0 rounded-full bg-[#f8f4ef] px-3 py-1 text-xs font-bold text-[#9a3412]">{t.time}</span>
+                                </div>
+                                <p className="text-sm text-stone-700 leading-relaxed mb-4">{t.text}</p>
+                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-sm text-stone-700 mb-4">
+                                    {t.stops.map((s) => <Tick key={s}>{s}</Tick>)}
+                                </ul>
+                                <p className="text-xs text-stone-500 flex gap-2 mb-5"><Info className="w-4 h-4 shrink-0" aria-hidden="true" />{t.note}</p>
+                                <div className="mt-auto flex flex-wrap gap-3">
+                                    <a href={wa(`Hello, I want to book: ${t.name}. Date, start time, pickup and passengers: `)} target="_blank" rel="nofollow noopener noreferrer" className={`${primary} !px-4 !py-2.5 text-sm`}>Book this <Arrow /></a>
+                                    <Link href={t.href} className="inline-flex items-center gap-1.5 text-sm font-bold text-[#9a3412] hover:underline">{t.label}</Link>
+                                </div>
+                            </article>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Tour Finder — which single-destination page fits you */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-10">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">Not Sure Which Tour Fits You?</h2>
-                        <p className="text-gray-600">If you know exactly what you want, these dedicated pages go deeper than a combo day allows.</p>
+            {/* ================= COMBINATIONS ================= */}
+            <section aria-labelledby="combine" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="combine" className={`${h2} mb-3`}>Combining Places and Cities</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">The main reason to book a private tour rather than separate rides is putting several places into one plan.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div className="rounded-3xl bg-[#f8f4ef] p-7">
+                            <h3 className={`${h3} mb-2`}>In one city</h3>
+                            <p className="text-sm text-stone-600 leading-relaxed">Al-Balad then the Corniche in Jeddah; Shubra Palace, Al Rudaf Park and Al Hada in Taif; Quba, Uhud and Qiblatain in Madinah. Usually a half or full day.</p>
+                        </div>
+                        <div className="rounded-3xl bg-[#f8f4ef] p-7">
+                            <h3 className={`${h3} mb-2`}>A day trip out</h3>
+                            <p className="text-sm text-stone-600 leading-relaxed">Up to Taif from Jeddah or Makkah for the day, with the mountain drive at each end. Quoted as a full day including the drive. <Link href="/routes/jeddah-taif/" className={link}>Jeddah to Taif</Link>.</p>
+                        </div>
+                        <div className="rounded-3xl bg-[#2b1a12] text-white p-7">
+                            <h3 className="text-xl font-bold mb-2">Across several cities</h3>
+                            <p className="text-sm text-white/80 leading-relaxed">For example Madinah to AlUla for two days of sightseeing, then on to your next stop. We plan the whole route, the driving days and the overnight stops, and quote it as one trip. <Link href="/routes/madinah-alula/" className="font-semibold text-[#fdba74] hover:underline">Madinah to AlUla</Link>.</p>
+                        </div>
                     </div>
-                    <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 overflow-hidden">
+                </div>
+            </section>
+
+            {/* ================= INCLUDED + PLANNING ================= */}
+            <section aria-labelledby="included" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="included" className={`${h2} mb-8`}>What Is and Isn&apos;t Included</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+                        <div className="rounded-3xl bg-white border border-[#2b1a12]/10 p-7">
+                            <h3 className={`${h3} mb-4`}>Included in your quote</h3>
+                            <ul className="space-y-2 text-stone-700">
+                                <Tick>A private vehicle and driver for the booked time</Tick>
+                                <Tick>Pickup from your hotel, home or the airport</Tick>
+                                <Tick>Driving between the stops in your plan</Tick>
+                                <Tick>Waiting while you visit each place</Tick>
+                                <Tick>Fuel for the agreed route</Tick>
+                            </ul>
+                        </div>
+                        <div className="rounded-3xl bg-white border border-[#2b1a12]/10 p-7">
+                            <h3 className={`${h3} mb-4`}>Not included</h3>
+                            <ul className="space-y-2 text-stone-700">
+                                {['Attraction tickets and entry fees', 'Licensed tour guides or religious guides', 'Official visitor shuttles and permits', 'Extra hours or a longer route than agreed', 'Meals, and hotels on multi-day trips'].map((x) => (
+                                    <li key={x} className="flex gap-2.5"><X className="w-4 h-4 mt-1 text-stone-400 shrink-0" aria-hidden="true" /><span>{x}</span></li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                        <div className={prose}>
+                            <h2 className="text-2xl md:text-3xl font-extrabold text-[#2b1a12]">Tips for a Good Day Out</h2>
+                            <ul className="space-y-2">
+                                <Tick>Check opening hours and any booking rules with the attraction before the day; they change, especially at heritage and seasonal sites.</Tick>
+                                <Tick>Around mosques and religious sites, plan around prayer times; parking and access can be restricted.</Tick>
+                                <Tick>Dress for the places you will visit and follow staff instructions on site.</Tick>
+                                <Tick>Leave some slack between stops. A packed plan with no margin rarely survives traffic.</Tick>
+                                <Tick>Tell us about children, older passengers or limited mobility so the plan suits everyone.</Tick>
+                            </ul>
+                        </div>
+                        <div className="rounded-3xl bg-[#f8f4ef] p-7">
+                            <h3 className={`${h3} mb-4`}>Vehicles</h3>
+                            <ul className="space-y-3 text-sm text-stone-700">
+                                <li className="flex justify-between gap-4 border-b border-[#2b1a12]/10 pb-3"><span>Toyota Camry</span><span className="font-semibold">Up to 3 people</span></li>
+                                <li className="flex justify-between gap-4 border-b border-[#2b1a12]/10 pb-3"><span>Hyundai Staria VIP</span><span className="font-semibold">Up to 7 people</span></li>
+                                <li className="flex justify-between gap-4 border-b border-[#2b1a12]/10 pb-3"><span>GMC Yukon XL</span><span className="font-semibold">Up to 7 people</span></li>
+                                <li className="flex justify-between gap-4"><span>Toyota Hiace</span><span className="font-semibold">Up to 11 people</span></li>
+                            </ul>
+                            <p className="text-xs text-stone-500 mt-4"><Link href="/fleet/" className={link}>See the fleet</Link>. Child seats on request; we confirm availability.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= BOOKING ================= */}
+            <section aria-labelledby="book" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="book" className={`${h2} mb-6`}>Planning and Booking</h2>
+                    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                         {[
-                            { want: 'AlUla / Hegra heritage sites specifically', go: 'Heritage Tours', href: '/services/heritage-tours/' },
-                            { want: 'General city, desert, or shopping sightseeing', go: 'Tourism Transport', href: '/services/tourism-transport/' },
-                            { want: 'Madinah pilgrimage sites — Quba, Uhud, Seven Mosques', go: 'Madinah Ziyarat', href: '/services/madinah-ziyarat/' },
-                        ].map((row, i) => (
-                            <Link key={i} href={row.href} className="flex items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors group">
-                                <span className="text-gray-700 text-sm">{row.want}</span>
-                                <span className="flex items-center gap-1 text-emerald-700 font-bold text-sm whitespace-nowrap">
-                                    {row.go} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </span>
-                            </Link>
+                            ['List your places', 'In order of priority, so we know what to keep if time is short.'],
+                            ['Give the basics', 'City, date, start time, pickup point, passengers, and any ticketed entry times.'],
+                            ['Get a plan and price', 'We suggest the route and duration and quote the vehicle for it.'],
+                            ['Confirm', 'Once you accept, the booking is final and the driver’s details follow before the day.'],
+                        ].map(([t, d], i) => (
+                            <li key={t} className="rounded-2xl bg-[#f8f4ef] p-6">
+                                <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-[#9a3412] text-white font-black text-sm mb-4" aria-hidden="true">{i + 1}</span>
+                                <h3 className="text-lg font-bold text-[#2b1a12] mb-1">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
+                            </li>
                         ))}
+                    </ol>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer" className={primary}><WhatsAppIcon className="w-4 h-4 fill-current" /> Plan a tour on WhatsApp <Arrow /></a>
+                        <a href="mailto:info@taxiserviceksa.com?subject=Private%20tour%20request" className={ghost}>Email a multi-city plan</a>
                     </div>
+                    <p className="text-sm text-stone-600 mt-5">Taxi Service KSA · <a href={`tel:${PHONE}`} className={link}>+966 57 580 6733</a> (call or WhatsApp)</p>
                 </div>
             </section>
 
-            {/* Popular Tours Grid */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Or Book a Single-Site Tour</h2>
-                    <p className="text-center text-gray-600 mb-12">Curated experiences for spiritual and cultural enrichment</p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {popularTours.map((tour, idx) => (
-                            <Link href={tour.link} key={idx} className="group block bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
-                                <div className="h-48 bg-gray-200 relative">
-                                    {/* In a real scenario, use actual Next/Image here with proper sources. 
-                                        Since I am assuming paths, I'll use a placeholder div or text if image fails to load visually but code structure is there.
-                                     */}
-                                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500">
-                                        {/* Placeholder for Image */}
-                                        <Camera className="w-12 h-12 opacity-20" />
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">{tour.name}</h3>
-                                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                                        <div className="flex items-center gap-1"><Clock className="w-4 h-4" /> {tour.duration}</div>
-                                        <div className="flex items-center gap-1 font-semibold text-emerald-600">{tour.price}</div>
-                                    </div>
-                                    <div className="space-y-1 mb-4">
-                                        {tour.spots.map((spot, sIdx) => (
-                                            <div key={sIdx} className="flex items-center gap-2 text-sm text-gray-600">
-                                                <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                                                {spot}
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="flex items-center text-blue-600 font-medium text-sm mt-4">
-                                        View Details <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                                    </div>
-                                </div>
-                            </Link>
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className={`${h2} mb-8`}>Frequently Asked Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#2b1a12]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#2b1a12] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-stone-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
                         ))}
+                    </Accordion>
+                </div>
+            </section>
+
+            {/* ================= REVIEWS + Q&A ================= */}
+            <section aria-labelledby="reviews" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="reviews" className="text-2xl md:text-3xl font-extrabold text-[#2b1a12] mb-8">What Customers Say</h2>
+                    <ReviewsDisplay location="Tours" limit={6} />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
+                        <div>
+                            <h3 className={`${h3} mb-4`}>Share Your Experience</h3>
+                            <ReviewForm locationName="Tours" />
+                        </div>
+                        <div>
+                            <h3 className={`${h3} mb-4`}>Ask a Question</h3>
+                            <QuestionsDisplay location="Tours" />
+                            <div className="mt-6"><QuestionForm locationName="Tours" /></div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Semantic Guide Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <TravelConsensus
-                        contextName="Tours"
-                        points={[
-                            {
-                                topic: "Ziyarat: Guided vs Self-Guided",
-                                commonBelief: "I can just use Google Maps.",
-                                reality: "While maps work for navigation, a local driver-guide knows the best parking spots, the historical context (Seerah), and the optimal order to visit sites to avoid crowds and prayer time closures.",
-                                truthRange: "Guided = Richer Experience",
-                                factors: ["Context", "Efficiency", "Access"]
-                            },
-                            {
-                                topic: "AlUla Tour Requirements",
-                                commonBelief: "I can drive to Hegra myself.",
-                                reality: "Access to the UNESCO site of Hegra is restricted. You generally need tickets and must use their official buses OR have a special permit. Our drivers take you to the Winter Park assembly point or handle transfers between widespread resort areas.",
-                                truthRange: "Requires Planning",
-                                factors: ["Permits", "Transport Rules", "Distances"]
-                            }
-                        ]}
-                    />
-
-                    <div className="mt-12">
-                        <MicroSemanticFAQ
-                            faqs={[
-                                {
-                                    question: "Do the drivers speak English?",
-                                    shortAnswer: "Yes, English/Urdu/Arabic.",
-                                    detailedAnswer: "Our tour drivers are selected for their language skills and ability to communicate historical information basic to the sites. For specialized deep historical lectures, we recommend hiring a licensed tour guide, but our drivers provide excellent logistical and basic historical support.",
-                                    perspectives: [
-                                        {
-                                            role: "Tourist",
-                                            icon: "Users",
-                                            insight: "Communication is key. Being able to ask 'What is this mountain?' and get an answer makes the trip memorable."
-                                        }
-                                    ]
-                                },
-                                {
-                                    question: "Are tickets to sites included?",
-                                    shortAnswer: "Transport Only.",
-                                    detailedAnswer: "Our prices cover the private vehicle, fuel, and driver. Entry tickets to specific gated museums or AlUla sites must be purchased separately (e.g., via Experience AlUla app). Mosques and open historical sites are free.",
-                                    perspectives: [
-                                        {
-                                            role: "Booking Agent",
-                                            icon: "Shield",
-                                            insight: "We can advise you on where and how to book tickets, but we focus on the logistics of getting you there comfortably."
-                                        }
-                                    ]
-                                },
-                                {
-                                    question: "Can you build a custom multi-stop itinerary?",
-                                    shortAnswer: "Yes, that's this page.",
-                                    detailedAnswer: "Tell us which sites you want to combine — across cities or over several days — via WhatsApp, and we'll build a private itinerary with one driver for the whole trip.",
-                                    perspectives: []
-                                },
-                                {
-                                    question: "How is this different from Heritage Tours or Tourism Transport?",
-                                    shortAnswer: "Those are single-destination.",
-                                    detailedAnswer: "Heritage Tours and Tourism Transport are each built for one specific destination or category. This page is for combining multiple stops, possibly across more than one of those categories, into a custom-planned trip.",
-                                    perspectives: []
-                                }
-                            ]}
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* UGC */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-8">
-                        <h2 className="text-3xl font-bold text-gray-900">Questons & Reviews</h2>
-                    </div>
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Tours" />
-                        <QuestionsDisplay location="Tours" />
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="Tours" />
-                        <QuestionForm locationName="Tours" />
+            {/* ================= RELATED ================= */}
+            <section aria-labelledby="related" className="py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="related" className="text-2xl md:text-3xl font-extrabold text-[#2b1a12] mb-5">Related Services</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {[
+                            ['Private heritage tours in Saudi Arabia', '/services/heritage-tours/'],
+                            ['Private sightseeing transportation', '/services/tourism-transport/'],
+                            ['Madinah Ziyarat transportation', '/services/madinah-ziyarat/'],
+                            ['Makkah Ziyarat transportation', '/ziyarat-in-makkah/'],
+                            ['AlUla transfers', '/locations/alula/'],
+                            ['Taif transfers', '/locations/taif/'],
+                            ['Hire a private driver by the hour or day', '/services/private-driver/'],
+                            ['Private airport pickup', '/services/airport-transfers/'],
+                            ['Private intercity transportation', '/services/intercity/'],
+                        ].map(([l, h]) => (
+                            <Link key={h} href={h} className="rounded-full border border-[#2b1a12]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#2b1a12] hover:border-[#9a3412] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9a3412]">{l}</Link>
+                        ))}
                     </div>
                 </div>
             </section>
         </div>
     );
 }
-
-function DefaultUserIcon(props: any) {
-    return <Users {...props} />
-}
-
