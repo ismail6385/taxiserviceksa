@@ -1,285 +1,512 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Check, Info, Users, Briefcase, Luggage, Plane, MapPin, Moon, Sun, Building2, Waves, RotateCcw } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import { Car, Clock, MapPin, CheckCircle2, Users, ArrowRight, Navigation, DollarSign, Luggage, Coffee, Moon } from 'lucide-react';
-import Hero from '@/components/Hero';
-import RelatedLocations from '@/components/seo/RelatedLocations';
-import RelatedRoutes from '@/components/seo/RelatedRoutes';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import JsonLdRoute from '@/components/JsonLdRoute';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
-import PricingTable from '@/components/PricingTable';
+import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
+import RouteJourney from '@/components/routes/RouteJourney';
+
+const PAGE_URL = 'https://taxiserviceksa.com/routes/riyadh-jeddah/';
+const QUOTE_HREF = '#quote';
+const PHONE = '+966575806733';
+const RUH = 'King Khalid International Airport (RUH)';
+const JED = 'King Abdulaziz International Airport (JED)';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I want a private car from Riyadh to Jeddah. Riyadh pickup, Jeddah drop-off, date and time, passengers, luggage and preferred vehicle: ')}`;
+
+// Booking-system vehicle names (lib/supabase.ts) and one-way fares for this route.
+const FARES = [
+    { vehicle: 'Toyota Camry', short: 'Sedan', name: 'Toyota Camry sedan', price: 1500, seats: 'Up to 3 adults', bags: 'About 2 large suitcases', image: '/toyota-camry.webp', alt: 'Toyota Camry sedan used for Riyadh to Jeddah trips' },
+    { vehicle: 'Hyundai Staria VIP', short: 'Staria VIP', name: 'Hyundai Staria VIP', price: 1700, seats: 'Up to 7 passengers', bags: 'About 4 large suitcases', image: '/hyundai-staria.webp', alt: 'Hyundai Staria VIP van for a family trip from Riyadh to Jeddah' },
+    { vehicle: 'GMC Yukon XL / Denali', short: 'GMC Yukon XL', name: 'GMC Yukon XL', price: 2500, seats: 'Up to 7 passengers', bags: 'About 5 large suitcases', image: '/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp', alt: 'GMC Yukon XL full-size SUV for the Riyadh to Jeddah road' },
+];
+const sar = (n: number) => `${n.toLocaleString('en-US')} SAR`;
+
+const TITLE = 'Riyadh to Jeddah Taxi | Private Car & Chauffeur';
+const DESCRIPTION = `Private Riyadh to Jeddah taxi, door to door. Sedan ${sar(1500)}, Staria VIP ${sar(1700)}, GMC Yukon XL ${sar(2500)} one way per vehicle. Check availability on WhatsApp.`;
 
 export const metadata: Metadata = {
-    title: 'Riyadh to Jeddah Taxi | Private Car & Chauffeur Service',
-    description: 'Book a private Riyadh to Jeddah taxi with professional chauffeurs. Approx. 950 km, 9-10 hours, multiple vehicles, door-to-door pickup and confirmed pricing.',
-    keywords: ['Taxi Riyadh to Jeddah', 'Riyadh to Jeddah Taxi', 'Riyadh to Jeddah private car', 'taxi from Riyadh to Jeddah', 'Riyadh to Jeddah by car', 'Riyadh to Jeddah taxi fare', 'Riyadh to Jeddah distance'],
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
-        languages: {
-            'en': 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
-            'ar': 'https://taxiserviceksa.com/ar/routes/riyadh-jeddah/',
-            'x-default': 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
-        },
+    title: TITLE,
+    description: DESCRIPTION,
+    alternates: { canonical: PAGE_URL },
+    openGraph: {
+        title: TITLE,
+        description: DESCRIPTION,
+        url: PAGE_URL,
+        siteName: 'Taxi Service KSA',
+        type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private car from Riyadh to Jeddah' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: TITLE,
+        description: DESCRIPTION,
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
     },
 };
 
-export default function RiyadhJeddahRoutePage() {
-    const routeDetails = [
-        { label: 'Distance', value: 'Approx. 950 km', icon: Navigation },
-        { label: 'Travel Time', value: '9-10 Hours', icon: Clock },
-        { label: '2026 Base Fare', value: 'From 1500 SAR', icon: DollarSign },
-        { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
-    ];
+const faqs = [
+    { q: 'How much is a taxi from Riyadh to Jeddah?', a: `Per vehicle, one way, Riyadh pickup to Jeddah drop-off: Toyota Camry ${sar(1500)}, Hyundai Staria VIP ${sar(1700)}, GMC Yukon XL ${sar(2500)}. These are the fares for a normal trip between the two cities; the conditions that would change them are listed on this page and agreed with you before you confirm.` },
+    { q: 'Is the fare per person or per vehicle?', a: 'Per vehicle. Everyone travelling in the car is covered by the one fare.' },
+    { q: 'What does the fare include?', a: 'The vehicle and driver for the journey, fuel, and normal stops for food, fuel and prayer. It does not include long waits, detours, extra pickups or a return trip unless they are agreed and priced with you.' },
+    { q: 'How far is Riyadh from Jeddah by road?', a: 'About 950–970 km, depending on where in Riyadh you start and where in Jeddah you finish.' },
+    { q: 'How long does it take?', a: 'Around 9–10 hours of driving, plus stops and city traffic at both ends. It is an estimate, not a guaranteed arrival time.' },
+    { q: 'Can I travel overnight?', a: 'Yes. An evening pickup in Riyadh usually means arriving in Jeddah early the next morning. Tell us the pickup time you want and we will confirm whether a driver is available for it.' },
+    { q: 'Can you collect me at Riyadh Airport?', a: `Yes. Choose ${RUH} as the pickup and add your flight number. The meeting point is agreed in advance and sent with the driver’s details.` },
+    { q: 'Can you drop me at the Corniche, Al Hamra or Obhur?', a: 'Yes, these are all inside Jeddah and covered by the fares above. Send the hotel name or a location pin so the drop-off is exact.' },
+    { q: 'Can I go straight to Jeddah Airport for a flight?', a: `Yes. ${JED} is a common drop-off. Leave a generous gap before your flight; we have a separate page for this trip.` },
+    { q: 'I am going on to Makkah for Umrah. Can you take me there?', a: 'Makkah is a separate destination and is quoted separately. Only Muslims may enter Makkah. If anyone in your group is not Muslim, tell us when booking so the driver uses a suitable route.' },
+    { q: 'How much luggage can I bring?', a: 'The sedan takes about two large suitcases, the Staria about four and the GMC about five, with most seats in use. Send your bag count; if it does not fit, we will tell you before you book.' },
+    { q: 'Can I book a Mercedes S-Class or a larger van?', a: 'You can ask. Premium sedans and larger group vehicles are quoted on request, and the specific vehicle is confirmed for your date before the booking is final.' },
+    { q: 'Can I book the return journey too?', a: 'Yes. Jeddah to Riyadh runs at the same fares. Send both dates, and say whether the driver should wait in Jeddah or whether the return is a separate trip.' },
+    { q: 'When is the booking confirmed?', a: 'When we have checked a vehicle for your date and agreed the fare and pickup with you. A form or a WhatsApp message on its own is an enquiry.' },
+    { q: 'What if I need to change or cancel?', a: 'Message us as early as possible. Whether a change affects the fare depends on the terms agreed with your booking, which we explain when you confirm.' },
+];
 
-    const pricingRows = [
-        { vehicle: 'Toyota Camry', description: 'Sedan — up to 4 passengers.', price: '1500', capacity: '4 Pax', isPopular: false },
-        { vehicle: 'Hyundai Staria VIP', description: 'Van with captain seats, dual AC.', price: '1700', capacity: '7 Pax', isPopular: true },
-        { vehicle: 'GMC Yukon XL', description: 'Full-size premium SUV.', price: '2500', capacity: '7 Pax', isPopular: false },
-        { vehicle: 'Mercedes S-Class', description: 'VIP sedan for executive travel.', price: '3500', capacity: '3 Pax', isPopular: false },
-        { vehicle: 'Mercedes Sprinter', description: 'Large van for bigger groups.', price: '4000', capacity: '14 Pax', isPopular: false },
-    ];
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Riyadh to Jeddah private car with driver',
+            url: PAGE_URL,
+            serviceType: 'Private long-distance transfer',
+            description: 'Private door-to-door car with driver from Riyadh to Jeddah, with sedan, van and full-size SUV options.',
+            provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: PHONE },
+            areaServed: [{ '@type': 'City', name: 'Riyadh' }, { '@type': 'City', name: 'Jeddah' }],
+            offers: FARES.map((f) => ({ '@type': 'Offer', name: `${f.name} - Riyadh to Jeddah, one way`, price: f.price, priceCurrency: 'SAR', url: PAGE_URL })),
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxiserviceksa.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://taxiserviceksa.com/routes/' },
+                { '@type': 'ListItem', position: 3, name: 'Riyadh to Jeddah', item: PAGE_URL },
+            ],
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
 
-    const whyBook = [
-        'Door-to-door pickup and drop-off',
-        'Private vehicle — no shared passengers',
-        'Professional chauffeur',
-        'Flexible departure time',
-        'Rest stops available on request',
-        'Multiple vehicle options for any group size',
-        '24/7 booking support',
-    ];
+const eyebrow = 'text-xs font-bold uppercase tracking-[0.22em]';
+const link = 'font-semibold text-[#c2410c] underline-offset-2 hover:underline';
+const h2 = 'text-3xl md:text-4xl font-extrabold text-[#1f2329]';
+const h3 = 'text-xl font-bold text-[#1f2329]';
+const prose = 'space-y-4 text-stone-700 leading-relaxed text-[1.05rem]';
+const primary = 'group inline-flex items-center justify-center gap-2 rounded-xl bg-[#c2410c] px-6 py-3.5 font-bold text-white hover:bg-[#9a3412] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c2410c] focus-visible:ring-offset-2';
+const ghost = 'inline-flex items-center justify-center gap-2 rounded-xl border border-[#1f2329]/20 px-6 py-3.5 font-bold text-[#1f2329] hover:border-[#c2410c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c2410c]';
 
-    const faqs = [
-        { question: "How long does Riyadh to Jeddah take by taxi?", shortAnswer: "Usually around 9-10 hours", detailedAnswer: "Driving time is typically 9-10 hours for the approximately 950 km journey, depending on traffic, rest stops and road conditions.", perspectives: [] },
-        { question: "How much is a Riyadh to Jeddah taxi?", shortAnswer: "From 1500 SAR", detailedAnswer: "Rates start from 1500 SAR for a sedan (Toyota Camry). A Hyundai Staria VIP is 1700 SAR, a GMC Yukon XL is 2500 SAR, a Mercedes S-Class is 3500 SAR, and a Mercedes Sprinter (up to 14 passengers) is 4000 SAR. All prices are per vehicle, confirmed before booking.", perspectives: [] },
-        { question: "Is the Riyadh to Jeddah taxi private?", shortAnswer: "Yes", detailedAnswer: "Yes, this is a private vehicle and chauffeur — no shared passengers.", perspectives: [] },
-        { question: "Is the fare per person or per vehicle?", shortAnswer: "Per vehicle", detailedAnswer: "The quoted price is for the entire vehicle, not per passenger. A group of 6-7 in a GMC Yukon XL pays 2500 SAR total, not per person.", perspectives: [] },
-        { question: "Can I book a return trip?", shortAnswer: "Yes", detailedAnswer: "Yes, one-way or return trips can be booked. Let us know your return date when booking and we'll confirm return pricing.", perspectives: [] },
-        { question: "Can I book from Riyadh Airport?", shortAnswer: "Yes", detailedAnswer: "Yes, pickup from King Khalid International Airport (RUH) is available.", perspectives: [] },
-        { question: "Can you pick me up from my hotel?", shortAnswer: "Yes", detailedAnswer: "Yes, pickup is available from any Riyadh hotel, residence or business address.", perspectives: [] },
-        { question: "Can I request rest stops?", shortAnswer: "Yes", detailedAnswer: "Yes, for a 9-10 hour journey you can request planned rest stops for meals, prayer, fuel or refreshments — let us know when booking, especially if travelling with children or elderly passengers.", perspectives: [] },
-        { question: "How much luggage can I bring?", shortAnswer: "Depends on the vehicle", detailedAnswer: "A sedan suits smaller loads, while the Staria, GMC Yukon XL and Sprinter offer more space for families and groups. See the vehicle options below for exact capacity.", perspectives: [] },
-        { question: "Can I travel overnight?", shortAnswer: "Yes", detailedAnswer: "Yes, for overnight journeys some passengers prefer an evening departure with a morning arrival. Let us know your preferred departure time when booking.", perspectives: [] },
-        { question: "Can I book a GMC Yukon?", shortAnswer: "Yes", detailedAnswer: "Yes, the GMC Yukon XL (2500 SAR, 7 passengers) is available for this route, subject to availability.", perspectives: [] },
-        { question: "How far is Riyadh from Jeddah?", shortAnswer: "Approx. 950 km", detailedAnswer: "The road distance is approximately 950 km, via Highway 40.", perspectives: [] },
-    ];
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
 
+function Tick({ children }: { children: React.ReactNode }) {
+    return <li className="flex gap-2.5"><Check className="w-4 h-4 mt-1 text-[#c2410c] shrink-0" aria-hidden="true" /><span>{children}</span></li>;
+}
+
+// Illustration (not a photo): Riyadh towers on the left at dusk, the long plateau road west, the Red Sea and Jeddah's fountain on the right.
+function CapitalToCoast({ className = '' }: { className?: string }) {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <JsonLdRoute
-                from="Riyadh"
-                to="Jeddah"
-                description="Private intercity transfer from Riyadh to Jeddah. Approximately 950 km via Highway 40. Door-to-door, private vehicle service."
-                distance="950 km"
-                duration="PT9H30M"
-            />
+        <svg className={className} viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs>
+                <linearGradient id="rj-sky" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0" stopColor="#1f2329" />
+                    <stop offset="0.55" stopColor="#3a2f2a" />
+                    <stop offset="1" stopColor="#d4874e" />
+                </linearGradient>
+            </defs>
+            <rect width="1440" height="640" fill="url(#rj-sky)" />
+            <circle cx="520" cy="430" r="56" fill="#f6c27a" fillOpacity="0.3" />
+            <g fill="#1f2329" fillOpacity="0.6">
+                <path d="M70 516 V 384 Q 92 334 114 384 V 516 Z" />
+                <rect x="128" y="444" width="18" height="72" />
+                <path d="M154 516 V 364 L 166 334 L 178 364 V 516 Z" />
+                <rect x="190" y="458" width="24" height="58" />
+            </g>
+            <path d="M0 528 C 260 516, 560 530, 860 516 C 980 510, 1060 518, 1120 522 V 640 H 0 Z" fill="#9c6a3c" fillOpacity="0.55" />
+            <path d="M1100 524 C 1220 520, 1340 518, 1440 520 V 640 H 1080 Z" fill="#3b7fa0" fillOpacity="0.6" />
+            {/* King Fahd's Fountain */}
+            <path d="M1300 520 C 1296 470, 1300 420, 1306 360 C 1312 420, 1316 470, 1312 520 Z" fill="#f6c27a" fillOpacity="0.45" />
+            <g fill="#1f2329" fillOpacity="0.5">
+                <rect x="1180" y="470" width="14" height="50" />
+                <rect x="1204" y="452" width="18" height="68" />
+                <rect x="1360" y="462" width="16" height="58" />
+            </g>
+            <path d="M200 600 C 460 590, 760 576, 1000 562 C 1100 556, 1180 548, 1250 540" fill="none" stroke="#f6c27a" strokeWidth="3" strokeDasharray="14 10" strokeLinecap="round" />
+        </svg>
+    );
+}
 
-            <Hero
-                images={['/jeddah-corniche-sunset.webp', '/hero-slide-3.webp']}
-                imageAlt="Riyadh to Jeddah private taxi — Jeddah Corniche arrival"
-                h1Text="Riyadh to Jeddah Taxi"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Riyadh → Jeddah
-                    </span>
-                }
-                subtitle="Private Door-to-Door Transfers from Riyadh to Jeddah"
-                location="Sedan, SUV and VIP van options with professional chauffeurs"
-            >
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20a%20quote%20for%20Riyadh%20to%20Jeddah%20taxi" target="_blank" rel="noopener noreferrer">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Get Quote on WhatsApp
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </a>
-                    <Link href="/booking/?route=riyadh-jeddah">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Book Online
-                        </Button>
-                    </Link>
-                </div>
-            </Hero>
+export default function RiyadhJeddahRoutePage() {
+    return (
+        <div className="riyadh-jeddah-page bg-[#f7f4ef]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            {/* Stats Ribbon */}
-            <div className="max-w-7xl mx-auto px-4 -mt-10 relative z-10">
-                <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {routeDetails.map((detail, index) => (
-                        <div key={index} className="flex flex-col items-center text-center">
-                            <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-4">
-                                <detail.icon className="w-6 h-6 text-emerald-600" />
-                            </div>
-                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">{detail.label}</span>
-                            <span className="text-lg font-black text-gray-900">{detail.value}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-                <div className="max-w-3xl mx-auto text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6 font-display">Private Riyadh to Jeddah Car Service</h2>
-                    <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                        Travel from Riyadh to Jeddah by private car with door-to-door pickup and drop-off. The journey is approximately 950 km and usually takes around 9-10 hours, depending on traffic, stops and road conditions.
-                    </p>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                        A private road transfer lets you travel directly from your Riyadh address to your Jeddah destination without airport check-in or airline baggage restrictions. Selected 2026 GMC Yukon and Mercedes S-Class models are available for this route, subject to availability.
-                    </p>
-                </div>
-
-                {/* Pricing Table */}
-                <PricingTable
-                    title="Riyadh to Jeddah Taxi Fare"
-                    subtitle="2026 Rates"
-                    rows={pricingRows}
-                    disclaimer="All listed fares are per vehicle, not per passenger. Final pricing depends on vehicle, pickup/drop-off location, travel date and whether you require a return journey — confirmed before booking."
-                />
-
-                {/* By road info */}
-                <div className="bg-white rounded-3xl border border-gray-100 p-8 md:p-12 my-16">
-                    <h3 className="text-2xl font-black text-gray-900 mb-4">Riyadh to Jeddah by Road</h3>
-                    <p className="text-gray-600 leading-relaxed mb-3">
-                        Driving from Riyadh to Jeddah is approximately 950 km and normally takes around 9-10 hours via Highway 40. A private chauffeur transfer lets you travel door-to-door without needing to drive the entire route yourself.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed">
-                        Journey time can vary with traffic, rest stops and road conditions. For overnight journeys, some passengers prefer an evening departure with a morning arrival — let us know your preferred timing when booking.
-                    </p>
-                </div>
-
-                {/* Vehicles */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
-                    <div>
-                        <h3 className="text-2xl font-black text-gray-900 mb-6">Why Choose a Private Transfer?</h3>
-                        <div className="space-y-3">
-                            {whyBook.map((reason) => (
-                                <div key={reason} className="flex items-start gap-3">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                                    <span className="text-gray-700">{reason}</span>
-                                </div>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#1f2329]">
+                <CapitalToCoast className="absolute inset-0 -z-10 w-full h-full" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1f2329] via-[#1f2329]/65 to-transparent" aria-hidden="true" />
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-8 lg:gap-12 items-start">
+                    <div className="text-white lg:pt-6 min-w-0">
+                        <p className={`${eyebrow} text-[#f6c27a] mb-4`}>Riyadh → Jeddah · Private Car</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight mb-3">Riyadh to Jeddah Taxi – Private Long-Distance Transfer</h1>
+                        <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-7 max-w-xl">
+                            From your hotel, home, office or the airport in Riyadh to your door in Jeddah, in a car reserved for your group. Pick the vehicle, tell us when you want to leave, and the fare is agreed before you travel.
+                        </p>
+                        <ul className="grid grid-cols-3 gap-2 mb-7 max-w-lg">
+                            {FARES.map((f) => (
+                                <li key={f.vehicle} className="rounded-2xl bg-white/10 border border-white/15 px-3 py-3">
+                                    <span className="block text-xs text-white/70">{f.short}</span>
+                                    <span className="block text-lg sm:text-xl font-black text-[#f6c27a]">{sar(f.price)}</span>
+                                </li>
                             ))}
+                        </ul>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-6">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-white text-[#1f2329] hover:bg-[#f7f4ef]">
+                                <a href={QUOTE_HREF}>Get a Quote <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Check availability on WhatsApp</a>
+                            </Button>
                         </div>
+                        <ul className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-5 gap-y-2 text-sm text-white/80">
+                            {['Your group only', 'Day or overnight', 'One fare per car', 'Return on request'].map((x) => (
+                                <li key={x} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-[#f6c27a] shrink-0" aria-hidden="true" />{x}</li>
+                            ))}
+                        </ul>
                     </div>
+                    <div id="quote" className="scroll-mt-32 min-w-0">
+                        <RouteQuoteCard
+                            title="Get your Riyadh to Jeddah quote"
+                            cta="Send my request"
+                            fromPlaceholder="Hotel, home, office or airport in Riyadh"
+                            toPlaceholder="Hotel, home or address in Jeddah"
+                            fromChips={['Riyadh city', RUH, 'Olaya', 'KAFD', 'Riyadh hotel']}
+                            toChips={['Jeddah city', 'Corniche', 'Al Hamra', 'Obhur', JED]}
+                            showFlight="auto"
+                            returnNote="Return trip Jeddah to Riyadh also needed - dates to confirm."
+                            vehicleOptions={[{ value: '', label: 'Not sure - recommend one' }, ...FARES.map((f) => ({ value: f.vehicle, label: `${f.name} - ${sar(f.price)}` }))]}
+                            buttonClass="bg-[#c2410c] hover:bg-[#9a3412] focus-visible:ring-[#c2410c]"
+                        />
+                    </div>
+                </div>
+            </section>
 
-                    <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
-                        <h3 className="text-2xl font-black text-gray-900 mb-6">Vehicle Options</h3>
-                        <div className="space-y-4">
+            {/* ================= OVERVIEW ================= */}
+            <section aria-labelledby="overview" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-10">
+                    <div className={prose}>
+                        <h2 id="overview" className={`${h2} mb-2`}>Riyadh to Jeddah by Car: The Short Version</h2>
+                        <p>
+                            The drive from the capital to the Red Sea is one of the longest regular road trips inside Saudi Arabia, roughly 950–970 km. With normal stops, it fills most of a day or most of a night. People who book it are rarely in a hurry. They are moving house, travelling as a family, carrying more than an airline will take, heading to a Jeddah address far from the airport, or simply prefer to leave from their own door and arrive at someone else&apos;s.
+                        </p>
+                        <p>
+                            The car is yours for the journey. Nobody else is picked up on the way, the driver stops when you need to, and the fare is for the vehicle rather than per seat. That last point is why the road often makes sense for groups: a family of six pays one fare, not six tickets plus two airport taxis.
+                        </p>
+                        <p>
+                            Below you will find the fares for each vehicle and what they cover, how to choose between them, how a day or night on the road goes, where we pick up in Riyadh and drop off in Jeddah, and what happens between your first message and the moment the driver arrives.
+                        </p>
+                    </div>
+                    <aside className="lg:pt-16">
+                        <dl className="rounded-3xl bg-[#1f2329] text-white p-7 space-y-4 text-sm">
                             {[
-                                { name: 'Toyota Camry', capacity: '4 Pax', luggage: '2 Bags', desc: 'Sedan' },
-                                { name: 'Hyundai Staria VIP', capacity: '7 Pax', luggage: '4 Bags', desc: 'Spacious cabin' },
-                                { name: 'GMC Yukon XL', capacity: '7 Pax', luggage: '5 Bags', desc: 'Premium SUV, climate control' },
-                                { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags', desc: 'VIP sedan' },
-                            ].map((car, i) => (
-                                <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 border border-gray-100">
-                                    <div className="flex gap-4 items-center">
-                                        <div className="bg-emerald-600 text-white p-3 rounded-xl">
-                                            <Car className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-black text-gray-900 text-sm">{car.name}</h4>
-                                            <p className="text-xs text-gray-400 font-bold">{car.desc} — {car.capacity} | {car.luggage}</p>
-                                        </div>
-                                    </div>
+                                ['Road distance', 'About 950–970 km'],
+                                ['Driving time', 'Around 9–10 hours'],
+                                ['Main road', 'Highway 40, west via the Taif area'],
+                                ['Departures', 'Morning, afternoon or evening'],
+                                ['Fares', 'Per vehicle, one way'],
+                            ].map(([k, v]) => (
+                                <div key={k} className="flex justify-between gap-4 border-b border-white/10 pb-3 last:border-0 last:pb-0">
+                                    <dt className="text-white/60">{k}</dt>
+                                    <dd className="font-semibold text-right">{v}</dd>
                                 </div>
                             ))}
-                        </div>
-                        <p className="text-gray-500 text-sm mt-4">Need a larger group vehicle? Mercedes Sprinter (14 Pax) available on request.</p>
-                        <div className="text-center mt-4">
-                            <Link href="/fleet/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1 text-sm">
-                                View Full Fleet <ArrowRight className="w-4 h-4" />
-                            </Link>
-                        </div>
-                    </div>
+                        </dl>
+                        <p className="text-xs text-stone-500 mt-3 px-1">Planning estimates only. Your exact addresses, traffic and stops change the total.</p>
+                    </aside>
                 </div>
+            </section>
 
-                {/* Pickup / drop-off */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-                    <div className="bg-white rounded-3xl border border-gray-100 p-8">
-                        <h3 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2"><MapPin className="w-5 h-5 text-primary" /> Pickup Locations in Riyadh</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                            We can collect passengers from residential addresses, hotels, business locations and King Khalid International Airport (RUH), subject to the requested route and booking details.
-                        </p>
+            {/* ================= FARES ================= */}
+            <section aria-labelledby="fares" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="fares" className={`${h2} mb-3`}>Riyadh to Jeddah Taxi Fare</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">
+                        These are the fares for a one-way trip from an address in Riyadh to an address in Jeddah. They are for the whole car and include the driver, fuel and normal rest stops. If your trip is outside that, for example a pickup in Al Kharj or a long wait, we tell you the difference before you book, never after.
+                    </p>
+                    <div className="relative overflow-x-auto rounded-2xl border border-[#1f2329]/10 bg-white mb-8">
+                        <table className="w-full min-w-[560px] text-left text-sm">
+                            <thead>
+                                <tr className="bg-[#1f2329] text-white">
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Vehicle</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Passengers</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Luggage</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold text-right">One way</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-[#1f2329]/10">
+                                {FARES.map((f) => (
+                                    <tr key={f.vehicle}>
+                                        <th scope="row" className="px-4 py-3.5 font-bold text-[#1f2329]">{f.name}</th>
+                                        <td className="px-4 py-3.5 text-stone-700">{f.seats}</td>
+                                        <td className="px-4 py-3.5 text-stone-700">{f.bags}</td>
+                                        <td className="px-4 py-3.5 text-right font-black text-[#c2410c] whitespace-nowrap">{sar(f.price)}</td>
+                                    </tr>
+                                ))}
+                                <tr>
+                                    <th scope="row" className="px-4 py-3.5 font-bold text-[#1f2329]">Mercedes S-Class, larger vans</th>
+                                    <td className="px-4 py-3.5 text-stone-700" colSpan={2}>Depends on the vehicle supplied</td>
+                                    <td className="px-4 py-3.5 text-right font-semibold text-stone-600 whitespace-nowrap">On request</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div className="bg-white rounded-3xl border border-gray-100 p-8">
-                        <h3 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2"><MapPin className="w-5 h-5 text-primary" /> Drop-Off Locations in Jeddah</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                            Drop-off is available at hotels and residences across Jeddah, including the <Link href="/locations/jeddah/corniche/" className="text-primary font-semibold hover:underline">Corniche</Link>, <Link href="/locations/jeddah/al-hamra/" className="text-primary font-semibold hover:underline">Al Hamra</Link> and Obhur areas.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Rest stops & luggage */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-                    <div className="bg-gray-900 rounded-3xl p-8 text-white">
-                        <h3 className="text-xl font-black mb-4 flex items-center gap-2"><Coffee className="w-5 h-5 text-emerald-400" /> Rest Stops on the Riyadh–Jeddah Route</h3>
-                        <p className="text-gray-300 text-sm leading-relaxed">
-                            Long-distance passengers can request rest stops for meals, prayer, fuel or refreshments. If you're travelling with children or elderly passengers, let us know when booking so the driver can plan accordingly.
-                        </p>
-                    </div>
-                    <div className="bg-gray-900 rounded-3xl p-8 text-white">
-                        <h3 className="text-xl font-black mb-4 flex items-center gap-2"><Luggage className="w-5 h-5 text-emerald-400" /> Luggage for Riyadh to Jeddah Transfers</h3>
-                        <p className="text-gray-300 text-sm leading-relaxed">
-                            Luggage capacity depends on the vehicle. A sedan is suitable for smaller loads, while the GMC Yukon XL, Staria and Sprinter provide additional space for families and groups.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Planning section */}
-                <div className="bg-white rounded-3xl border border-gray-100 p-8 md:p-12 mb-16">
-                    <h3 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-2"><Moon className="w-6 h-6 text-primary" /> Planning Your Riyadh to Jeddah Journey</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div>
-                            <h4 className="font-bold text-gray-900 mb-2">Recommended departure time</h4>
-                            <p className="text-gray-600 text-sm">Early morning or evening departures can help avoid the hottest part of the day.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="rounded-2xl bg-white border border-[#1f2329]/10 p-6 text-stone-700">
+                            <h3 className={`${h3} mb-3`}>Included</h3>
+                            <ul className="space-y-2 text-sm">
+                                <Tick>The vehicle, reserved for your group</Tick>
+                                <Tick>The driver for the whole journey</Tick>
+                                <Tick>Fuel</Tick>
+                                <Tick>Normal stops for food, fuel and prayer</Tick>
+                                <Tick>Pickup anywhere in Riyadh and drop-off anywhere in Jeddah</Tick>
+                            </ul>
                         </div>
-                        <div>
-                            <h4 className="font-bold text-gray-900 mb-2">Rest stops</h4>
-                            <p className="text-gray-600 text-sm">For a 9-10 hour journey, passengers can request planned rest stops.</p>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-gray-900 mb-2">Luggage</h4>
-                            <p className="text-gray-600 text-sm">Choose your vehicle based on passenger and luggage count.</p>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-gray-900 mb-2">Long-distance comfort</h4>
-                            <p className="text-gray-600 text-sm">For families and groups, consider the GMC Yukon XL, Staria VIP or Sprinter.</p>
+                        <div className="rounded-2xl bg-white border border-[#1f2329]/10 p-6 text-stone-700">
+                            <h3 className={`${h3} mb-3`}>Quoted separately, if you need them</h3>
+                            <ul className="space-y-2 text-sm">
+                                <Tick>Pickups or drop-offs outside the two cities, such as Makkah or Taif</Tick>
+                                <Tick>A second pickup or a detour on the way</Tick>
+                                <Tick>The driver waiting for hours, or overnight, before a return</Tick>
+                                <Tick>The return journey to Riyadh</Tick>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <div className="max-w-4xl mx-auto py-20 px-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">Riyadh to Jeddah Taxi FAQs</h2>
-                <MicroSemanticFAQ
-                    contextName="Riyadh to Jeddah"
-                    faqs={faqs}
-                />
-            </div>
-
-            <RelatedLocations
-                currentCity="Riyadh"
-                customLinks={[
-                    { name: 'Riyadh to Makkah', url: '/routes/riyadh-makkah/', description: 'Direct pilgrimage transfer to the Holy City.' },
-                    { name: 'Jeddah to Riyadh', url: '/routes/jeddah-riyadh/', description: 'Return transfer back to the Saudi Capital.' },
-                    { name: 'Riyadh to Dammam', url: '/routes/riyadh-dammam/', description: 'Transfers to the Eastern Province business hub.' }
-                ]}
-                labels={{
-                    title: 'Popular Routes from Riyadh',
-                    subtitle: 'Private intercity transfers across Saudi Arabia',
-                    viewRoutes: 'View Route',
-                }}
-            />
-            <RelatedRoutes originSlug="riyadh" currentSlug="riyadh-jeddah" />
-
-            <div className="bg-emerald-950 py-24 text-center px-4 relative overflow-hidden rounded-[4rem] mx-4 mb-12 shadow-2xl">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
-                <div className="max-w-4xl mx-auto relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Ready to Book Your <br className="hidden sm:block" /> Riyadh to Jeddah Taxi?</h2>
-                    <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">Share your pickup location, travel date, passengers and preferred vehicle. We'll confirm availability and price.</p>
-                    <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20a%20quote%20for%20Riyadh%20to%20Jeddah%20taxi" target="_blank" rel="noopener noreferrer">
-                        <Button size="lg" className="bg-white hover:bg-emerald-50 text-emerald-900 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-transform hover:scale-110"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get Quote on WhatsApp</Button>
-                    </a>
+            {/* ================= VEHICLES ================= */}
+            <section aria-labelledby="vehicles" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="vehicles" className={`${h2} mb-3`}>Which Vehicle for Your Group?</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">
+                        Count people and suitcases together. The luggage figures below assume large checked suitcases with most seats in use; the more seats are filled, the less room there is behind them. Tell us about prams, wheelchairs, boxes or sports bags so we can check they fit.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        {FARES.map((f, i) => (
+                            <article key={f.vehicle} className="rounded-3xl border border-[#1f2329]/10 overflow-hidden flex flex-col">
+                                <div className="relative aspect-[16/10] bg-stone-100">
+                                    <Image src={f.image} alt={f.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                                </div>
+                                <div className="p-6 flex flex-col flex-1 text-sm text-stone-700 leading-relaxed">
+                                    <h3 className={`${h3} mb-1`}>{f.name}</h3>
+                                    <p className="font-black text-[#c2410c] text-2xl mb-3">{sar(f.price)}</p>
+                                    <p className="mb-5">
+                                        {[
+                                            'For one to three adults with around two large suitcases. A fourth passenger fits on paper, but on a ten-hour drive three is far more comfortable. The most economical way to make the trip privately.',
+                                            'Sliding doors and easy access make it the family favourite, especially with small children or older passengers. Up to seven people with about four large suitcases.',
+                                            'The most luggage space of the three, about five large suitcases with most seats used, and a steady, quiet ride on the highway. Chosen by business travellers and groups with heavy bags.',
+                                        ][i]}
+                                    </p>
+                                    <Link href={`/booking/?${new URLSearchParams({ from: 'Riyadh', to: 'Jeddah', vehicle: f.vehicle }).toString()}`} className={`${primary} mt-auto`}>Book the {f.short} <Arrow /></Link>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                    <p className="text-sm text-stone-600 mt-6 flex gap-2"><Info className="w-4 h-4 mt-0.5 text-[#c2410c] shrink-0" aria-hidden="true" />Need a Mercedes S-Class for a guest, or a larger van for a delegation? Ask in your request; we quote it and confirm the actual vehicle for your date.</p>
                 </div>
-            </div>
+            </section>
+
+            {/* ================= WHEN TO LEAVE ================= */}
+            <section aria-labelledby="when" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="when" className={`${h2} mb-3`}>Choosing a Departure Time</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">
+                        With nine to ten hours of driving plus stops, the time you leave Riyadh decides what kind of day you have. There is no single right answer; it depends on why you are going and what you need to do when you arrive.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        {[
+                            { icon: Sun, t: 'Early morning', d: 'Leave Riyadh around dawn and you reach Jeddah in the late afternoon or early evening, in time for a hotel check-in and dinner. This is the most popular choice for families and first-time visitors.' },
+                            { icon: Building2, t: 'Midday', d: 'Useful after a morning appointment in Riyadh or an arriving flight at RUH. Expect to reach Jeddah late at night, so warn your hotel or hosts.' },
+                            { icon: Moon, t: 'Evening or overnight', d: 'Leave after work and arrive in Jeddah early the next morning. Some travellers like losing no daytime; others find it tiring. Tell us the pickup time you want and we confirm driver availability for it.' },
+                        ].map(({ icon: Icon, t, d }) => (
+                            <div key={t} className="rounded-2xl bg-white border border-[#1f2329]/10 p-6">
+                                <Icon className="w-6 h-6 text-[#c2410c] mb-3" aria-hidden="true" />
+                                <h3 className="text-lg font-bold text-[#1f2329] mb-2">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <p className="text-sm text-stone-600 mt-6">If something in Jeddah cannot move, such as a flight, a wedding or a ship departure, tell us the time and we will suggest a pickup with a sensible margin. We will not promise an exact arrival time on a road this long.</p>
+                </div>
+            </section>
+
+            {/* ================= THE ROAD ================= */}
+            <section aria-labelledby="road" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div className={prose}>
+                        <h2 id="road" className={`${h2} mb-2`}>On the Road from Riyadh to Jeddah</h2>
+                        <p>
+                            Getting out of Riyadh can take a while at busy times, particularly from the central and northern business districts. Once on Highway 40, the road heads west across the Najd plateau for hours of long, straight driving with little traffic outside holiday periods.
+                        </p>
+                        <p>
+                            Towards the end, the highway reaches the Taif area and then descends from the escarpment towards the coast. That last stretch passes close to the Makkah area, which only Muslims may enter. If anyone travelling is not Muslim, mention it when you book and the driver will use a suitable route into Jeddah.
+                        </p>
+                        <p>
+                            Expect two or three stops along the way for fuel, a meal and prayer. You can ask for a break whenever you need one. Travelling with small children or older passengers usually means more frequent stops, so let us know and the schedule allows for it.
+                        </p>
+                        <p>
+                            In Jeddah, the final drive depends on where you are going. A hotel on the Corniche, a home in Al Hamra and a resort in Obhur in the north are all in different directions, and evening traffic can add time. For more about the road itself, see the <Link href="/distance/riyadh-to-jeddah/" className={link}>Riyadh to Jeddah distance guide</Link>.
+                        </p>
+                    </div>
+                    <div className="rounded-3xl bg-[#16191e] text-white p-7 md:p-10 lg:sticky lg:top-28">
+                        <RouteJourney
+                            vehicle
+                            palette="platinum"
+                            stops={[
+                                { title: 'Riyadh pickup', text: 'Hotel, home, office or King Khalid International Airport.' },
+                                { title: 'West on Highway 40', text: 'Out of the city, then long straight driving across the plateau.' },
+                                { title: 'Rest stops', text: 'Two or three breaks for fuel, a meal and prayer.', accent: true },
+                                { title: 'Taif area and the descent', text: 'Down from the escarpment towards the Red Sea coast.' },
+                                { title: 'Jeddah drop-off', text: 'Corniche, Al Hamra, Obhur, any address, or King Abdulaziz International Airport.' },
+                            ]}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= PICKUP + DROP-OFF ================= */}
+            <section aria-labelledby="places" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="places" className={`${h2} mb-8`}>Where We Pick Up and Drop Off</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <div className={`rounded-3xl bg-white border border-[#1f2329]/10 p-7 ${prose}`}>
+                            <h3 className={`${h3} flex items-center gap-2`}><MapPin className="w-5 h-5 text-[#c2410c]" aria-hidden="true" />Pickup in Riyadh</h3>
+                            <p>
+                                Any address in Riyadh: a hotel in Olaya, an office in KAFD or the Diplomatic Quarter, or a home in a residential district. Send a location pin and the name of the person travelling. Compounds and some office towers have gate procedures or a set pickup point, so tell us about those in advance.
+                            </p>
+                            <p>
+                                <strong className="text-[#1f2329]">From {RUH}:</strong> choose the airport in the form and add your flight number. We agree the meeting point with you and send it with the driver&apos;s name and phone number. Allow time for immigration and baggage on international arrivals. If your flight changes, message us straight away and we adjust where the driver&apos;s schedule allows.
+                            </p>
+                        </div>
+                        <div className={`rounded-3xl bg-white border border-[#1f2329]/10 p-7 ${prose}`}>
+                            <h3 className={`${h3} flex items-center gap-2`}><Waves className="w-5 h-5 text-[#c2410c]" aria-hidden="true" />Drop-off in Jeddah</h3>
+                            <p>
+                                Anywhere in the city at the same fare: Corniche hotels, Al Hamra, Al Rawdah, the historic Al Balad district, the north of the city around Obhur, or a private home. Send the hotel&apos;s full name or a pin, and the entrance if it is a large complex.
+                            </p>
+                            <p>
+                                <strong className="text-[#1f2329]">To {JED}:</strong> possible, with a generous gap before your flight. See <Link href="/routes/riyadh-to-jeddah-airport/" className={link}>Riyadh to Jeddah Airport</Link> for planning that trip. <strong className="text-[#1f2329]">On to Makkah or Madinah?</strong> Those are separate destinations, quoted separately.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= WHO + RETURN ================= */}
+            <section aria-labelledby="who" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="who" className={`${h2} mb-8`}>Common Reasons People Book This Trip</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                        {[
+                            { icon: Luggage, t: 'Moving to Jeddah', d: 'A household’s worth of suitcases is easier in one car than through two airports. Send a full luggage list so we can confirm the vehicle.' },
+                            { icon: Users, t: 'Family holidays', d: 'Summer on the Red Sea, visiting relatives, or a break by the Corniche. One fare covers everyone, with stops when the children need them.' },
+                            { icon: Briefcase, t: 'Work trips', d: <>Teams travelling to Jeddah offices and the port area. Give us the arrival deadline as well as the address. Company accounts: <Link href="/services/business/" className={link}>business travel</Link>.</> },
+                            { icon: Plane, t: 'Flights from Jeddah', d: 'Some international flights suit travellers better from JED. Send the departure time and we plan the pickup with a wide margin.' },
+                        ].map(({ icon: Icon, t, d }) => (
+                            <div key={t} className="rounded-2xl bg-[#f7f4ef] p-6">
+                                <Icon className="w-6 h-6 text-[#c2410c] mb-3" aria-hidden="true" />
+                                <h3 className="text-lg font-bold text-[#1f2329] mb-2">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 items-start rounded-3xl bg-[#1f2329] text-white p-8">
+                        <RotateCcw className="w-8 h-8 text-[#f6c27a]" aria-hidden="true" />
+                        <div className="space-y-3 leading-relaxed">
+                            <h3 className="text-2xl font-bold">One way or return?</h3>
+                            <p className="text-white/80">
+                                Most people book one way. If you also need to come back, send both dates. A return a few days or weeks later is booked as a separate <Link href="/routes/jeddah-riyadh/" className="font-semibold text-[#f6c27a] hover:underline">Jeddah to Riyadh</Link> trip at the same fares. If you want the same driver to wait in Jeddah and bring you back, that waiting time is quoted with the booking; it is never assumed to be part of a one-way fare.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= BOOKING ================= */}
+            <section aria-labelledby="book" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="book" className={`${h2} mb-4`}>From Enquiry to Pickup</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">
+                        Everything below happens on the form or on WhatsApp. The quickest quotes come from a first message that already has all the details, rather than several messages to work out the basics.
+                    </p>
+                    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        {[
+                            ['You send the trip', 'Riyadh pickup, Jeddah destination, date and the time you want to leave.'],
+                            ['You add the details', 'Adults, children with ages, number and size of bags, and any vehicle preference.'],
+                            ['We check and quote', 'We check a vehicle for your date and send the fare and what it covers.'],
+                            ['You confirm', 'Once you accept, the vehicle is reserved and the booking is confirmed.'],
+                            ['Payment', 'The payment method is agreed when you confirm, for example cash to the driver or a bank transfer.'],
+                            ['Driver details', 'The driver’s name and phone number and the pickup instructions are sent before the trip.'],
+                            ['Changes', 'Message us early about any change; we tell you if it affects the fare under your booking terms.'],
+                            ['On the day', 'Keep your phone on so the driver can reach you at the pickup.'],
+                        ].map(([t, d], i) => (
+                            <li key={t} className="rounded-2xl bg-white border border-[#1f2329]/10 p-6">
+                                <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-[#c2410c] text-white font-black text-sm mb-4" aria-hidden="true">{i + 1}</span>
+                                <h3 className="text-lg font-bold text-[#1f2329] mb-1">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
+                            </li>
+                        ))}
+                    </ol>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <a href={QUOTE_HREF} className={primary}>Get a Riyadh to Jeddah quote <Arrow /></a>
+                        <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer" className={ghost}><WhatsAppIcon className="w-4 h-4 fill-current" /> Check availability on WhatsApp</a>
+                    </div>
+                    <p className="text-sm text-stone-600 mt-5">Taxi Service KSA · <a href={`tel:${PHONE}`} className={link}>+966 57 580 6733</a> (call or WhatsApp). Book as early as you can for weekends and holidays.</p>
+                </div>
+            </section>
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className={`${h2} mb-8`}>Frequently Asked Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#1f2329]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#1f2329] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-stone-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+            </section>
+
+            {/* ================= RELATED ================= */}
+            <section aria-labelledby="related" className="py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="related" className="text-2xl md:text-3xl font-extrabold text-[#1f2329] mb-5">More Trips from Riyadh</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {[
+                            ['Jeddah to Riyadh taxi', '/routes/jeddah-riyadh/'],
+                            ['Riyadh to Jeddah Airport', '/routes/riyadh-to-jeddah-airport/'],
+                            ['Riyadh to Makkah taxi', '/routes/riyadh-makkah/'],
+                            ['Riyadh to Dammam taxi', '/routes/riyadh-dammam/'],
+                            ['Riyadh Airport transfers', '/riyadh-airport-taxi/'],
+                            ['Taxi in Jeddah', '/locations/jeddah/'],
+                            ['Umrah transport', '/services/umrah-transport/'],
+                            ['All intercity routes', '/routes/'],
+                        ].map(([l, h]) => (
+                            <Link key={h} href={h} className="rounded-full border border-[#1f2329]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#1f2329] hover:border-[#c2410c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c2410c]">{l}</Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
