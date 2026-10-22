@@ -1,479 +1,319 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+import Image from 'next/image';
+import { ArrowRight, Check, X, Clock, Sun, CalendarDays, CalendarRange, ShoppingBag, Briefcase, Users, Stethoscope, Camera, MapPin } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import {
-    CheckCircle2, ArrowRight, Clock, Car, Users,
-    MapPin, Calendar, Shield, Star
-} from 'lucide-react';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
+const PAGE_URL = 'https://taxiserviceksa.com/services/private-driver/';
+const PHONE = '+966575806733';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I want to hire a private driver. City, dates, start time, hours per day, passengers and preferred vehicle: ')}`;
+
+// Package rules confirmed by the owner (2026-10-22).
+const MIN_HOURS = 3;
+const FULL_DAY_HOURS = 10;
+const CITIES = ['Riyadh', 'Jeddah', 'Makkah', 'Madinah', 'Dammam', 'Al Khobar'];
+
+const PACKAGES = [
+    { icon: Clock, name: 'By the hour', length: `From ${MIN_HOURS} hours`, text: 'For a block of errands, an appointment with waiting, or an evening out. You book the hours you need, from a minimum of three.' },
+    { icon: Sun, name: 'Full day', length: `${FULL_DAY_HOURS} hours`, text: 'One car and driver for the whole day: meetings across the city, a shopping trip, a family day out. You agree the start time; the day runs ten hours from it.' },
+    { icon: CalendarDays, name: 'Weekly', length: 'Several days in a row', text: 'For business trips, conferences, medical treatment or a busy holiday. The same driver stays with you for the whole booking.' },
+    { icon: CalendarRange, name: 'Monthly', length: 'A month at a time', text: 'For residents, long stays and companies that need a regular driver. The same driver throughout, and monthly invoicing for companies.' },
+];
+
+const VEHICLES = [
+    { name: 'Toyota Camry', seats: 'Up to 3 passengers', fit: 'Individuals, couples and business days', img: '/toyota-camry.webp', href: '/fleet/toyota-camry/' },
+    { name: 'Hyundai Staria VIP', seats: 'Up to 7 passengers', fit: 'Families and shopping days', img: '/hyundai-staria.webp', href: '/fleet/hyundai-staria-vip/' },
+    { name: 'GMC Yukon XL', seats: 'Up to 7 passengers', fit: 'Executives, families, extra space', img: '/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp', href: '/fleet/gmc-yukon-xl/' },
+    { name: 'Toyota Hiace', seats: 'Up to 11 passengers', fit: 'Groups and delegations', img: '/toyota-hiace.webp', href: '/fleet/toyota-hiace/' },
+];
+
+const TITLE = 'Private Driver Hire Saudi Arabia | Riyadh & Jeddah';
+const DESCRIPTION = `Hire a private driver by the hour (from ${MIN_HOURS} hours), full day (${FULL_DAY_HOURS} hours), week or month in Riyadh, Jeddah, Makkah, Madinah and Dammam. Sedan, SUV or van, price agreed before you book.`;
 
 export const metadata: Metadata = {
-    title: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA',
-    description: 'Hire a private driver in Riyadh or Jeddah by the hour, full day, week, or month. Luxury SUV with driver. English-speaking chauffeur for shopping, meetings, tours, and family use.',
-    keywords: [
-        'private driver for full day Riyadh',
-        'daily chauffeur booking Riyadh',
-        'weekly private driver Saudi',
-        'monthly chauffeur service Riyadh',
-        'private driver Saudi Arabia',
-        'driver for shopping Riyadh',
-        'luxury GMC with driver Riyadh',
-        'private SUV driver Riyadh',
-        'Riyadh luxury van with driver',
-        'chauffeur for shopping malls Riyadh',
-        'driver for shopping tourists Jeddah',
-        'private chauffeur for shopping tours',
-        'Saudi Arabia private driver hire',
-        'hire driver by hour Saudi Arabia',
-        'door to door chauffeur Saudi',
-    ],
+    title: TITLE,
+    description: DESCRIPTION,
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/private-driver/',
+        canonical: PAGE_URL,
         languages: {
-            'en': 'https://taxiserviceksa.com/services/private-driver/',
+            'en': PAGE_URL,
             'ar': 'https://taxiserviceksa.com/ar/services/private-driver/',
-            'x-default': 'https://taxiserviceksa.com/services/private-driver/',
+            'ur': 'https://taxiserviceksa.com/ur/services/private-driver/',
+            'x-default': PAGE_URL,
         },
     },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA' }],
+        title: TITLE,
+        description: DESCRIPTION,
+        url: PAGE_URL,
         siteName: 'Taxi Service KSA',
-        title: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA',
-        description: 'Hire a private driver in Riyadh or Jeddah by the hour, day, week, or month. English-speaking chauffeur with luxury SUV for shopping, meetings, family trips, and tours.',
-        url: 'https://taxiserviceksa.com/services/private-driver/',
         type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private driver hire in Saudi Arabia' }],
     },
 };
 
-export default function PrivateDriverPage() {
-    const packages = [
-        {
-            title: 'Hourly Private Driver',
-            duration: '3–8 hours',
-            icon: Clock,
-            description: 'Book a private driver for a fixed number of hours. Ideal for airport pickups with waiting, multiple errands, or a city outing with flexible stops.',
-            useCases: ['Airport pickup + hotel drop', 'Hospital or clinic visit', 'Multiple meeting transfers', 'Evening dining outing'],
-        },
-        {
-            title: 'Full Day Private Driver',
-            duration: '8–12 hours',
-            icon: Star,
-            description: 'A dedicated driver exclusively assigned to you for a full day. Perfect for shopping tours, sightseeing, business meetings across the city, or family outings.',
-            useCases: ['Mall hopping in Riyadh', 'City sightseeing tour', 'Multi-meeting business day', 'Family day trip to Taif'],
-        },
-        {
-            title: 'Weekly Private Driver',
-            duration: '5–7 days',
-            icon: Calendar,
-            description: 'Consistent private driver for your week-long visit or business trip. Same driver each day ensures familiarity with your schedule and preferences.',
-            useCases: ['Business delegation visits', 'Tourist week itinerary', 'Medical tourism trips', 'Conference week transport'],
-        },
-        {
-            title: 'Monthly Private Driver',
-            duration: '30 days',
-            icon: Shield,
-            description: 'Dedicated monthly driver for residents, long-stay visitors, or companies needing reliable daily transport without managing a vehicle.',
-            useCases: ['Expat daily commute', 'Executive monthly account', 'Corporate fleet supplement', 'GCC visitor long stay'],
-        },
-    ];
+const faqs = [
+    { q: 'How does hiring a private driver work?', a: `You book a car and driver for a length of time rather than a single trip: by the hour (minimum ${MIN_HOURS} hours), a full day (${FULL_DAY_HOURS} hours), a week or a month. During that time the driver takes you wherever you need to go in the city, as many stops as you like, and waits for you between them.` },
+    { q: 'How much does a private driver cost?', a: 'It depends on the city, the vehicle and how long you need the driver. Send your dates, hours and vehicle on WhatsApp and we send the price before you book.' },
+    { q: 'What is included?', a: 'The vehicle, the driver, fuel for driving within the city, and unlimited stops during the booked hours. Trips outside the city, extra hours and paid parking are agreed with you in advance.' },
+    { q: 'What happens if my day runs longer?', a: 'Tell the driver as early as you can. If the driver is free to stay, the extra time is charged at the hourly rate agreed in your booking.' },
+    { q: 'Which cities do you cover?', a: 'Riyadh, Jeddah, Makkah, Madinah, Dammam and Al Khobar. Day trips from these cities, such as Jeddah to Taif, are quoted with the booking.' },
+    { q: 'Will I have the same driver for a weekly or monthly booking?', a: 'Yes. Weekly and monthly bookings keep the same driver for the whole period.' },
+    { q: 'Can companies be invoiced monthly?', a: 'Yes. Company bookings for regular or monthly drivers can be invoiced monthly. Ask when you request the quote.' },
+    { q: 'Can I hire a driver for shopping?', a: 'Yes. Tell us which malls or markets you plan to visit and roughly how long you will be. If you expect bulky purchases, choose an SUV or van rather than a sedan.' },
+    { q: 'Can I book a driver for medical appointments?', a: 'Yes, for a single appointment or a course of treatment over several days. The driver provides transport only, not medical help; if the patient needs mobility support, tell us so we can say what is possible.' },
+    { q: 'Do the drivers speak English?', a: 'Yes, our drivers speak English and Arabic.' },
+    { q: 'Can I change the plan during the day?', a: 'Yes. Within the city and within your booked hours, add or change stops as you go. A trip out of the city or extra hours are agreed before they happen.' },
+    { q: 'Can I book a GMC or a van with a driver?', a: 'Yes. A GMC Yukon XL, Hyundai Staria or Toyota Hiace can be booked with a driver, and a Cadillac Escalade on request, subject to availability for your dates.' },
+    { q: 'How do I book?', a: 'Send your city, dates, start time, hours per day, passengers and preferred vehicle on WhatsApp (+966 57 580 6733) or email info@taxiserviceksa.com. We confirm the vehicle and price; the booking is final once you accept.' },
+];
 
-    const useCaseDetails = [
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
         {
-            title: 'Shopping Driver — Riyadh & Jeddah',
-            description: 'Driver takes you to the mall, waits in the parking, assists with bags, and transfers you between shopping destinations. No parking hassle, no time pressure.',
-            locations: ['Mall of Arabia, Riyadh', 'Riyadh Park', 'Al Nakheel Mall', 'Balad Souk, Jeddah'],
-            icon: MapPin,
-        },
-        {
-            title: 'Business & Meetings Driver',
-            description: 'Professional driver for multi-stop business days in Riyadh or Jeddah. Driver waits during meetings and adjusts schedule in real time.',
-            locations: ['KAFD Business District', 'King Fahd Road offices', 'Olaya Street corporate area', 'Jeddah business corridor'],
-            icon: Shield,
-        },
-        {
-            title: 'Family Private Driver',
-            description: 'Book a family vehicle by the half-day or full day rather than per trip — one fixed rate covers the school run, a hospital visit, and an evening outing without three separate bookings.',
-            locations: ['Hourly and half-day family packages', 'Same driver across a multi-stop day', 'Fixed rate regardless of stop count'],
-            icon: Users,
+            '@type': 'Service',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Private driver hire in Saudi Arabia',
+            serviceType: 'Private driver hire by the hour, day, week or month',
+            url: PAGE_URL,
+            provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: PHONE },
+            areaServed: CITIES.map((c) => ({ '@type': 'City', name: c })),
         },
         {
-            title: 'Medical Tourism Driver',
-            description: 'Treatment courses spanning several days or weeks are billed as a weekly or monthly package rather than per trip, with the driver adjusting same-day for appointment delays.',
-            locations: ['King Faisal Specialist Hospital', 'Saudi German Hospital', 'Dr. Sulaiman Al Habib clinics', 'Medical City Riyadh'],
-            icon: Star,
-        },
-    ];
-
-    const vehicles = [
-        { name: 'Toyota Camry', type: 'Executive Sedan', seats: 4, ideal: 'Solo / couple, business use' },
-        { name: 'GMC Yukon XL', type: 'Luxury SUV', seats: 7, ideal: 'Families, groups, shopping' },
-        { name: 'Hyundai Staria VIP', type: 'Luxury MPV', seats: 7, ideal: 'VIP families, medical trips' },
-        { name: 'Toyota Hiace', type: 'Minivan', seats: 11, ideal: 'Large groups, bulk shopping' },
-        { name: 'Cadillac Escalade', type: 'Ultra-Luxury SUV', seats: 7, ideal: 'VIP / executive use' },
-    ];
-
-    const features = [
-        'Same driver assigned for multi-day bookings',
-        'English, Arabic, and Urdu speaking',
-        'Ministry of Transport licensed',
-        'Female-friendly drivers on request',
-        'Flexible scheduling — adjust in real time',
-        'Door-to-door across Riyadh & Jeddah',
-        'No surge pricing — fixed daily rates',
-        'Luggage and shopping assistance',
-        'Child seats available on request',
-        '24/7 availability',
-    ];
-
-    const faqs = [
-        {
-            question: 'Can I hire a private driver in Riyadh for a full day?',
-            answer: 'Yes. Full-day private driver hire in Riyadh covers 8–12 hours and includes unlimited stops within the city. A GMC Yukon, Toyota Camry, or Hyundai Staria is assigned based on group size. The driver picks you up from your hotel or home and remains exclusively available to you throughout the day. Advance booking of 24 hours is recommended.',
-        },
-        {
-            question: 'How much does it cost to hire a private driver in Saudi Arabia?',
-            answer: 'Private driver rates vary by vehicle type, duration, and number of stops. Pricing is fixed (no surge) and provided via WhatsApp quote. Half-day (4–5 hours), full day (8–12 hours), weekly, and monthly packages are all available. Contact us via WhatsApp or email with your dates and requirements for a custom quote.',
-        },
-        {
-            question: 'Can I book a private driver for shopping in Riyadh?',
-            answer: 'Yes. Shopping driver service is available for Riyadh\'s major malls including Mall of Arabia, Riyadh Park, Al Nakheel, and Al Zal Souk. The driver waits at each location, assists with luggage, and transfers you between destinations. Full-day and half-day shopping packages are available. Jeddah shopping driver service is also available.',
-        },
-        {
-            question: 'Is a weekly or monthly private driver available in Saudi Arabia?',
-            answer: 'Yes. Weekly (5–7 days) and monthly (30 days) private driver packages are available. The same driver is assigned for consistency. Weekly packages are popular for business delegations and tourists. Monthly packages suit expats, long-stay visitors, and companies requiring regular executive transport. Monthly billing with invoice is available.',
-        },
-        {
-            question: 'What is a luxury GMC with driver in Riyadh?',
-            answer: 'A "luxury GMC with driver" refers to a GMC Yukon XL or Denali chauffeur service in Riyadh. The GMC Yukon seats 6–7 passengers with ample luggage space, making it the most popular choice for families, shopping trips, and group transfers. The driver is professionally dressed, licensed, and available for full-day or multi-day hire.',
-        },
-        {
-            question: 'Can women hire a private driver in Saudi Arabia?',
-            answer: 'Yes. Female-friendly private driver service is available. Female passengers — whether traveling solo, with family, or for medical appointments — can request a driver specifically. All our drivers are professional, respectful, and trained to assist female clients. This service is available in Riyadh, Jeddah, Makkah, and Madinah.',
-        },
-        {
-            question: 'Is a private driver available for medical tourism in Saudi Arabia?',
-            answer: 'Yes. Medical tourism driver packages are available for patients and their families visiting hospitals and clinics in Riyadh or Jeddah. The driver is scheduled around appointment times and adjusts for delays or extended consultations. Common hospitals served include King Faisal Specialist, Saudi German Hospital, and Dr. Sulaiman Al Habib clinics.',
-        },
-        {
-            question: 'Can I hire a private van with driver in Riyadh?',
-            answer: 'Yes. Toyota Hiace (11 seats) and Mercedes Sprinter (14 seats) are available with a driver for group private hire in Riyadh. These are ideal for corporate groups, tourist delegations, wedding guests, or large family outings. Half-day, full-day, and multi-day hire are all available. Luggage space is ample for shopping trips.',
-        },
-        {
-            question: 'How do I book a private driver in Saudi Arabia?',
-            answer: 'Booking is done via WhatsApp (+966 57 580 6733) or email (info@taxiserviceksa.com). Provide your dates, number of passengers, vehicle preference, and planned destinations. For full-day or multi-day hire, 24–48 hours advance booking is recommended. No Saudi phone number or local account is required — international bookings are accepted.',
-        },
-    ];
-
-    const serviceSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'Private Driver Service Saudi Arabia — Hourly, Daily, Weekly, Monthly',
-        serviceType: 'Private Driver Hire',
-        provider: {
-            '@type': 'Organization',
-            name: 'Taxi Service KSA',
-            url: 'https://taxiserviceksa.com',
-        },
-        areaServed: [
-            { '@type': 'City', name: 'Riyadh' },
-            { '@type': 'City', name: 'Jeddah' },
-            { '@type': 'City', name: 'Makkah' },
-            { '@type': 'City', name: 'Madinah' },
-            { '@type': 'AdministrativeArea', name: 'Saudi Arabia' },
-        ],
-        description: 'Hire a private driver in Riyadh or Jeddah by the hour, full day, week, or month. English-speaking chauffeur with luxury vehicles for shopping, business, family, and medical trips.',
-        offers: {
-            '@type': 'Offer',
-            availability: 'https://schema.org/InStock',
-        },
-        hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: 'Private Driver Packages',
+            '@type': 'BreadcrumbList',
             itemListElement: [
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Hourly Private Driver Riyadh' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Full Day Private Driver Saudi Arabia' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Weekly Private Driver KSA' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Monthly Chauffeur Service Riyadh' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shopping Driver Riyadh & Jeddah' } },
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxiserviceksa.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://taxiserviceksa.com/services/' },
+                { '@type': 'ListItem', position: 3, name: 'Private Driver Hire', item: PAGE_URL },
             ],
         },
-    };
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
 
+const eyebrow = 'text-xs font-bold uppercase tracking-[0.22em]';
+const link = 'font-semibold text-[#b45309] underline-offset-2 hover:underline';
+const h2 = 'text-3xl md:text-4xl font-extrabold text-[#1c1917]';
+const h3 = 'text-xl font-bold text-[#1c1917]';
+const prose = 'space-y-4 text-stone-700 leading-relaxed text-[1.05rem]';
+const primary = 'group inline-flex items-center justify-center gap-2 rounded-xl bg-[#b45309] px-6 py-3.5 font-bold text-white hover:bg-[#92400e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b45309] focus-visible:ring-offset-2';
+const ghost = 'inline-flex items-center justify-center gap-2 rounded-xl border border-[#1c1917]/20 px-6 py-3.5 font-bold text-[#1c1917] hover:border-[#b45309] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b45309]';
+
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
+
+function Tick({ children }: { children: React.ReactNode }) {
+    return <li className="flex gap-2.5"><Check className="w-4 h-4 mt-1 text-[#b45309] shrink-0" aria-hidden="true" /><span>{children}</span></li>;
+}
+
+export default function PrivateDriverPage() {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="private-driver-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-            />
-            <JsonLdFAQ faqs={faqs} />
+        <div className="private-driver bg-[#f7f5f2]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            {/* Hero */}
-            <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute inset-0 bg-[url('/hero-slide-1.webp')] bg-cover bg-center" />
-                </div>
-                <div className="max-w-7xl mx-auto relative z-10 text-center">
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
-                        Private Driver Hire
-                    </span>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Private Car, Taxi and Chauffeur Service<br />{' '}
-                        <span className="text-white/80">for Private Driver Hire</span>
-                    </h1>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                        Your own dedicated driver in Riyadh or Jeddah — for shopping, business meetings, family outings, or a full tourist itinerary. Fixed rates. English-speaking. Luxury vehicles.
-                    </p>
-
-                    {/* AEO Quick Facts */}
-                    <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-3xl mx-auto text-left mb-10">
-                        <p className="text-base font-bold text-white mb-3 flex items-center gap-2">
-                            <Car className="w-4 h-4 text-emerald-400" /> Private Driver — Quick Facts
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#1c1917]">
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_#57351a_0%,_#1c1917_60%)]" aria-hidden="true" />
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+                    <div className="text-white min-w-0">
+                        <p className={`${eyebrow} text-[#fbbf24] mb-4`}>By the hour · day · week · month</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight mb-4">Private Driver Hire in Saudi Arabia</h1>
+                        <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-7 max-w-xl">
+                            A car and driver that stay with you for as long as you need them, instead of a new taxi for every trip. Meetings, shopping, appointments, family days. Book from {MIN_HOURS} hours to a full month, with the price agreed first.
                         </p>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300 text-sm">
-                            <li><strong className="text-white">Packages:</strong> Hourly, Half-Day, Full Day, Weekly, Monthly</li>
-                            <li><strong className="text-white">Fleet:</strong> Toyota Camry, GMC Yukon, Hiace, Escalade</li>
-                            <li><strong className="text-white">Languages:</strong> English, Arabic, Urdu</li>
-                            <li><strong className="text-white">Booking:</strong> WhatsApp or Email — 24h advance</li>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-6">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-[#fbbf24] text-[#1c1917] hover:bg-[#fcd34d]">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Hire a driver on WhatsApp</a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href="mailto:info@taxiserviceksa.com?subject=Private%20driver%20hire%20quote">Email for a custom quote</a>
+                            </Button>
+                        </div>
+                        <ul className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-5 gap-y-2 text-sm text-white/85">
+                            {['Unlimited stops in the city', 'Fuel included in the city', 'English & Arabic drivers', 'Same driver for weekly/monthly'].map((x) => (
+                                <li key={x} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-[#fbbf24] shrink-0" aria-hidden="true" />{x}</li>
+                            ))}
                         </ul>
                     </div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20want%20to%20hire%20a%20Private%20Driver%20in%20Saudi%20Arabia" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                Hire Private Driver
-                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
-                                Email for Custom Rate
-                            </Button>
-                        </a>
+                    <div className="rounded-3xl bg-white/[0.06] border border-white/10 p-7 text-white">
+                        <h2 className="text-xl font-bold mb-4">Available in</h2>
+                        <ul className="grid grid-cols-2 gap-2 mb-5">
+                            {CITIES.map((c) => (
+                                <li key={c} className="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2.5 text-sm font-semibold"><MapPin className="w-4 h-4 text-[#fbbf24]" aria-hidden="true" />{c}</li>
+                            ))}
+                        </ul>
+                        <p className="text-sm text-white/70">Day trips out of these cities, for example Jeddah to Taif, are quoted with your booking.</p>
                     </div>
                 </div>
             </section>
 
-            {/* Packages */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Private Driver Packages</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            From a 3-hour booking to a full month — flexible hire packages to match your exact schedule.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {packages.map((pkg, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all">
-                                <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-5">
-                                    <pkg.icon className="w-7 h-7 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-1">{pkg.title}</h3>
-                                <p className="text-sm text-emerald-600 font-semibold mb-4">{pkg.duration}</p>
-                                <p className="text-gray-600 mb-5 leading-relaxed text-sm">{pkg.description}</p>
-                                <ul className="space-y-2">
-                                    {pkg.useCases.map((u, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                                            <div className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0" />
-                                            {u}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+            {/* ================= PACKAGES ================= */}
+            <section aria-labelledby="packages" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="packages" className={`${h2} mb-3`}>Driver Hire Packages</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">
+                        Every package works the same way: a car and driver are yours for the booked time, inside the city, with as many stops as you like. The price depends on the city, the vehicle and the length of the booking, and is agreed before you confirm.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        {PACKAGES.map(({ icon: Icon, name, length, text }) => (
+                            <article key={name} className="rounded-3xl bg-[#f7f5f2] p-7">
+                                <Icon className="w-7 h-7 text-[#b45309] mb-3" aria-hidden="true" />
+                                <h3 className={h3}>{name}</h3>
+                                <p className="text-sm font-bold text-[#b45309] mb-3">{length}</p>
+                                <p className="text-sm text-stone-600 leading-relaxed">{text}</p>
+                            </article>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Use Cases */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Common Private Driver Use Cases</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Whatever your reason for being in Saudi Arabia — we have a private driver package for it.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {useCaseDetails.map((u, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all">
-                                <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-5">
-                                    <u.icon className="w-7 h-7 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{u.title}</h3>
-                                <p className="text-gray-600 mb-5 leading-relaxed">{u.description}</p>
-                                <div className="grid grid-cols-2 gap-2">
-                                    {u.locations.map((l, i) => (
-                                        <div key={i} className="flex items-center gap-2 text-sm text-gray-500">
-                                            <MapPin className="w-3 h-3 flex-shrink-0" />
-                                            {l}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Vehicle Table */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Choose Your Vehicle</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            All private driver packages include a professional driver. Select the right vehicle for your group size and purpose.
-                        </p>
-                    </div>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-                            <thead className="bg-black text-white">
-                                <tr>
-                                    <th className="px-6 py-4 font-bold">Vehicle</th>
-                                    <th className="px-6 py-4 font-bold">Type</th>
-                                    <th className="px-6 py-4 font-bold">Seats</th>
-                                    <th className="px-6 py-4 font-bold">Best For</th>
-                                    <th className="px-6 py-4 font-bold">Details</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-gray-100">
-                                {vehicles.map((v, i) => (
-                                    <tr key={i} className="hover:bg-white transition-colors">
-                                        <td className="px-6 py-4 font-bold text-gray-900">{v.name}</td>
-                                        <td className="px-6 py-4 text-gray-600">{v.type}</td>
-                                        <td className="px-6 py-4 text-gray-600">{v.seats}</td>
-                                        <td className="px-6 py-4 text-gray-600">{v.ideal}</td>
-                                        <td className="px-6 py-4">
-                                            <Link href={`/fleet/${v.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`} className="text-black font-bold text-sm hover:underline">
-                                                View →
-                                            </Link>
-                                        </td>
-                                    </tr>
+            {/* ================= INCLUDED ================= */}
+            <section aria-labelledby="included" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="included" className={`${h2} mb-8`}>What Your Booking Includes</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="rounded-3xl bg-white border border-[#1c1917]/10 p-7">
+                            <h3 className={`${h3} mb-4`}>Included</h3>
+                            <ul className="space-y-2 text-stone-700">
+                                <Tick>A private vehicle and driver for the booked hours</Tick>
+                                <Tick>Unlimited stops within the city</Tick>
+                                <Tick>Fuel for driving within the city</Tick>
+                                <Tick>The driver waiting for you between stops</Tick>
+                                <Tick>The same driver for weekly and monthly bookings</Tick>
+                                <Tick>Monthly invoicing for company accounts</Tick>
+                            </ul>
+                        </div>
+                        <div className="rounded-3xl bg-white border border-[#1c1917]/10 p-7">
+                            <h3 className={`${h3} mb-4`}>Agreed with you in advance</h3>
+                            <ul className="space-y-2 text-stone-700">
+                                {['Hours beyond the booking, at the agreed hourly rate', 'Trips outside the city, such as a day in Taif', 'Paid parking, if any', 'Overnight trips and the driver’s accommodation'].map((x) => (
+                                    <li key={x} className="flex gap-2.5"><X className="w-4 h-4 mt-1 text-stone-400 shrink-0" aria-hidden="true" /><span>{x}</span></li>
                                 ))}
-                            </tbody>
-                        </table>
+                            </ul>
+                            <p className="text-sm text-stone-600 mt-4">If the day runs long, tell the driver early; extra time depends on the driver being free.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Features */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What's Included in Every Booking</h2>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
-                        {features.map((f, i) => (
-                            <div key={i} className="flex items-start gap-3 bg-white p-5 rounded-xl border border-gray-200">
-                                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                <span className="text-gray-700 font-medium text-sm leading-relaxed">{f}</span>
+            {/* ================= USES ================= */}
+            <section aria-labelledby="uses" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="uses" className={`${h2} mb-8`}>What People Hire a Driver For</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {[
+                            { icon: ShoppingBag, t: 'Shopping days', d: 'Riyadh Park, Al Nakheel Mall and the Olaya shops in Riyadh; Mall of Arabia and the Al Balad souks in Jeddah. Your bags stay in the car between stops. For big purchases, take an SUV or van.' },
+                            { icon: Briefcase, t: 'Business days', d: <>Meetings in KAFD, along King Fahd Road and in Olaya, or across Jeddah&apos;s business districts. The driver waits while you are inside. For executive travel, see the <Link href="/services/vip-chauffeur/" className={link}>VIP chauffeur</Link> service.</> },
+                            { icon: Users, t: 'Family days', d: 'School runs, visiting relatives, a hospital visit and dinner, all in one booking. Tell us the number of adults and children, and ask about child seats when booking.' },
+                            { icon: Stethoscope, t: 'Medical appointments', d: 'One appointment, or a course of treatment over days or weeks with the same driver. The driver provides transport only; tell us about any mobility needs so we can say what is possible.' },
+                            { icon: Camera, t: 'Sightseeing', d: <>See the city at your own pace. Send the places you want to visit and we suggest hourly or full-day hire. <Link href="/services/tourism-transport/" className={link}>Tourism transport</Link>.</> },
+                            { icon: CalendarRange, t: 'Long stays and companies', d: <>Residents, long-stay visitors and companies that need a regular driver. Weekly and monthly packages, same driver, monthly invoice. <Link href="/services/corporate-travel/" className={link}>Corporate travel</Link>.</> },
+                        ].map(({ icon: Icon, t, d }) => (
+                            <div key={t} className="rounded-2xl bg-[#f7f5f2] p-6">
+                                <Icon className="w-6 h-6 text-[#b45309] mb-3" aria-hidden="true" />
+                                <h3 className="text-lg font-bold text-[#1c1917] mb-2">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Internal Links */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="bg-gray-50 border border-gray-100 rounded-3xl p-8 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <Car className="w-4 h-4" /> Popular Vehicles
-                            </h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">GMC Yukon with Driver</Link></li>
-                                <li><Link href="/fleet/toyota-camry/" className="text-gray-600 hover:text-black transition-colors">Toyota Camry with Driver</Link></li>
-                                <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black transition-colors">Toyota Hiace with Driver</Link></li>
-                                <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Vehicles →</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <MapPin className="w-4 h-4" /> Key Cities
-                            </h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/locations/riyadh/" className="text-gray-600 hover:text-black transition-colors">Private Driver Riyadh</Link></li>
-                                <li><Link href="/locations/jeddah/" className="text-gray-600 hover:text-black transition-colors">Private Driver Jeddah</Link></li>
-                                <li><Link href="/locations/makkah/" className="text-gray-600 hover:text-black transition-colors">Private Driver Makkah</Link></li>
-                                <li><Link href="/locations/" className="text-black font-bold hover:underline">All Cities →</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <Shield className="w-4 h-4" /> Related Services
-                            </h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">Chauffeur Service</Link></li>
-                                <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black transition-colors">Tourism Transport</Link></li>
-                                <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black transition-colors">Corporate Travel</Link></li>
-                                <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">Airport Transfers</Link></li>
-                            </ul>
-                        </div>
+            {/* ================= VEHICLES ================= */}
+            <section aria-labelledby="vehicles" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="vehicles" className={`${h2} mb-3`}>Choose the Vehicle</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">Pick by the number of people and how much you will carry during the day. Seating figures are for passengers; luggage and shopping space shrink as seats fill.</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        {VEHICLES.map((v) => (
+                            <Link key={v.name} href={v.href} className="rounded-3xl border border-[#1c1917]/10 bg-white overflow-hidden hover:border-[#b45309] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b45309]">
+                                <div className="relative aspect-[16/10] bg-stone-100">
+                                    <Image src={v.img} alt={`${v.name} with driver for hire`} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+                                </div>
+                                <div className="p-5">
+                                    <h3 className="text-lg font-bold text-[#1c1917]">{v.name}</h3>
+                                    <p className="text-sm text-stone-600">{v.seats}</p>
+                                    <p className="text-sm text-stone-500">{v.fit}</p>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
+                    <p className="text-sm text-stone-600 mt-6">Prefer a luxury SUV? A <Link href="/fleet/cadillac-escalade/" className={link}>Cadillac Escalade</Link> with driver is available on request. <Link href="/fleet/" className={link}>Compare all vehicles</Link>.</p>
                 </div>
             </section>
 
-            {/* FAQ */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Private Driver Questions</h2>
-                        <p className="text-gray-600 max-w-xl mx-auto">Common questions about hiring a private driver in Saudi Arabia.</p>
+            {/* ================= HOW TO BOOK ================= */}
+            <section aria-labelledby="book" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="book" className={`${h2} mb-6`}>How to Book</h2>
+                    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        {[
+                            ['Tell us when', 'City, dates, start time and roughly how many hours a day.'],
+                            ['Share the plan', 'Pickup point and the main places you will go; say which parts may change.'],
+                            ['Choose the vehicle', 'Passengers and what you will carry. We suggest alternatives if your first choice is not free.'],
+                            ['Confirm the quote', 'Check the price, hours and what is included. The booking is final once you accept.'],
+                        ].map(([t, d], i) => (
+                            <li key={t} className="rounded-2xl bg-[#f7f5f2] p-6">
+                                <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-[#b45309] text-white font-black text-sm mb-4" aria-hidden="true">{i + 1}</span>
+                                <h3 className="text-lg font-bold text-[#1c1917] mb-1">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
+                            </li>
+                        ))}
+                    </ol>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer" className={primary}><WhatsAppIcon className="w-4 h-4 fill-current" /> Hire a driver on WhatsApp <Arrow /></a>
+                        <a href="mailto:info@taxiserviceksa.com?subject=Private%20driver%20hire%20quote" className={ghost}>Email info@taxiserviceksa.com</a>
                     </div>
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-base font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
+                    <p className="text-sm text-stone-600 mt-5">Taxi Service KSA · <a href={`tel:${PHONE}`} className={link}>+966 57 580 6733</a> (call or WhatsApp). Book full days and weekly or monthly drivers as early as you can.</p>
+                </div>
+            </section>
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className={`${h2} mb-8`}>Frequently Asked Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#1c1917]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#1c1917] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-stone-600 leading-relaxed">{f.a}</AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Hire Your Private Driver in Saudi Arabia Today
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        By the hour, full day, week, or month — your personal driver awaits in Riyadh and Jeddah. Fixed rates, luxury fleet, English-speaking.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20want%20to%20hire%20a%20Private%20Driver%20in%20Saudi%20Arabia" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                WhatsApp Booking
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for Rate Card
-                            </Button>
-                        </a>
+            {/* ================= RELATED ================= */}
+            <section aria-labelledby="related" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="related" className="text-2xl md:text-3xl font-extrabold text-[#1c1917] mb-5">Related Services</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {[
+                            ['Private driver hire in Riyadh', '/locations/riyadh/'],
+                            ['Private driver hire in Jeddah', '/locations/jeddah/'],
+                            ['Drivers in Makkah', '/locations/makkah/'],
+                            ['Drivers in Madinah', '/locations/madinah/'],
+                            ['Drivers in Dammam', '/locations/dammam/'],
+                            ['VIP chauffeur service', '/services/vip-chauffeur/'],
+                            ['Private driver for sightseeing', '/services/tourism-transport/'],
+                            ['Corporate transportation', '/services/corporate-travel/'],
+                            ['Private airport pickup', '/services/airport-transfers/'],
+                            ['Intercity transfers', '/services/intercity/'],
+                            ['Women’s private transport', '/services/women-transport/'],
+                            ['Compare vehicles', '/fleet/'],
+                        ].map(([l, h]) => (
+                            <Link key={h} href={h} className="rounded-full border border-[#1c1917]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#1c1917] hover:border-[#b45309] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b45309]">{l}</Link>
+                        ))}
                     </div>
-                    <p className="text-gray-500 text-sm mt-6">
-                        Also available:{' '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">Chauffeur</Link>
-                        {' · '}
-                        <Link href="/services/tourism-transport/" className="text-gray-400 hover:text-white underline">Tourism Transport</Link>
-                        {' · '}
-                        <Link href="/services/corporate-travel/" className="text-gray-400 hover:text-white underline">Corporate Travel</Link>
-                    </p>
                 </div>
             </section>
         </div>
