@@ -1,299 +1,365 @@
 ﻿import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import { ArrowRight, Check, X, Info, Users, Luggage, Plane, Car, Mountain, Landmark, Hotel, Clock, Sun } from 'lucide-react';
 
-import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Mountain } from 'lucide-react';
-import Hero from '@/components/Hero';
-import RelatedLocations from '@/components/seo/RelatedLocations';
-import RelatedRoutes from '@/components/seo/RelatedRoutes';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
-import RouteFleetSection from '@/components/RouteFleetSection';
+import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
+import RouteJourney from '@/components/routes/RouteJourney';
 
+const PAGE_URL = 'https://taxiserviceksa.com/routes/jeddah-alula/';
+const QUOTE_HREF = '#quote';
+const PHONE = '+966575806733';
+const JED = 'King Abdulaziz International Airport (JED)';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I need a private car from Jeddah to AlUla. Jeddah pickup (hotel, address or flight), AlUla hotel or resort, date and time, passengers, suitcases, preferred vehicle, and whether I need a driver in AlUla: ')}`;
+
+// Approximate; the exact route and addresses decide it.
+const KM = 'About 700–750 km';
+const DRIVE = 'Around 7–8 hours';
+
+const TITLE = 'Jeddah to AlUla Private Car | Long-Distance Transfer';
+const DESCRIPTION = 'Plan a private car transfer from Jeddah to AlUla. Request a quote for hotel drop-offs, family travel, heritage visits and long-distance journeys.';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Al Ula Taxi | 700km Heritage Route - Fixed Price | Taxi Service KSA',
-    description: 'Taxi from Jeddah to Al Ula operates 24/7. 700km scenic journey to Hegra in 7-8 hours. Affordable fixed rates. Luxury SUVs for the long drive.',
-    keywords: ['Jeddah to Al Ula taxi', 'taxi Jeddah airport to Al Ula', 'Al Ula transport', 'Jeddah Alula price', 'Hegra taxi'],
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-alula/',
-    },
+    title: TITLE,
+    description: DESCRIPTION,
+    alternates: { canonical: PAGE_URL },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah to Al Ula Taxi | 700km Route - Affordable Fixed Price | Taxi Service KSA' }],
+        title: TITLE,
+        description: DESCRIPTION,
+        url: PAGE_URL,
         siteName: 'Taxi Service KSA',
-        title: 'Jeddah to Al Ula Taxi | 700km Route - Affordable Fixed Price | Taxi Service KSA',
-        description: 'Comfortable private transfer from Jeddah to Al Ula. 700km journey. Flexible and affordable fixed rates. Visit the ancient city of Hegra.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-alula/',
         type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private car from Jeddah to AlUla' }],
     },
 };
 
-export default function JeddahAlulaRoutePage() {
-    const routeDetails = [
-        { label: 'Distance', value: '700 km', icon: Navigation },
-        { label: 'Travel Time', value: '7-8 hours', icon: Clock },
-        { label: 'Pricing', value: 'Affordable', icon: DollarSign },
-        { label: 'Terrain', value: 'Desert & Mountain', icon: Mountain },
-    ];
+const faqs = [
+    { q: 'How far is Jeddah from AlUla?', a: `${KM} by road, depending on the route and your two addresses.` },
+    { q: 'How long does the drive take?', a: `${DRIVE} of driving, plus breaks. With a proper meal stop, most of a day. It is an estimate; do not plan a timed activity right after the expected arrival.` },
+    { q: 'How much is a taxi from Jeddah to AlUla?', a: 'We quote each trip for the whole vehicle, based on the car, the date, your addresses and any stops or waiting. Send your details and we reply with the fare and exactly what it covers before you book.' },
+    { q: 'Can you collect me at Jeddah Airport and drive straight to AlUla?', a: `Yes. Choose ${JED} as the pickup and add your flight number. After a long flight, think about whether a night in Jeddah first would be easier; it is a long drive.` },
+    { q: 'Can you drop me at a resort outside the town?', a: 'Yes, if the road is open to private cars. Some resorts are in valleys outside AlUla town and some only allow guest vehicles to a set point. Send the property name and we confirm the drop-off.' },
+    { q: 'Can I visit Elephant Rock on the day I arrive?', a: 'Possibly, if you leave Jeddah early and the drive goes to plan, but do not count on it. Check the current opening times on the official Experience AlUla site and keep the first evening flexible.' },
+    { q: 'Is Hegra included?', a: 'No. Hegra is visited with a ticketed tour that starts from its welcome centre; you cannot drive into the site. Book it through the official channels. We can take you to the welcome centre as part of a separate AlUla driver booking.' },
+    { q: 'Can I keep the driver while I am in AlUla?', a: 'Yes, quoted separately: by the hour or by the day, for the Old Town, Elephant Rock, the Hegra welcome centre or your restaurant in the evening. It is not part of the one-way transfer fare.' },
+    { q: 'Is it better to fly?', a: 'If time matters most, a flight to AlUla airport (ULH) is much shorter in the air. Add airport time at both ends and a car from ULH. For a family with luggage, or if you want to stop on the way, the road can be simpler. Check current flights before you decide.' },
+    { q: 'Which car for a family on a 700 km trip?', a: 'Comfort matters more than on a short trip. A Staria or GMC Yukon XL for up to seven with luggage; a Hiace for bigger groups. A Camry suits two or three people with light bags.' },
+    { q: 'Can I book the return to Jeddah?', a: 'Yes. AlUla to Jeddah is a separate one-way trip. Send both dates and we quote both. If the driver should stay in AlUla for your whole visit, that is quoted as a multi-day booking.' },
+    { q: 'Does a WhatsApp message confirm the booking?', a: 'No. The booking is confirmed once we have agreed the vehicle, fare and pickup time with you.' },
+];
 
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Jeddah to AlUla private car with driver',
+            url: PAGE_URL,
+            serviceType: 'Private long-distance transfer',
+            description: 'Pre-booked private car from a Jeddah hotel, address or King Abdulaziz International Airport to a hotel or resort in AlUla, with an optional driver in AlUla.',
+            provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: PHONE },
+            areaServed: [{ '@type': 'City', name: 'Jeddah' }, { '@type': 'City', name: 'AlUla' }],
+        },
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxiserviceksa.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://taxiserviceksa.com/routes/' },
+                { '@type': 'ListItem', position: 3, name: 'Jeddah to AlUla', item: PAGE_URL },
+            ],
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
 
+const eyebrow = 'text-xs font-bold uppercase tracking-[0.22em]';
+const link = 'font-semibold text-[#b45309] underline-offset-2 hover:underline';
+const h2 = 'text-3xl md:text-4xl font-extrabold text-[#431407]';
+const h3 = 'text-xl font-bold text-[#431407]';
+const prose = 'space-y-4 text-stone-700 leading-relaxed text-[1.05rem]';
+const primary = 'group inline-flex items-center justify-center gap-2 rounded-xl bg-[#b45309] px-6 py-3.5 font-bold text-white hover:bg-[#92400e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b45309] focus-visible:ring-offset-2';
+const ghost = 'inline-flex items-center justify-center gap-2 rounded-xl border border-[#431407]/20 px-6 py-3.5 font-bold text-[#431407] hover:border-[#b45309] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b45309]';
 
-    const routeImages = [
-        '/alula-hegra.webp',
-        '/hero-slide-3.webp',
-        '/jeddah-airport.webp',
-    ];
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
 
+function Tick({ children }: { children: React.ReactNode }) {
+    return <li className="flex gap-2.5"><Check className="w-4 h-4 mt-1 text-[#b45309] shrink-0" aria-hidden="true" /><span>{children}</span></li>;
+}
 
+const vehicles = [
+    { name: 'Toyota Camry', seats: 'Up to 3 adults', bags: 'About 2 large suitcases', note: 'Two or three people, light bags.' },
+    { name: 'Hyundai Staria VIP', seats: 'Up to 7 passengers', bags: 'About 4 large suitcases', note: 'Families; easy sliding doors, room to stretch.' },
+    { name: 'GMC Yukon XL', seats: 'Up to 7 passengers', bags: 'About 5 large suitcases', note: 'The most luggage space for a family.' },
+    { name: 'Toyota Hiace', seats: 'Up to 11 passengers', bags: 'Group luggage; send your count', note: 'Larger groups in one vehicle.' },
+];
 
-    
-
+export default function JeddahAlUlaRoutePage() {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation 
-                cityName="Jeddah to Alula"
-                description="Professional private car service for Jeddah to Alula. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
-                services={[
-                    { name: 'Jeddah to Alula Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
-                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
-                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
-                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
-                ]}
-                
-                image="https://taxiserviceksa.com/hero-slide-1.webp"
-            />
+        <div className="jeddah-alula bg-[#fbf7f2]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            {/* Hero Section */}
-            <Hero
-                images={routeImages}
-                h1Text="Online Taxi from Jeddah to Al Ula"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Jeddah → Al Ula Route
-                    </span>
-                }
-                subtitle="Journey to Hegra & Elephant Rock"
-                location="700 km | ~7.5 Hours | WhatsApp Booking"
-            >
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking/?from=Jeddah&to=AlUla">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book This Route
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </Link>
-                    <a href="mailto:info@taxiserviceksa.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Email for Quote
-                        </Button>
-                    </a>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#431407]">
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_#9a3412_0%,_#431407_62%)]" aria-hidden="true" />
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-8 lg:gap-12 items-start">
+                    <div className="text-white lg:pt-6 min-w-0">
+                        <p className={`${eyebrow} text-[#fed7aa] mb-4`}>Red Sea coast → AlUla · {KM}</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight mb-4">Jeddah to AlUla by Private Car: Route and Travel Guide</h1>
+                        <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-7 max-w-xl">
+                            A full day on the road from the coast to the sandstone valleys of AlUla, in one private car from your Jeddah hotel or the airport to your hotel or resort. If you want, the driver can stay with you in AlUla too.
+                        </p>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-6">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-white text-[#431407] hover:bg-[#fbf7f2]">
+                                <a href={QUOTE_HREF}>Request a Quote <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book via WhatsApp</a>
+                            </Button>
+                        </div>
+                        <ul className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-5 gap-y-2 text-sm text-white/85">
+                            {[DRIVE + ' driving', 'Hotel or resort drop-off', 'Driver in AlUla on request', 'Fare agreed before travel'].map((x) => (
+                                <li key={x} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-[#fed7aa] shrink-0" aria-hidden="true" />{x}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div id="quote" className="scroll-mt-32 min-w-0">
+                        <RouteQuoteCard
+                            title="Request your Jeddah to AlUla car"
+                            cta="Send my request"
+                            fromPlaceholder="Jeddah hotel, address or airport"
+                            toPlaceholder="AlUla hotel, resort or address"
+                            fromChips={['Jeddah hotel', JED, 'Jeddah address']}
+                            toChips={['AlUla hotel', 'AlUla resort', 'AlUla Old Town']}
+                            showFlight="auto"
+                            returnNote="Also need: return to Jeddah and/or a driver in AlUla - dates to confirm."
+                            buttonClass="bg-[#b45309] hover:bg-[#92400e] focus-visible:ring-[#b45309]"
+                        />
+                    </div>
                 </div>
-            </Hero>
+            </section>
 
-            {/* Route Details Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Long Distance</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Jeddah to Al Ula Heritage Transfer</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            A comfortable, long-distance journey from the Red Sea coast to the ancient deserts of Al Ula.
+            {/* ================= FIRST DECISION: ROAD OR AIR ================= */}
+            <section aria-labelledby="mode" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="mode" className={`${h2} mb-3`}>First Question: Drive or Fly?</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">
+                        AlUla has its own airport, and flights from Jeddah are far quicker in the air. We would rather you pick the right option than book a car you did not need.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="rounded-3xl bg-[#fbf7f2] p-7">
+                            <Plane className="w-7 h-7 text-[#431407] mb-3" aria-hidden="true" />
+                            <h3 className={`${h3} mb-3`}>Fly if…</h3>
+                            <ul className="space-y-2 text-sm text-stone-700">
+                                <Tick>Time is the main thing and a flight time suits you</Tick>
+                                <Tick>You travel light enough for the baggage allowance</Tick>
+                                <Tick>You have a car arranged from AlUla airport (ULH)</Tick>
+                            </ul>
+                        </div>
+                        <div className="rounded-3xl bg-[#431407] text-white p-7">
+                            <Car className="w-7 h-7 text-[#fed7aa] mb-3" aria-hidden="true" />
+                            <h3 className="text-xl font-bold mb-3">Drive if…</h3>
+                            <ul className="space-y-2 text-sm text-white/85">
+                                {['You are a family or group and tickets add up', 'You carry a lot of luggage or equipment', 'No flight fits, or flights are full', 'You want to stop on the way, for example in Madinah', 'You want the same car and driver in AlUla afterwards'].map((x) => (
+                                    <li key={x} className="flex gap-2.5"><Check className="w-4 h-4 mt-0.5 text-[#fed7aa] shrink-0" aria-hidden="true" />{x}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <p className="text-sm text-stone-600 mt-5">Compare the whole day: airport check-in and the ride from ULH on one side, a long drive with breaks on the other. Check current flights and fares with the airline.</p>
+                </div>
+            </section>
+
+            {/* ================= THE DAY ON THE ROAD ================= */}
+            <section aria-labelledby="road" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                    <div className={prose}>
+                        <h2 id="road" className={`${h2} mb-2`}>A Day on the Road</h2>
+                        <p>
+                            It is {KM.toLowerCase()}, {DRIVE.toLowerCase()} behind the wheel. The usual way runs north via Madinah, which makes a natural halfway point for lunch and prayer, then on through open desert to AlUla. The driver chooses the route on the day from current road conditions.
+                        </p>
+                        <p>
+                            Plan for one proper break and a couple of short ones. With children or elderly passengers, tell us and we plan more. Bring water and snacks; long stretches between towns have few places to stop.
+                        </p>
+                        <p>
+                            Leaving in the morning usually means arriving in the late afternoon or evening. That is a rough guide, not a timetable: we will not promise you a sunset at Elephant Rock after a 700 km drive.
                         </p>
                     </div>
+                    <RouteJourney
+                        vehicle
+                        palette="platinum"
+                        stops={[
+                            { title: 'Jeddah pickup', text: 'Your hotel, an address, or the airport after your flight.' },
+                            { title: 'North out of Jeddah', text: 'City traffic first, then the highway.' },
+                            { title: 'Madinah area', text: 'A natural halfway break for food and prayer.', accent: true },
+                            { title: 'Desert stretch', text: 'Long, quiet roads with fewer services; short stops as needed.' },
+                            { title: 'AlUla', text: 'Your hotel or resort, at the point the property allows.' },
+                        ]}
+                    />
+                </div>
+            </section>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                        {routeDetails.map((detail, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 text-center border border-gray-200">
-                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <detail.icon className="w-8 h-8 text-black" />
-                                </div>
-                                <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">{detail.label}</div>
-                                <div className="text-2xl font-bold text-gray-900">{detail.value}</div>
+            {/* ================= ARRIVING ================= */}
+            <section aria-labelledby="arrive" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="arrive" className={`${h2} mb-3`}>AlUla Is a Valley, Not a Single Address</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">Hotels, resorts, the Old Town and the heritage sites are spread out. Send the exact property name so we drive to the right place.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {[
+                            { icon: Hotel, t: 'Hotels and resorts', d: 'Some resorts sit in valleys outside the town and only let guest vehicles go to a set point, where the resort takes over. Tell us the property; ask it about early check-in if you will arrive before the usual time.' },
+                            { icon: Mountain, t: 'Elephant Rock (Jabal AlFil)', d: 'The famous sandstone arch is best in the late afternoon and evening. After the drive from Jeddah, treat a same-day visit as a bonus, and check the current opening times on Experience AlUla.' },
+                            { icon: Landmark, t: 'Hegra', d: 'Saudi Arabia’s first UNESCO World Heritage Site is visited on a ticketed tour from its welcome centre; you cannot drive in. Book it through the official channels, ideally for a day after you arrive.' },
+                        ].map(({ icon: Icon, t, d }) => (
+                            <div key={t} className="rounded-2xl bg-[#fbf7f2] p-6">
+                                <Icon className="w-6 h-6 text-[#b45309] mb-3" aria-hidden="true" />
+                                <h3 className="text-lg font-bold text-[#431407] mb-2">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
                             </div>
                         ))}
                     </div>
-
-                    {/* Features */}
-                    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
-                        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <h3 className="text-2xl md:text-3xl font-bold mb-6">Why Drive to Al Ula?</h3>
-                                <p className="text-gray-300 mb-8 leading-relaxed">
-                                    The drive to Al Ula is an adventure in itself. As you leave the coastal humidity of Jeddah, you'll ascend into the mountains and then across the vast, beautiful Saudi desert. Arrive directly at your resort or camp in Al Ula without the hassle of airport transfers or car rentals.
-                                </p>
-                                <ul className="space-y-4">
-                                    <li className="flex items-center gap-3">
-                                        <div className="bg-primary/20 p-2 rounded-full">
-                                            <Mountain className="w-5 h-5 text-primary" />
-                                        </div>
-                                        <span>See the changing landscapes</span>
-                                    </li>
-                                    <li className="flex items-center gap-3">
-                                        <div className="bg-primary/20 p-2 rounded-full">
-                                            <Car className="w-5 h-5 text-primary" />
-                                        </div>
-                                        <span>Maximum comfort in GMC Yukon</span>
-                                    </li>
-                                    <li className="flex items-center gap-3">
-                                        <div className="bg-primary/20 p-2 rounded-full">
-                                            <Clock className="w-5 h-5 text-primary" />
-                                        </div>
-                                        <span>Flexible departure times</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-                                <h4 className="font-bold text-xl mb-4">Recommended Schedule</h4>
-                                <div className="space-y-6">
-                                    <div className="flex gap-4">
-                                        <span className="font-mono text-primary">08:00 AM</span>
-                                        <p className="text-sm text-gray-300">Depart Jeddah to avoid rush hour</p>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <span className="font-mono text-primary">12:00 PM</span>
-                                        <p className="text-sm text-gray-300">Lunch & Prayer Stop (Halfway)</p>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <span className="font-mono text-primary">03:30 PM</span>
-                                        <p className="text-sm text-gray-300">Arrive in Al Ula for Check-in</p>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <span className="font-mono text-primary">05:00 PM</span>
-                                        <p className="text-sm text-gray-300">Sunset at Elephant Rock</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <p className="text-sm text-stone-600 mt-6">More about getting around once you are there: <Link href="/locations/alula/" className={link}>AlUla transfers and local trips</Link>.</p>
                 </div>
             </section>
 
-            {/* Pricing Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
-                            <Star className="w-4 h-4 text-emerald-700" />
-                            <span className="text-sm font-semibold text-emerald-900">Long Distance Fares</span>
-                        </div>
-
-                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            Jeddah to Al Ula Pricing
-                        </h3>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Flat rates for the 700km journey. Fuel and driver included.
+            {/* ================= DRIVER IN ALULA ================= */}
+            <section aria-labelledby="stay" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+                    <div className={prose}>
+                        <Sun className="w-7 h-7 text-[#b45309]" aria-hidden="true" />
+                        <h2 id="stay" className={`${h2} mb-2`}>Keep the Driver for Your Stay</h2>
+                        <p>
+                            AlUla&apos;s sights are far apart and there is little public transport between them. Instead of a one-way drop, you can keep a car and driver while you are there: to the Old Town, Elephant Rock in the evening, the Hegra welcome centre for your tour, and back to your resort for dinner.
                         </p>
+                        <p>
+                            This is quoted separately from the transfer, by the hour or by the day; a stay of several days is quoted as one booking. Tell us your dates and a rough plan for each day.
+                        </p>
+                        <p className="text-sm">Entry tickets, tours and guides are not included; the driver is not a tour guide. <Link href="/services/private-driver/" className={link}>Private driver hire</Link>.</p>
                     </div>
+                    <aside className="rounded-3xl bg-white border border-[#431407]/10 p-7">
+                        <h3 className={`${h3} mb-4`}>Tell us for an AlUla driver</h3>
+                        <ul className="space-y-2 text-sm text-stone-700">
+                            <Tick>Your arrival and departure dates</Tick>
+                            <Tick>Where you are staying</Tick>
+                            <Tick>Any booked tour times (Hegra, for example)</Tick>
+                            <Tick>Whether the same car takes you back to Jeddah</Tick>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Car className="w-6 h-6 text-emerald-600" />
+            {/* ================= VEHICLES + FARE ================= */}
+            <section aria-labelledby="vehicles" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="vehicles" className={`${h2} mb-3`}>A Car for Eight Hours, Not Twenty Minutes</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-8">On a trip this long, legroom and luggage space matter more than usual. Choose by suitcases as well as seats. <Link href="/fleet/" className={link}>See the full fleet</Link>.</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {vehicles.map((v) => (
+                            <div key={v.name} className="rounded-2xl bg-[#fbf7f2] p-6">
+                                <h3 className="font-bold text-[#431407] mb-2">{v.name}</h3>
+                                <ul className="space-y-1.5 text-sm text-stone-600 mb-3">
+                                    <li className="flex gap-2"><Users className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />{v.seats}</li>
+                                    <li className="flex gap-2"><Luggage className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />{v.bags}</li>
+                                </ul>
+                                <p className="text-sm text-stone-700">{v.note}</p>
                             </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
-                            <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-emerald-600">Economy Rate</span>
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                3 Passengers / 2 Bags
-                            </div>
+                        ))}
+                    </div>
+                    <p className="text-sm text-stone-600 mt-4">Mercedes S-Class, Cadillac Escalade or Mercedes Sprinter: on request, confirmed for your date.</p>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10">
+                        <div className="rounded-3xl border border-[#431407]/10 p-7">
+                            <h3 className={`${h3} mb-3`}>How the fare works</h3>
+                            <p className="text-sm text-stone-700 leading-relaxed">One price for the whole vehicle, quoted for your date, car and addresses. The quote states what it covers. Once you accept, it stays the same unless the trip changes.</p>
                         </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
-                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
-                                MOST COMFORTABLE
-                            </div>
-                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Users className="w-6 h-6 text-emerald-600" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
-                            <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-emerald-600">Rate</span>
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                6 Passengers / 5 Bags
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <MapPin className="w-6 h-6 text-emerald-600" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Hyundai Staria</div>
-                            <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-emerald-600">Family Rate</span>
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                7 Passengers / 6 Bags
-                            </div>
+                        <div className="rounded-3xl border border-[#431407]/10 p-7">
+                            <h3 className={`${h3} mb-3`}>Not part of the transfer fare</h3>
+                            <ul className="space-y-2 text-sm text-stone-700">
+                                {['A driver in AlUla during your stay', 'Hegra or attraction tickets and tours', 'Long detours or extra pickups', 'The return to Jeddah', 'Child seats (on request, not free)'].map((x) => (
+                                    <li key={x} className="flex gap-2.5"><X className="w-4 h-4 mt-1 text-stone-400 shrink-0" aria-hidden="true" /><span>{x}</span></li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <RouteFleetSection />
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Jeddah" />
-                <RelatedRoutes originSlug="jeddah" currentSlug="jeddah-alula" />
-            </div>
-
-            <MicroSemanticFAQ
-                        contextName="Jeddah to Alula"
-                faqs={[
-                    {
-                        question: "How long is the taxi ride from Jeddah to Al Ula?",
-                        shortAnswer: "7 - 8 Hours",
-                        detailedAnswer: "The journey from Jeddah to Al Ula is approximately 700 km and takes about 7 to 8 hours by car. The route passes through scenic desert landscapes and small towns.",
-                        perspectives: []
-                    },
-                    {
-                        question: "What is the price of a taxi from Jeddah to Al Ula?",
-                        shortAnswer: "Affordable WhatsApp Booking",
-                        detailedAnswer: "Fixed rates are available for sedans and luxury GMC Yukon SUVs. This price includes fuel, driver service, and taxes.",
-                        perspectives: []
-                    },
-                    {
-                        question: "Is it better to fly or drive to Al Ula?",
-                        shortAnswer: "Drive = Scenic",
-                        detailedAnswer: "Flying is faster (1 hour flight) but flights can be infrequent. Driving offers flexibility, door-to-door service, and the chance to see the changing Saudi landscape. It's often more economical for groups.",
-                        perspectives: []
-                    },
-                    {
-                        question: "Are there rest stops on the way to Al Ula?",
-                        shortAnswer: "Yes, Many Stops",
-                        detailedAnswer: "Yes, there are several gas stations and rest areas along the highway (Route 15 & Route 328) where you can stop for food, prayer, and restrooms.",
-                        perspectives: []
-                    }
-                ]}
-            />
-
-            {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Experience Al Ula
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Don't let flight schedules dictate your adventure. Get a quote for your private ride to Al Ula today.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking/?from=Jeddah&to=AlUla">
-                            <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for Quote
-                            </Button>
-                        </a>
+            {/* ================= BOOKING ================= */}
+            <section aria-labelledby="book" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                    <div className={prose}>
+                        <h2 id="book" className={`${h2} mb-2`}>Request Your Quote</h2>
+                        <ol className="space-y-3">
+                            {[
+                                ['Jeddah pickup', 'Hotel or address, or the airport with your flight number.'],
+                                ['AlUla destination', 'The exact hotel or resort name.'],
+                                ['Date and start time', 'An early start gives the most daylight on arrival.'],
+                                ['People and bags', 'Adults, children, large and small suitcases, anything bulky.'],
+                                ['Extras', 'Return date, a driver in AlUla, or a stop on the way.'],
+                            ].map(([t, d], i) => (
+                                <li key={t} className="flex gap-4">
+                                    <span className="inline-flex w-8 h-8 shrink-0 items-center justify-center rounded-full bg-[#b45309] text-white font-black text-sm" aria-hidden="true">{i + 1}</span>
+                                    <span><strong className="text-[#431407]">{t}.</strong> {d}</span>
+                                </li>
+                            ))}
+                        </ol>
+                        <p>We reply with the vehicle, the fare and what it covers. The booking is final once you accept and we confirm; payment and change terms are explained then.</p>
+                        <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                            <a href={QUOTE_HREF} className={primary}>Request a quote <Arrow /></a>
+                            <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer" className={ghost}><WhatsAppIcon className="w-4 h-4 fill-current" /> WhatsApp +966 57 580 6733</a>
+                        </div>
+                        <p className="text-sm flex gap-2"><Clock className="w-4 h-4 mt-0.5 text-[#b45309] shrink-0" aria-hidden="true" />Pickups run 24 hours a day; book long trips well ahead.</p>
                     </div>
+                    <div className="rounded-3xl bg-white border border-[#431407]/10 p-7">
+                        <h3 className={`${h3} mb-4`}>Message you can copy</h3>
+                        <pre className="whitespace-pre-wrap text-sm text-stone-700 font-sans leading-relaxed">{`Hello Taxi Service KSA,
+Jeddah to AlUla private car, please:
+Jeddah pickup: [hotel / address / flight]
+AlUla drop-off: [hotel or resort name]
+Date: [ ]   Start time: [ ]
+Passengers: [adults / children]
+Bags: [large / small]
+Vehicle: [Camry / Staria / GMC / Hiace / not sure]
+Return to Jeddah: [date or no]
+Driver in AlUla: [days or no]`}</pre>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className={`${h2} mb-8`}>Jeddah to AlUla: Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#431407]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#431407] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-stone-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                    <div className="flex flex-wrap gap-2 mt-10">
+                        {[
+                            ['AlUla to Jeddah', '/routes/alula-jeddah/'],
+                            ['Jeddah to Madinah private car', '/routes/jeddah-madinah/'],
+                            ['Madinah to AlUla', '/routes/madinah-alula/'],
+                            ['Jeddah to Makkah', '/routes/jeddah-makkah/'],
+                            ['Jeddah to Abha', '/routes/jeddah-abha/'],
+                            ['AlUla transfers', '/locations/alula/'],
+                        ].map(([l, h]) => (
+                            <Link key={h} href={h} className="rounded-full border border-[#431407]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#431407] hover:border-[#b45309] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b45309]">{l}</Link>
+                        ))}
+                    </div>
+                    <p className="text-xs text-stone-500 mt-6 flex gap-2"><Info className="w-4 h-4 shrink-0" aria-hidden="true" />Distances and driving times are estimates. Attraction hours and access rules change; check Experience AlUla before you go.</p>
                 </div>
             </section>
         </div>
     );
 }
-
-
-
