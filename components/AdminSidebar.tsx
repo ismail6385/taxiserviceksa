@@ -52,6 +52,7 @@ const menuItems = [
     { name: 'Driver Onboarding', href: '/admin/driver-management', icon: UserCog },
     { name: 'Reports',         href: '/admin/reports',             icon: BarChart2 },
     { name: 'Trips by City',   href: '/admin/trips-by-city',       icon: Map },
+    { name: 'Upcoming by City', href: '/admin/upcoming-by-city',  icon: CalendarDays },
     { name: 'Commissions',     href: '/admin/commissions',         icon: Wallet },
     { name: 'Pricing',         href: '/admin/pricing',             icon: DollarSign },
     { name: 'WA Templates',    href: '/admin/whatsapp-templates',  icon: MessageSquare },
