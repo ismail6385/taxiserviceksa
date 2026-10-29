@@ -54,6 +54,7 @@ import { getPrice } from '@/lib/pricing';
 import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import ItineraryLegsEditor, { type ItineraryLeg } from '@/components/admin/ItineraryLegsEditor';
 import AdditionalStopsEditor, { type AdditionalStop } from '@/components/admin/AdditionalStopsEditor';
+import DriverMessageDialog from '@/components/admin/DriverMessageDialog';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -222,6 +223,7 @@ export default function BookingsPage() {
 
     // Sheet State
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+    const [driverMsgBooking, setDriverMsgBooking] = useState<Booking | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [editedBooking, setEditedBooking] = useState<Booking | null>(null);
     const [isCreating, setIsCreating] = useState(false);
@@ -1146,20 +1148,6 @@ export default function BookingsPage() {
         });
     };
 
-    const shareDriverDetails = (booking: Booking) => {
-        const isDelivery = booking.booking_type === 'delivery';
-        const hourlyLine = !isDelivery && booking.trip_type === 'hourly' ? `\n*Duration:* ${booking.duration_hours || '?'} hours (Hourly Hire)` : '';
-        const contractLine = booking.contract_id ? `\n*Contract:* Recurring Monthly Client` : '';
-        const loadLine = isDelivery
-            ? `*Recipient:* ${booking.recipient_name || '—'} (${booking.recipient_phone || '—'})\n*Item:* ${itemTypeLabel(booking)} × ${booking.item_count || 1}${booking.item_size_weight ? ` (${booking.item_size_weight})` : ''}`
-            : `*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}`;
-        const text = `${isDelivery ? '*NEW DELIVERY FOR DRIVER — NO PASSENGER*' : '*NEW TRIP FOR DRIVER*'} \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*${isDelivery ? 'Sender' : 'Client'}:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date}\n*Time:* ${booking.pickup_time}${hourlyLine}${contractLine}\n\n*Vehicle:* ${booking.vehicle_type}\n${loadLine}\n\n*Notes:* ${booking.special_requests || 'None'}`;
-
-        navigator.clipboard.writeText(text).then(() => {
-            alert('Driver details (No Price) copied!');
-        });
-    };
-
     const sendWhatsAppHello = (booking: Booking) => {
         const isDelivery = booking.booking_type === 'delivery';
         const returnText = !isDelivery && hasStructuredReturnLeg(booking)
@@ -1485,6 +1473,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
     return (
         <div className="text-gray-900 p-4 md:p-6 max-w-full xl:max-w-7xl mx-auto w-full">
+            <DriverMessageDialog booking={driverMsgBooking} onClose={() => setDriverMsgBooking(null)} />
             {/* Real-time New Booking Alert */}
             {newBookingAlert && (
                 <div className="fixed top-20 right-4 z-50 animate-in fade-in slide-in-from-right-4">
@@ -1994,6 +1983,15 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 <Button
                                                     variant="ghost"
                                                     size="icon"
+                                                    onClick={() => setDriverMsgBooking(booking)}
+                                                    className="h-8 w-8 text-amber-600 hover:text-amber-700 hover:bg-amber-50"
+                                                    title="Send to Driver"
+                                                >
+                                                    <Car className="h-4 w-4" />
+                                                </Button>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
                                                     onClick={() => router.push(`/admin/bookings/${booking.id}/handover`)}
                                                     className="h-8 w-8 text-orange-600 hover:text-orange-700 hover:bg-orange-50"
                                                     title="Driver Handover Sheet"
@@ -2150,6 +2148,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </Button>
                                     <Button variant="ghost" size="icon" onClick={() => openWhatsApp(booking.customer_phone)} className="h-9 w-9 text-emerald-600 hover:bg-emerald-50" title="Open WhatsApp">
                                         <MessageSquare className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" onClick={() => setDriverMsgBooking(booking)} className="h-9 w-9 text-amber-600 hover:bg-amber-50" title="Send to Driver">
+                                        <Car className="h-4 w-4" />
                                     </Button>
                                     <Button variant="ghost" size="icon" onClick={() => router.push(`/admin/bookings/${booking.id}/handover`)} className="h-9 w-9 text-orange-600 hover:bg-orange-50" title="Driver Handover Sheet">
                                         <Printer className="h-4 w-4" />
@@ -3426,8 +3427,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <Button variant="outline" className="w-full bg-green-50 border-green-200 hover:bg-green-100 hover:text-green-900 text-green-700 transition-all font-semibold" onClick={() => shareClientDetails(selectedBooking)}>
                                             <MessageSquare className="w-4 h-4 mr-2 text-green-600" /> Copy Client Details (WhatsApp)
                                         </Button>
-                                        <Button variant="outline" className="w-full bg-amber-50 border-amber-200 hover:bg-amber-100 hover:text-amber-900 text-amber-700 transition-all font-semibold" onClick={() => shareDriverDetails(selectedBooking)}>
-                                            <Car className="w-4 h-4 mr-2 text-amber-600" /> Copy for Driver (No Price)
+                                        <Button variant="outline" className="w-full bg-amber-50 border-amber-200 hover:bg-amber-100 hover:text-amber-900 text-amber-700 transition-all font-semibold" onClick={() => setDriverMsgBooking(selectedBooking)}>
+                                            <Car className="w-4 h-4 mr-2 text-amber-600" /> Send to Driver (Copy / WhatsApp)
                                         </Button>
                                         <Button 
                                             variant="outline" 

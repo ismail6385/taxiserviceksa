@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { ksaToday, shiftIsoDate } from '@/lib/ksa-time';
-import { Loader2, MapPin, ArrowRight, X, Search } from 'lucide-react';
+import { Loader2, MapPin, ArrowRight, X, Search, Car } from 'lucide-react';
+import DriverMessageDialog from '@/components/admin/DriverMessageDialog';
+import type { DriverMessageBooking } from '@/lib/driver-message';
 
-interface Trip {
+interface Trip extends DriverMessageBooking {
     id: string;
     pickup_location: string | null;
     destination: string | null;
@@ -126,11 +128,13 @@ export default function TripsByCity({ initialView = 'all' }: { initialView?: 'al
     const [pair, setPair] = useState<string | null>(null);
     const [search, setSearch] = useState('');
     const view = initialView;
+    const [driverMsg, setDriverMsg] = useState<Trip | null>(null);
 
     useEffect(() => {
         supabase.auth.getSession().then(async ({ data: { session } }) => {
             if (!session) { router.push('/admin/login'); return; }
-            const cols = 'id,pickup_location,destination,pickup_date,pickup_time,customer_name,customer_phone,vehicle_type,driver_name,status,total_price,currency';
+            // All columns: the driver message needs stops, return leg, payment and more.
+            const cols = '*';
             let res = await supabase.from('bookings').select(cols).is('deleted_at', null).order('pickup_date', { ascending: false });
             // Older databases may not have the soft-delete column.
             if (res.error) res = await supabase.from('bookings').select(cols).order('pickup_date', { ascending: false });
@@ -221,6 +225,7 @@ export default function TripsByCity({ initialView = 'all' }: { initialView?: 'al
 
     return (
         <div className="max-w-7xl mx-auto space-y-6">
+            <DriverMessageDialog booking={driverMsg} onClose={() => setDriverMsg(null)} />
             <div>
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{view === 'upcoming' ? 'Upcoming Trips by City' : 'Trips by City'}</h1>
                 <p className="text-sm text-gray-500 mt-1">{view === 'upcoming'
@@ -349,7 +354,10 @@ export default function TripsByCity({ initialView = 'all' }: { initialView?: 'al
                                         <td className="px-4 py-2.5 text-gray-700">{t.vehicle_type || '-'}<div className="text-xs text-gray-500">{t.driver_name}</div></td>
                                         <td className="px-4 py-2.5"><span className={`rounded-full px-2 py-0.5 text-xs font-medium ${STATUS_STYLE[t.status] || 'bg-gray-100 text-gray-700'}`}>{t.status.replace('_', ' ')}</span></td>
                                         <td className="px-4 py-2.5 text-right whitespace-nowrap text-gray-900">{t.total_price ? `${t.currency || 'SAR'} ${money(Number(t.total_price))}` : '-'}</td>
-                                        <td className="px-4 py-2.5 whitespace-nowrap"><Link href={`/admin/bookings/${t.id}/letterhead`} className="text-emerald-700 hover:underline text-xs font-medium">Quotation</Link></td>
+                                        <td className="px-4 py-2.5 whitespace-nowrap">
+                                            <button type="button" onClick={() => setDriverMsg(t)} className="inline-flex items-center gap-1 rounded-md bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-800 hover:bg-amber-100"><Car className="w-3.5 h-3.5" />Driver</button>
+                                            <Link href={`/admin/bookings/${t.id}/letterhead`} className="ml-2 text-emerald-700 hover:underline text-xs font-medium">Quotation</Link>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
