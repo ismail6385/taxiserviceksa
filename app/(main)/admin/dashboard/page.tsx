@@ -166,8 +166,15 @@ export default function AdminDashboard() {
     const scheduleFor = (date: string) => bookings
         .filter(b => b.pickup_date === date && !['cancelled', 'completed'].includes(b.status))
         .sort((a, b) => (a.pickup_time || '').localeCompare(b.pickup_time || ''));
-    const todaySchedule    = scheduleFor(today);
-    const tomorrowSchedule = scheduleFor(tomorrowStr);
+    // Next 7 days, one separate list per Saudi date so trips of one day never
+    // run into the next.
+    const DAY_ACCENTS = ['bg-amber-400 text-black', 'bg-sky-400 text-black', 'bg-violet-400 text-black', 'bg-emerald-400 text-black', 'bg-pink-400 text-black', 'bg-orange-400 text-black', 'bg-teal-400 text-black'];
+    const weekSchedule = Array.from({ length: 7 }, (_, i) => {
+        const date = i === 0 ? today : i === 1 ? tomorrowStr : ksaToday(i);
+        const title = i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : new Date(`${date}T12:00:00Z`).toLocaleDateString('en-GB', { weekday: 'short', timeZone: 'UTC' });
+        return { key: date, title, date, list: scheduleFor(date), accent: DAY_ACCENTS[i], empty: i === 0 ? 'No trips today.' : i === 1 ? 'No trips tomorrow.' : 'No trips this day.' };
+    });
+    const weekTotal = weekSchedule.reduce((n, d) => n + d.list.length, 0);
 
     // Monthly bookings (last 6 months)
     const monthlyMap: Record<string, number> = {};
@@ -205,10 +212,10 @@ export default function AdminDashboard() {
                 </Button>
             </div>
 
-            {/* Today / Tomorrow Schedule */}
+            {/* Next 7 days schedule */}
             <div className="mb-8">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-bold">Today &amp; Tomorrow Schedule</h2>
+                    <h2 className="text-lg font-bold">Next 7 Days Schedule <span className="ml-1 text-sm font-normal text-neutral-400">({weekTotal} {weekTotal === 1 ? 'trip' : 'trips'})</span></h2>
                     <Button
                         variant="outline" size="sm"
                         onClick={() => router.push('/admin/bookings')}
@@ -219,12 +226,9 @@ export default function AdminDashboard() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-                    {/* Schedule: today and tomorrow as two clearly separate lists */}
+                    {/* Schedule: each of the next 7 days as its own separate list */}
                     <div className="lg:col-span-2 space-y-5">
-                        {[
-                            { key: 'today', title: 'Today', date: today, list: todaySchedule, accent: 'bg-amber-400 text-black' },
-                            { key: 'tomorrow', title: 'Tomorrow', date: tomorrowStr, list: tomorrowSchedule, accent: 'bg-sky-400 text-black' },
-                        ].map(day => (
+                        {weekSchedule.map(day => (
                             <section key={day.key} className="bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden">
                                 <header className="flex items-center justify-between gap-3 px-5 py-3 border-b border-neutral-700 bg-neutral-900/60">
                                     <div className="flex items-center gap-3">
@@ -234,7 +238,7 @@ export default function AdminDashboard() {
                                     <span className="text-xs text-neutral-400">{day.list.length} {day.list.length === 1 ? 'trip' : 'trips'}</span>
                                 </header>
                                 {day.list.length === 0 ? (
-                                    <p className="px-5 py-6 text-sm text-neutral-500">No trips {day.key === 'today' ? 'today' : 'tomorrow'}.</p>
+                                    <p className="px-5 py-4 text-sm text-neutral-500">{day.empty}</p>
                                 ) : (
                                     <div className="divide-y divide-neutral-700/50">
                                         {day.list.map(b => (
