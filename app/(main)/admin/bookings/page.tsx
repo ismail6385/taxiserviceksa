@@ -48,13 +48,15 @@ import {
     Users,
     Mail,
     Truck,
-    Package
+    Package,
+    Repeat
 } from 'lucide-react';
 import { getPrice } from '@/lib/pricing';
 import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import ItineraryLegsEditor, { type ItineraryLeg } from '@/components/admin/ItineraryLegsEditor';
 import AdditionalStopsEditor, { type AdditionalStop } from '@/components/admin/AdditionalStopsEditor';
 import DriverMessageDialog from '@/components/admin/DriverMessageDialog';
+import { waNumber } from '@/lib/driver-message';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -143,6 +145,84 @@ const VEHICLE_OPTIONS = [
     'Luxurious Bus',
     'Toyota RAV4 Hybrid 2025',
 ];
+
+// Empty Create Booking form. A function so the date is today in KSA each time.
+const blankNewBooking = (): Partial<Booking> => ({
+    customer_name: '',
+    customer_email: '',
+    customer_phone: '',
+    pickup_location: '',
+    destination: '',
+    pickup_date: ksaToday(),
+    pickup_time: '12:00',
+    trip_end_date: '',
+    vehicle_type: 'Sedan',
+    passengers: 1,
+    luggage: 0,
+    total_price: 0,
+    deposit_amount: null,
+    special_requests: '',
+    internal_notes: '',
+    tags: '',
+    actual_vehicle: '',
+    payment_status: 'unpaid',
+    driver_name: '',
+    driver_phone: '',
+    driver_plate: '',
+    flight_number: '',
+    currency: 'SAR',
+    payment_method: 'Cash to Driver',
+    has_return_trip: false,
+    return_date: '',
+    return_time: '',
+    return_pickup_location: '',
+    return_destination: '',
+    trip_type: 'point_to_point',
+    itinerary_legs: [],
+    additional_stops: [],
+    booking_type: 'passenger',
+    recipient_name: '',
+    recipient_phone: '',
+    item_type: '',
+    item_description: '',
+    item_count: 1,
+    item_size_weight: '',
+});
+
+// Same customer even when one booking has 05xxxxxxxx and another +966 5x xxx xxxx.
+const phoneKey = (phone?: string | null) => waNumber(phone).slice(-9);
+const samePhone = (a?: string | null, b?: string | null) => {
+    const ka = phoneKey(a);
+    return ka.length >= 7 && ka === phoneKey(b);
+};
+
+// What a repeat customer's new booking can take from an old one: who they are
+// and the trip itself. Date, time, flight, driver, notes and payment status
+// always start fresh. reverse = the trip back (pickup and drop-off swapped).
+const rebookFields = (b: Booking, reverse = false): Partial<Booking> => ({
+    customer_name: b.customer_name || '',
+    customer_email: b.customer_email || '',
+    customer_phone: b.customer_phone || '',
+    pickup_location: (reverse ? b.destination : b.pickup_location) || '',
+    destination: (reverse ? b.pickup_location : b.destination) || '',
+    vehicle_type: b.vehicle_type || 'Sedan',
+    passengers: b.passengers || 1,
+    luggage: b.luggage || 0,
+    child_seats: b.child_seats,
+    total_price: b.total_price || 0,
+    currency: b.currency || 'SAR',
+    payment_method: b.payment_method || 'Cash to Driver',
+    trip_type: b.trip_type === 'hourly' ? 'hourly' : 'point_to_point',
+    duration_hours: b.trip_type === 'hourly' ? b.duration_hours : undefined,
+    booking_type: b.booking_type === 'delivery' ? 'delivery' : 'passenger',
+    recipient_name: b.recipient_name || '',
+    recipient_phone: b.recipient_phone || '',
+    item_type: b.item_type || '',
+    item_description: b.item_description || '',
+    item_count: b.item_count || 1,
+    item_size_weight: b.item_size_weight || '',
+    tags: b.tags || '',
+});
 
 interface Booking {
     id: string;
@@ -292,47 +372,7 @@ export default function BookingsPage() {
     // emailed about the change. Never sent automatically.
     const [notifyClientOnSave, setNotifyClientOnSave] = useState(false);
 
-    const [newBooking, setNewBooking] = useState<Partial<Booking>>({
-        customer_name: '',
-        customer_email: '',
-        customer_phone: '',
-        pickup_location: '',
-        destination: '',
-        pickup_date: ksaToday(),
-        pickup_time: '12:00',
-        trip_end_date: '',
-        vehicle_type: 'Sedan',
-        passengers: 1,
-        luggage: 0,
-        total_price: 0,
-        deposit_amount: null,
-        special_requests: '',
-        internal_notes: '',
-        tags: '',
-        actual_vehicle: '',
-        payment_status: 'unpaid',
-        driver_name: '',
-        driver_phone: '',
-        driver_plate: '',
-        flight_number: '',
-        currency: 'SAR',
-        payment_method: 'Cash to Driver',
-        has_return_trip: false,
-        return_date: '',
-        return_time: '',
-        return_pickup_location: '',
-        return_destination: '',
-        trip_type: 'point_to_point',
-        itinerary_legs: [],
-        additional_stops: [],
-        booking_type: 'passenger',
-        recipient_name: '',
-        recipient_phone: '',
-        item_type: '',
-        item_description: '',
-        item_count: 1,
-        item_size_weight: '',
-    });
+    const [newBooking, setNewBooking] = useState<Partial<Booking>>(blankNewBooking);
     const [bookingFieldErrors, setBookingFieldErrors] = useState<Record<string, string>>({});
     const [pasteText, setPasteText] = useState('');
     const [pasteResult, setPasteResult] = useState<{ filled: string[]; unread: string[] } | null>(null);
@@ -557,7 +597,7 @@ export default function BookingsPage() {
         // 1. Auto-fill by phone (exact match — phone is a reliable unique id)
         const phone = newBooking.customer_phone?.trim() || '';
         if (phone.length >= 5) {
-            const existingByPhone = bookings.find(b => b.customer_phone === phone);
+            const existingByPhone = bookings.find(b => samePhone(b.customer_phone, phone));
             if (existingByPhone && !newBooking.customer_name) {
                 setNewBooking(prev => ({
                     ...prev,
@@ -568,7 +608,7 @@ export default function BookingsPage() {
 
             // Duplicate detection (Phone + Date + Time)
             const duplicate = bookings.find(b =>
-                b.customer_phone === phone &&
+                samePhone(b.customer_phone, phone) &&
                 b.pickup_date === newBooking.pickup_date &&
                 b.pickup_time === newBooking.pickup_time
             );
@@ -576,7 +616,7 @@ export default function BookingsPage() {
 
             // Loyalty check — how many prior (non-cancelled) bookings this
             // phone already has, so admin can proactively offer a discount.
-            setLoyaltyCount(bookings.filter(b => b.customer_phone === phone && b.status !== 'cancelled').length);
+            setLoyaltyCount(bookings.filter(b => samePhone(b.customer_phone, phone) && b.status !== 'cancelled').length);
         } else {
             setDuplicateFound(null);
             setLoyaltyCount(0);
@@ -663,6 +703,33 @@ export default function BookingsPage() {
             console.error(err);
         }
     };
+
+    // Book Again: open Create Booking already filled from an old booking.
+    const bookAgain = (b: Booking, reverse = false) => {
+        setNewBooking({ ...blankNewBooking(), ...rebookFields(b, reverse) });
+        setSelectedBooking(null);
+        setIsEditing(false);
+        setIsCreating(true);
+    };
+
+    // Earlier trips of the number typed in Create Booking, newest first,
+    // one per route, so a repeat booking is one click.
+    const pastTrips = (() => {
+        if (!isCreating) return [] as Booking[];
+        const phone = newBooking.customer_phone?.trim() || '';
+        if (phoneKey(phone).length < 7) return [] as Booking[];
+        const seen: string[] = [];
+        return bookings
+            .filter(b => samePhone(b.customer_phone, phone))
+            .sort((a, b) => (b.pickup_date || '').localeCompare(a.pickup_date || ''))
+            .filter(b => {
+                const k = `${b.pickup_location}|${b.destination}|${b.vehicle_type}`.toLowerCase();
+                if (seen.indexOf(k) >= 0) return false;
+                seen.push(k);
+                return true;
+            })
+            .slice(0, 4);
+    })();
 
     const updateStatus = async (id: string, newStatus: string) => {
         try {
@@ -880,43 +947,7 @@ export default function BookingsPage() {
                 setBookings([result.booking, ...bookings]);
                 setIsCreating(false);
                 // Reset new booking state
-                setNewBooking({
-                    customer_name: '',
-                    customer_email: '',
-                    customer_phone: '',
-                    pickup_location: '',
-                    destination: '',
-                    pickup_date: ksaToday(),
-                    pickup_time: '12:00',
-                    trip_end_date: '',
-                    vehicle_type: 'Sedan',
-                    passengers: 1,
-                    luggage: 0,
-                    status: 'pending',
-                    total_price: 0,
-                    deposit_amount: null,
-                    special_requests: '',
-                    internal_notes: '',
-                    tags: '',
-                    actual_vehicle: '',
-                    payment_status: 'unpaid',
-                    trip_type: 'point_to_point',
-                    duration_hours: undefined,
-                    has_return_trip: false,
-                    return_date: '',
-                    return_time: '',
-                    return_pickup_location: '',
-                    return_destination: '',
-                    itinerary_legs: [],
-                    additional_stops: [],
-                    booking_type: 'passenger',
-                    recipient_name: '',
-                    recipient_phone: '',
-                    item_type: '',
-                    item_description: '',
-                    item_count: 1,
-                    item_size_weight: '',
-                });
+                setNewBooking(blankNewBooking());
                 alert('Booking created successfully!');
             }
         } catch (error) {
@@ -2236,6 +2267,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SheetHeader>
                         {!isEditing ? (
                             <div className="flex flex-wrap items-center gap-2 shrink-0">
+                                <Button variant="outline" size="sm" onClick={() => selectedBooking && bookAgain(selectedBooking)} className="bg-white text-emerald-700 hover:bg-emerald-50 border-emerald-200" title="New booking for this customer with the same trip details">
+                                    <Repeat className="w-4 h-4 mr-2" /> Book Again
+                                </Button>
                                 <Button variant="outline" size="sm" onClick={openReturnTripPrompt} className="bg-white text-blue-600 hover:bg-blue-50 border-blue-200">
                                     <ArrowUpDown className="w-4 h-4 mr-2" /> Return Trip
                                 </Button>
@@ -3705,6 +3739,26 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
                                     <p className="text-[10px] text-gray-400">Searching repeat customer as you type...</p>
                                 </div>
+                                {pastTrips.length > 0 && (
+                                    <div className="sm:col-span-2 rounded-xl border border-emerald-200 bg-emerald-50/60 p-3 space-y-2">
+                                        <p className="text-sm font-bold text-emerald-800">Repeat customer: earlier trips</p>
+                                        <p className="text-[11px] text-emerald-700">Pick one to fill route, vehicle, passengers and price. Then set the new date and time.</p>
+                                        <div className="space-y-1.5">
+                                            {pastTrips.map(t => (
+                                                <div key={t.id} className="flex flex-wrap items-center gap-2 rounded-lg bg-white border border-emerald-100 px-2.5 py-2">
+                                                    <div className="flex-1 min-w-[180px] text-xs text-gray-700">
+                                                        <span className="font-semibold text-gray-900">{t.pickup_location || '?'} → {t.destination || '?'}</span>
+                                                        <span className="block text-[11px] text-gray-500">{t.pickup_date || 'No date'} · {t.vehicle_type || '—'} · {t.passengers || 1} pax{t.total_price ? ` · ${t.currency || 'SAR'} ${t.total_price}` : ''}</span>
+                                                    </div>
+                                                    <button type="button" onClick={() => setNewBooking(prev => ({ ...prev, ...rebookFields(t), pickup_date: prev.pickup_date, pickup_time: prev.pickup_time }))}
+                                                        className="rounded-md bg-emerald-600 px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-emerald-700">Same trip</button>
+                                                    <button type="button" onClick={() => setNewBooking(prev => ({ ...prev, ...rebookFields(t, true), pickup_date: prev.pickup_date, pickup_time: prev.pickup_time }))}
+                                                        className="rounded-md border border-emerald-300 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 hover:bg-emerald-100">Reverse</button>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                                 <div className="sm:col-span-2 space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Email Address</label>
                                     <Input
