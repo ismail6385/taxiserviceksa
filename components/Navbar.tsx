@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { samePageIn, pageLang, type SiteLang } from '@/lib/localized-pages';
 import { useState, useEffect } from 'react';
 import {
     Menu, X, Mail, Car, ChevronDown, Home, Briefcase,
@@ -19,6 +20,15 @@ export default function Navbar() {
     // Mobile drawer: one section open at a time instead of every link listed.
     const [mobileSection, setMobileSection] = useState<string | null>(null);
     const pathname = usePathname();
+    // Language switcher: the same page in that language when it has been
+    // translated, otherwise that language's home page.
+    const currentLang = pageLang(pathname || '/');
+    const langLinks: { lang: SiteLang; label: string; href: string; exact: boolean }[] = (
+        [['en', 'English'], ['ur', 'اردو'], ['ar', 'العربية']] as [SiteLang, string][]
+    ).map(([lang, label]) => {
+        const same = samePageIn(pathname || '/', lang);
+        return { lang, label, href: same || `/${lang}/`, exact: !!same };
+    });
 
     useEffect(() => {
         const handleScroll = () => {
@@ -160,11 +170,14 @@ export default function Navbar() {
                     </div>
                     <div className="flex items-center gap-1.5">
                         <Globe className="w-3.5 h-3.5 text-primary" />
-                        <Link href="/" className="hover:text-white">English</Link>
-                        <span aria-hidden="true">·</span>
-                        <Link href="/ur/" className="hover:text-white">اردو</Link>
-                        <span aria-hidden="true">·</span>
-                        <Link href="/ar/" className="hover:text-white">العربية</Link>
+                        {langLinks.map((l, i) => (
+                            <span key={l.lang} className="flex items-center gap-1.5">
+                                {i > 0 && <span aria-hidden="true">·</span>}
+                                <Link href={l.href} hrefLang={l.lang} lang={l.lang}
+                                    title={l.exact ? undefined : 'This page is not translated yet: opens the home page'}
+                                    className={l.lang === currentLang ? 'text-white font-semibold' : 'hover:text-white'}>{l.label}</Link>
+                            </span>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -357,11 +370,13 @@ export default function Navbar() {
                         })}
                         <div className="mt-3 px-3 flex items-center gap-2 text-sm font-semibold text-gray-500">
                             <Globe className="w-4 h-4 text-primary" />
-                            <Link href="/" onClick={() => setIsOpen(false)} className="py-2 hover:text-gray-900">English</Link>
-                            <span aria-hidden="true">·</span>
-                            <Link href="/ur/" onClick={() => setIsOpen(false)} className="py-2 hover:text-gray-900">اردو</Link>
-                            <span aria-hidden="true">·</span>
-                            <Link href="/ar/" onClick={() => setIsOpen(false)} className="py-2 hover:text-gray-900">العربية</Link>
+                            {langLinks.map((l, i) => (
+                                <span key={l.lang} className="flex items-center gap-2">
+                                    {i > 0 && <span aria-hidden="true">·</span>}
+                                    <Link href={l.href} hrefLang={l.lang} lang={l.lang} onClick={() => setIsOpen(false)}
+                                        className={`py-2 ${l.lang === currentLang ? 'text-gray-900' : 'hover:text-gray-900'}`}>{l.label}</Link>
+                                </span>
+                            ))}
                         </div>
                     </nav>
 

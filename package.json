@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "build:cf": "next build && node scripts/dedupe-rsc-manifests.mjs",
+    "build:cf": "node scripts/gen-localized-pages.mjs && next build && node scripts/dedupe-rsc-manifests.mjs",
     "cf:deploy": "opennextjs-cloudflare deploy"
   },
   "browserslist": [
