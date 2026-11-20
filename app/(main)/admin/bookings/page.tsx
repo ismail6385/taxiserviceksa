@@ -952,7 +952,7 @@ export default function BookingsPage() {
             }
         } catch (error) {
             console.error('Error creating booking:', error);
-            alert('Failed to create booking.');
+            alert(error instanceof Error && error.message ? error.message : 'Failed to create booking.');
         }
     };
 
