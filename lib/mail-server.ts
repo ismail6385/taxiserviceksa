@@ -57,6 +57,14 @@ export async function sendMail({ to, cc, subject, html, fromName = 'Taxi Service
     attachments?: Attachment[];
     fromIdentity?: FromIdentity;
 }) {
+    // Brevo HTTP API first. SMTP (nodemailer) cannot work on Cloudflare's
+    // free plan: the TLS + SMTP handshake blows the 10 ms CPU limit (error
+    // 1102), whereas an HTTP call only waits, and waiting is not CPU.
+    const brevoKey = process.env.BREVO_API_KEY?.trim();
+    if (brevoKey) {
+        return sendViaBrevo(brevoKey, { to, cc, subject, html, fromName, replyTo, attachments, fromIdentity });
+    }
+
     const from = identity(fromIdentity);
     if (!from.passes.length) {
         throw new Error(`Email is not configured: set the SMTP password for ${from.user} (EMAIL_PASS) in the Cloudflare Worker secrets.`);
@@ -100,4 +108,49 @@ export async function sendMail({ to, cc, subject, html, fromName = 'Taxi Service
         }
     }
     throw lastError;
+}
+
+// Sender addresses live on taxiserviceksa.com, the domain authenticated in
+// Brevo (DKIM brevo1/brevo2). Replies go to the same address, which ImprovMX
+// forwards to the owner's Gmail, so replying to clients works as before.
+const BREVO_SENDER: Record<FromIdentity, string> = {
+    info: 'info@taxiserviceksa.com',
+    booking: 'booking@taxiserviceksa.com',
+};
+
+const toList = (s: string | string[] | undefined) =>
+    (Array.isArray(s) ? s : (s || '').split(','))
+        .map(e => e.trim())
+        .filter(Boolean)
+        .map(email => ({ email }));
+
+async function sendViaBrevo(apiKey: string, { to, cc, subject, html, fromName, replyTo, attachments, fromIdentity }: {
+    to: string; cc?: string[]; subject: string; html: string; fromName: string;
+    replyTo?: string; attachments?: Attachment[]; fromIdentity: FromIdentity;
+}) {
+    const sender = BREVO_SENDER[fromIdentity];
+    const recipients = toList(to);
+    if (!recipients.length) throw new Error('No recipient email address.');
+    const ccList = toList(cc);
+
+    const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: { 'api-key': apiKey, 'Content-Type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify({
+            sender: { name: fromName, email: sender },
+            to: recipients,
+            ...(ccList.length ? { cc: ccList } : {}),
+            replyTo: { email: (replyTo || sender).trim() },
+            subject,
+            htmlContent: html,
+            ...(attachments?.length ? { attachment: attachments.map(a => ({ name: a.filename, content: a.content })) } : {}),
+        }),
+    });
+    const body = await res.json().catch(() => ({})) as { messageId?: string; message?: string; code?: string };
+    if (!res.ok) {
+        console.error(`❌ Brevo email to ${to} failed (${res.status}):`, body);
+        throw new Error(`Brevo ${res.status}: ${body.message || body.code || 'send failed'}`);
+    }
+    console.log(`✅ Email sent via Brevo (${sender}) to ${to}: ${body.messageId}`);
+    return { messageId: body.messageId };
 }
