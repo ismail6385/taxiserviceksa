@@ -36,7 +36,7 @@ export async function writeWithOptionalColumns<T>(
         }
     }
     // Integer columns reject 95.5 km / 1.5 hours.
-    for (const key of INTEGER) {
+    for (const key of Array.from(INTEGER)) {
         const v = current[key];
         if (typeof v === 'number' && !Number.isInteger(v)) current[key] = key === 'duration_hours' ? Math.ceil(v) : Math.round(v);
     }
