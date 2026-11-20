@@ -306,7 +306,25 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
         } catch (error) {
             console.error(error);
-            alert('Booking failed. Please try again.');
+            // fetch() throws a TypeError when the connection drops (weak
+            // mobile data, Wi-Fi switch). The booking may or may not have
+            // reached us, so offer WhatsApp instead of a dead end.
+            if (error instanceof TypeError) {
+                const summary = [
+                    'Booking request (website connection failed)',
+                    `Name: ${formData.customer_name || ''}`,
+                    `Phone: ${formData.customer_phone || ''}`,
+                    `From: ${formData.pickup_location || ''}`,
+                    `To: ${formData.destination || ''}`,
+                    `Date: ${formData.pickup_date || ''} ${formData.pickup_time || ''}`,
+                    `Vehicle: ${formData.vehicle_type || ''}`,
+                ].join('\n');
+                if (confirm('Your internet connection dropped while sending the booking.\n\nPress OK to send it to us on WhatsApp instead, or Cancel to try again.')) {
+                    window.open(`https://wa.me/966575806733?text=${encodeURIComponent(summary)}`, '_blank', 'noopener');
+                }
+            } else {
+                alert('Booking failed. Please try again.');
+            }
         } finally {
             setLoading(false);
         }

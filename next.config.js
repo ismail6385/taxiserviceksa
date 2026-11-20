@@ -65,11 +65,11 @@ const nextConfig = {
         key: 'Content-Security-Policy',
         value: [
           "default-src 'self'",
-          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://static.hotjar.com https://script.hotjar.com https://*.clarity.ms https://*.trustpilot.com https://widget.trustpilot.com",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://static.hotjar.com https://script.hotjar.com https://*.clarity.ms https://*.trustpilot.com https://widget.trustpilot.com https://static.cloudflareinsights.com",
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
           "font-src 'self' https://fonts.gstatic.com data:",
           "img-src 'self' data: blob: https: https://www.google-analytics.com https://www.googletagmanager.com https://flagcdn.com https://*.supabase.co https://*.clarity.ms https://*.bing.com",
-          "connect-src 'self' blob: https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://vitals.vercel-insights.com https://*.clarity.ms https://e.clarity.ms https://*.bing.com https://*.google-analytics.com https://*.g.doubleclick.net https://stats.g.doubleclick.net https://nominatim.openstreetmap.org https://*.trustpilot.com https://widget.trustpilot.com",
+          "connect-src 'self' blob: https://cloudflareinsights.com https://www.google.com https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://vitals.vercel-insights.com https://*.clarity.ms https://e.clarity.ms https://*.bing.com https://*.google-analytics.com https://*.g.doubleclick.net https://stats.g.doubleclick.net https://nominatim.openstreetmap.org https://*.trustpilot.com https://widget.trustpilot.com https://static.cloudflareinsights.com",
           "worker-src 'self' blob: https://*.clarity.ms",
           "media-src 'self' blob: https://*.clarity.ms",
           "frame-src 'self' https://www.google.com https://www.youtube.com https://*.trustpilot.com",

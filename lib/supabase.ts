@@ -151,7 +151,7 @@ export const vehicles = [
     },
     {
         name: "Toyota Fortuner",
-        image: "/toyota-fortuner.webp",
+        image: "/fleet/toyota-rav4-hybrid-2025.webp",
         passengers: 7,
         luggage: 4,
         description: "Powerful 4x4 SUV perfect for family trips and rough terrain."
