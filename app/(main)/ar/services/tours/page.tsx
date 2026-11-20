@@ -41,17 +41,17 @@ export default function ToursPage() {
     const popularTours = [
         {
             name: 'Madinah Ziyarat',
-            duration: '3-4 Hours',
+            duration: '3.5 Hours',
             spots: ['Masjid Quba', 'Mount Uhud', 'Seven Mosques', 'Qiblatain'],
-            price: 'From SAR 150',
+            price: 'From SAR 250',
             image: '/madinah-prophets-mosque.webp', // Using existing asset
             link: '/services/madinah-ziyarat'
         },
         {
             name: 'Makkah Ziyarat',
-            duration: '3-4 Hours',
+            duration: '3.5 Hours',
             spots: ['Jabal Al-Nour', 'Jabal Thawr', 'Mina/Arafat', 'Jannat al-Mualla'],
-            price: 'From SAR 200',
+            price: 'From SAR 250',
             image: '/locations/makkah.webp', // Placeholder path, falling back if not exists is handled in Hero usually, here in card just img tag
             link: '/locations/makkah-ziyarat'
         },

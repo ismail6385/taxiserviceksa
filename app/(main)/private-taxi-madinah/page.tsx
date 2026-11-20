@@ -54,7 +54,7 @@ const faqs = [
     },
     {
         question: 'Can I book a daily driver for my entire stay in Madinah?',
-        answer: 'Yes. Daily chauffeur packages in Madinah are available for 1, 3, or 7 days. Ideal for families or groups who want a dedicated driver throughout their Umrah or Ziyarat stay. The driver is assigned exclusively to your group and is available from Fajr to Isha. Packages start from SAR 350/day.',
+        answer: 'Yes. Daily chauffeur packages in Madinah are available for 1, 3, or 7 days. Ideal for families or groups who want a dedicated driver throughout their Umrah or Ziyarat stay. The driver is assigned exclusively to your group and is available from Fajr to Isha. Packages start from SAR 500/day.',
     },
 ];
 
@@ -127,11 +127,11 @@ export default function PrivateTaxiMadinahPage() {
                     <div className="grid md:grid-cols-2 gap-4">
                         {[
                             { title: '✈️ Airport Transfer (MED)', desc: 'MED Airport to Masjid Nabawi hotels', price: 'From SAR 70', time: '15–25 min' },
-                            { title: '🕌 Ziyarat Tour (Half Day)', desc: '4 hours — Nabawi, Quba, Uhud, Al-Baqi', price: 'From SAR 250', time: '4 hours' },
-                            { title: '🌟 Ziyarat Tour (Full Day)', desc: '8 hours — all major sites', price: 'From SAR 400', time: '8 hours' },
+                            { title: '🕌 Ziyarat Tour (Half Day)', desc: '3.5 hours — Nabawi, Quba, Uhud, Al-Baqi', price: 'From SAR 250', time: '3.5 hours' },
+                            { title: '🌟 Ziyarat Tour (Full Day)', desc: '8 hours — all major sites', price: 'From SAR 500', time: '8 hours' },
                             { title: '🚌 Madinah to Makkah', desc: 'Direct transfer via Highway 15', price: 'From SAR 550', time: '4–5 hours' },
                             { title: '🏨 Hotel to Hotel Transfer', desc: 'Any Madinah address to another', price: 'From SAR 30', time: 'Varies' },
-                            { title: '📅 Daily Driver Package', desc: 'Full day exclusive driver hire', price: 'From SAR 350/day', time: '8–10 hours' },
+                            { title: '📅 Daily Driver Package', desc: 'Full day exclusive driver hire', price: 'From SAR 500/day', time: '8–10 hours' },
                         ].map((s, i) => (
                             <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-green-300 transition-all">
                                 <h3 className="font-bold text-gray-900 text-lg mb-2">{s.title}</h3>

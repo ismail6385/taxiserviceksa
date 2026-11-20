@@ -57,10 +57,10 @@ export default function ZiyaratInMakkahPage() {
     ];
 
     const pricingRows = [
-        { vehicle: 'Standard Sedan', description: 'Up to 3 pax. Best for small families.', price: '150', capacity: '3 Pax', isPopular: false },
-        { vehicle: 'GMC Yukon XL', description: 'Up to 7 pax. Ultimate comfort.', price: '250', capacity: '7 Pax', isPopular: true },
-        { vehicle: 'Hyundai Staria VIP', description: 'Up to 7 pax. Luxury captain seats.', price: '220', capacity: '7 Pax', isPopular: false },
-        { vehicle: 'Toyota Hiace', description: 'Up to 11 pax. For large Umrah groups.', price: '350', capacity: '11 Pax', isPopular: false },
+        { vehicle: 'Standard Sedan', description: 'Up to 3 pax. Best for small families.', price: '250', capacity: '3 Pax', isPopular: false },
+        { vehicle: 'GMC Yukon XL', description: 'Up to 7 pax. Ultimate comfort.', price: '400', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'Hyundai Staria VIP', description: 'Up to 7 pax. Luxury captain seats.', price: '350', capacity: '7 Pax', isPopular: false },
+        { vehicle: 'Toyota Hiace', description: 'Up to 11 pax. For large Umrah groups.', price: '500', capacity: '11 Pax', isPopular: false },
     ];
 
     return (
@@ -69,7 +69,7 @@ export default function ZiyaratInMakkahPage() {
                 cityName="Makkah Ziyarat"
                 description="Comprehensive private taxi tours to holy Islamic sites in Makkah. Visit Jabal al-Nour, Jabal Thawr, and the Hajj landmarks with experienced local drivers."
                 services={[
-                    { name: 'Standard Makkah Ziyarat', description: '3-hour guided visit to essential historical sites in Makkah.' },
+                    { name: 'Standard Makkah Ziyarat', description: '3.5-hour guided visit to essential historical sites in Makkah.' },
                     { name: 'Full History Tour', description: 'In-depth 6-hour exploration of Makkah\'s prophetic landmarks.' },
                     { name: 'Family Group Transport', description: 'Comfortable SUVs and vans suitable for large groups of pilgrims.' }
                 ]}
@@ -125,7 +125,7 @@ export default function ZiyaratInMakkahPage() {
                             <DollarSign className="w-6 h-6 text-emerald-600" />
                         </div>
                         <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Price Range</span>
-                        <span className="text-lg font-black text-gray-900">From 150 SAR</span>
+                        <span className="text-lg font-black text-gray-900">From 250 SAR</span>
                     </div>
                     <div className="flex flex-col items-center text-center last:border-0">
                         <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-4">
@@ -202,7 +202,7 @@ export default function ZiyaratInMakkahPage() {
                 title="2026 Ziyarat Pricing (Makkah)"
                 subtitle="Standard 3-Hour Full Tour Packages"
                 rows={pricingRows}
-                disclaimer="Prices include the full 3-hour tour and wait time at each site. No hidden fees. Entrance fees to museums (if any) are not included."
+                disclaimer="Prices include the full 3.5-hour tour and wait time at each site. No hidden fees. Entrance fees to museums (if any) are not included."
             />
 
             <BookingProcess />

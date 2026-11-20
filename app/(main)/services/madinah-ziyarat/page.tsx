@@ -38,22 +38,22 @@ export default function MadinahZiyaratPage() {
     const packages = [
         {
             name: 'Standard Ziyarat',
-            duration: '2-3 Hours',
-            price: 'WhatsApp Booking',
+            duration: '3.5 Hours',
+            price: 'From SAR 250',
             sites: ['Masjid Quba', 'Mount Uhud', 'Masjid Qiblatain', 'Seven Mosques (Khandaq)'],
             desc: 'The essential Sunnah sites visited by millions of pilgrims.'
         },
         {
             name: 'Extended Ziyarat',
-            duration: '4-5 Hours',
-            price: 'WhatsApp Booking',
+            duration: '5 Hours',
+            price: 'From SAR 350',
             sites: ['Standard Sites +', 'Bir Uthman', 'Dates Market', 'Printing Press', 'Uhud Martyrs Cemetery'],
             desc: 'A deeper dive into the history of Madinah with extra stops.'
         },
         {
             name: 'Badar Ziyarat',
             duration: '5-6 Hours',
-            price: 'WhatsApp Booking',
+            price: 'From SAR 600',
             sites: ['Badar Battlefield', 'Martyrs of Badar', 'Al-Arish Mosque'],
             desc: 'A trip outside Madinah to the site of the first battle of Islam (150km away).'
         }
@@ -71,7 +71,7 @@ export default function MadinahZiyaratPage() {
         },
         {
             question: 'How much does a Madinah Ziyarat tour cost?',
-            answer: 'Packages start from SAR 150, covering the group (up to 4 passengers in a sedan) for the Standard Ziyarat route. Larger vans are available for bigger groups — contact us via WhatsApp for an exact quote based on your group size and chosen package.',
+            answer: 'Packages start from SAR 250 (3.5 hours), covering the group (up to 4 passengers in a sedan) for the Standard Ziyarat route. Larger vans are available for bigger groups — contact us via WhatsApp for an exact quote based on your group size and chosen package.',
         },
         {
             question: "What's included in the Ziyarat package price?",
@@ -142,7 +142,7 @@ export default function MadinahZiyaratPage() {
                     <div className="bg-white p-6 rounded-3xl shadow-lg border border-emerald-100 min-w-[280px]">
                         <div className="text-emerald-600 font-black text-xs uppercase tracking-tighter mb-2">Package Start Price</div>
                         <div className="text-4xl font-black text-gray-900 flex items-baseline gap-1">
-                            150 <span className="text-sm font-bold text-gray-400 uppercase">SAR</span>
+                            250 <span className="text-sm font-bold text-gray-400 uppercase">SAR</span>
                         </div>
                         <p className="text-[10px] text-gray-400 mt-2 font-bold leading-tight">Price covers entire group (up to 4 pax in Sedan). Larger vans available.</p>
                     </div>
@@ -284,8 +284,8 @@ export default function MadinahZiyaratPage() {
                                 },
                                 {
                                     question: "How much does a Madinah Ziyarat tour cost?",
-                                    shortAnswer: "Starting from SAR 150.",
-                                    detailedAnswer: "Packages start from SAR 150, covering the group (up to 4 passengers in a sedan) for the Standard Ziyarat route. Larger vans are available for bigger groups.",
+                                    shortAnswer: "Starting from SAR 250 for 3.5 hours.",
+                                    detailedAnswer: "Packages start from SAR 250 (3.5 hours), covering the group (up to 4 passengers in a sedan) for the Standard Ziyarat route. Larger vans are available for bigger groups.",
                                     perspectives: []
                                 },
                                 {
