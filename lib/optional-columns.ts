@@ -8,7 +8,12 @@ const BLANK_TO_NULL = [
     'total_price', 'deposit_amount', 'driver_cost', 'distance_km', 'duration_hours',
     'passengers', 'luggage', 'child_seats', 'item_count',
     'pickup_date', 'trip_end_date', 'return_date', 'return_time',
+    'commission_rate', 'contract_id', 'driver_arrived_at', 'trip_started_at',
 ];
+
+const NUMERIC = new Set(['total_price', 'deposit_amount', 'driver_cost', 'commission_rate']);
+const INTEGER = new Set(['distance_km', 'duration_hours', 'passengers', 'luggage', 'child_seats', 'item_count']);
+const NOT_NULL_TEXT = ['customer_name', 'customer_email', 'customer_phone', 'destination'];
 
 type Result<T> = { data: T | null; error: { code?: string; message?: string } | null };
 
@@ -20,7 +25,24 @@ export async function writeWithOptionalColumns<T>(
     // numeric"), which is what an emptied form box sends. Save as blank.
     let current = { ...payload };
     for (const key of BLANK_TO_NULL) {
-        if (typeof current[key] === 'string' && !(current[key] as string).trim()) current[key] = null;
+        const v = current[key];
+        if (typeof v === 'number' && !Number.isFinite(v)) current[key] = null;
+        if (typeof v !== 'string') continue;
+        if (!v.trim()) { current[key] = null; continue; }
+        // "1,500" / "1500 SAR" in a number column: keep only the number.
+        if (NUMERIC.has(key) || INTEGER.has(key)) {
+            const n = Number(v.replace(/[^\d.-]/g, ''));
+            if (Number.isFinite(n)) current[key] = n;
+        }
+    }
+    // Integer columns reject 95.5 km / 1.5 hours.
+    for (const key of INTEGER) {
+        const v = current[key];
+        if (typeof v === 'number' && !Number.isInteger(v)) current[key] = key === 'duration_hours' ? Math.ceil(v) : Math.round(v);
+    }
+    // NOT NULL text columns the admin form allows to be left out.
+    for (const key of NOT_NULL_TEXT) {
+        if (key in current && current[key] == null) current[key] = '';
     }
     for (let attempt = 0; attempt <= OPTIONAL.length; attempt++) {
         const res = await run(current);

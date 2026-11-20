@@ -2902,7 +2902,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                             <Input 
                                                                 type="number" 
                                                                 value={editedBooking.total_price || ''} 
-                                                                onChange={(e) => setEditedBooking({ ...editedBooking, total_price: parseFloat(e.target.value) })} 
+                                                                onChange={(e) => setEditedBooking({ ...editedBooking, total_price: e.target.value === '' ? undefined : parseFloat(e.target.value) })} 
                                                                 className="h-8 text-sm bg-white font-bold w-24" 
                                                                 placeholder="Price"
                                                             />
@@ -4023,8 +4023,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <Input
                                             type="number"
                                             placeholder="0.00"
-                                            value={newBooking.total_price}
-                                            onChange={(e) => setNewBooking({ ...newBooking, total_price: parseFloat(e.target.value) })}
+                                            value={newBooking.total_price ?? ''}
+                                            onChange={(e) => setNewBooking({ ...newBooking, total_price: e.target.value === '' ? undefined : parseFloat(e.target.value) })}
                                             className="bg-white border-gray-200 font-bold"
                                         />
                                         <label className="flex items-center gap-1 text-xs font-bold text-gray-700 whitespace-nowrap" title="Add 15% VAT on top of the price">

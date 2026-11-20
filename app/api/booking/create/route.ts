@@ -79,9 +79,8 @@ export async function POST(request: NextRequest) {
 
     if (error || !inserted) {
         console.error('Booking create error:', error);
-        // Admins see the database's reason so a failure can be fixed on the
-        // spot; customers keep the generic message.
-        const reason = adminSession && error?.message ? `: ${error.message}` : '';
+        // Show the database's reason so a failure can be fixed on the spot.
+        const reason = error?.message ? `: ${error.message}` : (inserted ? '' : ': no row returned');
         return NextResponse.json({ error: `Failed to create booking${reason}` }, { status: 500 });
     }
 
