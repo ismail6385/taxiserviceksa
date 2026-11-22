@@ -7,13 +7,13 @@ const OPTIONAL = ['passenger_nationality', 'driver_cost', 'vat_added', 'vehicle_
 const BLANK_TO_NULL = [
     'total_price', 'deposit_amount', 'driver_cost', 'distance_km', 'duration_hours',
     'passengers', 'luggage', 'child_seats', 'item_count',
-    'pickup_date', 'trip_end_date', 'return_date', 'return_time',
+    'pickup_date', 'pickup_time', 'trip_end_date', 'return_date', 'return_time',
     'commission_rate', 'contract_id', 'driver_arrived_at', 'trip_started_at',
 ];
 
 const NUMERIC = new Set(['total_price', 'deposit_amount', 'driver_cost', 'commission_rate']);
 const INTEGER = new Set(['distance_km', 'duration_hours', 'passengers', 'luggage', 'child_seats', 'item_count']);
-const NOT_NULL_TEXT = ['customer_name', 'customer_email', 'customer_phone', 'destination'];
+const NOT_NULL_TEXT = ['customer_name', 'customer_email', 'customer_phone', 'pickup_location', 'destination', 'vehicle_type'];
 
 type Result<T> = { data: T | null; error: { code?: string; message?: string } | null };
 

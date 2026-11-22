@@ -156,7 +156,7 @@ const blankNewBooking = (): Partial<Booking> => ({
     pickup_location: '',
     destination: '',
     pickup_date: ksaToday(),
-    pickup_time: '12:00',
+    pickup_time: '',
     trip_end_date: '',
     vehicle_type: 'Sedan',
     passengers: 1,
@@ -522,7 +522,7 @@ export default function BookingsPage() {
     };
 
     const formatTime12h = (timeStr?: string) => {
-        if (!timeStr) return '—';
+        if (!timeStr) return 'Time TBD';
         try {
             const parts = timeStr.split(':');
             if (parts.length < 2) return timeStr;
@@ -680,7 +680,8 @@ export default function BookingsPage() {
     // +7 days and copying the outbound vehicle/passenger count.
     const openReturnTripPrompt = () => {
         if (!selectedBooking) return;
-        const originalDate = new Date(selectedBooking.pickup_date);
+        // No date yet on the outbound trip: suggest a week from today.
+        const originalDate = new Date(selectedBooking.pickup_date || ksaToday());
         const suggestedDate = new Date(originalDate);
         suggestedDate.setDate(originalDate.getDate() + 7);
 
@@ -895,7 +896,7 @@ export default function BookingsPage() {
 
     const saveDetails = async () => {
         if (!editedBooking) return;
-        const { valid, fieldErrors } = validateRoundTrip(editedBooking);
+        const { valid, fieldErrors } = validateRoundTrip(editedBooking, { lenient: true });
         if (!valid) {
             setBookingFieldErrors(fieldErrors);
             return;
@@ -967,7 +968,7 @@ export default function BookingsPage() {
     };
 
     const saveNewBooking = async () => {
-        const { valid, fieldErrors } = validateRoundTrip(newBooking);
+        const { valid, fieldErrors } = validateRoundTrip(newBooking, { lenient: true });
         if (!valid) {
             setBookingFieldErrors(fieldErrors);
             return;
@@ -2007,7 +2008,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </TableCell>
                                         <TableCell className="text-sm text-gray-700">
                                             <div className="flex flex-wrap items-center gap-1.5">
-                                                <span className={isOverdue ? 'text-red-700 font-black' : actionNeeded ? 'text-red-600 font-bold animate-pulse' : 'text-gray-700'}>{booking.pickup_date}</span>
+                                                <span className={isOverdue ? 'text-red-700 font-black' : actionNeeded ? 'text-red-600 font-bold animate-pulse' : 'text-gray-700'}>{booking.pickup_date || 'Date TBD'}</span>
                                                 {isOverdue && <Badge className="bg-red-700 text-white border-none animate-pulse text-[10px]">OVERDUE</Badge>}
                                                 {isToday && !isOverdue && <Badge className="bg-red-500 hover:bg-red-600 animate-pulse text-[10px] uppercase border-none text-white px-1.5 py-0">Today</Badge>}
                                                 {isTomorrow && <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] uppercase border-none text-white px-1.5 py-0">Tomorrow</Badge>}
@@ -2211,7 +2212,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
                                     <div>
                                         <p className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Date & Time</p>
-                                        <p className={isOverdue ? 'text-red-700 font-bold' : 'text-gray-800 font-medium'}>{booking.pickup_date}</p>
+                                        <p className={isOverdue ? 'text-red-700 font-bold' : 'text-gray-800 font-medium'}>{booking.pickup_date || 'Date TBD'}</p>
                                         <p className="text-gray-500">{formatTime12h(booking.pickup_time)}</p>
                                         {booking.trip_end_date && booking.trip_end_date !== booking.pickup_date && (
                                             <p className="text-primary font-semibold">{getTripDayCount(booking.pickup_date, booking.trip_end_date)} day package</p>
@@ -2594,7 +2595,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <span className="block w-3 h-3 bg-green-500 rounded-full absolute left-[-21px] top-1.5 border-2 border-white shadow-[0_0_0_2px_rgba(34,197,94,0.3)]"></span>
                                         <span className="block text-xs text-gray-500 mb-1">Pickup Location</span>
                                         {isEditing ? (
-                                            <Input value={editedBooking.pickup_location} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_location: e.target.value })} className="h-8 text-sm bg-white" />
+                                            <Input value={editedBooking.pickup_location || ''} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_location: e.target.value })} className="h-8 text-sm bg-white" />
                                         ) : (
                                             <p className="text-base font-medium text-gray-900"><LocationText value={selectedBooking.pickup_location} /></p>
                                         )}
@@ -2604,7 +2605,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <span className="block w-3 h-3 bg-red-500 rounded-full absolute left-[-21px] top-1.5 border-2 border-white shadow-[0_0_0_2px_rgba(239,68,68,0.3)]"></span>
                                         <span className="block text-xs text-gray-500 mb-1">Destination</span>
                                         {isEditing ? (
-                                            <Input value={editedBooking.destination} onChange={(e) => setEditedBooking({ ...editedBooking, destination: e.target.value })} className="h-8 text-sm bg-white" />
+                                            <Input value={editedBooking.destination || ''} onChange={(e) => setEditedBooking({ ...editedBooking, destination: e.target.value })} className="h-8 text-sm bg-white" />
                                         ) : (
                                             <p className="text-base font-medium text-gray-900"><LocationText value={selectedBooking.destination} /></p>
                                         )}
@@ -2676,15 +2677,15 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Date</span>
                                             {isEditing ? (
-                                                <Input type="date" value={editedBooking.pickup_date} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_date: e.target.value })} className="h-8 text-sm bg-white" />
+                                                <Input type="date" value={editedBooking.pickup_date || ''} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_date: e.target.value })} className="h-8 text-sm bg-white" />
                                             ) : (
-                                                <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{selectedBooking.pickup_date}</span>
+                                                <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{selectedBooking.pickup_date || 'Date TBD'}</span>
                                             )}
                                         </div>
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Time</span>
                                             {isEditing ? (
-                                                <Input type="time" value={editedBooking.pickup_time} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_time: e.target.value })} className="h-8 text-sm bg-white" />
+                                                <Input type="time" value={editedBooking.pickup_time || ''} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_time: e.target.value })} className="h-8 text-sm bg-white" />
                                             ) : (
                                                 <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{formatTime12h(selectedBooking.pickup_time)}</span>
                                             )}
@@ -2934,7 +2935,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             {isEditing ? (
                                                 <div className="space-y-2">
                                                     <Input 
-                                                        value={editedBooking.vehicle_type} 
+                                                        value={editedBooking.vehicle_type || ''} 
                                                         onChange={(e) => setEditedBooking({ ...editedBooking, vehicle_type: e.target.value })} 
                                                         className="h-8 text-sm bg-white" 
                                                         placeholder="e.g. Sedan, Custom Van"
@@ -3906,7 +3907,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     <label className="text-sm font-medium text-gray-700">Pickup Location</label>
                                     <Input
                                         placeholder="Hotel, Airport, etc."
-                                        value={newBooking.pickup_location}
+                                        value={newBooking.pickup_location || ''}
                                         onChange={(e) => setNewBooking({ ...newBooking, pickup_location: e.target.value })}
                                         className="bg-white border-gray-200"
                                     />
@@ -3915,7 +3916,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     <label className="text-sm font-medium text-gray-700">{newBooking.booking_type === 'delivery' ? 'Delivery Location' : 'Destination'}</label>
                                     <Input
                                         placeholder="Hotel, Airport, etc."
-                                        value={newBooking.destination}
+                                        value={newBooking.destination || ''}
                                         onChange={(e) => setNewBooking({ ...newBooking, destination: e.target.value })}
                                         className="bg-white border-gray-200"
                                     />
@@ -4035,7 +4036,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <label className="text-sm font-medium text-gray-700">Pickup Date</label>
                                             <Input
                                                 type="date"
-                                                value={newBooking.pickup_date}
+                                                value={newBooking.pickup_date || ''}
                                                 onChange={(e) => setNewBooking({ ...newBooking, pickup_date: e.target.value })}
                                                 className="bg-white border-gray-200"
                                             />
@@ -4044,7 +4045,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <label className="text-sm font-medium text-gray-700">Pickup Time</label>
                                             <Input
                                                 type="time"
-                                                value={newBooking.pickup_time}
+                                                value={newBooking.pickup_time || ''}
                                                 onChange={(e) => setNewBooking({ ...newBooking, pickup_time: e.target.value })}
                                                 className="bg-white border-gray-200"
                                             />

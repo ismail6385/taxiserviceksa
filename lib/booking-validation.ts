@@ -73,11 +73,20 @@ export interface ValidationResult {
  * - Same-day round trip: return time must be strictly after pickup time.
  * - Multi-day round trip (return date after pickup date): any return time is valid.
  */
-export function validateRoundTrip(input: RoundTripInput): ValidationResult {
+export function validateRoundTrip(input: RoundTripInput, opts: { lenient?: boolean } = {}): ValidationResult {
     const fieldErrors: Record<string, string> = {};
 
     if (!input.has_return_trip) {
         return { valid: true, fieldErrors };
+    }
+
+    // Admin panel: return details are often decided later, so nothing is
+    // required; only contradictions (return before pickup) are rejected.
+    if (opts.lenient) {
+        if (input.return_date && input.pickup_date && isDateBefore(input.return_date, input.pickup_date)) {
+            fieldErrors.return_date = 'Return date cannot be before the pickup date.';
+        }
+        return { valid: Object.keys(fieldErrors).length === 0, fieldErrors };
     }
 
     if (!input.return_date) {
@@ -434,12 +443,18 @@ export const bookingSchema = z
 
 export type BookingSchemaInput = z.infer<typeof bookingSchema>;
 
-// Admin schema — used by the authenticated admin create/edit routes. The
-// admin panel's "quick create" form has always allowed saving a booking with
-// contact details filled in later (walk-in/phone bookings), so contact
-// fields are optional here (still validated for format when present) rather
-// than required — everything else, including the round-trip rules, is
-// identical to `bookingSchema` via the shared `refineTripRules`.
+// Admin: nothing is required. Bookings are often taken before the time,
+// date, vehicle or even the destination is decided (walk-in/phone bookings),
+// so the admin can save what is known and fill the rest later. Values that
+// ARE entered are still checked (email format, return not before pickup).
+function refineAdminRules(data: RoundTripInput, ctx: z.RefinementCtx) {
+    const { fieldErrors } = validateRoundTrip(data, { lenient: true });
+    for (const [field, message] of Object.entries(fieldErrors)) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
+    }
+}
+
+// Admin schema — used by the authenticated admin create/edit routes.
 export const adminBookingSchema = z
     .object({
         customer_name: z.string().optional().nullable(),
@@ -454,8 +469,14 @@ export const adminBookingSchema = z
         // Admin only: 15% VAT charged on top of total_price.
         vat_added: z.boolean().optional().nullable(),
         ...bookingFieldsShape,
+        pickup_location: z.string().optional().nullable(),
+        pickup_date: z.string().optional().nullable(),
+        pickup_time: z.string().optional().nullable(),
+        vehicle_type: z.string().optional().nullable(),
+        passengers: z.number().int().min(0).optional().nullable(),
+        duration_hours: z.number().min(0).optional().nullable(),
     })
-    .superRefine(refineTripRules);
+    .superRefine(refineAdminRules);
 
 export type AdminBookingSchemaInput = z.infer<typeof adminBookingSchema>;
 

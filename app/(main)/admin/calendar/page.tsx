@@ -220,7 +220,7 @@ export default function AdminCalendarPage() {
                                     <p className="p-4 text-sm text-gray-400 text-center">No bookings this day</p>
                                 ) : (
                                     selectedBookings
-                                        .sort((a, b) => a.pickup_time.localeCompare(b.pickup_time))
+                                        .sort((a, b) => (a.pickup_time || '').localeCompare(b.pickup_time || ''))
                                         .map(b => (
                                         <div key={b.id} className="p-3 hover:bg-gray-50 transition-colors">
                                             <div className="flex items-start justify-between gap-2 mb-2">
