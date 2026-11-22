@@ -50,12 +50,29 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
         }
 
-        const body = await request.json();
-        if (!body || !body.booking) {
-            return NextResponse.json({ error: 'Missing booking data' }, { status: 400 });
+        // This route is public (called by /api/booking/create right after a
+        // booking is saved). It used to email whatever booking object it was
+        // sent, so anyone could send branded emails with any text to any
+        // address from our domain. Now only the booking id is used: the real
+        // row is loaded from the database, and only a booking created in the
+        // last 15 minutes that has not been emailed yet gets the emails.
+        const body = await request.json().catch(() => null);
+        const bookingId = body?.booking?.id || body?.bookingId;
+        if (!bookingId || typeof bookingId !== 'string') {
+            return NextResponse.json({ error: 'Missing booking id' }, { status: 400 });
         }
-
-        const { booking } = body;
+        const { data: booking } = await supabaseAdmin.from('bookings').select('*').eq('id', bookingId).single();
+        if (!booking) {
+            return NextResponse.json({ error: 'Booking not found' }, { status: 404 });
+        }
+        const ageMinutes = (Date.now() - new Date(booking.created_at).getTime()) / 60000;
+        // -5: tolerate a server clock a little behind the database clock.
+        if (!(ageMinutes >= -5 && ageMinutes <= 15)) {
+            return NextResponse.json({ error: 'Booking emails can only be sent right after the booking is made' }, { status: 409 });
+        }
+        if (/New (quote|delivery) request received/.test(booking.internal_notes || '')) {
+            return NextResponse.json({ success: true, skipped: 'already sent', bookingId: booking.id });
+        }
         const emailAdmin = process.env.ADMIN_EMAIL || 'booking@taxiserviceksa.com';
 
         const safeName     = escapeHtml(booking.customer_name);

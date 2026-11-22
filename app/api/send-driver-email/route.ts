@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { renderEmail, para, card, buttons, whatsappUrl } from '@/lib/email-layout';
 
@@ -27,7 +28,27 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Missing driver data' }, { status: 400 });
         }
 
-        const rawDriver = body.driver;
+        // Public route: only email an applicant who was really just saved in
+        // the drivers table (last 30 minutes), using the saved row, so the
+        // route cannot be used to send our emails to arbitrary addresses.
+        const email = String(body.driver.email || '').trim().toLowerCase();
+        if (!email.includes('@')) {
+            return NextResponse.json({ error: 'Missing email' }, { status: 400 });
+        }
+        const since = new Date(Date.now() - 30 * 60_000).toISOString();
+        const { data: saved } = await supabaseAdmin
+            .from('drivers')
+            .select('full_name, phone_number, email, city, vehicle_model, created_at')
+            .ilike('email', email)
+            .gte('created_at', since)
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+        if (!saved) {
+            return NextResponse.json({ success: true, message: 'No recent application for this email' });
+        }
+
+        const rawDriver = { ...saved, owns_car: body.driver.owns_car };
         const driver = {
             full_name: escapeHtml(rawDriver.full_name),
             phone_number: escapeHtml(rawDriver.phone_number),

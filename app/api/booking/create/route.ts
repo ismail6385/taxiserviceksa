@@ -52,7 +52,18 @@ export async function POST(request: NextRequest) {
     // passenger fields and delivery fields (recipient/item) are mutually
     // exclusive on a single booking row — never persist the ones that don't
     // match the booking's own type.
-    const data = parsed.data;
+    // Fields only the admin may set. A website booking is always a pending
+    // request with no price, payment or driver details, whatever the request
+    // body says (the public form never sends these; this blocks hand-made
+    // API calls marking their own booking confirmed / paid / priced).
+    const ADMIN_ONLY = ['status', 'total_price', 'deposit_amount', 'payment_status', 'payment_method',
+        'driver_name', 'driver_phone', 'driver_plate', 'driver_arrived_at', 'trip_started_at',
+        'actual_vehicle', 'tags', 'internal_notes', 'commission_rate', 'contract_id',
+        'driver_cost', 'vat_added', 'vehicle_options'] as const;
+    const data: typeof parsed.data = { ...parsed.data };
+    if (!adminSession) {
+        for (const k of ADMIN_ONLY) delete (data as Record<string, unknown>)[k];
+    }
     const isDelivery = data.booking_type === 'delivery';
     const insertPayload = {
         ...data,
@@ -69,7 +80,7 @@ export async function POST(request: NextRequest) {
         item_description: isDelivery ? data.item_description ?? null : null,
         item_count: isDelivery ? data.item_count ?? null : null,
         item_size_weight: isDelivery ? data.item_size_weight ?? null : null,
-        status: data.status || 'pending',
+        status: adminSession ? (data.status || 'pending') : 'pending',
         // Vehicle quote options are an admin tool; never taken from the public form.
         ...vehicleOptionFields(adminSession ? data.vehicle_options : null),
     };
