@@ -2,6 +2,8 @@
 // ChatGPT from a WhatsApp chat) into admin new-booking fields.
 // The template below is what the owner asks ChatGPT to produce.
 
+import { newOptionId, type VehicleOption } from './vehicle-options';
+
 export const BOOKING_PASTE_TEMPLATE = `Name:
 Phone:
 Email:
@@ -17,24 +19,36 @@ Nationality:
 Return trip: No
 Return date:
 Return time:
+Return pickup:
+Return drop-off:
 Price:
 Currency: SAR
 Payment: Cash to Driver
 Driver:
-Notes:`;
+Option 1:
+Option 2:
+Option 3:
+Notes:
+Internal notes:`;
 
-export const CHATGPT_BOOKING_PROMPT = `Read the WhatsApp chat below and fill this booking form. Rules:
+export const CHATGPT_BOOKING_PROMPT = `Read the WhatsApp chat or email below and fill this booking form. Rules:
 - Keep exactly these field names, one per line, in this order.
 - Date as YYYY-MM-DD. Time as 24-hour HH:MM.
 - Phone with country code, e.g. +966 5x xxx xxxx.
-- Leave a field empty if the chat does not say it. Do not guess.
-- Return trip: Yes or No.
-- Put anything else useful (child seats, extra stops, waiting) in Notes.
+- Leave a field empty if the chat does not say it. Do not guess. A time "to be confirmed later" stays empty.
+- Return trip: Yes or No. If Yes, fill Return date, Return pickup and Return drop-off.
+- If several vehicles are offered for the SAME trip, fill one Option line per vehicle and leave Vehicle and Price empty:
+  Option N: Vehicle | Total price for this option with currency | One Way or Round Trip | short note
+  Example: Option 1: Ford Taurus / Lexus Sedan | 2500 SAR | Round Trip | SAR 1,250 each way
+  For a round trip the price is the total of both legs. Delete unused Option lines.
+- If there is only one vehicle, fill Vehicle and Price and leave the Option lines empty.
+- Notes = what the customer should see (child seats, stops, "pickup time to be confirmed").
+- Internal notes = only for our team (cancellation risk, company contact, reminders).
 - Reply with the form only, nothing else.
 
 ${BOOKING_PASTE_TEMPLATE}
 
-WhatsApp chat:
+WhatsApp chat or email:
 `;
 
 export const PASTE_PLACEHOLDER = `One per line, in this order (use - to skip one):
@@ -81,6 +95,10 @@ const KEYS: Record<string, string> = {
     payment: 'payment_method', paymentmethod: 'payment_method',
     driver: 'driver_name', drivername: 'driver_name',
     notes: 'special_requests', note: 'special_requests', specialrequests: 'special_requests', remarks: 'special_requests', details: 'special_requests',
+    internalnotes: 'internal_notes', internalnote: 'internal_notes', adminnotes: 'internal_notes', internal: 'internal_notes',
+    returndropofflocation: 'return_destination', returndrop: 'return_destination', returnpickuplocation: 'return_pickup_location',
+    // "Option 1: Sedan | 2500 SAR | Round Trip | note" (digits are stripped from the key)
+    option: 'vehicle_option', vehicleoption: 'vehicle_option',
 };
 
 const LABELS: Record<string, string> = {
@@ -89,7 +107,31 @@ const LABELS: Record<string, string> = {
     flight_number: 'Flight', passenger_nationality: 'Nationality', has_return_trip: 'Return trip', return_date: 'Return date', return_time: 'Return time',
     return_pickup_location: 'Return pickup', return_destination: 'Return drop-off', duration_hours: 'Hours', total_price: 'Price',
     currency: 'Currency', payment_method: 'Payment', driver_name: 'Driver', special_requests: 'Notes',
+    internal_notes: 'Internal notes', vehicle_options: 'Vehicle options',
 };
+
+/** "Ford Taurus / Lexus Sedan | 2500 SAR | Round Trip | SAR 1,250 each way" */
+function parseOptionLine(v: string): VehicleOption | null {
+    const parts = v.split('|').map(p => p.trim());
+    const vehicle = parts[0];
+    if (!vehicle || EMPTY.test(vehicle)) return null;
+    const rest = parts.slice(1);
+    // The total price is the part with digits that is not a per-leg note ("SAR 1,250 each way").
+    const priceText = rest.find(p => /\d/.test(p) && !/each|per (leg|way)|one leg/i.test(p)) ?? rest[0] ?? '';
+    const price = num(priceText) ?? 0;
+    const cur = (priceText.match(/\b(SAR|AED|QAR|BHD|KWD|OMR|USD|PKR)\b/i)?.[1] || '').toUpperCase();
+    const tripText = rest.find(p => /one ?way|round|return|both ways/i.test(p)) || '';
+    const notes = rest.filter(p => p !== priceText && p !== tripText && p && !EMPTY.test(p)).join(' · ') || null;
+    return {
+        id: newOptionId(),
+        vehicle,
+        price,
+        currency: cur, // '' = not stated; filled from the booking currency below
+        trip: /round|return|both ways/i.test(tripText) ? 'round_trip' : 'one_way',
+        notes,
+        selected: false,
+    };
+}
 
 const EMPTY = /^(-+|n\/?a|none|nil|no info|not (given|mentioned|specified)|unknown|\?+)$/i;
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
@@ -295,12 +337,23 @@ export function parseBookingPaste(text: string, driverNames: string[] = []): Pas
             case 'customer_email':
                 if (/\S+@\S+\.\S+/.test(v)) updates.customer_email = v.match(/\S+@\S+\.\S+/)![0]; else unread.push(line);
                 break;
+            case 'vehicle_option': {
+                const o = parseOptionLine(v);
+                if (o) updates.vehicle_options = [...((updates.vehicle_options as VehicleOption[]) || []), o];
+                else unread.push(line);
+                break;
+            }
             default:
                 updates[field] = v;
         }
     }
 
     if (updates.duration_hours) updates.trip_type = 'hourly';
+    // Options without their own currency follow the booking's currency.
+    if (Array.isArray(updates.vehicle_options)) {
+        const fallback = typeof updates.currency === 'string' ? updates.currency : 'SAR';
+        updates.vehicle_options = (updates.vehicle_options as VehicleOption[]).map(o => ({ ...o, currency: o.currency || fallback }));
+    }
     if (updates.has_return_trip) {
         updates.return_pickup_location ??= updates.destination ?? '';
         updates.return_destination ??= updates.pickup_location ?? '';
