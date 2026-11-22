@@ -27,5 +27,14 @@
   },
   "observability": {
     "enabled": true
+  },
+  // Run the Worker near Supabase instead of the visitor's city. On
+  // 2026-11-23 every Worker -> Supabase request from the Karachi (KHI)
+  // data centre timed out (522) while Supabase itself was fine, so the
+  // owner (in Pakistan) could not save bookings. Smart Placement also cuts
+  // the round trips for the multi-query admin routes. Static pages are
+  // unaffected (served from assets).
+  "placement": {
+    "mode": "smart"
   }
 }
