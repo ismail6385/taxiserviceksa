@@ -3,6 +3,7 @@ import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
+import { renderEmail, para, card, rows, highlight, buttons, whatsappUrl, whenText } from '@/lib/email-layout';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -68,30 +69,24 @@ export async function POST(request: NextRequest) {
         const safeItemType = escapeHtml(itemTypeLabels[booking.item_type] || booking.item_type) || 'Item';
         const safeRecipientName = escapeHtml(booking.recipient_name) || '—';
         const safeRecipientPhone = escapeHtml(booking.recipient_phone) || '—';
-        const loadLineHtml = isDelivery
-            ? `<p style="margin: 5px 0;"><strong>Item:</strong> ${safeItemType} × ${booking.item_count || 1}</p><p style="margin: 5px 0;"><strong>Recipient:</strong> ${safeRecipientName} (${safeRecipientPhone})</p>`
-            : `<p style="margin: 5px 0;"><strong>Passengers:</strong> ${booking.passengers} Pax</p>`;
 
-        const formatTime12h = (timeStr?: string): string => {
-            if (!timeStr) return '—';
-            try {
-                const parts = timeStr.split(':');
-                if (parts.length < 2) return timeStr;
-                let hours = parseInt(parts[0], 10);
-                const minutes = parts[1];
-                if (isNaN(hours)) return timeStr;
-                const ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                return `${hours}:${minutes} ${ampm}`;
-            } catch (e) {
-                return timeStr;
-            }
-        };
-
-        const returnLegLine = hasStructuredReturnLeg(booking)
-            ? `<p style="margin: 5px 0;"><strong>Return Route:</strong> ${escapeHtml(getReturnRoute(booking).pickupLocation)} → ${escapeHtml(getReturnRoute(booking).destination)}</p><p style="margin: 5px 0;"><strong>Return Date/Time:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
-            : (booking.has_return_trip ? `<p style="margin: 5px 0;"><strong>Trip Type:</strong> Round Trip (return details to be confirmed)</p>` : '');
+        const hasReturn = hasStructuredReturnLeg(booking);
+        const returnRoute = hasReturn ? getReturnRoute(booking) : null;
+        const dateTime = whenText(booking.pickup_date, booking.pickup_time);
+        const journeyRows: ([string, string] | null)[] = [
+            ['Request ID', formatBookingId(booking.id)],
+            ['Pickup', safePickup],
+            ['Destination', safeDest],
+            ['Date & Time', dateTime],
+            hasReturn && returnRoute ? ['Return Route', `${escapeHtml(returnRoute.pickupLocation)} → ${escapeHtml(returnRoute.destination)}`] : null,
+            hasReturn ? ['Return Date & Time', `${whenText(booking.return_date, booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}`] : null,
+            !hasReturn && booking.has_return_trip ? ['Trip Type', 'Round Trip (return details to be confirmed)'] : null,
+            ['Vehicle', safeVehicle],
+            isDelivery ? ['Item', `${safeItemType} × ${booking.item_count || 1}`] : ['Passengers', `${booking.passengers ?? '—'}`],
+            isDelivery ? ['Recipient', `${safeRecipientName} (${safeRecipientPhone})`] : null,
+            safeFlightNumber ? ['Flight', safeFlightNumber] : null,
+        ];
+        const waText = `Hello, I want to discuss my booking.\n\n*Booking Details:*\n▶ ID: ${formatBookingId(booking.id)}\n▶ Name: ${booking.customer_name || ''}\n▶ Route: ${booking.pickup_location || ''} to ${booking.destination || ''}\n▶ Date: ${booking.pickup_date || 'TBC'}${booking.pickup_time ? ` at ${booking.pickup_time}` : ''}\n▶ Vehicle: ${booking.vehicle_type || ''}`;
 
         console.log('Sending emails for booking:', booking.id || 'new booking');
 
@@ -100,41 +95,19 @@ export async function POST(request: NextRequest) {
         await sendMail({
             to: booking.customer_email,
             subject: isDelivery ? 'Delivery Request Received - Taxi Service KSA' : 'Quotation Request Received - Taxi Service KSA',
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333;">
-                <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
-                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">${isDelivery ? 'Delivery Request — No Passenger' : 'Quotation Request'}</h1>
-                </div>
-                <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
-                    <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
-                    <p>Thank you for reaching out to <strong>Taxi Service KSA</strong>. We have received your request for a quotation for your upcoming journey. Our team is currently reviewing your details and will provide you with our best competitive rates shortly.</p>
-
-                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
-                        <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Journey Details</h3>
-                        <p style="margin: 10px 0;"><strong>Request ID:</strong> ${formatBookingId(booking.id)}</p>
-                        <p style="margin: 5px 0;"><strong>Pickup:</strong> ${safePickup}</p>
-                        <p style="margin: 5px 0;"><strong>Destination:</strong> ${safeDest}</p>
-                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                        ${returnLegLine}
-                        <p style="margin: 5px 0;"><strong>Vehicle Type:</strong> ${safeVehicle}</p>
-                        ${loadLineHtml}
-                    </div>
-
-                    <div style="background-color: #000; color: #fff; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 25px;">
-                        <p style="margin: 0; font-weight: bold;">Our team will reply with your official quote via email/WhatsApp within 15-30 minutes.</p>
-                    </div>
-
-                    <p style="font-size: 15px;">If you have any urgent changes, please reply to this email or contact us <a href="mailto:info@taxiserviceksa.com" style="color: #000; font-weight: bold;">info@taxiserviceksa.com</a></p>
-
-                    <div style="text-align: center; margin: 30px 0;">
-                        <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20to%20discuss%20my%20booking.%0A%0A*Booking%20Details%3A*%0A%E2%96%B6%20ID%3A%20${formatBookingId(booking.id)}%0A%E2%96%B6%20Name%3A%20${encodeURIComponent(booking.customer_name)}%0A%E2%96%B6%20Route%3A%20${encodeURIComponent(booking.pickup_location)}%20to%20${encodeURIComponent(booking.destination)}%0A%E2%96%B6%20Date%3A%20${encodeURIComponent(booking.pickup_date)}%20at%20${encodeURIComponent(booking.pickup_time)}%0A%E2%96%B6%20Vehicle%3A%20${encodeURIComponent(booking.vehicle_type)}" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 16px;">💬 Chat on WhatsApp</a>
-                    </div>
-
-                    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service</p>
-                </div>
-            </div>
-            `,
+            html: renderEmail({
+                preheader: `We received your ${isDelivery ? 'delivery' : 'quotation'} request ${formatBookingId(booking.id)}. Our team will reply within 15-30 minutes.`,
+                title: isDelivery ? 'Delivery Request Received' : 'Quotation Request Received',
+                subtitle: `Reference ${formatBookingId(booking.id)}`,
+                greeting: `Dear <strong>${safeName || 'Customer'}</strong>,`,
+                blocks: [
+                    para(`Thank you for contacting <strong>Taxi Service KSA</strong>. We have received your request and our team is reviewing the details to prepare our best rate for you.`),
+                    card(isDelivery ? 'Delivery Details' : 'Journey Details', rows(journeyRows)),
+                    highlight({ text: 'Our team will reply with your official quote by email or WhatsApp within 15–30 minutes.' }),
+                    buttons([{ href: whatsappUrl(waText), label: '💬 Chat on WhatsApp', tone: 'whatsapp' }]),
+                    para(`Need to change something? Simply reply to this email or write to <a href="mailto:info@taxiserviceksa.com" style="color:#0f172a;font-weight:700;">info@taxiserviceksa.com</a>.`, { muted: true, size: 14 }),
+                ],
+            }),
         }).catch((e) => console.error('Customer confirmation email failed:', e));
 
         // 2. Alert admin (sent from the booking@ identity so it arrives from/to
@@ -144,25 +117,28 @@ export async function POST(request: NextRequest) {
             replyTo: booking.customer_email,
             fromIdentity: 'booking',
             subject: isDelivery ? `📦 New DELIVERY Request - ${safeName}` : `📋 New Quote Request - ${safeName}`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">${isDelivery ? 'New DELIVERY Request — No Passenger' : 'New Quotation Request'}</h2>
-                <p><strong>${isDelivery ? 'Sender' : 'Customer'} Name:</strong> ${safeName}</p>
-                <p><strong>Email:</strong> ${escapeHtml(booking.customer_email)}</p>
-                <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
-                <p><strong>Route:</strong> ${safePickup} to ${safeDest}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                ${returnLegLine}
-                <p><strong>Vehicle:</strong> ${safeVehicle}</p>
-                ${isDelivery
-                    ? `<p><strong>Item:</strong> ${safeItemType} × ${booking.item_count || 1}</p><p><strong>Recipient:</strong> ${safeRecipientName} (${safeRecipientPhone})</p>`
-                    : `<p><strong>Passengers:</strong> ${booking.passengers}</p><p><strong>Luggage:</strong> ${booking.luggage ?? 0} bags</p>`}
-                ${safeFlightNumber ? `<p><strong>Flight Number:</strong> ${safeFlightNumber}</p>` : ''}
-                <p><strong>Special Requests:</strong> ${safeRequests}</p>
-                <hr>
-                <p style="font-size: 12px; color: #666;">View this in the Admin Dashboard to generate a PDF Quotation.</p>
-            </div>
-            `,
+            html: renderEmail({
+                audience: 'internal',
+                preheader: `${safeName} · ${booking.pickup_location || ''} → ${booking.destination || ''} · ${booking.pickup_date || 'date TBC'}`,
+                title: isDelivery ? 'New Delivery Request' : 'New Quotation Request',
+                subtitle: formatBookingId(booking.id),
+                blocks: [
+                    card(isDelivery ? 'Sender' : 'Customer', rows([
+                        ['Name', safeName],
+                        ['Email', escapeHtml(booking.customer_email) ? `<a href="mailto:${escapeHtml(booking.customer_email)}">${escapeHtml(booking.customer_email)}</a>` : '—'],
+                        ['Phone', escapeHtml(booking.customer_phone) ? `<a href="tel:${escapeHtml(booking.customer_phone)}">${escapeHtml(booking.customer_phone)}</a>` : '—'],
+                    ])),
+                    card('Trip', rows([
+                        ...journeyRows.filter(r => r && r[0] !== 'Request ID'),
+                        !isDelivery ? ['Luggage', `${booking.luggage ?? 0} bags`] : null,
+                        ['Special Requests', safeRequests],
+                    ])),
+                    buttons([
+                        { href: 'https://taxiserviceksa.com/admin/bookings/', label: 'Open Admin Bookings', tone: 'dark' },
+                        booking.customer_phone ? { href: `https://wa.me/${String(booking.customer_phone).replace(/\D/g, '')}`, label: 'WhatsApp Customer', tone: 'whatsapp' } : null,
+                    ]),
+                ],
+            }),
         }).catch((e) => console.error('Admin alert email failed:', e));
 
         // 3. Also log it as an internal note so it still shows in the

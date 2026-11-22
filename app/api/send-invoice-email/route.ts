@@ -4,6 +4,7 @@ import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession } from '@/lib/admin-auth';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
+import { renderEmail, para, card, rows, buttons, whatsappUrl, whenText, esc } from '@/lib/email-layout';
 
 async function appendEmailLog(bookingId: string, entry: string) {
     const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
@@ -35,66 +36,48 @@ export async function POST(request: NextRequest) {
         const curr = currency || 'SAR';
         const amount = booking.total_price?.toFixed(2) || '0.00';
 
-        const formatTime12h = (timeStr?: string): string => {
-            if (!timeStr) return '—';
-            try {
-                const parts = timeStr.split(':');
-                if (parts.length < 2) return timeStr;
-                let hours = parseInt(parts[0], 10);
-                const minutes = parts[1];
-                if (isNaN(hours)) return timeStr;
-                const ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                return `${hours}:${minutes} ${ampm}`;
-            } catch (e) {
-                return timeStr;
-            }
-        };
-
-        const returnLegLine = hasStructuredReturnLeg(booking)
-            ? `<p style="margin: 5px 0;"><strong>Return Route:</strong> ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}</p><p style="margin: 5px 0;"><strong>Return Date/Time:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
-            : '';
+        const e = (v: unknown) => esc(v);
+        const money = (n: number) => `${e(curr)} ${Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        const hasReturn = hasStructuredReturnLeg(booking);
+        const returnRoute = hasReturn ? getReturnRoute(booking) : null;
+        const total = Number(booking.total_price || 0);
+        const deposit = Number(booking.deposit_amount || 0);
+        const isPaid = /^paid$/i.test(String(paymentStatus || ''));
 
         // 1. Send invoice to customer (+ CC additional emails)
         await sendMail({
             to: booking.customer_email,
             cc: cc.length ? cc : undefined,
             subject: `Your Invoice ${refId} - Taxi Service KSA`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333;">
-                <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
-                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Your Invoice</h1>
-                </div>
-                <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
-                    <p style="font-size: 16px;">Dear <strong>${booking.customer_name}</strong>,</p>
-                    <p>Please find your invoice attached for your upcoming journey with <strong>Taxi Service KSA</strong>.</p>
-
-                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
-                        <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Booking Summary</h3>
-                        <p style="margin: 10px 0;"><strong>Invoice Ref:</strong> ${refId}</p>
-                        <p style="margin: 5px 0;"><strong>Pickup:</strong> ${booking.pickup_location}</p>
-                        <p style="margin: 5px 0;"><strong>Destination:</strong> ${booking.destination}</p>
-                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                        ${returnLegLine}
-                        <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
-                        <p style="margin: 5px 0;"><strong>Amount:</strong> ${currency || 'SAR'} ${booking.total_price?.toFixed(2) || '0.00'}</p>
-                        ${booking.deposit_amount ? `<p style="margin: 5px 0;"><strong>Deposit Paid:</strong> ${currency || 'SAR'} ${Number(booking.deposit_amount).toFixed(2)}</p><p style="margin: 5px 0;"><strong>Balance Due:</strong> ${currency || 'SAR'} ${(Number(booking.total_price) - Number(booking.deposit_amount)).toFixed(2)}</p>` : ''}
-                        <p style="margin: 5px 0;"><strong>Payment Status:</strong> ${paymentStatus || 'Unpaid'}</p>
-                        <p style="margin: 5px 0;"><strong>Payment Method:</strong> ${paymentMethod || 'Cash to Driver'}</p>
-                    </div>
-
-                    <p style="font-size: 14px; color: #666;">The PDF invoice is attached to this email. Please save it for your records.</p>
-
-                    <div style="text-align: center; margin: 30px 0;">
-                        <a href="https://wa.me/966575806733" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 16px;">💬 Contact Us on WhatsApp</a>
-                    </div>
-
-                    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service</p>
-                </div>
-            </div>
-            `,
+            html: renderEmail({
+                preheader: `Invoice ${refId} for ${booking.pickup_location || 'your trip'} → ${booking.destination || ''}: ${curr} ${amount}. PDF attached.`,
+                title: 'Your Invoice',
+                subtitle: `Invoice ${refId}`,
+                greeting: `Dear <strong>${e(booking.customer_name) || 'Customer'}</strong>,`,
+                blocks: [
+                    para(`Thank you for travelling with <strong>Taxi Service KSA</strong>. Your invoice is attached to this email as a PDF.`),
+                    card('Booking Summary', rows([
+                        ['Invoice Ref', refId],
+                        ['Pickup', e(booking.pickup_location)],
+                        ['Destination', e(booking.destination)],
+                        ['Date & Time', whenText(booking.pickup_date, booking.pickup_time)],
+                        hasReturn && returnRoute ? ['Return Route', `${e(returnRoute.pickupLocation)} → ${e(returnRoute.destination)}`] : null,
+                        hasReturn ? ['Return Date & Time', whenText(booking.return_date, booking.return_time)] : null,
+                        ['Vehicle', e(booking.vehicle_type)],
+                        ['Payment Method', e(paymentMethod || 'Cash to Driver')],
+                    ])),
+                    card('Amount', rows([
+                        ['Total', `<span style="font-size:16px;">${money(total)}</span>`],
+                        deposit > 0 ? ['Deposit Paid', money(deposit)] : null,
+                        deposit > 0 ? ['Balance Due', `<span style="font-size:16px;">${money(total - deposit)}</span>`] : null,
+                        ['Payment Status', isPaid
+                            ? '<span style="color:#047857;">✔ Paid</span>'
+                            : `<span style="color:#b45309;">${e(paymentStatus || 'Unpaid')}</span>`],
+                    ])),
+                    para('Please keep the attached PDF for your records.', { muted: true, size: 13 }),
+                    buttons([{ href: whatsappUrl(`Hello, I have a question about invoice ${refId}.`), label: '💬 Contact Us on WhatsApp', tone: 'whatsapp' }]),
+                ],
+            }),
             attachments: [
                 {
                     filename: filename || `Invoice-${refId}.pdf`,

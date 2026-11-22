@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+import { renderEmail, para, card, buttons, whatsappUrl } from '@/lib/email-layout';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -46,27 +47,20 @@ export async function POST(request: NextRequest) {
             await sendMail({
                 to: driver.email,
                 subject: 'Partnership Application Received - Taxi Service KSA',
-                html: `
-                <div style="font-family: Arial, sans-serif; padding: 25px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 12px;">
-                    <div style="text-align: center; margin-bottom: 25px;">
-                        <h2 style="color: #000; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Application Received</h2>
-                        <div style="width: 50px; height: 3px; background-color: #C6FF00; margin: 10px auto;"></div>
-                    </div>
-                    
-                    <p>Dear <strong>${driver.full_name}</strong>,</p>
-                    <p>Thank you for your interest in joining the <strong>Taxi Service KSA</strong> professional network.</p>
-                    <p>We have received your registration details and our partner compliance team is currently reviewing your profile and vehicle information.</p>
-                    
-                    <div style="background-color: #f8f9fa; border-left: 4px solid #C6FF00; padding: 15px; margin: 20px 0;">
-                        <p style="margin: 0; font-weight: bold; color: #000;">What's Next?</p>
-                        <p style="margin: 5px 0; font-size: 14px;">Our team will contact you within 48-72 hours if your profile matches our requirements for your city (${driver.city}).</p>
-                    </div>
-
-                    <p>Please ensure your vehicle remains in top condition and your documents are ready for final verification.</p>
-                    
-                    <p style="margin-top: 30px;">Best regards,<br><strong>Onboarding Team</strong><br>Taxi Service KSA</p>
-                </div>
-                `,
+                html: renderEmail({
+                    audience: 'driver',
+                    preheader: 'We received your application to drive with Taxi Service KSA.',
+                    title: 'Application Received',
+                    subtitle: 'Driver partnership',
+                    greeting: `Dear <strong>${driver.full_name || 'Driver'}</strong>,`,
+                    blocks: [
+                        para('Thank you for your interest in joining the <strong>Taxi Service KSA</strong> driver network.'),
+                        para('We have received your details. Our team is now reviewing your profile and vehicle information.'),
+                        card("What's Next?", para(`If your profile matches our needs${driver.city ? ` in <strong>${driver.city}</strong>` : ''}, our team will contact you within <strong>48–72 hours</strong>. Please keep your documents ready for verification.`, { size: 14 })),
+                        buttons([{ href: whatsappUrl('Hello, I applied to drive with Taxi Service KSA.'), label: '💬 WhatsApp Our Team', tone: 'whatsapp' }]),
+                    ],
+                    signoff: '<p style="margin:0 0 4px;font-size:14px;color:#1f2937;">Best regards,</p><p style="margin:0 0 16px;font-size:14px;font-weight:700;color:#1f2937;">Onboarding Team, Taxi Service KSA</p>',
+                }),
             });
         } catch (error) {
             console.warn('Failed to send applicant confirmation email:', error);

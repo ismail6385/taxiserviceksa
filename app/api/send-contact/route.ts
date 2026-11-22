@@ -3,6 +3,7 @@ import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { z } from 'zod';
+import { renderEmail, para, card, buttons, whatsappUrl } from '@/lib/email-layout';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -51,26 +52,18 @@ export async function POST(req: NextRequest) {
             await sendMail({
                 to: email,
                 subject: `Re: ${subject} - Taxi Service KSA`,
-                html: `
-                <div style="font-family: Arial, sans-serif; padding: 25px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 12px;">
-                    <div style="text-align: center; margin-bottom: 25px;">
-                        <h2 style="color: #000; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Message Received</h2>
-                        <div style="width: 50px; height: 3px; background-color: #C6FF00; margin: 10px auto;"></div>
-                    </div>
-
-                    <p>Dear <strong>${safeName}</strong>,</p>
-                    <p>Thank you for contacting <strong>Taxi Service KSA</strong>. We have received your message regarding "<strong>${safeSubject}</strong>".</p>
-                    <p>Our customer support team is currently reviewing your inquiry and will get back to you within the next hour.</p>
-
-                    <div style="background-color: #f8f9fa; border-left: 4px solid #000; padding: 15px; margin: 20px 0;">
-                        <p style="margin: 0; font-style: italic; color: #555;">"${message.length > 100 ? safeMessage.substring(0, 100) + '...' : safeMessage}"</p>
-                    </div>
-
-                    <p>For urgent inquiries, please do not hesitate to reply to this email.</p>
-
-                    <p style="margin-top: 30px;">Best regards,<br><strong>Customer Success Team</strong><br>Taxi Service KSA</p>
-                </div>
-                `,
+                html: renderEmail({
+                    preheader: `We received your message about "${subject}". We usually reply within the hour.`,
+                    title: 'Message Received',
+                    subtitle: safeSubject,
+                    greeting: `Dear <strong>${safeName || 'Customer'}</strong>,`,
+                    blocks: [
+                        para(`Thank you for contacting <strong>Taxi Service KSA</strong>. We have received your message and our team will get back to you within the next hour.`),
+                        card('Your Message', para(`<em>${safeMessage.length > 300 ? safeMessage.substring(0, 300) + '…' : safeMessage}</em>`, { muted: true, size: 14 })),
+                        para('Need an answer right away? Message us on WhatsApp.', { size: 14 }),
+                        buttons([{ href: whatsappUrl(`Hello, I just sent a message about "${subject}".`), label: '💬 WhatsApp Us', tone: 'whatsapp' }]),
+                    ],
+                }),
             });
         } catch (e) {
             console.warn('Auto-reply failed to send to customer:', e);

@@ -1,4 +1,5 @@
 import { sendMail } from './mail-server';
+import { renderEmail, buttons } from './email-layout';
 
 /**
  * Driver-onboarding status emails. Reuses lib/mail-server.ts directly
@@ -21,16 +22,17 @@ function escapeHtml(str: string | undefined | null): string {
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://taxiserviceksa.com';
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
 
+// Shared responsive layout (lib/email-layout.ts); plain <p> tags in the
+// bodies get the same text style as the other emails.
 function wrap(title: string, bodyHtml: string): string {
-    return `
-    <div style="font-family: Arial, sans-serif; padding: 25px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 12px;">
-        <div style="text-align: center; margin-bottom: 25px;">
-            <h2 style="color: #000; margin: 0; text-transform: uppercase; letter-spacing: 1px;">${title}</h2>
-            <div style="width: 50px; height: 3px; background-color: #C6FF00; margin: 10px auto;"></div>
-        </div>
-        ${bodyHtml}
-        <p style="margin-top: 30px;">Best regards,<br><strong>Onboarding Team</strong><br>Taxi Service KSA</p>
-    </div>`;
+    const styled = bodyHtml.replace(/<p>/g, '<p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:#1f2937;">');
+    return renderEmail({
+        audience: 'driver',
+        title,
+        subtitle: 'Driver onboarding',
+        blocks: [styled],
+        signoff: '<p style="margin:0 0 4px;font-size:14px;color:#1f2937;">Best regards,</p><p style="margin:0 0 16px;font-size:14px;font-weight:700;color:#1f2937;">Onboarding Team, Taxi Service KSA</p>',
+    });
 }
 
 export async function sendOnboardingSubmittedEmail(driver: { full_name: string; email?: string | null }) {
@@ -73,7 +75,7 @@ export async function sendChangesRequestedEmail(driver: { full_name: string; ema
                     <p style="margin: 0; white-space: pre-wrap;">${escapeHtml(feedback)}</p>
                 </div>
                 <p>Please open your onboarding link to update your profile:</p>
-                <p><a href="${onboardingUrl}" style="color: #000; background-color: #C6FF00; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">Update My Profile</a></p>
+                ${buttons([{ href: onboardingUrl, label: 'Update My Profile', tone: 'primary' }])}
             `),
         });
     } catch (e) { console.warn('Failed to send changes-requested email:', e); }

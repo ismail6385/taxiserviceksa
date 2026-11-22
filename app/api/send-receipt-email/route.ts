@@ -3,6 +3,7 @@ import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
+import { renderEmail, para, card, rows, buttons, whatsappUrl, whenText, esc } from '@/lib/email-layout';
 import { formatTime12h } from '@/lib/format-time';
 
 async function appendEmailLog(bookingId: string, entry: string) {
@@ -34,51 +35,40 @@ export async function POST(request: NextRequest) {
         const curr = currency || 'SAR';
         const amount = amountPaid ?? booking.total_price?.toFixed(2) ?? '0.00';
 
-        const returnLegLine = hasStructuredReturnLeg(booking)
-            ? `<p style="margin: 5px 0;"><strong>Return Route:</strong> ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}</p><p style="margin: 5px 0;"><strong>Return Date/Time:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
-            : '';
+        const e = (v: unknown) => esc(v);
+        const hasReturn = hasStructuredReturnLeg(booking);
+        const returnRoute = hasReturn ? getReturnRoute(booking) : null;
+        const shownAmount = `${e(curr)} ${Number(amount || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
         await sendMail({
             to: booking.customer_email,
             subject: `✅ Payment Receipt ${refId} - Taxi Service KSA`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-                <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
-                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Payment Receipt</h1>
-                    <p style="margin: 8px 0 0; color: #aaa; font-size: 13px;">Payment Successfully Received</p>
-                </div>
-                <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
-                    <p style="font-size: 16px;">Dear <strong>${booking.customer_name}</strong>,</p>
-                    <p>Thank you for your payment. Please find your official payment receipt attached. This confirms that your trip with <strong>Taxi Service KSA</strong> is fully paid and confirmed.</p>
-
-                    <div style="background-color: #f0fff4; border: 2px solid #22c55e; border-radius: 12px; padding: 20px; margin: 25px 0; text-align: center;">
-                        <p style="margin: 0 0 4px; font-size: 11px; color: #16a34a; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Amount Paid</p>
-                        <p style="margin: 0; font-size: 36px; font-weight: 900; color: #15803d;">${curr} ${amount}</p>
-                        <p style="margin: 8px 0 0; font-size: 12px; color: #16a34a; font-weight: bold;">✓ PAYMENT CONFIRMED</p>
-                    </div>
-
-                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px solid #ebedf0;">
-                        <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Trip Details</h3>
-                        <p style="margin: 10px 0;"><strong>Receipt Ref:</strong> ${refId}</p>
-                        <p style="margin: 5px 0;"><strong>Pickup:</strong> ${booking.pickup_location}</p>
-                        <p style="margin: 5px 0;"><strong>Destination:</strong> ${booking.destination}</p>
-                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                        ${returnLegLine}
-                        <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
-                        <p style="margin: 5px 0;"><strong>Payment Method:</strong> ${paymentMethod || 'Cash to Driver'}</p>
-                    </div>
-
-                    <p style="font-size: 14px; color: #666;">${textOnly ? 'This email confirms your payment. Your receipt details are above.' : 'The PDF receipt is attached. Please save it for your records.'}</p>
-
-                    <div style="text-align: center; margin: 30px 0;">
-                        <a href="https://wa.me/966575806733" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 16px;">💬 Contact Us on WhatsApp</a>
-                    </div>
-
-                    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service</p>
-                </div>
-            </div>
-            `,
+            html: renderEmail({
+                preheader: `Payment received: ${curr} ${amount} for booking ${refId}. Thank you!`,
+                title: 'Payment Receipt',
+                subtitle: `Receipt ${refId} · Payment received`,
+                greeting: `Dear <strong>${e(booking.customer_name) || 'Customer'}</strong>,`,
+                blocks: [
+                    para(`Thank you for your payment. This confirms that your trip with <strong>Taxi Service KSA</strong> is paid and confirmed.`),
+                    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 18px;border-collapse:separate;"><tr><td style="background:#ecfdf5;border:2px solid #22c55e;border-radius:12px;padding:18px;text-align:center;">
+<p style="margin:0 0 4px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#15803d;font-weight:700;">Amount Paid</p>
+<p class="big" style="margin:0;font-size:32px;line-height:1.2;font-weight:800;color:#15803d;">${shownAmount}</p>
+<p style="margin:6px 0 0;font-size:12px;color:#15803d;font-weight:700;">✔ PAYMENT CONFIRMED</p>
+</td></tr></table>`,
+                    card('Trip Details', rows([
+                        ['Receipt Ref', refId],
+                        ['Pickup', e(booking.pickup_location)],
+                        ['Destination', e(booking.destination)],
+                        ['Date & Time', whenText(booking.pickup_date, booking.pickup_time)],
+                        hasReturn && returnRoute ? ['Return Route', `${e(returnRoute.pickupLocation)} → ${e(returnRoute.destination)}`] : null,
+                        hasReturn ? ['Return Date & Time', whenText(booking.return_date, booking.return_time)] : null,
+                        ['Vehicle', e(booking.vehicle_type)],
+                        ['Payment Method', e(paymentMethod || 'Cash to Driver')],
+                    ])),
+                    para(textOnly ? 'This email confirms your payment.' : 'The PDF receipt is attached. Please keep it for your records.', { muted: true, size: 13 }),
+                    buttons([{ href: whatsappUrl(`Hello, about my receipt ${refId}.`), label: '💬 Contact Us on WhatsApp', tone: 'whatsapp' }]),
+                ],
+            }),
             ...((!textOnly && pdfBase64) ? {
                 attachments: [{ filename: filename || `Receipt-${refId}.pdf`, content: pdfBase64 }],
             } : {}),

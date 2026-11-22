@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
+import { renderEmail, para, card, rows, notice, buttons, whenText } from '@/lib/email-layout';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -41,81 +42,43 @@ export async function POST(request: NextRequest) {
         const safeFrom = escapeHtml(booking.pickup_location);
         const safeTo = escapeHtml(booking.destination);
         const refId = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
-        const cleanPhone = (booking.driver_phone as string).replace(/\s/g, '');
         const isDelivery = booking.booking_type === 'delivery';
 
-        const formatTime12h = (timeStr?: string): string => {
-            if (!timeStr) return '—';
-            try {
-                const parts = timeStr.split(':');
-                if (parts.length < 2) return timeStr;
-                let hours = parseInt(parts[0], 10);
-                const minutes = parts[1];
-                if (isNaN(hours)) return timeStr;
-                const ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                return `${hours}:${minutes} ${ampm}`;
-            } catch (e) {
-                return timeStr;
-            }
-        };
-
-        const whatsappMsg = encodeURIComponent(
-            `Hello, I am your driver for booking ${refId}.\n\nDriver: ${booking.driver_name}\nPhone: ${booking.driver_phone}${booking.driver_plate ? `\nPlate: ${booking.driver_plate}` : ''}`
-        );
+        // wa.me needs digits with country code: "+966 5x…" / "05x…" -> "9665x…"
+        let waDigits = String(booking.driver_phone).replace(/\D/g, '');
+        if (waDigits.startsWith('05') && waDigits.length === 10) waDigits = `966${waDigits.slice(1)}`;
+        const when = whenText(booking.pickup_date, booking.pickup_time);
+        const whenPlain = when.replace(/<[^>]+>/g, '');
 
         await sendMail({
             to: booking.customer_email,
-            subject: isDelivery ? `🚗 Your Driver is Assigned — Delivery ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}` : `🚗 Your Driver is Assigned — ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-                <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
-                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Driver Assigned</h1>
-                    <p style="color: #aaa; margin: 6px 0 0; font-size: 13px;">${isDelivery ? 'Your delivery driver details are ready' : 'Your chauffeur details are ready'}</p>
-                </div>
-                <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
-                    <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
-                    <p>A driver has been assigned to your ${isDelivery ? 'upcoming delivery' : 'upcoming trip'}. Here are the driver's details:</p>
-
-                    <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 24px; margin: 25px 0;">
-                        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                            <tr>
-                                <td style="padding: 8px 0; color: #666; width: 40%;">Driver Name</td>
-                                <td style="font-weight: bold; color: #000; font-size: 18px;">${safeDriver}</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 8px 0; color: #666;">Driver Phone</td>
-                                <td style="font-weight: bold; color: #000; font-size: 16px;"><a href="tel:${escapeHtml(cleanPhone)}" style="color: #16a34a;">${safePhone}</a></td>
-                            </tr>
-                            ${safePlate ? `<tr><td style="padding: 8px 0; color: #666;">Vehicle Plate</td><td style="font-weight: bold; color: #000;">${safePlate}</td></tr>` : ''}
-                            ${safeVehicle ? `<tr><td style="padding: 8px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${safeVehicle}</td></tr>` : ''}
-                        </table>
-                    </div>
-
-                    <div style="background-color: #f8f9fa; border-radius: 12px; padding: 20px; margin: 20px 0; border: 1px solid #ebedf0;">
-                        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                            <tr><td style="padding: 5px 0; color: #666; width: 40%;">Booking Ref</td><td style="font-weight: bold; color: #000;">${refId}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Pickup Time</td><td style="font-weight: bold; color: #000; font-size: 16px;">${formatTime12h(booking.pickup_time)}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Pickup Location</td><td style="font-weight: bold; color: #000;">${safeFrom}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Destination</td><td style="font-weight: bold; color: #000;">${safeTo}</td></tr>
-                        </table>
-                    </div>
-
-                    <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 15px; margin-bottom: 25px;">
-                        <p style="margin: 0; font-size: 13px; color: #92400e;">
-                            💡 <strong>Please be ready 10 minutes before your pickup time.</strong> Your driver will contact you upon arrival.
-                        </p>
-                    </div>
-
-                    <div style="text-align: center; margin: 25px 0;">
-                        <a href="https://wa.me/${escapeHtml(cleanPhone)}?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 13px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 WhatsApp Your Driver</a>
-                    </div>
-
-                    <hr style="border: none; border-top: 1px solid #eee; margin: 25px 0;">
-                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service</p>
-                </div>
-            </div>`,
+            subject: `🚗 Your Driver is Assigned — ${whenPlain}`,
+            html: renderEmail({
+                preheader: `${booking.driver_name} will be your driver${booking.driver_plate ? ` (plate ${booking.driver_plate})` : ''}. ${whenPlain}.`,
+                title: 'Your Driver is Assigned',
+                subtitle: `Booking ${refId}`,
+                greeting: `Dear <strong>${safeName || 'Customer'}</strong>,`,
+                blocks: [
+                    para(`A driver has been assigned to your ${isDelivery ? 'delivery' : 'trip'}. Here are the details:`),
+                    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 18px;border-collapse:separate;"><tr><td class="card" style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:18px 20px;">
+<p style="margin:0 0 2px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#047857;font-weight:700;">Your Driver</p>
+<p style="margin:0;font-size:20px;line-height:1.3;font-weight:800;color:#0f172a;">${safeDriver}</p>
+<p style="margin:6px 0 0;font-size:16px;font-weight:700;"><a href="tel:${escapeHtml(String(booking.driver_phone).replace(/\s/g, ''))}" style="color:#047857;text-decoration:none;">📞 ${safePhone}</a></p>
+${safeVehicle || safePlate ? `<p style="margin:6px 0 0;font-size:14px;color:#374151;">${safeVehicle}${safeVehicle && safePlate ? ' · ' : ''}${safePlate ? `Plate <strong>${safePlate}</strong>` : ''}</p>` : ''}
+</td></tr></table>`,
+                    card('Trip', rows([
+                        ['Booking Ref', refId],
+                        ['Pickup Time', when],
+                        ['Pickup', safeFrom],
+                        ['Destination', safeTo],
+                    ])),
+                    notice('💡 <strong>Please be ready 10 minutes before pickup.</strong> Your driver will contact you on arrival.', 'warning'),
+                    buttons([
+                        { href: `https://wa.me/${waDigits}?text=${encodeURIComponent(`Hello ${booking.driver_name}, I'm your passenger for booking ${refId}.`)}`, label: '💬 WhatsApp Your Driver', tone: 'whatsapp' },
+                        { href: `tel:${escapeHtml(String(booking.driver_phone).replace(/\s/g, ''))}`, label: '📞 Call Driver', tone: 'light' },
+                    ]),
+                ],
+            }),
         });
 
         const now = new Date();

@@ -5,6 +5,7 @@ import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession } from '@/lib/admin-auth';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 import { readVehicleOptions, TRIP_LABEL, formatOptionPrice } from '@/lib/vehicle-options';
+import { renderEmail, para, card, rows, highlight, buttons, dataTable, list, whatsappUrl, whenText, niceTime } from '@/lib/email-layout';
 
 async function appendEmailLog(bookingId: string, entry: string) {
     const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
@@ -61,130 +62,79 @@ export async function POST(request: NextRequest) {
         const safeVehicle = escapeHtml(booking.vehicle_type);
         const isDelivery  = booking.booking_type === 'delivery';
         const itemTypeLabels: Record<string, string> = { bag_luggage: 'Bag / Luggage', documents: 'Documents', parcel: 'Parcel', flowers: 'Flowers', small_package: 'Small Package', other: 'Other' };
-        const loadRow = isDelivery
-            ? `<tr><td style="padding: 5px 0; color: #666;">Item</td><td style="font-weight: bold; color: #000;">${escapeHtml(itemTypeLabels[booking.item_type] || booking.item_type) || 'Item'} × ${booking.item_count || 1}</td></tr><tr><td style="padding: 5px 0; color: #666;">Recipient</td><td style="font-weight: bold; color: #000;">${escapeHtml(booking.recipient_name) || '—'} (${escapeHtml(booking.recipient_phone) || '—'})</td></tr>`
-            : `<tr><td style="padding: 5px 0; color: #666;">Passengers</td><td style="font-weight: bold; color: #000;">${booking.passengers} Pax</td></tr>`;
-
-        const formatTime12h = (timeStr?: string): string => {
-            if (!timeStr) return '—';
-            try {
-                const parts = timeStr.split(':');
-                if (parts.length < 2) return timeStr;
-                let hours = parseInt(parts[0], 10);
-                const minutes = parts[1];
-                if (isNaN(hours)) return timeStr;
-                const ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                return `${hours}:${minutes} ${ampm}`;
-            } catch (e) {
-                return timeStr;
-            }
-        };
-
-        const returnLegRow = hasStructuredReturnLeg(booking)
-            ? `<tr><td style="padding: 5px 0; color: #666;">Return Route</td><td style="font-weight: bold; color: #000;">${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}</td></tr><tr><td style="padding: 5px 0; color: #666;">Return Date/Time</td><td style="font-weight: bold; color: #000;">${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</td></tr>`
-            : (booking.has_return_trip ? `<tr><td style="padding: 5px 0; color: #666;">Trip Type</td><td style="font-weight: bold; color: #000;">Round Trip</td></tr>` : '');
+        const hasReturn = hasStructuredReturnLeg(booking);
+        const returnRoute = hasReturn ? getReturnRoute(booking) : null;
+        const money = (n: number) => Number(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 
         const itineraryLegs: { date: string; time: string; pickup: string; dropoff: string }[] = Array.isArray(booking.itinerary_legs) ? booking.itinerary_legs : [];
-        const itineraryHtml = itineraryLegs.length > 0 ? `
-            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 15px 0; border: 1px solid #ebedf0;">
-                <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Full Itinerary</h3>
-                <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
-                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 5px 8px 5px 0; color: #666; white-space: nowrap;">${booking.pickup_date} ${formatTime12h(booking.pickup_time)}</td><td style="padding: 5px 0; font-weight: bold; color: #000;">${safePickup} → ${safeDest}</td></tr>
-                    ${itineraryLegs.map((leg) => `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 5px 8px 5px 0; color: #666; white-space: nowrap;">${escapeHtml(leg.date)}${leg.time ? ' ' + formatTime12h(leg.time) : ''}</td><td style="padding: 5px 0; font-weight: bold; color: #000;">${escapeHtml(leg.pickup)} → ${escapeHtml(leg.dropoff)}</td></tr>`).join('')}
-                </table>
-            </div>` : '';
-
         const additionalStops: { time?: string | null; location: string }[] = Array.isArray(booking.additional_stops) ? booking.additional_stops : [];
-        const additionalStopsHtml = additionalStops.length > 0 ? `
-            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 15px 0; border: 1px solid #ebedf0;">
-                <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Sites to Visit</h3>
-                <ul style="margin: 10px 0 0; padding-left: 20px; font-size: 13px; color: #333;">
-                    ${additionalStops.map((stop) => `<li style="margin-bottom: 4px;">${stop.time ? `<strong>${formatTime12h(stop.time)}</strong> — ` : ''}${escapeHtml(stop.location)}</li>`).join('')}
-                </ul>
-            </div>` : '';
 
-        const optionsHtml = `
-                    <div style="margin: 25px 0;">
-                        <h3 style="margin: 0 0 6px; color: #000;">Choose Your Vehicle</h3>
-                        <p style="margin: 0 0 12px; font-size: 13px; color: #555;">These are <strong>alternative vehicle options for the same trip</strong>, not separate bookings. Please choose <strong>one</strong> option and let us know.</p>
-                        <table style="width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #e5e7eb;">
-                            <thead>
-                                <tr style="background-color: #000;">
-                                    <th style="padding: 10px 12px; text-align: left; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Option</th>
-                                    <th style="padding: 10px 12px; text-align: left; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Vehicle</th>
-                                    <th style="padding: 10px 12px; text-align: left; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Trip</th>
-                                    <th style="padding: 10px 12px; text-align: right; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${vehicleOptions.map((o, i) => `
-                                <tr style="background-color: ${i % 2 ? '#f8f9fa' : '#fff'}; border-top: 1px solid #e5e7eb;">
-                                    <td style="padding: 12px; font-weight: bold; color: #000;">${i + 1}</td>
-                                    <td style="padding: 12px; color: #000;"><strong>${escapeHtml(o.vehicle)}</strong>${o.notes ? `<br><span style="font-size: 12px; color: #666;">${escapeHtml(o.notes)}</span>` : ''}</td>
-                                    <td style="padding: 12px; color: #333; white-space: nowrap;">${TRIP_LABEL[o.trip]}</td>
-                                    <td style="padding: 12px; text-align: right; font-weight: 900; color: #000; white-space: nowrap;">${escapeHtml(formatOptionPrice(o))}</td>
-                                </tr>`).join('')}
-                            </tbody>
-                        </table>
-                        <p style="margin: 8px 0 0; font-size: 11px; color: #777;">Prices are per vehicle and include fuel, toll, and parking fees.</p>
-                    </div>`;
+        const journeyRows: ([string, string] | null)[] = [
+            ['Quote Ref', refId],
+            ['Pickup', safePickup],
+            ['Destination', safeDest],
+            ['Date & Time', whenText(booking.pickup_date, booking.pickup_time)],
+            hasReturn && returnRoute ? ['Return Route', `${escapeHtml(returnRoute.pickupLocation)} → ${escapeHtml(returnRoute.destination)}`] : null,
+            hasReturn ? ['Return Date & Time', `${whenText(booking.return_date, booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}`] : null,
+            !hasReturn && booking.has_return_trip ? ['Trip Type', 'Round Trip'] : null,
+            ['Vehicle', showOptions ? `${vehicleOptions.length} options, see below` : safeVehicle],
+            isDelivery
+                ? ['Item', `${escapeHtml(itemTypeLabels[booking.item_type] || booking.item_type) || 'Item'} × ${booking.item_count || 1}`]
+                : ['Passengers', `${booking.passengers ?? '—'}`],
+            isDelivery ? ['Recipient', `${escapeHtml(booking.recipient_name) || '—'} (${escapeHtml(booking.recipient_phone) || '—'})`] : null,
+        ];
 
-        const whatsappMsg = encodeURIComponent(
-            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}${hasStructuredReturnLeg(booking) ? `\n*Return Route:* ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}\n*Return:* ${booking.return_date} at ${formatTime12h(booking.return_time)}` : ''}\n${showOptions
-                ? `*Vehicle options quoted:*\n${vehicleOptions.map((o, i) => `${i + 1}. ${o.vehicle} (${TRIP_LABEL[o.trip]}) ${formatOptionPrice(o)}`).join('\n')}\n\n*I choose option number:* `
-                : `*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`}`
-        );
+        const itineraryHtml = itineraryLegs.length > 0 ? card('Full Itinerary', rows([
+            [whenText(booking.pickup_date, booking.pickup_time).replace(/<[^>]+>/g, ''), `${safePickup} → ${safeDest}`],
+            ...itineraryLegs.map((leg): [string, string] => [whenText(leg.date, leg.time).replace(/<[^>]+>/g, ''), `${escapeHtml(leg.pickup)} → ${escapeHtml(leg.dropoff)}`]),
+        ])) : '';
 
-        const quoteHtml = `
-            <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-                <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
-                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Your Quote</h1>
-                    <p style="color: #aaa; margin: 8px 0 0; font-size: 13px;">Taxi Service KSA</p>
-                </div>
-                <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
-                    <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
-                    <p>Thank you for choosing <strong>Taxi Service KSA</strong>. Here is your official quote for the requested journey. <strong>Please find the full quotation PDF attached to this email.</strong></p>
+        const additionalStopsHtml = additionalStops.length > 0
+            ? card('Sites to Visit', list(additionalStops.map((stop) => `${stop.time ? `<strong>${niceTime(stop.time)}</strong> — ` : ''}${escapeHtml(stop.location)}`)))
+            : '';
 
-                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
-                        <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Journey Details</h3>
-                        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                            <tr><td style="padding: 5px 0; color: #666; width: 40%;">Ref Number</td><td style="font-weight: bold; color: #000;">${refId}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Pickup</td><td style="font-weight: bold; color: #000;">${safePickup}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Destination</td><td style="font-weight: bold; color: #000;">${safeDest}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Date &amp; Time</td><td style="font-weight: bold; color: #000;">${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</td></tr>
-                            ${returnLegRow}
-                            <tr><td style="padding: 5px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${showOptions ? `${vehicleOptions.length} options, see below` : safeVehicle}</td></tr>
-                            ${loadRow}
-                        </table>
-                    </div>
-                    ${itineraryHtml}
-                    ${additionalStopsHtml}
+        const optionsHtml = card('Choose Your Vehicle',
+            para(`These are <strong>alternative vehicle options for the same trip</strong>, not separate bookings. Please choose <strong>one</strong> option and let us know.`, { size: 14 })
+            + dataTable(['#', 'Vehicle', 'Trip', 'Price'], vehicleOptions.map((o, i) => [
+                `<strong>${i + 1}</strong>`,
+                `<strong>${escapeHtml(o.vehicle)}</strong>${o.notes ? `<br><span style="font-size:12px;color:#6b7280;font-weight:400;">${escapeHtml(o.notes)}</span>` : ''}`,
+                TRIP_LABEL[o.trip],
+                escapeHtml(formatOptionPrice(o)),
+            ]), { alignLastRight: true })
+            + para('Prices are per vehicle and include fuel, tolls and parking.', { muted: true, size: 12 }));
 
-                    ${showOptions ? optionsHtml : `
-                    <div style="background-color: #000; color: #fff; padding: 20px 25px; border-radius: 12px; margin: 25px 0; text-align: center;">
-                        <p style="margin: 0 0 5px; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">Total Quote Price</p>
-                        <p style="margin: 0; font-size: 36px; font-weight: 900; color: #C6FF00; letter-spacing: 1px;">${curr} ${price}</p>
-                        <p style="margin: 8px 0 0; font-size: 11px; color: #777;">Includes fuel, toll, and parking fees</p>
-                        ${booking.deposit_amount ? `
-                        <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #333; display: flex; justify-content: space-between; gap: 20px;">
-                            <span style="font-size: 12px; color: #8fd3ff;">Deposit / Advance: <strong style="color:#fff;">${curr} ${Number(booking.deposit_amount).toFixed(2)}</strong></span>
-                            <span style="font-size: 12px; color: #aaa;">Balance Due: <strong style="color:#fff;">${curr} ${(Number(booking.total_price) - Number(booking.deposit_amount)).toFixed(2)}</strong></span>
-                        </div>` : ''}
-                    </div>`}
+        const priceHtml = highlight({
+            label: 'Total Quote Price',
+            big: `${escapeHtml(curr)} ${money(Number(booking.total_price))}`,
+            sub: booking.deposit_amount
+                ? `Includes fuel, tolls and parking · Advance ${escapeHtml(curr)} ${money(Number(booking.deposit_amount))} · Balance ${escapeHtml(curr)} ${money(Number(booking.total_price) - Number(booking.deposit_amount))}`
+                : 'Includes fuel, tolls and parking',
+        });
 
-                    <p style="font-size: 14px; color: #555;">This quote is valid for <strong>48 hours</strong>. To confirm your booking or ask any questions, simply reply to this email or tap the button below.</p>
+        const whatsappMsg = `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date || 'TBC'}${booking.pickup_time ? ` at ${niceTime(booking.pickup_time)}` : ''}${hasReturn && returnRoute ? `\n*Return Route:* ${returnRoute.pickupLocation} → ${returnRoute.destination}\n*Return:* ${booking.return_date}${booking.return_time ? ` at ${niceTime(booking.return_time)}` : ''}` : ''}\n${showOptions
+            ? `*Vehicle options quoted:*\n${vehicleOptions.map((o, i) => `${i + 1}. ${o.vehicle} (${TRIP_LABEL[o.trip]}) ${formatOptionPrice(o)}`).join('\n')}\n\n*I choose option number:* `
+            : `*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`}`;
 
-                    <div style="text-align: center; margin: 30px 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://taxiserviceksa.com/booking/quote?ref=${booking.id.slice(0, 8)}" style="background-color: #C6FF00; color: #000; padding: 14px 28px; text-decoration: none; font-weight: 900; border-radius: 30px; display: inline-block; font-size: 15px;">✅ Accept Quote Online</a>
-                        <a href="https://wa.me/966575806733?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 Confirm on WhatsApp</a>
-                    </div>
-
-                    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service<br>info@taxiserviceksa.com • www.taxiserviceksa.com</p>
-                </div>
-            </div>`;
+        const quoteHtml = renderEmail({
+            preheader: showOptions
+                ? `${vehicleOptions.length} vehicle options for ${booking.pickup_location || 'your trip'} → ${booking.destination || ''}. Valid for 48 hours.`
+                : `Your quote ${refId}: ${curr} ${money(Number(booking.total_price))} for ${booking.pickup_location || 'your trip'} → ${booking.destination || ''}.`,
+            title: 'Your Quote',
+            subtitle: `Reference ${refId}`,
+            greeting: `Dear <strong>${safeName || 'Customer'}</strong>,`,
+            blocks: [
+                para(`Thank you for choosing <strong>Taxi Service KSA</strong>. Here is your quote for the requested journey.${body.pdfBase64 ? ' The full quotation is attached as a PDF.' : ''}`),
+                card('Journey Details', rows(journeyRows)),
+                itineraryHtml,
+                additionalStopsHtml,
+                showOptions ? optionsHtml : priceHtml,
+                para(`This quote is valid for <strong>48 hours</strong>. To confirm, tap a button below or simply reply to this email.`, { size: 14 }),
+                buttons([
+                    { href: `https://taxiserviceksa.com/booking/quote?ref=${String(booking.id).slice(0, 8)}`, label: showOptions ? '✅ Choose & Confirm Online' : '✅ Accept Quote Online', tone: 'primary' },
+                    { href: whatsappUrl(whatsappMsg), label: '💬 Confirm on WhatsApp', tone: 'whatsapp' },
+                ]),
+            ],
+        });
 
         // Build attachments array if PDF base64 was provided from the browser
         const attachments = body.pdfBase64 ? [{

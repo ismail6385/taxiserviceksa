@@ -3,6 +3,7 @@ import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession, isInternalRequest } from '@/lib/admin-auth';
+import { renderEmail, para, card, rows, buttons, whatsappUrl } from '@/lib/email-layout';
 
 async function appendEmailLog(bookingId: string, entry: string) {
     const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
@@ -61,37 +62,27 @@ export async function POST(request: NextRequest) {
         const curr = currency || 'SAR';
         const refId = bookingId.slice(0, 8).toUpperCase();
 
-        const rows = changes.map(c => `
-            <tr>
-                <td style="padding: 10px 12px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">${escapeHtml(c.field)}</td>
-                <td style="padding: 10px 12px; border-bottom: 1px solid #eee; color: #999; text-decoration: line-through;">${escapeHtml(formatValue(c.field, c.oldValue, curr))}</td>
-                <td style="padding: 10px 12px; border-bottom: 1px solid #eee; color: #000; font-weight: bold;">${escapeHtml(formatValue(c.field, c.newValue, curr))}</td>
-            </tr>
-        `).join('');
+        // Each changed field: the new value, with the previous one struck
+        // through underneath (stacks cleanly on a phone).
+        const changeRows = changes.map((c): [string, string] => [
+            c.field,
+            `${escapeHtml(formatValue(c.field, c.newValue, curr))}<br><span style="font-size:12px;font-weight:400;color:#9ca3af;text-decoration:line-through;">${escapeHtml(formatValue(c.field, c.oldValue, curr))}</span>`,
+        ]);
 
         const subject = `✏️ Your Booking Has Been Updated - #${refId}`;
-        const html = `
-        <div style="font-family: Arial, sans-serif; padding: 25px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 12px;">
-            <div style="text-align: center; margin-bottom: 25px;">
-                <h2 style="color: #000; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Booking Updated</h2>
-                <div style="width: 50px; height: 3px; background-color: #C6FF00; margin: 10px auto;"></div>
-            </div>
-            <p>Dear <strong>${safeName}</strong>,</p>
-            <p>We've updated the following detail${changes.length > 1 ? 's' : ''} on your booking <span style="font-family: monospace; background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">#${refId}</span>:</p>
-            <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
-                <thead>
-                    <tr style="background: #f9f9f9;">
-                        <th style="padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888;">Field</th>
-                        <th style="padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888;">Previous</th>
-                        <th style="padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888;">Updated</th>
-                    </tr>
-                </thead>
-                <tbody>${rows}</tbody>
-            </table>
-            <p style="font-size: 13px; color: #777;">If you have any questions about this change, just reply to this email or contact us on WhatsApp.</p>
-            <p style="margin-top: 30px;">Best regards,<br><strong>Customer Success Team</strong><br>Taxi Service KSA</p>
-        </div>
-        `;
+        const html = renderEmail({
+            preheader: `Updated on booking #${refId}: ${changes.map(c => c.field).join(', ')}.`,
+            title: 'Booking Updated',
+            subtitle: `Booking #${refId}`,
+            greeting: `Dear <strong>${safeName || 'Customer'}</strong>,`,
+            blocks: [
+                para(`We have updated the following detail${changes.length > 1 ? 's' : ''} on your booking <strong>#${refId}</strong>:`),
+                card('What Changed', rows(changeRows)),
+                para('New value is shown first; the previous value is crossed out below it.', { muted: true, size: 12 }),
+                para('Questions about this change? Reply to this email or message us on WhatsApp.', { muted: true, size: 14 }),
+                buttons([{ href: whatsappUrl(`Hello, about the update to my booking #${refId}.`), label: '💬 WhatsApp Us', tone: 'whatsapp' }]),
+            ],
+        });
 
         await sendMail({ to: customerEmail, subject, html });
 
