@@ -46,11 +46,14 @@ export function VehicleOptionsEditor({ options, onChange, defaultCurrency = 'SAR
                         <span className="text-[11px] font-bold uppercase tracking-wide text-gray-500">Option {i + 1}</span>
                         <div className="flex items-center gap-3">
                             <label className="flex items-center gap-1 text-[11px] font-semibold text-gray-700 cursor-pointer">
+                                {/* Checkbox, not radio: clicking the selected option again
+                                    clears it (customer has not chosen yet). Ticking one
+                                    unticks the others, so at most one is selected. */}
                                 <input
-                                    type="radio"
-                                    name="vehicle-option-selected"
+                                    type="checkbox"
+                                    className="w-4 h-4 accent-emerald-600"
                                     checked={!!o.selected}
-                                    onChange={() => onChange(options.map(x => ({ ...x, selected: x.id === o.id })))}
+                                    onChange={() => onChange(options.map(x => ({ ...x, selected: o.selected ? false : x.id === o.id })))}
                                 />
                                 Selected
                             </label>
