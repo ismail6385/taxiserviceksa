@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+import { uuidPrefixRange } from '@/lib/uuid-ref';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -32,11 +33,16 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Missing ref or email' }, { status: 400 });
     }
 
-    if (ref) {
+    // Short ref = first characters of the uuid; searched as a range because
+    // ILIKE does not work on a uuid column (lib/uuid-ref.ts).
+    const range = ref ? uuidPrefixRange(ref) : null;
+    if (range) {
         const byRef = (fields: string) => supabaseAdmin
             .from('bookings')
             .select(fields)
-            .ilike('id', `${ref}%`)
+            .gte('id', range.lo)
+            .lte('id', range.hi)
+            .is('deleted_at', null)
             .limit(1)
             .single();
         let { data, error } = await byRef(WITH_OPTIONS);

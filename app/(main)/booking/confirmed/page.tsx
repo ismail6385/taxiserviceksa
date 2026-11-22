@@ -2,7 +2,6 @@
 
 import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
     CheckCircle2, Calendar, Clock, Car, MessageSquare,
@@ -42,16 +41,16 @@ function ConfirmedContent() {
 
     useEffect(() => {
         if (!ref) { setLoading(false); return; }
-        supabase
-            .from('bookings')
-            .select('id,customer_name,pickup_location,destination,pickup_date,pickup_time,vehicle_type,passengers,total_price,currency,driver_name,driver_phone,driver_plate,status,has_return_trip,return_date,return_time,return_pickup_location,return_destination')
-            .ilike('id', `${ref}%`)
-            .limit(1)
-            .single()
-            .then(({ data }) => {
-                setBooking(data);
-                setLoading(false);
-            });
+        // Server lookup by short ref (uuid range search, public fields only).
+        fetch('/api/booking/lookup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ref }),
+        })
+            .then((res) => res.json())
+            .then((d) => setBooking(d.booking || null))
+            .catch(() => setBooking(null))
+            .finally(() => setLoading(false));
     }, [ref]);
 
     if (loading) return (
