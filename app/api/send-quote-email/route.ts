@@ -4,6 +4,7 @@ import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession } from '@/lib/admin-auth';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
+import { readVehicleOptions, TRIP_LABEL, formatOptionPrice } from '@/lib/vehicle-options';
 
 async function appendEmailLog(bookingId: string, entry: string) {
     const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
@@ -37,7 +38,12 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const { booking, currency, additionalEmails } = body;
 
-        if (!booking || !booking.customer_email || !booking.total_price) {
+        // Several vehicle quotes for the same trip, none chosen yet: the email
+        // shows them side by side instead of one total price.
+        const vehicleOptions = readVehicleOptions(booking?.vehicle_options).filter(o => o.price > 0);
+        const showOptions = vehicleOptions.length > 0 && !vehicleOptions.some(o => o.selected);
+
+        if (!booking || !booking.customer_email || (!booking.total_price && !showOptions)) {
             return NextResponse.json({ error: 'Missing booking data or price' }, { status: 400 });
         }
 
@@ -99,8 +105,36 @@ export async function POST(request: NextRequest) {
                 </ul>
             </div>` : '';
 
+        const optionsHtml = `
+                    <div style="margin: 25px 0;">
+                        <h3 style="margin: 0 0 6px; color: #000;">Choose Your Vehicle</h3>
+                        <p style="margin: 0 0 12px; font-size: 13px; color: #555;">These are <strong>alternative vehicle options for the same trip</strong>, not separate bookings. Please choose <strong>one</strong> option and let us know.</p>
+                        <table style="width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #e5e7eb;">
+                            <thead>
+                                <tr style="background-color: #000;">
+                                    <th style="padding: 10px 12px; text-align: left; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Option</th>
+                                    <th style="padding: 10px 12px; text-align: left; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Vehicle</th>
+                                    <th style="padding: 10px 12px; text-align: left; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Trip</th>
+                                    <th style="padding: 10px 12px; text-align: right; color: #C6FF00; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${vehicleOptions.map((o, i) => `
+                                <tr style="background-color: ${i % 2 ? '#f8f9fa' : '#fff'}; border-top: 1px solid #e5e7eb;">
+                                    <td style="padding: 12px; font-weight: bold; color: #000;">${i + 1}</td>
+                                    <td style="padding: 12px; color: #000;"><strong>${escapeHtml(o.vehicle)}</strong>${o.notes ? `<br><span style="font-size: 12px; color: #666;">${escapeHtml(o.notes)}</span>` : ''}</td>
+                                    <td style="padding: 12px; color: #333; white-space: nowrap;">${TRIP_LABEL[o.trip]}</td>
+                                    <td style="padding: 12px; text-align: right; font-weight: 900; color: #000; white-space: nowrap;">${escapeHtml(formatOptionPrice(o))}</td>
+                                </tr>`).join('')}
+                            </tbody>
+                        </table>
+                        <p style="margin: 8px 0 0; font-size: 11px; color: #777;">Prices are per vehicle and include fuel, toll, and parking fees.</p>
+                    </div>`;
+
         const whatsappMsg = encodeURIComponent(
-            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}${hasStructuredReturnLeg(booking) ? `\n*Return Route:* ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}\n*Return:* ${booking.return_date} at ${formatTime12h(booking.return_time)}` : ''}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
+            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}${hasStructuredReturnLeg(booking) ? `\n*Return Route:* ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}\n*Return:* ${booking.return_date} at ${formatTime12h(booking.return_time)}` : ''}\n${showOptions
+                ? `*Vehicle options quoted:*\n${vehicleOptions.map((o, i) => `${i + 1}. ${o.vehicle} (${TRIP_LABEL[o.trip]}) ${formatOptionPrice(o)}`).join('\n')}\n\n*I choose option number:* `
+                : `*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`}`
         );
 
         const quoteHtml = `
@@ -121,13 +155,14 @@ export async function POST(request: NextRequest) {
                             <tr><td style="padding: 5px 0; color: #666;">Destination</td><td style="font-weight: bold; color: #000;">${safeDest}</td></tr>
                             <tr><td style="padding: 5px 0; color: #666;">Date &amp; Time</td><td style="font-weight: bold; color: #000;">${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</td></tr>
                             ${returnLegRow}
-                            <tr><td style="padding: 5px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${safeVehicle}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${showOptions ? `${vehicleOptions.length} options, see below` : safeVehicle}</td></tr>
                             ${loadRow}
                         </table>
                     </div>
                     ${itineraryHtml}
                     ${additionalStopsHtml}
 
+                    ${showOptions ? optionsHtml : `
                     <div style="background-color: #000; color: #fff; padding: 20px 25px; border-radius: 12px; margin: 25px 0; text-align: center;">
                         <p style="margin: 0 0 5px; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">Total Quote Price</p>
                         <p style="margin: 0; font-size: 36px; font-weight: 900; color: #C6FF00; letter-spacing: 1px;">${curr} ${price}</p>
@@ -137,7 +172,7 @@ export async function POST(request: NextRequest) {
                             <span style="font-size: 12px; color: #8fd3ff;">Deposit / Advance: <strong style="color:#fff;">${curr} ${Number(booking.deposit_amount).toFixed(2)}</strong></span>
                             <span style="font-size: 12px; color: #aaa;">Balance Due: <strong style="color:#fff;">${curr} ${(Number(booking.total_price) - Number(booking.deposit_amount)).toFixed(2)}</strong></span>
                         </div>` : ''}
-                    </div>
+                    </div>`}
 
                     <p style="font-size: 14px; color: #555;">This quote is valid for <strong>48 hours</strong>. To confirm your booking or ask any questions, simply reply to this email or tap the button below.</p>
 
@@ -169,7 +204,7 @@ export async function POST(request: NextRequest) {
 
         // Log email activity to booking (shows in Admin > Notifications instead of a separate admin email)
         const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-        await appendEmailLog(booking.id, `📧 [${logTime}] Quote sent — ${curr} ${price}`).catch(() => {});
+        await appendEmailLog(booking.id, `📧 [${logTime}] Quote sent — ${showOptions ? `${vehicleOptions.length} vehicle options: ${vehicleOptions.map(o => `${o.vehicle} ${formatOptionPrice(o)}`).join(' / ')}` : `${curr} ${price}`}`).catch(() => {});
 
         return NextResponse.json({ success: true });
     } catch (error: any) {

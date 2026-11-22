@@ -355,6 +355,16 @@ const bookingFieldsShape = {
             time: z.string().optional().nullable(),
             location: z.string(),
         })).optional().nullable(),
+        // Alternative vehicle quotes for the same trip (lib/vehicle-options.ts).
+        vehicle_options: z.array(z.object({
+            id: z.string().min(1),
+            vehicle: z.string().trim().min(1, 'Each vehicle option needs a vehicle name.'),
+            price: z.coerce.number().min(0, 'Vehicle option price cannot be negative.'),
+            currency: z.string().min(1).max(5),
+            trip: z.enum(['one_way', 'round_trip']),
+            notes: z.string().max(500).optional().nullable(),
+            selected: z.boolean().optional(),
+        })).max(10).optional().nullable(),
 };
 
 /** Shared by both schemas below so round-trip/trip-type rules can never drift

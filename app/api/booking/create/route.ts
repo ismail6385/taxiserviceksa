@@ -5,6 +5,7 @@ import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { bookingSchema, adminBookingSchema, toFieldErrors } from '@/lib/booking-validation';
 import { getAdminSession } from '@/lib/admin-auth';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
+import { vehicleOptionFields } from '@/lib/vehicle-options';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -69,6 +70,8 @@ export async function POST(request: NextRequest) {
         item_count: isDelivery ? data.item_count ?? null : null,
         item_size_weight: isDelivery ? data.item_size_weight ?? null : null,
         status: data.status || 'pending',
+        // Vehicle quote options are an admin tool; never taken from the public form.
+        ...vehicleOptionFields(adminSession ? data.vehicle_options : null),
     };
 
     const { data: inserted, error } = await writeWithOptionalColumns(insertPayload, (p) => supabaseAdmin

@@ -18,6 +18,7 @@ import { cleanCustomerNote, splitVat, isCardOrOnline } from '@/lib/doc-helpers';
 import { driverDocFromParams, loadDocBooking } from '@/lib/doc-source';
 import { ExtraCharge, readExtras, extrasTotal } from '@/lib/extra-charges';
 import ExtraChargesEditor from '@/components/admin/ExtraChargesEditor';
+import { readVehicleOptions, TRIP_LABEL, formatOptionPrice } from '@/lib/vehicle-options';
 
 // Official customer quotation, laid out per the owner's quotation brief:
 // company header, reference / issue / validity / status, Prepared For,
@@ -197,6 +198,7 @@ interface Booking {
     booking_type?: 'passenger' | 'delivery';
     item_type?: string | null;
     item_count?: number | null;
+    vehicle_options?: unknown;
 }
 
 const longDate = (iso: string | null | undefined, lang: DocLang) => {
@@ -432,6 +434,10 @@ export default function LetterheadPage() {
     const total = cashPrice.total;
     const twoOptions = !!transferPrice && transferPrice > 0 && transferPrice !== price;
     const hasPrice = booking.total_price !== undefined && booking.total_price !== null && price > 0;
+    // Alternative vehicles quoted for this same trip, none chosen yet.
+    const vehicleOpts = readVehicleOptions(booking.vehicle_options).filter(o => o.price > 0);
+    const showVehicleOpts = vehicleOpts.length > 0 && !vehicleOpts.some(o => o.selected);
+    const isAr = lang === 'ar';
     const recordedDeposit = Number(booking.deposit_amount || 0);
     const advanceFixed = recordedDeposit > 0 ? recordedDeposit : Number(advanceAmount) > 0 ? Number(advanceAmount) : 0;
     const advance = advanceFixed > 0 ? advanceFixed : Math.round(total * advancePercent) / 100;
@@ -651,7 +657,7 @@ export default function LetterheadPage() {
                         <SectionTitle>{t.journey}</SectionTitle>
                         <dl className="grid grid-cols-2 gap-x-6">
                             <Row label={t.serviceType} value={serviceType} />
-                            <Row label={t.vehicle} value={booking.vehicle_type} />
+                            <Row label={t.vehicle} value={showVehicleOpts ? (isAr ? 'انظر خيارات المركبات أدناه' : 'See vehicle options below') : booking.vehicle_type} />
                             <Row label={t.pickupDate} value={isMultiDay ? `${longDate(booking.pickup_date, lang)} – ${longDate(booking.trip_end_date, lang)}` : longDate(booking.pickup_date, lang)} />
                             <Row label={t.pickupTime} value={formatTime12h(booking.pickup_time)} />
                             {delivery
@@ -686,8 +692,37 @@ export default function LetterheadPage() {
                         </section>
                     )}
 
+                    {showVehicleOpts && (
+                        <section className="mb-3.5">
+                            <SectionTitle>{isAr ? 'خيارات المركبات' : 'Vehicle Options'}</SectionTitle>
+                            <p className="mb-1.5 text-[11px] text-slate-700">{isAr
+                                ? 'هذه خيارات بديلة لنفس الرحلة وليست حجوزات منفصلة. يرجى اختيار خيار واحد.'
+                                : 'These are alternative vehicle options for the same trip, not separate bookings. Please choose one option.'}</p>
+                            <table className="w-full border border-slate-300 text-[12px]">
+                                <thead>
+                                    <tr className="bg-slate-900 text-white">
+                                        <th className="px-3 py-1.5 text-start w-10">#</th>
+                                        <th className="px-3 py-1.5 text-start">{isAr ? 'المركبة' : 'Vehicle'}</th>
+                                        <th className="px-3 py-1.5 text-start">{isAr ? 'الرحلة' : 'Trip'}</th>
+                                        <th className="px-3 py-1.5 text-end">{isAr ? 'السعر' : 'Price'}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {vehicleOpts.map((o, i) => (
+                                        <tr key={o.id} className={`border-t border-slate-200 ${i % 2 ? 'bg-slate-50' : ''}`}>
+                                            <td className="px-3 py-1.5 font-bold">{i + 1}</td>
+                                            <td className="px-3 py-1.5"><span className="font-semibold">{o.vehicle}</span>{o.notes ? <span className="block text-[10.5px] text-slate-500">{o.notes}</span> : null}</td>
+                                            <td className="px-3 py-1.5 whitespace-nowrap">{isAr ? (o.trip === 'round_trip' ? 'ذهاب وعودة' : 'اتجاه واحد') : TRIP_LABEL[o.trip]}</td>
+                                            <td className="px-3 py-1.5 text-end font-black whitespace-nowrap" dir="ltr">{formatOptionPrice(o)}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </section>
+                    )}
+
                     {/* Quotation summary */}
-                    {hasPrice && (
+                    {hasPrice && !showVehicleOpts && (
                         <section className="mb-3.5">
                             <SectionTitle>{t.summary}</SectionTitle>
                             <div className="rounded-lg border border-slate-300 overflow-hidden">

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
+import { readVehicleOptions, TRIP_LABEL, formatOptionPrice } from '@/lib/vehicle-options';
 
 interface Booking {
     id: string;
@@ -27,6 +28,7 @@ interface Booking {
     return_time?: string | null;
     return_pickup_location?: string | null;
     return_destination?: string | null;
+    vehicle_options?: unknown;
 }
 
 function QuoteContent() {
@@ -39,6 +41,7 @@ function QuoteContent() {
     const [accepting, setAccepting] = useState(false);
     const [accepted, setAccepted] = useState(false);
     const [error, setError] = useState('');
+    const [chosenOption, setChosenOption] = useState<string | null>(null);
 
     useEffect(() => {
         if (!ref) { setLoading(false); setError('No booking reference provided.'); return; }
@@ -66,15 +69,18 @@ function QuoteContent() {
             const res = await fetch('/api/booking/accept-quote', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ bookingId: booking.id })
+                body: JSON.stringify({ bookingId: booking.id, optionId: chosenOption })
             });
-            if (!res.ok) throw new Error();
+            if (!res.ok) {
+                const data = await res.json().catch(() => ({}));
+                throw new Error(data.error || '');
+            }
             setAccepted(true);
             setTimeout(() => {
                 router.push(`/booking/confirmed?ref=${booking.id.slice(0, 8)}`);
             }, 1500);
-        } catch {
-            setError('Failed to accept quote. Please contact us on WhatsApp.');
+        } catch (e) {
+            setError(e instanceof Error && e.message ? e.message : 'Failed to accept quote. Please contact us on WhatsApp.');
         } finally {
             setAccepting(false);
         }
@@ -113,13 +119,17 @@ function QuoteContent() {
     if (!booking) return null;
 
     const curr = booking.currency || 'SAR';
-    const price = booking.total_price ? Number(booking.total_price).toFixed(2) : null;
+    // Several vehicles quoted for this same trip: the customer picks one.
+    const options = readVehicleOptions(booking.vehicle_options).filter(o => o.price > 0);
+    const choosing = options.length > 0 && !options.some(o => o.selected);
+    const picked = choosing ? options.find(o => o.id === chosenOption) || null : null;
+    const price = choosing ? null : booking.total_price ? Number(booking.total_price).toFixed(2) : null;
     const refId = `#${booking.id.slice(0, 8).toUpperCase()}`;
     const returnLine = booking.has_return_trip
         ? `\n*Return:* ${booking.return_date || 'TBC'}${booking.return_time ? ` at ${booking.return_time}` : ''}`
         : '';
     const whatsappMsg = encodeURIComponent(
-        `Hello, I'd like to confirm my booking.\n\n*Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}${returnLine}`
+        `Hello, I'd like to confirm my booking.\n\n*Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}${returnLine}${picked ? `\n*Vehicle chosen:* ${picked.vehicle} (${TRIP_LABEL[picked.trip]}) ${formatOptionPrice(picked)}` : ''}`
     );
 
     return (
@@ -174,7 +184,7 @@ function QuoteContent() {
                         <Car className="w-4 h-4 text-gray-500" />
                         <div>
                             <p className="text-[10px] text-gray-400 font-bold uppercase">Vehicle</p>
-                            <p className="text-sm font-bold text-gray-900">{booking.vehicle_type}</p>
+                            <p className="text-sm font-bold text-gray-900">{choosing ? (picked ? picked.vehicle : 'Choose one of the options below') : booking.vehicle_type}</p>
                         </div>
                     </div>
 
@@ -200,8 +210,28 @@ function QuoteContent() {
                     )}
                 </div>
 
+                {/* Vehicle options: alternatives for the same trip */}
+                {choosing && (
+                    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 mb-6">
+                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Choose Your Vehicle</p>
+                        <p className="text-xs text-gray-500 mb-3">These are alternative vehicles for the <b>same trip</b>, not separate bookings. Pick one.</p>
+                        <div className="space-y-2" role="radiogroup" aria-label="Vehicle options">
+                            {options.map((o, i) => (
+                                <label key={o.id} className={`flex items-center gap-3 rounded-xl border-2 p-3 cursor-pointer transition-colors ${chosenOption === o.id ? 'border-primary bg-primary/10' : 'border-gray-100 hover:border-gray-300'}`}>
+                                    <input type="radio" name="vehicle-option" className="accent-black w-4 h-4" checked={chosenOption === o.id} onChange={() => { setChosenOption(o.id); setError(''); }} />
+                                    <div className="flex-1 min-w-0">
+                                        <p className="text-sm font-bold text-gray-900">{i + 1}. {o.vehicle}</p>
+                                        <p className="text-[11px] text-gray-500">{TRIP_LABEL[o.trip]}{o.notes ? ` · ${o.notes}` : ''}</p>
+                                    </div>
+                                    <p className="text-base font-black text-gray-900 whitespace-nowrap">{formatOptionPrice(o)}</p>
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {/* Price Card */}
-                {price ? (
+                {choosing ? null : price ? (
                     <div className="bg-black rounded-2xl p-6 mb-6 text-center">
                         <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Total Quote Price</p>
                         <p className="text-5xl font-black text-primary mb-1">{curr} {price}</p>
@@ -225,15 +255,15 @@ function QuoteContent() {
                             <CheckCircle2 className="w-5 h-5" />
                             Booking Confirmed! Redirecting...
                         </div>
-                    ) : price ? (
+                    ) : price || choosing ? (
                         <Button
                             onClick={acceptQuote}
-                            disabled={accepting}
+                            disabled={accepting || (choosing && !picked)}
                             className="w-full bg-primary text-black hover:bg-primary/90 font-black text-base h-14 rounded-xl shadow-lg shadow-primary/20"
                         >
                             {accepting
                                 ? <><Loader2 className="w-5 h-5 animate-spin mr-2" />Confirming...</>
-                                : <><CheckCircle2 className="w-5 h-5 mr-2" />Accept Quote &amp; Confirm Booking</>
+                                : <><CheckCircle2 className="w-5 h-5 mr-2" />{choosing ? (picked ? `Confirm ${picked.vehicle.length > 22 ? 'Option ' + (options.indexOf(picked) + 1) : picked.vehicle} · ${formatOptionPrice(picked)}` : 'Choose a vehicle above') : <>Accept Quote &amp; Confirm Booking</>}</>
                             }
                         </Button>
                     ) : null}

@@ -3,6 +3,7 @@ import { writeWithOptionalColumns } from '@/lib/optional-columns';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
 import { adminBookingSchema, toFieldErrors } from '@/lib/booking-validation';
+import { vehicleOptionFields } from '@/lib/vehicle-options';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -51,6 +52,8 @@ export async function PUT(
             item_description: isDelivery ? data.item_description ?? null : null,
             item_count: isDelivery ? data.item_count ?? null : null,
             item_size_weight: isDelivery ? data.item_size_weight ?? null : null,
+            // Only touch vehicle_options when the client sent the field.
+            ...('vehicle_options' in data ? vehicleOptionFields(data.vehicle_options) : {}),
         };
 
         const { data: updated, error } = await writeWithOptionalColumns(updatePayload, (p) => supabaseAdmin

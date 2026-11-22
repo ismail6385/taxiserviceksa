@@ -54,6 +54,8 @@ import {
 import { getPrice } from '@/lib/pricing';
 import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import ItineraryLegsEditor, { type ItineraryLeg } from '@/components/admin/ItineraryLegsEditor';
+import { VehicleOptionsEditor, VehicleOptionsView } from '@/components/admin/VehicleQuoteOptions';
+import { type VehicleOption, readVehicleOptions, cleanVehicleOptions, applySelectedOption, vehicleOptionsText, newOptionId } from '@/lib/vehicle-options';
 import AdditionalStopsEditor, { type AdditionalStop } from '@/components/admin/AdditionalStopsEditor';
 import DriverMessageDialog from '@/components/admin/DriverMessageDialog';
 import { waNumber } from '@/lib/driver-message';
@@ -222,6 +224,8 @@ const rebookFields = (b: Booking, reverse = false): Partial<Booking> => ({
     item_count: b.item_count || 1,
     item_size_weight: b.item_size_weight || '',
     tags: b.tags || '',
+    // Same alternatives again, none chosen yet for the new trip.
+    vehicle_options: readVehicleOptions(b.vehicle_options).map(o => ({ ...o, id: newOptionId(), selected: false })),
 });
 
 interface Booking {
@@ -282,7 +286,25 @@ interface Booking {
     item_description?: string | null;
     item_count?: number | null;
     item_size_weight?: string | null;
+    // Alternative vehicle quotes for the same trip (lib/vehicle-options.ts).
+    // undefined when the column does not exist yet in the database.
+    vehicle_options?: VehicleOption[] | null;
 }
+
+// Shown under a list row's price when a booking carries several vehicle quotes.
+const optionsSummary = (b: Booking) => {
+    const opts = readVehicleOptions(b.vehicle_options);
+    if (opts.length < 2) return null;
+    return opts.some(o => o.selected) ? `${opts.length} options · 1 selected` : `${opts.length} vehicle options`;
+};
+
+// After a save: the database silently drops vehicle_options until
+// add_booking_vehicle_options.sql has been run once.
+const warnIfOptionsNotSaved = (sent: VehicleOption[] | null | undefined, saved: Booking) => {
+    if (sent && sent.length && saved && !('vehicle_options' in saved)) {
+        alert('Booking saved, but the vehicle options were NOT stored: run add_booking_vehicle_options.sql once in the Supabase SQL Editor, then add them again.');
+    }
+};
 
 export default function BookingsPage() {
     const [bookings, setBookings] = useState<Booking[]>([]);
@@ -832,6 +854,45 @@ export default function BookingsPage() {
         { key: 'return_destination', label: 'Return Drop-off Location' },
     ];
 
+    // Customer chose one of the quoted vehicles: mark it Selected (others stay
+    // for reference) and make it the booking's vehicle and price.
+    const [savingOption, setSavingOption] = useState(false);
+    const selectVehicleOption = async (optionId: string | null) => {
+        if (!selectedBooking) return;
+        const next = applySelectedOption(selectedBooking, readVehicleOptions(selectedBooking.vehicle_options), optionId);
+        const { id, created_at, status, ...b } = next;
+        setSavingOption(true);
+        try {
+            const response = await adminFetch(`/api/admin/bookings/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...b,
+                    trip_end_date: b.trip_end_date || null,
+                    return_date: b.has_return_trip ? (b.return_date || null) : null,
+                    return_time: b.has_return_trip ? (b.return_time || null) : null,
+                    return_pickup_location: b.has_return_trip ? (b.return_pickup_location || null) : null,
+                    return_destination: b.has_return_trip ? (b.return_destination || null) : null,
+                    itinerary_legs: b.itinerary_legs && b.itinerary_legs.length > 0 ? b.itinerary_legs : null,
+                    additional_stops: b.additional_stops && b.additional_stops.length > 0 ? b.additional_stops : null,
+                    vehicle_options: cleanVehicleOptions(b.vehicle_options),
+                }),
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) {
+                throw new Error(result.fieldErrors ? Object.values(result.fieldErrors).join(' ') : (result.error || 'Failed to save'));
+            }
+            const updated: Booking = result.booking;
+            warnIfOptionsNotSaved(b.vehicle_options, updated);
+            setBookings(prev => prev.map(x => x.id === id ? updated : x));
+            setSelectedBooking(updated);
+        } catch (error) {
+            alert(error instanceof Error ? error.message : 'Failed to save the selected option.');
+        } finally {
+            setSavingOption(false);
+        }
+    };
+
     const saveDetails = async () => {
         if (!editedBooking) return;
         const { valid, fieldErrors } = validateRoundTrip(editedBooking);
@@ -853,6 +914,7 @@ export default function BookingsPage() {
                     return_destination: updateData.has_return_trip ? (updateData.return_destination || null) : null,
                     itinerary_legs: (updateData.itinerary_legs && updateData.itinerary_legs.length > 0) ? updateData.itinerary_legs : null,
                     additional_stops: (updateData.additional_stops && updateData.additional_stops.length > 0) ? updateData.additional_stops : null,
+                    ...('vehicle_options' in updateData ? { vehicle_options: cleanVehicleOptions(updateData.vehicle_options) } : {}),
                 }),
             });
             const result = await response.json().catch(() => ({}));
@@ -868,6 +930,7 @@ export default function BookingsPage() {
                 throw new Error(result.error || 'Failed to update booking details.');
             }
             const updated: Booking = result.booking;
+            warnIfOptionsNotSaved(cleanVehicleOptions(updateData.vehicle_options), updated);
             setBookingFieldErrors({});
 
             // Update local state
@@ -923,6 +986,7 @@ export default function BookingsPage() {
                     return_destination: newBooking.has_return_trip ? (newBooking.return_destination || null) : null,
                     itinerary_legs: (newBooking.itinerary_legs && newBooking.itinerary_legs.length > 0) ? newBooking.itinerary_legs : null,
                     additional_stops: (newBooking.additional_stops && newBooking.additional_stops.length > 0) ? newBooking.additional_stops : null,
+                    vehicle_options: cleanVehicleOptions(newBooking.vehicle_options),
                     // Admin-created bookings don't auto-email the customer today.
                     sendCustomerEmail: false,
                 }),
@@ -944,6 +1008,7 @@ export default function BookingsPage() {
             setBookingFieldErrors({});
 
             if (result.booking) {
+                warnIfOptionsNotSaved(cleanVehicleOptions(newBooking.vehicle_options), result.booking);
                 setBookings([result.booking, ...bookings]);
                 setIsCreating(false);
                 // Reset new booking state
@@ -1233,6 +1298,16 @@ Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a s
             : hasReturn ? '(Round Trip Included)' : '';
         const contractNote = booking.contract_id ? '\n\n📋 This trip is part of your active Monthly Contract.' : '';
 
+        const opts = readVehicleOptions(booking.vehicle_options);
+        if (opts.length > 1 && !opts.some(o => o.selected)) {
+            openWhatsApp(booking.customer_phone, `Hi ${booking.customer_name}! Here are the vehicle options for your trip *${booking.pickup_location} → ${booking.destination}* on ${booking.pickup_date}. These are alternatives for the *same trip*, please choose one:
+
+${vehicleOptionsText(opts)}
+
+Reply with the option number to confirm. *Taxi Service KSA*`);
+            return;
+        }
+
         const text = `Hi ${booking.customer_name}! The total fare for your ${isDelivery ? 'delivery' : 'trip'} is *${booking.currency || 'SAR'} ${booking.total_price || 0}* ${tripNote}.${contractNote}
 
 💳 *Payment Status:* ${(booking.payment_status || 'unpaid').toUpperCase()}
@@ -1338,8 +1413,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
     };
 
     const sendQuoteEmail = async (booking: Booking) => {
-        if (!booking.total_price) {
-            alert('Please set a price before sending the quote.');
+        if (!booking.total_price && !readVehicleOptions(booking.vehicle_options).some(o => o.price > 0)) {
+            alert('Please set a price (or add vehicle options with prices) before sending the quote.');
             return;
         }
         setSendingQuote(true);
@@ -1959,6 +2034,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     </div>
                                                 ) : null}
                                             </div>
+                                            {optionsSummary(booking) && <div className="text-[10px] font-semibold text-blue-700 whitespace-nowrap">{optionsSummary(booking)}</div>}
                                         </TableCell>
                                         <TableCell>
                                             <Select
@@ -2151,6 +2227,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <p className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Price</p>
                                         <p className="font-bold text-gray-900">{booking.currency || 'SAR'} {booking.total_price ?? '—'}</p>
                                         <p className="text-gray-500 truncate">{booking.vehicle_type}</p>
+                                        {optionsSummary(booking) && <p className="text-[10px] font-semibold text-blue-700">{optionsSummary(booking)}</p>}
                                     </div>
                                 </div>
 
@@ -2941,10 +3018,10 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 ) : (
                                                     <div className="flex items-center gap-2 flex-wrap">
                                                         <span className="text-lg font-bold text-green-600">
-                                                            {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.vat_added ? withVat(selectedBooking.total_price) : selectedBooking.total_price}` : 'Calculating...'}
+                                                            {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.vat_added ? withVat(selectedBooking.total_price) : selectedBooking.total_price}` : readVehicleOptions(selectedBooking.vehicle_options).length ? 'See vehicle options below' : 'Calculating...'}
                                                         </span>
                                                         {selectedBooking.vat_added && !!selectedBooking.total_price && <span className="text-[11px] text-gray-500">({selectedBooking.total_price} + {vatOf(selectedBooking.total_price)} VAT 15%)</span>}
-                                                        {selectedBooking.total_price ? (
+                                                        {selectedBooking.total_price || readVehicleOptions(selectedBooking.vehicle_options).some(o => o.price > 0) ? (
                                                             <div className="flex flex-col gap-1 w-full mt-1">
                                                                 <input
                                                                     type="text"
@@ -2968,6 +3045,27 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Alternative vehicle quotes for this same trip */}
+                                    {isEditing ? (
+                                        <div className="border-t border-gray-200 pt-4">
+                                            <VehicleOptionsEditor
+                                                options={editedBooking.vehicle_options || []}
+                                                onChange={(next) => setEditedBooking({ ...editedBooking, vehicle_options: next })}
+                                                defaultCurrency={editedBooking.currency || 'SAR'}
+                                                defaultTrip={editedBooking.has_return_trip ? 'round_trip' : 'one_way'}
+                                                vehicleSuggestions={dynamicVehicleOptions}
+                                            />
+                                        </div>
+                                    ) : readVehicleOptions(selectedBooking.vehicle_options).length > 0 ? (
+                                        <div className="border-t border-gray-200 pt-4">
+                                            <VehicleOptionsView
+                                                options={readVehicleOptions(selectedBooking.vehicle_options)}
+                                                onSelect={selectVehicleOption}
+                                                busy={savingOption}
+                                            />
+                                        </div>
+                                    ) : null}
 
                                     <div>
                                         <span className="block text-xs text-gray-500 mb-1">Deposit Paid (e.g. online advance)</span>
@@ -4074,6 +4172,15 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             Balance due: <strong className="text-gray-900">{newBooking.currency || 'SAR'} {(newBooking.total_price - (newBooking.deposit_amount || 0)).toFixed(2)}</strong>
                                         </p>
                                     )}
+                                </div>
+                                <div className="sm:col-span-2 rounded-lg border border-gray-200 bg-gray-50 p-3">
+                                    <VehicleOptionsEditor
+                                        options={newBooking.vehicle_options || []}
+                                        onChange={(next) => setNewBooking({ ...newBooking, vehicle_options: next })}
+                                        defaultCurrency={newBooking.currency || 'SAR'}
+                                        defaultTrip={newBooking.has_return_trip ? 'round_trip' : 'one_way'}
+                                        vehicleSuggestions={dynamicVehicleOptions}
+                                    />
                                 </div>
                                 {newBooking.booking_type !== 'delivery' && (
                                 <>
