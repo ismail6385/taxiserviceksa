@@ -1018,13 +1018,13 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         {!isDelivery && !showVehicleList && isCrossBorder(formData.pickup_location, formData.destination) && (
                             <div className="bg-blue-50/60 p-5 rounded-3xl border border-dashed border-blue-200">
                                 <label htmlFor="passenger-nationality" className="font-black text-gray-900 block leading-none">Passenger nationality</label>
-                                <p className="text-[11px] text-gray-500 mt-1.5 mb-2">Needed for the border crossing. If passengers have different nationalities, list them all, e.g. &quot;2 Pakistani, 1 Indian&quot;.</p>
+                                <p className="text-[11px] text-gray-500 mt-1.5 mb-2">Needed for the border crossing. If passengers have different nationalities, list them all, e.g. &quot;2 British, 1 American&quot;.</p>
                                 <Input
                                     id="passenger-nationality"
                                     value={formData.passenger_nationality || ''}
                                     onChange={(e) => setFormData(prev => ({ ...prev, passenger_nationality: e.target.value }))}
                                     maxLength={200}
-                                    placeholder="e.g. Pakistani"
+                                    placeholder="e.g. British"
                                     className="h-11 bg-white rounded-xl"
                                 />
                             </div>

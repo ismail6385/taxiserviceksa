@@ -3135,7 +3135,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div className="sm:col-span-2">
                                             <span className="block text-xs text-gray-500 mb-1">Passenger Nationality (border crossings)</span>
                                             {isEditing ? (
-                                                <Input value={editedBooking.passenger_nationality || ''} onChange={(e) => setEditedBooking({ ...editedBooking, passenger_nationality: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. 2 Pakistani, 1 Indian" maxLength={200} />
+                                                <Input value={editedBooking.passenger_nationality || ''} onChange={(e) => setEditedBooking({ ...editedBooking, passenger_nationality: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. 2 British, 1 American" maxLength={200} />
                                             ) : (
                                                 <span className="font-medium text-gray-900">{selectedBooking.passenger_nationality || '—'}</span>
                                             )}
@@ -4077,7 +4077,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div className="space-y-1 sm:col-span-2">
                                             <label className="text-sm font-medium text-gray-700">Passenger Nationality (border crossings)</label>
                                             <Input
-                                                placeholder="e.g. 2 Pakistani, 1 Indian"
+                                                placeholder="e.g. 2 British, 1 American"
                                                 maxLength={200}
                                                 value={newBooking.passenger_nationality || ''}
                                                 onChange={(e) => setNewBooking({ ...newBooking, passenger_nationality: e.target.value })}
