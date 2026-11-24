@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/mail-server';
+import { sendLogged } from '@/lib/email-log';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
 import { renderEmail, para, card, rows, notice, buttons, whenText } from '@/lib/email-layout';
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
         const when = whenText(booking.pickup_date, booking.pickup_time);
         const whenPlain = when.replace(/<[^>]+>/g, '');
 
-        await sendMail({
+        await sendLogged(booking.id, 'Driver details email', {
             to: booking.customer_email,
             subject: `🚗 Your Driver is Assigned — ${whenPlain}`,
             html: renderEmail({
@@ -79,11 +79,8 @@ ${safeVehicle || safePlate ? `<p style="margin:6px 0 0;font-size:14px;color:#374
                     ]),
                 ],
             }),
-        });
+        }, `${booking.driver_name} / ${booking.driver_phone}`);
 
-        const now = new Date();
-        const logEntry = `📧 [${now.toLocaleDateString('en-CA')} ${now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}] Driver assigned — ${booking.driver_name} / ${booking.driver_phone}`;
-        await appendEmailLog(booking.id, logEntry);
 
         return NextResponse.json({ success: true });
     } catch (err) {

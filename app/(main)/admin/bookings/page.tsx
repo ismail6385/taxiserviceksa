@@ -3398,8 +3398,10 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     {/* Email Activity Log */}
                                     {(() => {
                                         const notes = selectedBooking.internal_notes || '';
-                                        const emailLines = notes.split('\n').filter(l => l.startsWith('📧'));
+                                        // 📧 lines (and older 🧾 receipt lines); ❌ = the email FAILED.
+                                        const emailLines = notes.split('\n').filter(l => l.startsWith('📧') || l.startsWith('🧾'));
                                         if (emailLines.length === 0) return null;
+                                        const failedCount = emailLines.filter(l => l.includes('❌')).length;
                                         return (
                                             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                                                 <div className="flex items-center gap-2 mb-3">
@@ -3407,11 +3409,19 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">Email Activity</span>
                                                 </div>
                                                 <div className="space-y-1.5">
-                                                    {emailLines.map((line, i) => (
-                                                        <div key={i} className="flex items-start gap-2 text-xs text-blue-800 bg-white rounded-md px-3 py-1.5 border border-blue-100">
-                                                            <span className="font-medium">{line.replace('📧 ', '')}</span>
+                                                    {failedCount > 0 && (
+                                                        <div className="text-xs font-bold text-red-700 bg-red-50 border border-red-200 rounded-md px-3 py-1.5">
+                                                            {failedCount} email{failedCount > 1 ? 's' : ''} failed to send. The red line shows the reason.
                                                         </div>
-                                                    ))}
+                                                    )}
+                                                    {emailLines.map((line, i) => {
+                                                        const failed = line.includes('❌');
+                                                        return (
+                                                            <div key={i} className={`flex items-start gap-2 text-xs rounded-md px-3 py-1.5 border ${failed ? 'bg-red-50 text-red-800 border-red-200' : 'bg-white text-blue-800 border-blue-100'}`}>
+                                                                <span className="font-medium break-words">{line.replace(/^(📧|🧾) /, '')}</span>
+                                                            </div>
+                                                        );
+                                                    })}
                                                 </div>
                                             </div>
                                         );

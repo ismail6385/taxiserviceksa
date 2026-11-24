@@ -33,6 +33,7 @@ interface Booking {
 }
 
 const TYPE_CONFIG: Record<string, { color: string; icon: string }> = {
+    'Failed':    { color: 'bg-red-600/20 text-red-400',        icon: '⚠️' },
     'Quote':     { color: 'bg-amber-500/15 text-amber-400',   icon: '💰' },
     'Confirmed': { color: 'bg-emerald-500/15 text-emerald-400', icon: '✅' },
     'Cancelled': { color: 'bg-red-500/15 text-red-400',        icon: '❌' },
@@ -54,7 +55,9 @@ function parseNotes(booking: Booking): NotifEntry[] {
         let label = line.replace('📧', '').replace(/\[[^\]]+\]/, '').trim();
 
         const lower = label.toLowerCase();
-        if (lower.includes('quote'))        type = 'Quote';
+        // ❌ = the email failed to send (lib/email-log.ts); always shown as Failed.
+        if (label.includes('❌'))          type = 'Failed';
+        else if (lower.includes('quote'))   type = 'Quote';
         else if (lower.includes('confirmed')) type = 'Confirmed';
         else if (lower.includes('cancelled')) type = 'Cancelled';
         else if (lower.includes('completed')) type = 'Completed';

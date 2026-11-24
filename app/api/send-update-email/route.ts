@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/mail-server';
+import { sendLogged } from '@/lib/email-log';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession, isInternalRequest } from '@/lib/admin-auth';
@@ -84,11 +84,7 @@ export async function POST(request: NextRequest) {
             ],
         });
 
-        await sendMail({ to: customerEmail, subject, html });
-
-        const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-        const fieldsList = changes.map(c => c.field).join(', ');
-        await appendEmailLog(bookingId, `📧 [${logTime}] Update email — ${fieldsList} changed`).catch(() => {});
+        await sendLogged(bookingId, 'Update email', { to: customerEmail, subject, html }, `${changes.map(c => c.field).join(', ')} changed`);
 
         return NextResponse.json({ success: true });
     } catch (error) {

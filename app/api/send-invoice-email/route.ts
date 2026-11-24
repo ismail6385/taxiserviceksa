@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/mail-server';
+import { sendLogged } from '@/lib/email-log';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession } from '@/lib/admin-auth';
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
         const isPaid = /^paid$/i.test(String(paymentStatus || ''));
 
         // 1. Send invoice to customer (+ CC additional emails)
-        await sendMail({
+        await sendLogged(booking.id, 'Invoice', {
             to: booking.customer_email,
             cc: cc.length ? cc : undefined,
             subject: `Your Invoice ${refId} - Taxi Service KSA`,
@@ -84,11 +84,8 @@ export async function POST(request: NextRequest) {
                     content: pdfBase64,
                 },
             ],
-        });
+        }, `${curr} ${amount} | ${paymentStatus || 'Unpaid'}`);
 
-        // Log email activity to booking
-        const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-        await appendEmailLog(booking.id, `📧 [${logTime}] Invoice sent — ${curr} ${amount} | ${paymentStatus || 'Unpaid'}`).catch(() => {});
 
         return NextResponse.json({ success: true });
     } catch (error: any) {

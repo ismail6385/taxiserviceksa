@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/mail-server';
+import { sendLogged } from '@/lib/email-log';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession, isInternalRequest } from '@/lib/admin-auth';
@@ -162,16 +162,12 @@ export async function POST(request: NextRequest) {
                 return NextResponse.json({ message: 'No email sent for this status' });
         }
 
-        await sendMail({
+        await sendLogged(bookingId, 'Status email', {
             to: customerEmail,
             subject,
             html: htmlContent
-        });
+        }, status.charAt(0).toUpperCase() + status.slice(1).replace(/_/g, ' '));
 
-        // Log email activity to booking
-        const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-        const statusLabel = status.charAt(0).toUpperCase() + status.slice(1);
-        await appendEmailLog(bookingId, `📧 [${logTime}] Status email — ${statusLabel}`).catch(() => {});
 
         return NextResponse.json({ success: true });
 

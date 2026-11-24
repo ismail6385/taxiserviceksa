@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/mail-server';
+import { sendLogged } from '@/lib/email-log';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
         const returnRoute = hasReturn ? getReturnRoute(booking) : null;
         const shownAmount = `${e(curr)} ${Number(amount || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-        await sendMail({
+        await sendLogged(booking.id, 'Receipt', {
             to: booking.customer_email,
             subject: `✅ Payment Receipt ${refId} - Taxi Service KSA`,
             html: renderEmail({
@@ -72,10 +72,8 @@ export async function POST(request: NextRequest) {
             ...((!textOnly && pdfBase64) ? {
                 attachments: [{ filename: filename || `Receipt-${refId}.pdf`, content: pdfBase64 }],
             } : {}),
-        });
+        }, `${curr} ${amount} | ${paymentMethod || 'Cash'}`);
 
-        const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-        await appendEmailLog(booking.id, `🧾 [${logTime}] Receipt sent — ${curr} ${amount} | ${paymentMethod || 'Cash'}`).catch(() => {});
 
         return NextResponse.json({ success: true });
     } catch (error: any) {

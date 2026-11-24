@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/mail-server';
+import { sendLogged } from '@/lib/email-log';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
 
         // 1. Send email to customer. A failure here must not stop the admin
         // alert and the booking log below.
-        await sendMail({
+        await sendLogged(booking.id, isDelivery ? 'Delivery request confirmation' : 'Quote request confirmation', {
             to: booking.customer_email,
             subject: isDelivery ? 'Delivery Request Received - Taxi Service KSA' : 'Quotation Request Received - Taxi Service KSA',
             html: renderEmail({
@@ -129,7 +129,7 @@ export async function POST(request: NextRequest) {
 
         // 2. Alert admin (sent from the booking@ identity so it arrives from/to
         // the mailbox the admin actually watches)
-        await sendMail({
+        await sendLogged(booking.id, 'New request alert (admin)', {
             to: emailAdmin,
             replyTo: booking.customer_email,
             fromIdentity: 'booking',

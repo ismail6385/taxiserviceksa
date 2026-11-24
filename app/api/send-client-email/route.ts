@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendMail } from '@/lib/mail-server';
+import { sendLogged } from '@/lib/email-log';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
 import { renderEmail, para, esc } from '@/lib/email-layout';
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
 </td></tr></table>`,
         });
 
-        await sendMail({
+        await sendLogged(bookingId, 'Email', {
             to,
             cc: ccList.length ? ccList : undefined,
             subject,
@@ -62,12 +62,8 @@ export async function POST(request: NextRequest) {
             attachments: attachment?.filename && attachment?.content
                 ? [{ filename: attachment.filename, content: attachment.content }]
                 : undefined,
-        });
+        }, `Subject: "${subject}"`);
 
-        if (bookingId) {
-            const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-            await appendEmailLog(bookingId, `[${logTime}] Email sent to ${to} — Subject: "${subject}"`).catch(() => {});
-        }
 
         return NextResponse.json({ success: true });
     } catch (error) {
