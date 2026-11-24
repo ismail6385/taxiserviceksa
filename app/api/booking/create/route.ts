@@ -37,6 +37,13 @@ export async function POST(request: NextRequest) {
     // known (walk-in/phone bookings). Unauthenticated public requests always
     // go through the strict customer-facing schema.
     const adminSession = await getAdminSession(request);
+    // An admin request (Bearer token) whose login could not be verified must
+    // not fall through to the public path, which would silently drop the
+    // price, payment and driver details. Answer 401 so adminFetch refreshes
+    // the login and retries.
+    if (!adminSession && (request.headers.get('authorization') || '').startsWith('Bearer ')) {
+        return NextResponse.json({ error: 'Admin login expired. Please log in again.' }, { status: 401 });
+    }
     const schema = adminSession ? adminBookingSchema : bookingSchema;
 
     const parsed = schema.safeParse(bookingInput);
