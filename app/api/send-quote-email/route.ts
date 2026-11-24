@@ -156,6 +156,6 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ success: true });
     } catch (error: any) {
         console.error('Send Quote Email Error:', error);
-        return NextResponse.json({ error: 'Failed to send quote email' }, { status: 500 });
+        return NextResponse.json({ error: error?.message || 'unknown error' }, { status: 500 });
     }
 }

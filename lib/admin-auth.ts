@@ -16,8 +16,18 @@ export async function getAdminSession(request: NextRequest | Request) {
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
-    const { data: { user }, error } = await supabase.auth.getUser(token);
-    if (error || !user) return null;
+    // A slow/failed network call to Supabase Auth (seen from the Karachi
+    // data centre) is retried once instead of rejecting a valid admin with
+    // 401. An invalid or expired token (4xx) is not retried.
+    let { data: { user }, error } = await supabase.auth.getUser(token);
+    const networkError = error && (!error.status || error.status >= 500 || /retryable|fetch/i.test(error.name || ''));
+    if (networkError) {
+        ({ data: { user }, error } = await supabase.auth.getUser(token));
+    }
+    if (error || !user) {
+        if (error) console.warn('Admin auth check failed:', error.status, error.name, error.message);
+        return null;
+    }
 
     const allowlist = process.env.ADMIN_EMAILS;
     if (allowlist) {

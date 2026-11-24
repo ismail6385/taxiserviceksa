@@ -1430,12 +1430,17 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     additionalEmails: ccEmails.split(',').map(e => e.trim()).filter(e => e.includes('@')),
                 }),
             });
-            if (!res.ok) throw new Error('Failed');
+            if (res.status === 401) throw new Error('Your admin login has expired. Please log out and log in again, then send the quote.');
+            if (!res.ok) {
+                const body = await res.json().catch(() => ({}));
+                throw new Error(`Failed to send quote email${body.error ? `: ${body.error}` : ''}. The reason is also shown in Email Activity.`);
+            }
             setQuoteSent(true);
             await refreshSelectedBooking(booking.id);
             setTimeout(() => setQuoteSent(false), 4000);
-        } catch {
-            alert('Failed to send quote email. Please try again.');
+        } catch (e) {
+            alert(e instanceof Error ? e.message : 'Failed to send quote email. Please try again.');
+            await refreshSelectedBooking(booking.id).catch(() => {});
         } finally {
             setSendingQuote(false);
         }
